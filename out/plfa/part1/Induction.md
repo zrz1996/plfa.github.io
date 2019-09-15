@@ -678,7 +678,7 @@ judgments where the first number is less than _m_.
 There is also a completely finite approach to generating the same equations,
 which is left as an exercise for the reader.
 
-#### Exercise `finite-|-assoc` (stretch) {#finite-plus-assoc}
+#### Exercise `finite-+-assoc` (stretch) {#finite-plus-assoc}
 
 Write out what is known about associativity of addition on each of the
 first four days using a finite story of creation, as
@@ -892,7 +892,7 @@ for all naturals `n`. Did your proof require induction?
 {% raw %}<pre class="Agda"><a id="27727" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
-#### Exercise `∸-|-assoc` (practice) {#monus-plus-assoc}
+#### Exercise `∸-+-assoc` (practice) {#monus-plus-assoc}
 
 Show that monus associates with addition, that is,
 
