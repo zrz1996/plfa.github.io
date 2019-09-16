@@ -106,6 +106,8 @@ contributors:
   name: G. Allais
 - github_username: spwhitt
   name: Spencer Whitt
+- github_username: momirza
+  name: Mo Mirza
 - github_username: LightAndLight
   name: Isaac Elliott
 - github_username: iblech
@@ -130,8 +132,6 @@ contributors:
   name: Léo Gillot-Lamure
 - github_username: hugomg
   name: Hugo Gualandi
-- github_username: momirza
-  name: Mo Mirza
 - github_username: kwxm
   name: Kenneth MacKenzie
 - github_username: chikeabuah
