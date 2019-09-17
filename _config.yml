@@ -94,6 +94,8 @@ contributors:
   name: Michel Steuwer
 - github_username: caryoscelus
   name: caryoscelus
+- github_username: momirza
+  name: Mo Mirza
 - github_username: lzmartinico
   name: Lorenzo Martinico
 - github_username: whxvd
@@ -106,8 +108,6 @@ contributors:
   name: G. Allais
 - github_username: spwhitt
   name: Spencer Whitt
-- github_username: momirza
-  name: Mo Mirza
 - github_username: LightAndLight
   name: Isaac Elliott
 - github_username: iblech

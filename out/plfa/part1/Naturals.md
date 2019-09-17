@@ -512,32 +512,32 @@ smaller numbers.
 For example, let's subtract two from three:
 {% raw %}<pre class="Agda"><a id="18857" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#18857" class="Function">_</a> <a id="18859" class="Symbol">=</a>
   <a id="18863" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2597" class="Function Operator">begin</a>
-     <a id="18874" class="Number">3</a> <a id="18876" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#18256" class="Function Operator">∸</a> <a id="18878" class="Number">2</a>
-  <a id="18882" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2655" class="Function Operator">≡⟨⟩</a>
-     <a id="18891" class="Number">2</a> <a id="18893" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#18256" class="Function Operator">∸</a> <a id="18895" class="Number">1</a>
-  <a id="18899" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2655" class="Function Operator">≡⟨⟩</a>
-     <a id="18908" class="Number">1</a> <a id="18910" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#18256" class="Function Operator">∸</a> <a id="18912" class="Number">0</a>
-  <a id="18916" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2655" class="Function Operator">≡⟨⟩</a>
-     <a id="18925" class="Number">1</a>
-  <a id="18929" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2892" class="Function Operator">∎</a>
+    <a id="18873" class="Number">3</a> <a id="18875" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#18256" class="Function Operator">∸</a> <a id="18877" class="Number">2</a>
+  <a id="18881" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2655" class="Function Operator">≡⟨⟩</a>
+    <a id="18889" class="Number">2</a> <a id="18891" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#18256" class="Function Operator">∸</a> <a id="18893" class="Number">1</a>
+  <a id="18897" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2655" class="Function Operator">≡⟨⟩</a>
+    <a id="18905" class="Number">1</a> <a id="18907" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#18256" class="Function Operator">∸</a> <a id="18909" class="Number">0</a>
+  <a id="18913" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2655" class="Function Operator">≡⟨⟩</a>
+    <a id="18921" class="Number">1</a>
+  <a id="18925" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2892" class="Function Operator">∎</a>
 </pre>{% endraw %}We did not use the second equation at all, but it will be required
 if we try to subtract a larger number from a smaller one:
-{% raw %}<pre class="Agda"><a id="19064" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#19064" class="Function">_</a> <a id="19066" class="Symbol">=</a>
-  <a id="19070" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2597" class="Function Operator">begin</a>
-     <a id="19081" class="Number">2</a> <a id="19083" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#18256" class="Function Operator">∸</a> <a id="19085" class="Number">3</a>
-  <a id="19089" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2655" class="Function Operator">≡⟨⟩</a>
-     <a id="19098" class="Number">1</a> <a id="19100" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#18256" class="Function Operator">∸</a> <a id="19102" class="Number">2</a>
-  <a id="19106" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2655" class="Function Operator">≡⟨⟩</a>
-     <a id="19115" class="Number">0</a> <a id="19117" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#18256" class="Function Operator">∸</a> <a id="19119" class="Number">1</a>
-  <a id="19123" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2655" class="Function Operator">≡⟨⟩</a>
-     <a id="19132" class="Number">0</a>
-  <a id="19136" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2892" class="Function Operator">∎</a>
+{% raw %}<pre class="Agda"><a id="19060" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#19060" class="Function">_</a> <a id="19062" class="Symbol">=</a>
+  <a id="19066" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2597" class="Function Operator">begin</a>
+    <a id="19076" class="Number">2</a> <a id="19078" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#18256" class="Function Operator">∸</a> <a id="19080" class="Number">3</a>
+  <a id="19084" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2655" class="Function Operator">≡⟨⟩</a>
+    <a id="19092" class="Number">1</a> <a id="19094" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#18256" class="Function Operator">∸</a> <a id="19096" class="Number">2</a>
+  <a id="19100" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2655" class="Function Operator">≡⟨⟩</a>
+    <a id="19108" class="Number">0</a> <a id="19110" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#18256" class="Function Operator">∸</a> <a id="19112" class="Number">1</a>
+  <a id="19116" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2655" class="Function Operator">≡⟨⟩</a>
+    <a id="19124" class="Number">0</a>
+  <a id="19128" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2892" class="Function Operator">∎</a>
 </pre>{% endraw %}
 #### Exercise `∸-examples` (recommended) {#monus-examples}
 
 Compute `5 ∸ 3` and `3 ∸ 5`, writing out your reasoning as a chain of equations.
 
-{% raw %}<pre class="Agda"><a id="19289" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="19281" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 ## Precedence
@@ -552,8 +552,8 @@ so write `m + n + p` to mean `(m + n) + p`.
 
 In Agda the precedence and associativity of infix operators
 needs to be declared:
-{% raw %}<pre class="Agda"><a id="19858" class="Keyword">infixl</a> <a id="19865" class="Number">6</a>  <a id="19868" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#11248" class="Primitive Operator">_+_</a>  <a id="19873" href="plfa.part1.Naturals.html#18256" class="Primitive Operator">_∸_</a>
-<a id="19877" class="Keyword">infixl</a> <a id="19884" class="Number">7</a>  <a id="19887" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#16126" class="Primitive Operator">_*_</a>
+{% raw %}<pre class="Agda"><a id="19850" class="Keyword">infixl</a> <a id="19857" class="Number">6</a>  <a id="19860" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#11248" class="Primitive Operator">_+_</a>  <a id="19865" href="plfa.part1.Naturals.html#18256" class="Primitive Operator">_∸_</a>
+<a id="19869" class="Keyword">infixl</a> <a id="19876" class="Number">7</a>  <a id="19879" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#16126" class="Primitive Operator">_*_</a>
 </pre>{% endraw %}This states operators `_+_` and `_∸_` have precedence level 6,
 and operator `_*_` has precedence level 7.
 Addition and monus bind less tightly than multiplication
@@ -816,9 +816,9 @@ a program this simple, using `C-c C-c` to split cases can be helpful.
 ## More pragmas
 
 Including the lines
-{% raw %}<pre class="Agda"><a id="29018" class="Symbol">{-#</a> <a id="29022" class="Keyword">BUILTIN</a> <a id="29030" class="Pragma">NATPLUS</a> <a id="29038" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#11248" class="Primitive Operator">_+_</a> <a id="29042" class="Symbol">#-}</a>
-<a id="29046" class="Symbol">{-#</a> <a id="29050" class="Keyword">BUILTIN</a> <a id="29058" class="Pragma">NATTIMES</a> <a id="29067" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#16126" class="Primitive Operator">_*_</a> <a id="29071" class="Symbol">#-}</a>
-<a id="29075" class="Symbol">{-#</a> <a id="29079" class="Keyword">BUILTIN</a> <a id="29087" class="Pragma">NATMINUS</a> <a id="29096" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#18256" class="Primitive Operator">_∸_</a> <a id="29100" class="Symbol">#-}</a>
+{% raw %}<pre class="Agda"><a id="29010" class="Symbol">{-#</a> <a id="29014" class="Keyword">BUILTIN</a> <a id="29022" class="Pragma">NATPLUS</a> <a id="29030" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#11248" class="Primitive Operator">_+_</a> <a id="29034" class="Symbol">#-}</a>
+<a id="29038" class="Symbol">{-#</a> <a id="29042" class="Keyword">BUILTIN</a> <a id="29050" class="Pragma">NATTIMES</a> <a id="29059" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#16126" class="Primitive Operator">_*_</a> <a id="29063" class="Symbol">#-}</a>
+<a id="29067" class="Symbol">{-#</a> <a id="29071" class="Keyword">BUILTIN</a> <a id="29079" class="Pragma">NATMINUS</a> <a id="29088" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#18256" class="Primitive Operator">_∸_</a> <a id="29092" class="Symbol">#-}</a>
 </pre>{% endraw %}tells Agda that these three operators correspond to the usual ones,
 and enables it to perform these computations using the corresponding
 Haskell operators on the arbitrary-precision integer type.
@@ -836,10 +836,10 @@ _m_ and _n_.
 
 A more efficient representation of natural numbers uses a binary
 rather than a unary system.  We represent a number as a bitstring:
-{% raw %}<pre class="Agda"><a id="29969" class="Keyword">data</a> <a id="Bin"></a><a id="29974" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#29974" class="Datatype">Bin</a> <a id="29978" class="Symbol">:</a> <a id="29980" class="PrimitiveType">Set</a> <a id="29984" class="Keyword">where</a>
-  <a id="Bin.nil"></a><a id="29992" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#29992" class="InductiveConstructor">nil</a> <a id="29996" class="Symbol">:</a> <a id="29998" href="plfa.part1.Naturals.html#29974" class="Datatype">Bin</a>
-  <a id="Bin.x0_"></a><a id="30004" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#30004" class="InductiveConstructor Operator">x0_</a> <a id="30008" class="Symbol">:</a> <a id="30010" href="plfa.part1.Naturals.html#29974" class="Datatype">Bin</a> <a id="30014" class="Symbol">→</a> <a id="30016" href="plfa.part1.Naturals.html#29974" class="Datatype">Bin</a>
-  <a id="Bin.x1_"></a><a id="30022" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#30022" class="InductiveConstructor Operator">x1_</a> <a id="30026" class="Symbol">:</a> <a id="30028" href="plfa.part1.Naturals.html#29974" class="Datatype">Bin</a> <a id="30032" class="Symbol">→</a> <a id="30034" href="plfa.part1.Naturals.html#29974" class="Datatype">Bin</a>
+{% raw %}<pre class="Agda"><a id="29961" class="Keyword">data</a> <a id="Bin"></a><a id="29966" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#29966" class="Datatype">Bin</a> <a id="29970" class="Symbol">:</a> <a id="29972" class="PrimitiveType">Set</a> <a id="29976" class="Keyword">where</a>
+  <a id="Bin.nil"></a><a id="29984" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#29984" class="InductiveConstructor">nil</a> <a id="29988" class="Symbol">:</a> <a id="29990" href="plfa.part1.Naturals.html#29966" class="Datatype">Bin</a>
+  <a id="Bin.x0_"></a><a id="29996" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#29996" class="InductiveConstructor Operator">x0_</a> <a id="30000" class="Symbol">:</a> <a id="30002" href="plfa.part1.Naturals.html#29966" class="Datatype">Bin</a> <a id="30006" class="Symbol">→</a> <a id="30008" href="plfa.part1.Naturals.html#29966" class="Datatype">Bin</a>
+  <a id="Bin.x1_"></a><a id="30014" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#30014" class="InductiveConstructor Operator">x1_</a> <a id="30018" class="Symbol">:</a> <a id="30020" href="plfa.part1.Naturals.html#29966" class="Datatype">Bin</a> <a id="30024" class="Symbol">→</a> <a id="30026" href="plfa.part1.Naturals.html#29966" class="Datatype">Bin</a>
 </pre>{% endraw %}For instance, the bitstring
 
     1011
@@ -875,7 +875,7 @@ For the former, choose the bitstring to have no leading zeros if it
 represents a positive natural, and represent zero by `x0 nil`.
 Confirm that these both give the correct answer for zero through four.
 
-{% raw %}<pre class="Agda"><a id="30946" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="30938" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 ## Standard library
@@ -885,7 +885,7 @@ definitions in the standard library.  The naturals, constructors for
 them, and basic operators upon them, are defined in the standard
 library module `Data.Nat`:
 
-{% raw %}<pre class="Agda"><a id="31226" class="Comment">-- import Data.Nat using (ℕ; zero; suc; _+_; _*_; _^_; _∸_)</a>
+{% raw %}<pre class="Agda"><a id="31218" class="Comment">-- import Data.Nat using (ℕ; zero; suc; _+_; _*_; _^_; _∸_)</a>
 </pre>{% endraw %}
 Normally, we will show an import as running code, so Agda will
 complain if we attempt to import a definition that is not available.
