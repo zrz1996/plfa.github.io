@@ -112,6 +112,8 @@ contributors:
   name: Isaac Elliott
 - github_username: iblech
   name: Ingo Blechschmidt
+- github_username: omelkonian
+  name: Orestis Melkonian
 - github_username: trajafri
   name: Syed Turab Ali Jafri
 - github_username: Teggy
@@ -144,8 +146,6 @@ contributors:
   name: Stefan Kranich
 - github_username: rodamber
   name: Rodrigo Bernardo
-- github_username: omelkonian
-  name: Orestis Melkonian
 - github_username: dalpd
   name: Deniz Alp
 - github_username: potato4444
