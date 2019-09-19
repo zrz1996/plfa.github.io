@@ -394,12 +394,8 @@ Recall that Exercises
 [Bin]({{ site.baseurl }}/Naturals/#Bin),
 [Bin-laws]({{ site.baseurl }}/Induction/#Bin-laws), and
 [Bin-predicates]({{ site.baseurl }}/Relations/#Bin-predicates)
-define a datatype of bitstrings representing natural numbers:
-{% raw %}<pre class="Agda"><a id="14717" class="Keyword">data</a> <a id="Bin"></a><a id="14722" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Quantifiers.md %}{% raw %}#14722" class="Datatype">Bin</a> <a id="14726" class="Symbol">:</a> <a id="14728" class="PrimitiveType">Set</a> <a id="14732" class="Keyword">where</a>
-  <a id="Bin.nil"></a><a id="14740" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Quantifiers.md %}{% raw %}#14740" class="InductiveConstructor">nil</a> <a id="14744" class="Symbol">:</a> <a id="14746" href="plfa.part1.Quantifiers.html#14722" class="Datatype">Bin</a>
-  <a id="Bin.x0_"></a><a id="14752" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Quantifiers.md %}{% raw %}#14752" class="InductiveConstructor Operator">x0_</a> <a id="14756" class="Symbol">:</a> <a id="14758" href="plfa.part1.Quantifiers.html#14722" class="Datatype">Bin</a> <a id="14762" class="Symbol">→</a> <a id="14764" href="plfa.part1.Quantifiers.html#14722" class="Datatype">Bin</a>
-  <a id="Bin.x1_"></a><a id="14770" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Quantifiers.md %}{% raw %}#14770" class="InductiveConstructor Operator">x1_</a> <a id="14774" class="Symbol">:</a> <a id="14776" href="plfa.part1.Quantifiers.html#14722" class="Datatype">Bin</a> <a id="14780" class="Symbol">→</a> <a id="14782" href="plfa.part1.Quantifiers.html#14722" class="Datatype">Bin</a>
-</pre>{% endraw %}And ask you to define the following functions and predicates:
+define a datatype `Bin` of bitstrings representing natural numbers,
+and asks you to define the following functions and predicates:
 
     to   : ℕ → Bin
     from : Bin → ℕ
@@ -412,20 +408,20 @@ And to establish the following properties:
     ----------
     Can (to n)
 
-    Can x
+    Can b
     ---------------
-    to (from x) ≡ x
+    to (from b) ≡ b
 
 Using the above, establish that there is an isomorphism between `ℕ` and
-`∃[ x ](Can x)`.
+`∃[ b ](Can b)`.
 
-{% raw %}<pre class="Agda"><a id="15154" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="15084" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 ## Standard library
 
 Definitions similar to those in this chapter can be found in the standard library:
-{% raw %}<pre class="Agda"><a id="15291" class="Keyword">import</a> <a id="15298" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html" class="Module">Data.Product</a> <a id="15311" class="Keyword">using</a> <a id="15317" class="Symbol">(</a><a id="15318" href="Agda.Builtin.Sigma.html#139" class="Record">Σ</a><a id="15319" class="Symbol">;</a> <a id="15321" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">_,_</a><a id="15324" class="Symbol">;</a> <a id="15326" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1364" class="Function">∃</a><a id="15327" class="Symbol">;</a> <a id="15329" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#911" class="Function">Σ-syntax</a><a id="15337" class="Symbol">;</a> <a id="15339" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1783" class="Function">∃-syntax</a><a id="15347" class="Symbol">)</a>
+{% raw %}<pre class="Agda"><a id="15221" class="Keyword">import</a> <a id="15228" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html" class="Module">Data.Product</a> <a id="15241" class="Keyword">using</a> <a id="15247" class="Symbol">(</a><a id="15248" href="Agda.Builtin.Sigma.html#139" class="Record">Σ</a><a id="15249" class="Symbol">;</a> <a id="15251" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">_,_</a><a id="15254" class="Symbol">;</a> <a id="15256" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1364" class="Function">∃</a><a id="15257" class="Symbol">;</a> <a id="15259" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#911" class="Function">Σ-syntax</a><a id="15267" class="Symbol">;</a> <a id="15269" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1783" class="Function">∃-syntax</a><a id="15277" class="Symbol">)</a>
 </pre>{% endraw %}
 
 ## Unicode

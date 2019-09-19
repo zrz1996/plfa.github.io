@@ -837,21 +837,21 @@ _m_ and _n_.
 A more efficient representation of natural numbers uses a binary
 rather than a unary system.  We represent a number as a bitstring:
 {% raw %}<pre class="Agda"><a id="29961" class="Keyword">data</a> <a id="Bin"></a><a id="29966" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#29966" class="Datatype">Bin</a> <a id="29970" class="Symbol">:</a> <a id="29972" class="PrimitiveType">Set</a> <a id="29976" class="Keyword">where</a>
-  <a id="Bin.nil"></a><a id="29984" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#29984" class="InductiveConstructor">nil</a> <a id="29988" class="Symbol">:</a> <a id="29990" href="plfa.part1.Naturals.html#29966" class="Datatype">Bin</a>
-  <a id="Bin.x0_"></a><a id="29996" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#29996" class="InductiveConstructor Operator">x0_</a> <a id="30000" class="Symbol">:</a> <a id="30002" href="plfa.part1.Naturals.html#29966" class="Datatype">Bin</a> <a id="30006" class="Symbol">→</a> <a id="30008" href="plfa.part1.Naturals.html#29966" class="Datatype">Bin</a>
-  <a id="Bin.x1_"></a><a id="30014" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#30014" class="InductiveConstructor Operator">x1_</a> <a id="30018" class="Symbol">:</a> <a id="30020" href="plfa.part1.Naturals.html#29966" class="Datatype">Bin</a> <a id="30024" class="Symbol">→</a> <a id="30026" href="plfa.part1.Naturals.html#29966" class="Datatype">Bin</a>
+  <a id="Bin.⟨⟩"></a><a id="29984" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#29984" class="InductiveConstructor">⟨⟩</a> <a id="29987" class="Symbol">:</a> <a id="29989" href="plfa.part1.Naturals.html#29966" class="Datatype">Bin</a>
+  <a id="Bin._O"></a><a id="29995" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#29995" class="InductiveConstructor Operator">_O</a> <a id="29998" class="Symbol">:</a> <a id="30000" href="plfa.part1.Naturals.html#29966" class="Datatype">Bin</a> <a id="30004" class="Symbol">→</a> <a id="30006" href="plfa.part1.Naturals.html#29966" class="Datatype">Bin</a>
+  <a id="Bin._I"></a><a id="30012" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#30012" class="InductiveConstructor Operator">_I</a> <a id="30015" class="Symbol">:</a> <a id="30017" href="plfa.part1.Naturals.html#29966" class="Datatype">Bin</a> <a id="30021" class="Symbol">→</a> <a id="30023" href="plfa.part1.Naturals.html#29966" class="Datatype">Bin</a>
 </pre>{% endraw %}For instance, the bitstring
 
     1011
 
-standing for the number eleven is encoded, right to left, as
+standing for the number eleven is encoded as
 
-    x1 x1 x0 x1 nil
+    ⟨⟩ I O I I
 
 Representations are not unique due to leading zeros.
 Hence, eleven is also represented by `001011`, encoded as:
 
-    x1 x1 x0 x1 x0 x0 nil
+    ⟨⟩ O I O I I
 
 Define a function
 
@@ -860,7 +860,7 @@ Define a function
 that converts a bitstring to the bitstring for the next higher
 number.  For example, since `1100` encodes twelve, we should have:
 
-    inc (x1 x1 x0 x1 nil) ≡ x0 x0 x1 x1 nil
+    inc (⟨⟩ I O I I) ≡ ⟨⟩ I I O O
 
 Confirm that this gives the correct answer for the bitstrings
 encoding zero through four.
@@ -875,7 +875,7 @@ For the former, choose the bitstring to have no leading zeros if it
 represents a positive natural, and represent zero by `x0 nil`.
 Confirm that these both give the correct answer for zero through four.
 
-{% raw %}<pre class="Agda"><a id="30938" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="30895" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 ## Standard library
@@ -885,7 +885,7 @@ definitions in the standard library.  The naturals, constructors for
 them, and basic operators upon them, are defined in the standard
 library module `Data.Nat`:
 
-{% raw %}<pre class="Agda"><a id="31218" class="Comment">-- import Data.Nat using (ℕ; zero; suc; _+_; _*_; _^_; _∸_)</a>
+{% raw %}<pre class="Agda"><a id="31175" class="Comment">-- import Data.Nat using (ℕ; zero; suc; _+_; _*_; _^_; _∸_)</a>
 </pre>{% endraw %}
 Normally, we will show an import as running code, so Agda will
 complain if we attempt to import a definition that is not available.

@@ -918,33 +918,29 @@ for all `m`, `n`, and `p`.
 
 Recall that
 Exercise [Bin]({{ site.baseurl }}/Naturals/#Bin)
-defines a datatype of bitstrings representing natural numbers
-{% raw %}<pre class="Agda"><a id="28334" class="Keyword">data</a> <a id="Bin"></a><a id="28339" href="plfa.part1.https://agda.github.io/agda-stdlib/v1.1/Induction.html#28339" class="Datatype">Bin</a> <a id="28343" class="Symbol">:</a> <a id="28345" class="PrimitiveType">Set</a> <a id="28349" class="Keyword">where</a>
-  <a id="Bin.nil"></a><a id="28357" href="plfa.part1.https://agda.github.io/agda-stdlib/v1.1/Induction.html#28357" class="InductiveConstructor">nil</a> <a id="28361" class="Symbol">:</a> <a id="28363" href="plfa.part1.https://agda.github.io/agda-stdlib/v1.1/Induction.html#28339" class="Datatype">Bin</a>
-  <a id="Bin.x0_"></a><a id="28369" href="plfa.part1.https://agda.github.io/agda-stdlib/v1.1/Induction.html#28369" class="InductiveConstructor Operator">x0_</a> <a id="28373" class="Symbol">:</a> <a id="28375" href="plfa.part1.https://agda.github.io/agda-stdlib/v1.1/Induction.html#28339" class="Datatype">Bin</a> <a id="28379" class="Symbol">→</a> <a id="28381" href="plfa.part1.https://agda.github.io/agda-stdlib/v1.1/Induction.html#28339" class="Datatype">Bin</a>
-  <a id="Bin.x1_"></a><a id="28387" href="plfa.part1.https://agda.github.io/agda-stdlib/v1.1/Induction.html#28387" class="InductiveConstructor Operator">x1_</a> <a id="28391" class="Symbol">:</a> <a id="28393" href="plfa.part1.https://agda.github.io/agda-stdlib/v1.1/Induction.html#28339" class="Datatype">Bin</a> <a id="28397" class="Symbol">→</a> <a id="28399" href="plfa.part1.https://agda.github.io/agda-stdlib/v1.1/Induction.html#28339" class="Datatype">Bin</a>
-</pre>{% endraw %}and asks you to define functions
+defines a datatype `Bin` of bitstrings representing natural numbers,
+and asks you to define functions
 
     inc   : Bin → Bin
     to    : ℕ → Bin
     from  : Bin → ℕ
 
-Consider the following laws, where `n` ranges over naturals and `x`
+Consider the following laws, where `n` ranges over naturals and `b`
 over bitstrings:
 
-    from (inc x) ≡ suc (from x)
-    to (from x) ≡ x
+    from (inc b) ≡ suc (from b)
+    to (from b) ≡ b
     from (to n) ≡ n
 
 For each law: if it holds, prove; if not, give a counterexample.
 
-{% raw %}<pre class="Agda"><a id="28733" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="28663" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 ## Standard library
 
 Definitions similar to those in this chapter can be found in the standard library:
-{% raw %}<pre class="Agda"><a id="28870" class="Keyword">import</a> <a id="28877" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html" class="Module">Data.Nat.Properties</a> <a id="28897" class="Keyword">using</a> <a id="28903" class="Symbol">(</a><a id="28904" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html#11578" class="Function">+-assoc</a><a id="28911" class="Symbol">;</a> <a id="28913" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html#11734" class="Function">+-identityʳ</a><a id="28924" class="Symbol">;</a> <a id="28926" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html#11370" class="Function">+-suc</a><a id="28931" class="Symbol">;</a> <a id="28933" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html#11911" class="Function">+-comm</a><a id="28939" class="Symbol">)</a>
+{% raw %}<pre class="Agda"><a id="28800" class="Keyword">import</a> <a id="28807" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html" class="Module">Data.Nat.Properties</a> <a id="28827" class="Keyword">using</a> <a id="28833" class="Symbol">(</a><a id="28834" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html#11578" class="Function">+-assoc</a><a id="28841" class="Symbol">;</a> <a id="28843" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html#11734" class="Function">+-identityʳ</a><a id="28854" class="Symbol">;</a> <a id="28856" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html#11370" class="Function">+-suc</a><a id="28861" class="Symbol">;</a> <a id="28863" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html#11911" class="Function">+-comm</a><a id="28869" class="Symbol">)</a>
 </pre>{% endraw %}
 ## Unicode
 

@@ -426,12 +426,8 @@ Define equivalence of propositions (also known as "if and only if") as follows:
 Recall that Exercises
 [Bin]({{ site.baseurl }}/Naturals/#Bin) and
 [Bin-laws]({{ site.baseurl }}/Induction/#Bin-laws)
-define a datatype of bitstrings representing natural numbers:
-{% raw %}<pre class="Agda"><a id="12358" class="Keyword">data</a> <a id="Bin"></a><a id="12363" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Isomorphism.md %}{% raw %}#12363" class="Datatype">Bin</a> <a id="12367" class="Symbol">:</a> <a id="12369" class="PrimitiveType">Set</a> <a id="12373" class="Keyword">where</a>
-  <a id="Bin.nil"></a><a id="12381" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Isomorphism.md %}{% raw %}#12381" class="InductiveConstructor">nil</a> <a id="12385" class="Symbol">:</a> <a id="12387" href="plfa.part1.Isomorphism.html#12363" class="Datatype">Bin</a>
-  <a id="Bin.x0_"></a><a id="12393" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Isomorphism.md %}{% raw %}#12393" class="InductiveConstructor Operator">x0_</a> <a id="12397" class="Symbol">:</a> <a id="12399" href="plfa.part1.Isomorphism.html#12363" class="Datatype">Bin</a> <a id="12403" class="Symbol">→</a> <a id="12405" href="plfa.part1.Isomorphism.html#12363" class="Datatype">Bin</a>
-  <a id="Bin.x1_"></a><a id="12411" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Isomorphism.md %}{% raw %}#12411" class="InductiveConstructor Operator">x1_</a> <a id="12415" class="Symbol">:</a> <a id="12417" href="plfa.part1.Isomorphism.html#12363" class="Datatype">Bin</a> <a id="12421" class="Symbol">→</a> <a id="12423" href="plfa.part1.Isomorphism.html#12363" class="Datatype">Bin</a>
-</pre>{% endraw %}And ask you to define the following functions
+define a datatype `Bin` of bitstrings representing natural numbers,
+and asks you to define the following functions and predicates:
 
     to : ℕ → Bin
     from : Bin → ℕ
@@ -441,16 +437,16 @@ which satisfy the following property:
     from (to n) ≡ n
 
 Using the above, establish that there is an embedding of `ℕ` into `Bin`.
-{% raw %}<pre class="Agda"><a id="12652" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="12598" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 Why do `to` and `from` not form an isomorphism?
 
 ## Standard library
 
 Definitions similar to those in this chapter can be found in the standard library:
-{% raw %}<pre class="Agda"><a id="12837" class="Keyword">import</a> <a id="12844" href="https://agda.github.io/agda-stdlib/v1.1/Function.html" class="Module">Function</a> <a id="12853" class="Keyword">using</a> <a id="12859" class="Symbol">(</a><a id="12860" href="https://agda.github.io/agda-stdlib/v1.1/Function.html#1099" class="Function Operator">_∘_</a><a id="12863" class="Symbol">)</a>
-<a id="12865" class="Keyword">import</a> <a id="12872" href="https://agda.github.io/agda-stdlib/v1.1/Function.Inverse.html" class="Module">Function.Inverse</a> <a id="12889" class="Keyword">using</a> <a id="12895" class="Symbol">(</a><a id="12896" href="https://agda.github.io/agda-stdlib/v1.1/Function.Inverse.html#2229" class="Function Operator">_↔_</a><a id="12899" class="Symbol">)</a>
-<a id="12901" class="Keyword">import</a> <a id="12908" href="https://agda.github.io/agda-stdlib/v1.1/Function.LeftInverse.html" class="Module">Function.LeftInverse</a> <a id="12929" class="Keyword">using</a> <a id="12935" class="Symbol">(</a><a id="12936" href="https://agda.github.io/agda-stdlib/v1.1/Function.LeftInverse.html#2682" class="Function Operator">_↞_</a><a id="12939" class="Symbol">)</a>
+{% raw %}<pre class="Agda"><a id="12783" class="Keyword">import</a> <a id="12790" href="https://agda.github.io/agda-stdlib/v1.1/Function.html" class="Module">Function</a> <a id="12799" class="Keyword">using</a> <a id="12805" class="Symbol">(</a><a id="12806" href="https://agda.github.io/agda-stdlib/v1.1/Function.html#1099" class="Function Operator">_∘_</a><a id="12809" class="Symbol">)</a>
+<a id="12811" class="Keyword">import</a> <a id="12818" href="https://agda.github.io/agda-stdlib/v1.1/Function.Inverse.html" class="Module">Function.Inverse</a> <a id="12835" class="Keyword">using</a> <a id="12841" class="Symbol">(</a><a id="12842" href="https://agda.github.io/agda-stdlib/v1.1/Function.Inverse.html#2229" class="Function Operator">_↔_</a><a id="12845" class="Symbol">)</a>
+<a id="12847" class="Keyword">import</a> <a id="12854" href="https://agda.github.io/agda-stdlib/v1.1/Function.LeftInverse.html" class="Module">Function.LeftInverse</a> <a id="12875" class="Keyword">using</a> <a id="12881" class="Symbol">(</a><a id="12882" href="https://agda.github.io/agda-stdlib/v1.1/Function.LeftInverse.html#2682" class="Function Operator">_↞_</a><a id="12885" class="Symbol">)</a>
 </pre>{% endraw %}The standard library `_↔_` and `_↞_` correspond to our `_≃_` and
 `_≲_`, respectively, but those in the standard library are less
 convenient, since they depend on a nested record structure and are
