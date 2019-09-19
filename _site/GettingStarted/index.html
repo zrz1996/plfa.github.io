@@ -142,23 +142,14 @@ squished beneath it.</p>
 
 <h2 id="fonts-in-emacs">Fonts in Emacs</h2>
 
-<p>It is recommended that you add the following to the end of your emacs
-configuration file at <code class="highlighter-rouge">~/.emacs</code>, if you have the mentioned fonts available:</p>
+<p>It is recommended that you install the font <a href="https://madmalik.github.io/mononoki/">mononoki</a>, and add the following to the end of your emacs configuration file at <code class="highlighter-rouge">~/.emacs</code>:</p>
 
-<div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">;; Setting up Fonts for use with Agda/PLFA</span>
-<span class="c1">;;</span>
-<span class="c1">;; default to DejaVu Sans Mono, </span>
+<div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">;; default to mononoki</span>
 <span class="p">(</span><span class="nv">set-face-attribute</span> <span class="ss">'default</span> <span class="no">nil</span>
-		    <span class="ss">:family</span> <span class="s">"DejaVu Sans Mono"</span>
+		    <span class="ss">:family</span> <span class="s">"mononoki"</span>
 		    <span class="ss">:height</span> <span class="mi">120</span>
 		    <span class="ss">:weight</span> <span class="ss">'normal</span>
 		    <span class="ss">:width</span>  <span class="ss">'normal</span><span class="p">)</span>
-
-<span class="c1">;; fix \:</span>
-<span class="p">(</span><span class="nv">set-fontset-font</span> <span class="s">"fontset-default"</span>
-		  <span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="nv">decode-char</span> <span class="ss">'ucs</span> <span class="m">#x2982</span><span class="p">)</span>
-			<span class="p">(</span><span class="nv">decode-char</span> <span class="ss">'ucs</span> <span class="m">#x2982</span><span class="p">))</span>
-		  <span class="s">"STIX"</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h1 id="building-the-book">Building the book</h1>
