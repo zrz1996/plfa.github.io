@@ -100,6 +100,8 @@ contributors:
   name: Lorenzo Martinico
 - github_username: whxvd
   name: Sebastian Miele
+- github_username: omelkonian
+  name: Orestis Melkonian
 - github_username: odanoburu
   name: bruno cuconato
 - github_username: murilogiacometti
@@ -112,8 +114,6 @@ contributors:
   name: Isaac Elliott
 - github_username: iblech
   name: Ingo Blechschmidt
-- github_username: omelkonian
-  name: Orestis Melkonian
 - github_username: trajafri
   name: Syed Turab Ali Jafri
 - github_username: Teggy
