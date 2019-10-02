@@ -80,6 +80,8 @@ contributors:
   name: Chad Nester
 - github_username: Fingerzam
   name: Juhana Laurinharju
+- github_username: momirza
+  name: Mo Mirza
 - github_username: fangyi-zhou
   name: Fangyi Zhou
 - github_username: phi16
@@ -94,8 +96,6 @@ contributors:
   name: Michel Steuwer
 - github_username: caryoscelus
   name: caryoscelus
-- github_username: momirza
-  name: Mo Mirza
 - github_username: lzmartinico
   name: Lorenzo Martinico
 - github_username: whxvd
@@ -114,6 +114,8 @@ contributors:
   name: Isaac Elliott
 - github_username: iblech
   name: Ingo Blechschmidt
+- github_username: AD1024
+  name: Mike He
 - github_username: trajafri
   name: Syed Turab Ali Jafri
 - github_username: Teggy
@@ -146,8 +148,6 @@ contributors:
   name: Stefan Kranich
 - github_username: rodamber
   name: Rodrigo Bernardo
-- github_username: AD1024
-  name: Mike He
 - github_username: dalpd
   name: Deniz Alp
 - github_username: potato4444
