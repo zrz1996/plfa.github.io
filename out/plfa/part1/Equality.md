@@ -629,6 +629,12 @@ Here is the generalised definition of Leibniz equality:
 `Set`, whereas here the signature uses `Set (lsuc ℓ)` as the type of a
 term that includes `Set ℓ`.
 
+Most other functions in the standard library are also generalised to
+arbitrary levels. For instance, here is the definition of composition.
+{% raw %}<pre class="Agda"><a id="_∘_"></a><a id="21234" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Equality.md %}{% raw %}#21234" class="Function Operator">_∘_</a> <a id="21238" class="Symbol">:</a> <a id="21240" class="Symbol">∀</a> <a id="21242" class="Symbol">{</a><a id="21243" href="plfa.part1.Equality.html#21243" class="Bound">ℓ₁</a> <a id="21246" href="plfa.part1.Equality.html#21246" class="Bound">ℓ₂</a> <a id="21249" href="plfa.part1.Equality.html#21249" class="Bound">ℓ₃</a> <a id="21252" class="Symbol">:</a> <a id="21254" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="21259" class="Symbol">}</a> <a id="21261" class="Symbol">{</a><a id="21262" href="plfa.part1.Equality.html#21262" class="Bound">A</a> <a id="21264" class="Symbol">:</a> <a id="21266" class="PrimitiveType">Set</a> <a id="21270" href="plfa.part1.Equality.html#21243" class="Bound">ℓ₁</a><a id="21272" class="Symbol">}</a> <a id="21274" class="Symbol">{</a><a id="21275" href="plfa.part1.Equality.html#21275" class="Bound">B</a> <a id="21277" class="Symbol">:</a> <a id="21279" class="PrimitiveType">Set</a> <a id="21283" href="plfa.part1.Equality.html#21246" class="Bound">ℓ₂</a><a id="21285" class="Symbol">}</a> <a id="21287" class="Symbol">{</a><a id="21288" href="plfa.part1.Equality.html#21288" class="Bound">C</a> <a id="21290" class="Symbol">:</a> <a id="21292" class="PrimitiveType">Set</a> <a id="21296" href="plfa.part1.Equality.html#21249" class="Bound">ℓ₃</a><a id="21298" class="Symbol">}</a>
+  <a id="21302" class="Symbol">→</a> <a id="21304" class="Symbol">(</a><a id="21305" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Equality.md %}{% raw %}#21275" class="Bound">B</a> <a id="21307" class="Symbol">→</a> <a id="21309" href="plfa.part1.Equality.html#21288" class="Bound">C</a><a id="21310" class="Symbol">)</a> <a id="21312" class="Symbol">→</a> <a id="21314" class="Symbol">(</a><a id="21315" href="plfa.part1.Equality.html#21262" class="Bound">A</a> <a id="21317" class="Symbol">→</a> <a id="21319" href="plfa.part1.Equality.html#21275" class="Bound">B</a><a id="21320" class="Symbol">)</a> <a id="21322" class="Symbol">→</a> <a id="21324" href="plfa.part1.Equality.html#21262" class="Bound">A</a> <a id="21326" class="Symbol">→</a> <a id="21328" href="plfa.part1.Equality.html#21288" class="Bound">C</a>
+<a id="21330" class="Symbol">(</a><a id="21331" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Equality.md %}{% raw %}#21331" class="Bound">g</a> <a id="21333" href="plfa.part1.Equality.html#21234" class="Function Operator">∘</a> <a id="21335" href="plfa.part1.Equality.html#21335" class="Bound">f</a><a id="21336" class="Symbol">)</a> <a id="21338" href="plfa.part1.Equality.html#21338" class="Bound">x</a>  <a id="21341" class="Symbol">=</a>  <a id="21344" href="plfa.part1.Equality.html#21331" class="Bound">g</a> <a id="21346" class="Symbol">(</a><a id="21347" href="plfa.part1.Equality.html#21335" class="Bound">f</a> <a id="21349" href="plfa.part1.Equality.html#21338" class="Bound">x</a><a id="21350" class="Symbol">)</a>
+</pre>{% endraw %}
 Further information on levels can be found in the [Agda Wiki][wiki].
 
 [wiki]: http://wiki.portal.chalmers.se/agda/pmwiki.php?n=ReferenceManual.UniversePolymorphism
@@ -638,9 +644,9 @@ Further information on levels can be found in the [Agda Wiki][wiki].
 
 Definitions similar to those in this chapter can be found in the
 standard library:
-{% raw %}<pre class="Agda"><a id="21364" class="Comment">-- import Relation.Binary.PropositionalEquality as Eq</a>
-<a id="21418" class="Comment">-- open Eq using (_≡_; refl; trans; sym; cong; cong-app; subst)</a>
-<a id="21482" class="Comment">-- open Eq.≡-Reasoning using (begin_; _≡⟨⟩_; _≡⟨_⟩_; _∎)</a>
+{% raw %}<pre class="Agda"><a id="21631" class="Comment">-- import Relation.Binary.PropositionalEquality as Eq</a>
+<a id="21685" class="Comment">-- open Eq using (_≡_; refl; trans; sym; cong; cong-app; subst)</a>
+<a id="21749" class="Comment">-- open Eq.≡-Reasoning using (begin_; _≡⟨⟩_; _≡⟨_⟩_; _∎)</a>
 </pre>{% endraw %}Here the imports are shown as comments rather than code to avoid
 collisions, as mentioned in the introduction.
 
