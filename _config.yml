@@ -92,6 +92,8 @@ contributors:
   name: Jonathan Prieto
 - github_username: livecodealex
   name: Alexandru Brisan
+- github_username: omelkonian
+  name: Orestis Melkonian
 - github_username: michel-steuwer
   name: Michel Steuwer
 - github_username: caryoscelus
@@ -100,8 +102,6 @@ contributors:
   name: Lorenzo Martinico
 - github_username: whxvd
   name: Sebastian Miele
-- github_username: omelkonian
-  name: Orestis Melkonian
 - github_username: odanoburu
   name: bruno cuconato
 - github_username: murilogiacometti
