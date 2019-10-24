@@ -75,8 +75,8 @@
   <div class="post-content">
     <pre class="Agda"><a id="162" class="Keyword">module</a> <a id="169" href="/Equality/" class="Module">plfa.part1.Equality</a> <a id="189" class="Keyword">where</a>
 </pre>
-<p>Much of our reasoning has involved equality.  Given two terms <code class="highlighter-rouge">M</code>
-and <code class="highlighter-rouge">N</code>, both of type <code class="highlighter-rouge">A</code>, we write <code class="highlighter-rouge">M ≡ N</code> to assert that <code class="highlighter-rouge">M</code> and <code class="highlighter-rouge">N</code>
+<p>Much of our reasoning has involved equality.  Given two terms <code class="language-plaintext highlighter-rouge">M</code>
+and <code class="language-plaintext highlighter-rouge">N</code>, both of type <code class="language-plaintext highlighter-rouge">A</code>, we write <code class="language-plaintext highlighter-rouge">M ≡ N</code> to assert that <code class="language-plaintext highlighter-rouge">M</code> and <code class="language-plaintext highlighter-rouge">N</code>
 are interchangeable.  So far we have treated equality as a primitive,
 here we show how to define it as an inductive datatype.</p>
 
@@ -92,55 +92,55 @@ Since we define equality here, any import would create a conflict.</p>
 <pre class="Agda"><a id="725" class="Keyword">data</a> <a id="_≡_"></a><a id="730" href="/Equality/#730" class="Datatype Operator">_≡_</a> <a id="734" class="Symbol">{</a><a id="735" href="plfa.part1.Equality.html#735" class="Bound">A</a> <a id="737" class="Symbol">:</a> <a id="739" class="PrimitiveType">Set</a><a id="742" class="Symbol">}</a> <a id="744" class="Symbol">(</a><a id="745" href="plfa.part1.Equality.html#745" class="Bound">x</a> <a id="747" class="Symbol">:</a> <a id="749" href="plfa.part1.Equality.html#735" class="Bound">A</a><a id="750" class="Symbol">)</a> <a id="752" class="Symbol">:</a> <a id="754" href="plfa.part1.Equality.html#735" class="Bound">A</a> <a id="756" class="Symbol">→</a> <a id="758" class="PrimitiveType">Set</a> <a id="762" class="Keyword">where</a>
   <a id="_≡_.refl"></a><a id="770" href="/Equality/#770" class="InductiveConstructor">refl</a> <a id="775" class="Symbol">:</a> <a id="777" href="plfa.part1.Equality.html#745" class="Bound">x</a> <a id="779" href="plfa.part1.Equality.html#730" class="Datatype Operator">≡</a> <a id="781" href="plfa.part1.Equality.html#745" class="Bound">x</a>
 </pre>
-<p>In other words, for any type <code class="highlighter-rouge">A</code> and for any <code class="highlighter-rouge">x</code> of type <code class="highlighter-rouge">A</code>, the
-constructor <code class="highlighter-rouge">refl</code> provides evidence that <code class="highlighter-rouge">x ≡ x</code>. Hence, every value
+<p>In other words, for any type <code class="language-plaintext highlighter-rouge">A</code> and for any <code class="language-plaintext highlighter-rouge">x</code> of type <code class="language-plaintext highlighter-rouge">A</code>, the
+constructor <code class="language-plaintext highlighter-rouge">refl</code> provides evidence that <code class="language-plaintext highlighter-rouge">x ≡ x</code>. Hence, every value
 is equal to itself, and we have no other way of showing values
 equal.  The definition features an asymmetry, in that the
-first argument to <code class="highlighter-rouge">_≡_</code> is given by the parameter <code class="highlighter-rouge">x : A</code>, while the
-second is given by an index in <code class="highlighter-rouge">A → Set</code>.  This follows our policy
-of using parameters wherever possible.  The first argument to <code class="highlighter-rouge">_≡_</code>
+first argument to <code class="language-plaintext highlighter-rouge">_≡_</code> is given by the parameter <code class="language-plaintext highlighter-rouge">x : A</code>, while the
+second is given by an index in <code class="language-plaintext highlighter-rouge">A → Set</code>.  This follows our policy
+of using parameters wherever possible.  The first argument to <code class="language-plaintext highlighter-rouge">_≡_</code>
 can be a parameter because it doesn’t vary, while the second must be
 an index, so it can be required to be equal to the first.</p>
 
 <p>We declare the precedence of equality as follows:</p>
 <pre class="Agda"><a id="1430" class="Keyword">infix</a> <a id="1436" class="Number">4</a> <a id="1438" href="/Equality/#730" class="Datatype Operator">_≡_</a>
 </pre>
-<p>We set the precedence of <code class="highlighter-rouge">_≡_</code> at level 4, the same as <code class="highlighter-rouge">_≤_</code>,
+<p>We set the precedence of <code class="language-plaintext highlighter-rouge">_≡_</code> at level 4, the same as <code class="language-plaintext highlighter-rouge">_≤_</code>,
 which means it binds less tightly than any arithmetic operator.
-It associates neither to left nor right; writing <code class="highlighter-rouge">x ≡ y ≡ z</code>
+It associates neither to left nor right; writing <code class="language-plaintext highlighter-rouge">x ≡ y ≡ z</code>
 is illegal.</p>
 
 <h2 id="equality-is-an-equivalence-relation">Equality is an equivalence relation</h2>
 
 <p>An equivalence relation is one which is reflexive, symmetric, and transitive.
 Reflexivity is built-in to the definition of equality, via the
-constructor <code class="highlighter-rouge">refl</code>.  It is straightforward to show symmetry:</p>
+constructor <code class="language-plaintext highlighter-rouge">refl</code>.  It is straightforward to show symmetry:</p>
 <pre class="Agda"><a id="sym"></a><a id="1893" href="/Equality/#1893" class="Function">sym</a> <a id="1897" class="Symbol">:</a> <a id="1899" class="Symbol">∀</a> <a id="1901" class="Symbol">{</a><a id="1902" href="plfa.part1.Equality.html#1902" class="Bound">A</a> <a id="1904" class="Symbol">:</a> <a id="1906" class="PrimitiveType">Set</a><a id="1909" class="Symbol">}</a> <a id="1911" class="Symbol">{</a><a id="1912" href="plfa.part1.Equality.html#1912" class="Bound">x</a> <a id="1914" href="plfa.part1.Equality.html#1914" class="Bound">y</a> <a id="1916" class="Symbol">:</a> <a id="1918" href="plfa.part1.Equality.html#1902" class="Bound">A</a><a id="1919" class="Symbol">}</a>
   <a id="1923" class="Symbol">→</a> <a id="1925" href="/Equality/#1912" class="Bound">x</a> <a id="1927" href="plfa.part1.Equality.html#730" class="Datatype Operator">≡</a> <a id="1929" href="plfa.part1.Equality.html#1914" class="Bound">y</a>
     <a id="1935" class="Comment">-----</a>
   <a id="1943" class="Symbol">→</a> <a id="1945" href="/Equality/#1914" class="Bound">y</a> <a id="1947" href="plfa.part1.Equality.html#730" class="Datatype Operator">≡</a> <a id="1949" href="plfa.part1.Equality.html#1912" class="Bound">x</a>
 <a id="1951" href="/Equality/#1893" class="Function">sym</a> <a id="1955" href="plfa.part1.Equality.html#770" class="InductiveConstructor">refl</a> <a id="1960" class="Symbol">=</a> <a id="1962" href="plfa.part1.Equality.html#770" class="InductiveConstructor">refl</a>
 </pre>
-<p>How does this proof work? The argument to <code class="highlighter-rouge">sym</code> has type <code class="highlighter-rouge">x ≡ y</code>, but
+<p>How does this proof work? The argument to <code class="language-plaintext highlighter-rouge">sym</code> has type <code class="language-plaintext highlighter-rouge">x ≡ y</code>, but
 on the left-hand side of the equation the argument has been
-instantiated to the pattern <code class="highlighter-rouge">refl</code>, which requires that <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code>
+instantiated to the pattern <code class="language-plaintext highlighter-rouge">refl</code>, which requires that <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code>
 are the same.  Hence, for the right-hand side of the equation we need
-a term of type <code class="highlighter-rouge">x ≡ x</code>, and <code class="highlighter-rouge">refl</code> will do.</p>
+a term of type <code class="language-plaintext highlighter-rouge">x ≡ x</code>, and <code class="language-plaintext highlighter-rouge">refl</code> will do.</p>
 
-<p>It is instructive to develop <code class="highlighter-rouge">sym</code> interactively.  To start, we supply
+<p>It is instructive to develop <code class="language-plaintext highlighter-rouge">sym</code> interactively.  To start, we supply
 a variable for the argument on the left, and a hole for the body on
 the right:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sym : ∀ {A : Set} {x y : A}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sym : ∀ {A : Set} {x y : A}
   → x ≡ y
     -----
   → y ≡ x
 sym e = {! !}
 </code></pre></div></div>
 
-<p>If we go into the hole and type <code class="highlighter-rouge">C-c C-,</code> then Agda reports:</p>
+<p>If we go into the hole and type <code class="language-plaintext highlighter-rouge">C-c C-,</code> then Agda reports:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Goal: .y ≡ .x
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Goal: .y ≡ .x
 ————————————————————————————————————————————————————————————
 e  : .x ≡ .y
 .y : .A
@@ -148,33 +148,33 @@ e  : .x ≡ .y
 .A : Set
 </code></pre></div></div>
 
-<p>If in the hole we type <code class="highlighter-rouge">C-c C-c e</code> then Agda will instantiate <code class="highlighter-rouge">e</code> to
+<p>If in the hole we type <code class="language-plaintext highlighter-rouge">C-c C-c e</code> then Agda will instantiate <code class="language-plaintext highlighter-rouge">e</code> to
 all possible constructors, with one equation for each. There is only
 one possible constructor:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sym : ∀ {A : Set} {x y : A}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sym : ∀ {A : Set} {x y : A}
   → x ≡ y
     -----
   → y ≡ x
 sym refl = {! !}
 </code></pre></div></div>
 
-<p>If we go into the hole again and type <code class="highlighter-rouge">C-c C-,</code> then Agda now reports:</p>
+<p>If we go into the hole again and type <code class="language-plaintext highlighter-rouge">C-c C-,</code> then Agda now reports:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Goal: .x ≡ .x
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Goal: .x ≡ .x
  ————————————————————————————————————————————————————————————
  .x : .A
  .A : Set
 </code></pre></div></div>
 
-<p>This is the key step—Agda has worked out that <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> must be
-the same to match the pattern <code class="highlighter-rouge">refl</code>!</p>
+<p>This is the key step—Agda has worked out that <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> must be
+the same to match the pattern <code class="language-plaintext highlighter-rouge">refl</code>!</p>
 
-<p>Finally, if we go back into the hole and type <code class="highlighter-rouge">C-c C-r</code> it will
+<p>Finally, if we go back into the hole and type <code class="language-plaintext highlighter-rouge">C-c C-r</code> it will
 instantiate the hole with the one constructor that yields a value of
 the expected type:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sym : ∀ {A : Set} {x y : A}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sym : ∀ {A : Set} {x y : A}
   → x ≡ y
     -----
   → y ≡ x
@@ -235,7 +235,7 @@ If two values are equal and a predicate holds of the first then it also holds of
 
 <p>Here we show how to support reasoning with chains of equations, as
 used throughout the book.  We package the declarations into a module,
-named <code class="highlighter-rouge">≡-Reasoning</code>, to match the format used in Agda’s standard
+named <code class="language-plaintext highlighter-rouge">≡-Reasoning</code>, to match the format used in Agda’s standard
 library:</p>
 <pre class="Agda"><a id="5127" class="Keyword">module</a> <a id="≡-Reasoning"></a><a id="5134" href="/Equality/#5134" class="Module">≡-Reasoning</a> <a id="5146" class="Symbol">{</a><a id="5147" href="plfa.part1.Equality.html#5147" class="Bound">A</a> <a id="5149" class="Symbol">:</a> <a id="5151" class="PrimitiveType">Set</a><a id="5154" class="Symbol">}</a> <a id="5156" class="Keyword">where</a>
 
@@ -270,8 +270,8 @@ library:</p>
 <a id="5557" class="Keyword">open</a> <a id="5562" href="/Equality/#5134" class="Module">≡-Reasoning</a>
 </pre>
 <p>This is our first use of a nested module. It consists of the keyword
-<code class="highlighter-rouge">module</code> followed by the module name and any parameters, explicit or
-implicit, the keyword <code class="highlighter-rouge">where</code>, and the contents of the module indented.
+<code class="language-plaintext highlighter-rouge">module</code> followed by the module name and any parameters, explicit or
+implicit, the keyword <code class="language-plaintext highlighter-rouge">where</code>, and the contents of the module indented.
 Modules may contain any sort of declaration, including other nested modules.
 Nested modules are similar to the top-level modules that constitute
 each chapter of this book, save that the body of a top-level module
@@ -296,31 +296,31 @@ as a chain of equations:</p>
 </pre>
 <p>According to the fixity declarations, the body parses as follows:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>begin (x ≡⟨ x≡y ⟩ (y ≡⟨ y≡z ⟩ (z ∎)))
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>begin (x ≡⟨ x≡y ⟩ (y ≡⟨ y≡z ⟩ (z ∎)))
 </code></pre></div></div>
 
-<p>The application of <code class="highlighter-rouge">begin</code> is purely cosmetic, as it simply returns
-its argument.  That argument consists of <code class="highlighter-rouge">_≡⟨_⟩_</code> applied to <code class="highlighter-rouge">x</code>,
-<code class="highlighter-rouge">x≡y</code>, and <code class="highlighter-rouge">y ≡⟨ y≡z ⟩ (z ∎)</code>.  The first argument is a term, <code class="highlighter-rouge">x</code>,
+<p>The application of <code class="language-plaintext highlighter-rouge">begin</code> is purely cosmetic, as it simply returns
+its argument.  That argument consists of <code class="language-plaintext highlighter-rouge">_≡⟨_⟩_</code> applied to <code class="language-plaintext highlighter-rouge">x</code>,
+<code class="language-plaintext highlighter-rouge">x≡y</code>, and <code class="language-plaintext highlighter-rouge">y ≡⟨ y≡z ⟩ (z ∎)</code>.  The first argument is a term, <code class="language-plaintext highlighter-rouge">x</code>,
 while the second and third arguments are both proofs of equations, in
-particular proofs of <code class="highlighter-rouge">x ≡ y</code> and <code class="highlighter-rouge">y ≡ z</code> respectively, which are
-combined by <code class="highlighter-rouge">trans</code> in the body of <code class="highlighter-rouge">_≡⟨_⟩_</code> to yield a proof of <code class="highlighter-rouge">x ≡
-z</code>.  The proof of <code class="highlighter-rouge">y ≡ z</code> consists of <code class="highlighter-rouge">_≡⟨_⟩_</code> applied to <code class="highlighter-rouge">y</code>, <code class="highlighter-rouge">y≡z</code>,
-and <code class="highlighter-rouge">z ∎</code>.  The first argument is a term, <code class="highlighter-rouge">y</code>, while the second and
+particular proofs of <code class="language-plaintext highlighter-rouge">x ≡ y</code> and <code class="language-plaintext highlighter-rouge">y ≡ z</code> respectively, which are
+combined by <code class="language-plaintext highlighter-rouge">trans</code> in the body of <code class="language-plaintext highlighter-rouge">_≡⟨_⟩_</code> to yield a proof of <code class="language-plaintext highlighter-rouge">x ≡
+z</code>.  The proof of <code class="language-plaintext highlighter-rouge">y ≡ z</code> consists of <code class="language-plaintext highlighter-rouge">_≡⟨_⟩_</code> applied to <code class="language-plaintext highlighter-rouge">y</code>, <code class="language-plaintext highlighter-rouge">y≡z</code>,
+and <code class="language-plaintext highlighter-rouge">z ∎</code>.  The first argument is a term, <code class="language-plaintext highlighter-rouge">y</code>, while the second and
 third arguments are both proofs of equations, in particular proofs of
-<code class="highlighter-rouge">y ≡ z</code> and <code class="highlighter-rouge">z ≡ z</code> respectively, which are combined by <code class="highlighter-rouge">trans</code> in the
-body of <code class="highlighter-rouge">_≡⟨_⟩_</code> to yield a proof of <code class="highlighter-rouge">y ≡ z</code>.  Finally, the proof of
-<code class="highlighter-rouge">z ≡ z</code> consists of <code class="highlighter-rouge">_∎</code> applied to the term <code class="highlighter-rouge">z</code>, which yields <code class="highlighter-rouge">refl</code>.
+<code class="language-plaintext highlighter-rouge">y ≡ z</code> and <code class="language-plaintext highlighter-rouge">z ≡ z</code> respectively, which are combined by <code class="language-plaintext highlighter-rouge">trans</code> in the
+body of <code class="language-plaintext highlighter-rouge">_≡⟨_⟩_</code> to yield a proof of <code class="language-plaintext highlighter-rouge">y ≡ z</code>.  Finally, the proof of
+<code class="language-plaintext highlighter-rouge">z ≡ z</code> consists of <code class="language-plaintext highlighter-rouge">_∎</code> applied to the term <code class="language-plaintext highlighter-rouge">z</code>, which yields <code class="language-plaintext highlighter-rouge">refl</code>.
 After simplification, the body is equivalent to the term:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>trans x≡y (trans y≡z refl)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>trans x≡y (trans y≡z refl)
 </code></pre></div></div>
 
 <p>We could replace any use of a chain of equations by a chain of
-applications of <code class="highlighter-rouge">trans</code>; the result would be more compact but harder
-to read.  The trick behind <code class="highlighter-rouge">∎</code> means that a chain of equalities
-simplifies to a chain of applications of <code class="highlighter-rouge">trans</code> that ends in <code class="highlighter-rouge">trans e
-refl</code>, where <code class="highlighter-rouge">e</code> is a term that proves some equality, even though <code class="highlighter-rouge">e</code>
+applications of <code class="language-plaintext highlighter-rouge">trans</code>; the result would be more compact but harder
+to read.  The trick behind <code class="language-plaintext highlighter-rouge">∎</code> means that a chain of equalities
+simplifies to a chain of applications of <code class="language-plaintext highlighter-rouge">trans</code> that ends in <code class="language-plaintext highlighter-rouge">trans e
+refl</code>, where <code class="language-plaintext highlighter-rouge">e</code> is a term that proves some equality, even though <code class="language-plaintext highlighter-rouge">e</code>
 alone would do.</p>
 
 <h2 id="chains-of-equations-another-example">Chains of equations, another example</h2>
@@ -371,13 +371,13 @@ prove anything whatsoever.</p>
 </pre>
 <p>The reasoning here is similar to that in the
 preceding section.  We use
-<code class="highlighter-rouge">_≡⟨⟩_</code> when no justification is required.
-One can think of <code class="highlighter-rouge">_≡⟨⟩_</code> as equivalent to <code class="highlighter-rouge">_≡⟨ refl ⟩_</code>.</p>
+<code class="language-plaintext highlighter-rouge">_≡⟨⟩_</code> when no justification is required.
+One can think of <code class="language-plaintext highlighter-rouge">_≡⟨⟩_</code> as equivalent to <code class="language-plaintext highlighter-rouge">_≡⟨ refl ⟩_</code>.</p>
 
 <p>Agda always treats a term as equivalent to its
 simplified term.  The reason that one can write</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  suc (n + m)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  suc (n + m)
 ≡⟨⟩
   suc n + m
 </code></pre></div></div>
@@ -386,23 +386,23 @@ simplified term.  The reason that one can write</p>
 This also means that one could instead interchange
 the lines and write</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  suc n + m
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  suc n + m
 ≡⟨⟩
   suc (n + m)
 </code></pre></div></div>
 
 <p>and Agda would not object. Agda only checks that the terms separated
-by <code class="highlighter-rouge">≡⟨⟩</code> have the same simplified form; it’s up to us to write them in
+by <code class="language-plaintext highlighter-rouge">≡⟨⟩</code> have the same simplified form; it’s up to us to write them in
 an order that will make sense to the reader.</p>
 
-<h4 id="exercise--reasoning-stretch">Exercise <code class="highlighter-rouge">≤-Reasoning</code> (stretch)</h4>
+<h4 id="exercise--reasoning-stretch">Exercise <code class="language-plaintext highlighter-rouge">≤-Reasoning</code> (stretch)</h4>
 
 <p>The proof of monotonicity from
 Chapter <a href="/Relations/">Relations</a>
 can be written in a more readable form by using an analogue of our
-notation for <code class="highlighter-rouge">≡-Reasoning</code>.  Define <code class="highlighter-rouge">≤-Reasoning</code> analogously, and use
+notation for <code class="language-plaintext highlighter-rouge">≡-Reasoning</code>.  Define <code class="language-plaintext highlighter-rouge">≤-Reasoning</code> analogously, and use
 it to write out an alternative proof that addition is monotonic with
-regard to inequality.  Rewrite all of <code class="highlighter-rouge">+-monoˡ-≤</code>, <code class="highlighter-rouge">+-monoʳ-≤</code>, and <code class="highlighter-rouge">+-mono-≤</code>.</p>
+regard to inequality.  Rewrite all of <code class="language-plaintext highlighter-rouge">+-monoˡ-≤</code>, <code class="language-plaintext highlighter-rouge">+-monoʳ-≤</code>, and <code class="language-plaintext highlighter-rouge">+-mono-≤</code>.</p>
 
 <pre class="Agda"><a id="10008" class="Comment">-- Your code goes here</a>
 </pre>
@@ -430,11 +430,11 @@ We repeat the earlier definition:</p>
     <a id="10379" class="Symbol">→</a> <a id="10381" href="/Equality/#10175" class="Datatype">odd</a> <a id="10385" class="Symbol">(</a><a id="10386" href="plfa.part1.Equality.html#8066" class="InductiveConstructor">suc</a> <a id="10390" href="plfa.part1.Equality.html#10337" class="Bound">n</a><a id="10391" class="Symbol">)</a>
 </pre>
 <p>In the previous section, we proved addition is commutative.  Given
-evidence that <code class="highlighter-rouge">even (m + n)</code> holds, we ought also to be able to take
-that as evidence that <code class="highlighter-rouge">even (n + m)</code> holds.</p>
+evidence that <code class="language-plaintext highlighter-rouge">even (m + n)</code> holds, we ought also to be able to take
+that as evidence that <code class="language-plaintext highlighter-rouge">even (n + m)</code> holds.</p>
 
 <p>Agda includes special notation to support just this kind of reasoning,
-the <code class="highlighter-rouge">rewrite</code> notation we encountered earlier.
+the <code class="language-plaintext highlighter-rouge">rewrite</code> notation we encountered earlier.
 To enable this notation, we use pragmas to tell Agda which type
 corresponds to equality:</p>
 <pre class="Agda"><a id="10789" class="Symbol">{-#</a> <a id="10793" class="Keyword">BUILTIN</a> <a id="10801" class="Pragma">EQUALITY</a> <a id="10810" href="/Equality/#730" class="Datatype Operator">_≡_</a> <a id="10814" class="Symbol">#-}</a>
@@ -446,26 +446,26 @@ corresponds to equality:</p>
   <a id="10938" class="Symbol">→</a> <a id="10940" href="/Equality/#10155" class="Datatype">even</a> <a id="10945" class="Symbol">(</a><a id="10946" href="plfa.part1.Equality.html#10895" class="Bound">n</a> <a id="10948" href="plfa.part1.Equality.html#8080" class="Function Operator">+</a> <a id="10950" href="plfa.part1.Equality.html#10893" class="Bound">m</a><a id="10951" class="Symbol">)</a>
 <a id="10953" href="/Equality/#10878" class="Function">even-comm</a> <a id="10963" href="plfa.part1.Equality.html#10963" class="Bound">m</a> <a id="10965" href="plfa.part1.Equality.html#10965" class="Bound">n</a> <a id="10967" href="plfa.part1.Equality.html#10967" class="Bound">ev</a>  <a id="10971" class="Keyword">rewrite</a> <a id="10979" href="plfa.part1.Equality.html#8664" class="Function">+-comm</a> <a id="10986" href="plfa.part1.Equality.html#10965" class="Bound">n</a> <a id="10988" href="plfa.part1.Equality.html#10963" class="Bound">m</a>  <a id="10991" class="Symbol">=</a>  <a id="10994" href="plfa.part1.Equality.html#10967" class="Bound">ev</a>
 </pre>
-<p>Here <code class="highlighter-rouge">ev</code> ranges over evidence that <code class="highlighter-rouge">even (m + n)</code> holds, and we show
-that it also provides evidence that <code class="highlighter-rouge">even (n + m)</code> holds.  In
-general, the keyword <code class="highlighter-rouge">rewrite</code> is followed by evidence of an
+<p>Here <code class="language-plaintext highlighter-rouge">ev</code> ranges over evidence that <code class="language-plaintext highlighter-rouge">even (m + n)</code> holds, and we show
+that it also provides evidence that <code class="language-plaintext highlighter-rouge">even (n + m)</code> holds.  In
+general, the keyword <code class="language-plaintext highlighter-rouge">rewrite</code> is followed by evidence of an
 equality, and that equality is used to rewrite the type of the
 goal and of any variable in scope.</p>
 
-<p>It is instructive to develop <code class="highlighter-rouge">even-comm</code> interactively.  To start, we
+<p>It is instructive to develop <code class="language-plaintext highlighter-rouge">even-comm</code> interactively.  To start, we
 supply variables for the arguments on the left, and a hole for the
 body on the right:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>even-comm : ∀ (m n : ℕ)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>even-comm : ∀ (m n : ℕ)
   → even (m + n)
     ------------
   → even (n + m)
 even-comm m n ev = {! !}
 </code></pre></div></div>
 
-<p>If we go into the hole and type <code class="highlighter-rouge">C-c C-,</code> then Agda reports:</p>
+<p>If we go into the hole and type <code class="language-plaintext highlighter-rouge">C-c C-,</code> then Agda reports:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Goal: even (n + m)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Goal: even (n + m)
 ————————————————————————————————————————————————————————————
 ev : even (m + n)
 n  : ℕ
@@ -474,16 +474,16 @@ m  : ℕ
 
 <p>Now we add the rewrite:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>even-comm : ∀ (m n : ℕ)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>even-comm : ∀ (m n : ℕ)
   → even (m + n)
     ------------
   → even (n + m)
 even-comm m n ev rewrite +-comm n m = {! !}
 </code></pre></div></div>
 
-<p>If we go into the hole again and type <code class="highlighter-rouge">C-c C-,</code> then Agda now reports:</p>
+<p>If we go into the hole again and type <code class="language-plaintext highlighter-rouge">C-c C-,</code> then Agda now reports:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Goal: even (m + n)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Goal: even (m + n)
 ————————————————————————————————————————————————————————————
 ev : even (m + n)
 n  : ℕ
@@ -491,8 +491,8 @@ m  : ℕ
 </code></pre></div></div>
 
 <p>The arguments have been swapped in the goal.  Now it is trivial to see
-that <code class="highlighter-rouge">ev</code> satisfies the goal, and typing <code class="highlighter-rouge">C-c C-a</code> in the hole causes
-it to be filled with <code class="highlighter-rouge">ev</code>.  The command <code class="highlighter-rouge">C-c C-a</code> performs an
+that <code class="language-plaintext highlighter-rouge">ev</code> satisfies the goal, and typing <code class="language-plaintext highlighter-rouge">C-c C-a</code> in the hole causes
+it to be filled with <code class="language-plaintext highlighter-rouge">ev</code>.  The command <code class="language-plaintext highlighter-rouge">C-c C-a</code> performs an
 automated search, including checking whether a variable in scope has
 the same type as the goal.</p>
 
@@ -506,16 +506,16 @@ than chains of equalities:</p>
 <a id="12752" href="/Equality/#12654" class="Function">+-comm′</a> <a id="12760" class="Symbol">(</a><a id="12761" href="plfa.part1.Equality.html#8066" class="InductiveConstructor">suc</a> <a id="12765" href="plfa.part1.Equality.html#12765" class="Bound">m</a><a id="12766" class="Symbol">)</a> <a id="12768" href="plfa.part1.Equality.html#12768" class="Bound">n</a>  <a id="12771" class="Keyword">rewrite</a> <a id="12779" href="plfa.part1.Equality.html#8270" class="Postulate">+-suc</a> <a id="12785" href="plfa.part1.Equality.html#12768" class="Bound">n</a> <a id="12787" href="plfa.part1.Equality.html#12765" class="Bound">m</a> <a id="12789" class="Symbol">|</a> <a id="12791" href="plfa.part1.Equality.html#12654" class="Function">+-comm′</a> <a id="12799" href="plfa.part1.Equality.html#12765" class="Bound">m</a> <a id="12801" href="plfa.part1.Equality.html#12768" class="Bound">n</a>  <a id="12804" class="Symbol">=</a>  <a id="12807" href="plfa.part1.Equality.html#770" class="InductiveConstructor">refl</a>
 </pre>
 <p>This is far more compact.  Among other things, whereas the previous
-proof required <code class="highlighter-rouge">cong suc (+-comm m n)</code> as the justification to invoke
+proof required <code class="language-plaintext highlighter-rouge">cong suc (+-comm m n)</code> as the justification to invoke
 the inductive hypothesis, here it is sufficient to rewrite with
-<code class="highlighter-rouge">+-comm m n</code>, as rewriting automatically takes congruence into
+<code class="language-plaintext highlighter-rouge">+-comm m n</code>, as rewriting automatically takes congruence into
 account.  Although proofs with rewriting are shorter, proofs as chains
 of equalities are easier to follow, and we will stick with the latter
 when feasible.</p>
 
 <h2 id="rewriting-expanded">Rewriting expanded</h2>
 
-<p>The <code class="highlighter-rouge">rewrite</code> notation is in fact shorthand for an appropriate use of <code class="highlighter-rouge">with</code>
+<p>The <code class="language-plaintext highlighter-rouge">rewrite</code> notation is in fact shorthand for an appropriate use of <code class="language-plaintext highlighter-rouge">with</code>
 abstraction:</p>
 <pre class="Agda"><a id="even-comm′"></a><a id="13356" href="/Equality/#13356" class="Function">even-comm′</a> <a id="13367" class="Symbol">:</a> <a id="13369" class="Symbol">∀</a> <a id="13371" class="Symbol">(</a><a id="13372" href="plfa.part1.Equality.html#13372" class="Bound">m</a> <a id="13374" href="plfa.part1.Equality.html#13374" class="Bound">n</a> <a id="13376" class="Symbol">:</a> <a id="13378" href="plfa.part1.Equality.html#8039" class="Datatype">ℕ</a><a id="13379" class="Symbol">)</a>
   <a id="13383" class="Symbol">→</a> <a id="13385" href="/Equality/#10155" class="Datatype">even</a> <a id="13390" class="Symbol">(</a><a id="13391" href="plfa.part1.Equality.html#13372" class="Bound">m</a> <a id="13393" href="plfa.part1.Equality.html#8080" class="Function Operator">+</a> <a id="13395" href="plfa.part1.Equality.html#13374" class="Bound">n</a><a id="13396" class="Symbol">)</a>
@@ -524,18 +524,18 @@ abstraction:</p>
 <a id="13432" href="/Equality/#13356" class="Function">even-comm′</a> <a id="13443" href="plfa.part1.Equality.html#13443" class="Bound">m</a> <a id="13445" href="plfa.part1.Equality.html#13445" class="Bound">n</a> <a id="13447" href="plfa.part1.Equality.html#13447" class="Bound">ev</a> <a id="13450" class="Keyword">with</a>   <a id="13457" href="plfa.part1.Equality.html#13443" class="Bound">m</a> <a id="13459" href="plfa.part1.Equality.html#8080" class="Function Operator">+</a> <a id="13461" href="plfa.part1.Equality.html#13445" class="Bound">n</a>  <a id="13464" class="Symbol">|</a> <a id="13466" href="plfa.part1.Equality.html#8664" class="Function">+-comm</a> <a id="13473" href="plfa.part1.Equality.html#13443" class="Bound">m</a> <a id="13475" href="plfa.part1.Equality.html#13445" class="Bound">n</a>
 <a id="13477" class="Symbol">...</a>                  <a id="13498" class="Symbol">|</a> <a id="13500" class="DottedPattern Symbol">.(</a><a id="13502" class="DottedPattern Bound">n</a> <a id="13504" href="/Equality/#8080" class="DottedPattern Function Operator">+</a> <a id="13506" class="DottedPattern Bound">m</a><a id="13507" class="DottedPattern Symbol">)</a> <a id="13509" class="Symbol">|</a> <a id="13511" href="plfa.part1.Equality.html#770" class="InductiveConstructor">refl</a>       <a id="13522" class="Symbol">=</a> <a id="13524" class="Bound">ev</a>
 </pre>
-<p>In general, one can follow <code class="highlighter-rouge">with</code> by any number of expressions,
+<p>In general, one can follow <code class="language-plaintext highlighter-rouge">with</code> by any number of expressions,
 separated by bars, where each following equation has the same number
 of patterns.  We often write expressions and the corresponding
 patterns so they line up in columns, as above. Here the first column
-asserts that <code class="highlighter-rouge">m + n</code> and <code class="highlighter-rouge">n + m</code> are identical, and the second column
+asserts that <code class="language-plaintext highlighter-rouge">m + n</code> and <code class="language-plaintext highlighter-rouge">n + m</code> are identical, and the second column
 justifies that assertion with evidence of the appropriate equality.
-Note also the use of the <em>dot pattern</em>, <code class="highlighter-rouge">.(n + m)</code>.  A dot pattern
+Note also the use of the <em>dot pattern</em>, <code class="language-plaintext highlighter-rouge">.(n + m)</code>.  A dot pattern
 consists of a dot followed by an expression, and is used when other
 information forces the value matched to be equal to the value of the
 expression in the dot pattern.  In this case, the identification of
-<code class="highlighter-rouge">m + n</code> and <code class="highlighter-rouge">n + m</code> is justified by the subsequent matching of
-<code class="highlighter-rouge">+-comm m n</code> against <code class="highlighter-rouge">refl</code>.  One might think that the first clause is
+<code class="language-plaintext highlighter-rouge">m + n</code> and <code class="language-plaintext highlighter-rouge">n + m</code> is justified by the subsequent matching of
+<code class="language-plaintext highlighter-rouge">+-comm m n</code> against <code class="language-plaintext highlighter-rouge">refl</code>.  One might think that the first clause is
 redundant as the information is inherent in the second clause, but in
 fact Agda is rather picky on this point: omitting the first clause or
 reversing the order of the clauses will cause Agda to report an error.
@@ -564,27 +564,27 @@ no difference is no difference”.  Here we define Leibniz equality,
 and show that two terms satisfy Leibniz equality if and only if they
 satisfy Martin Löf equality.</p>
 
-<p>Leibniz equality is usually formalised to state that <code class="highlighter-rouge">x ≐ y</code> holds if
-every property <code class="highlighter-rouge">P</code> that holds of <code class="highlighter-rouge">x</code> also holds of <code class="highlighter-rouge">y</code>.  Perhaps
+<p>Leibniz equality is usually formalised to state that <code class="language-plaintext highlighter-rouge">x ≐ y</code> holds if
+every property <code class="language-plaintext highlighter-rouge">P</code> that holds of <code class="language-plaintext highlighter-rouge">x</code> also holds of <code class="language-plaintext highlighter-rouge">y</code>.  Perhaps
 surprisingly, this definition is sufficient to also ensure the
-converse, that every property <code class="highlighter-rouge">P</code> that holds of <code class="highlighter-rouge">y</code> also holds of <code class="highlighter-rouge">x</code>.</p>
+converse, that every property <code class="language-plaintext highlighter-rouge">P</code> that holds of <code class="language-plaintext highlighter-rouge">y</code> also holds of <code class="language-plaintext highlighter-rouge">x</code>.</p>
 
-<p>Let <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> be objects of type <code class="highlighter-rouge">A</code>. We say that <code class="highlighter-rouge">x ≐ y</code> holds if
-for every predicate <code class="highlighter-rouge">P</code> over type <code class="highlighter-rouge">A</code> we have that <code class="highlighter-rouge">P x</code> implies <code class="highlighter-rouge">P y</code>:</p>
+<p>Let <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> be objects of type <code class="language-plaintext highlighter-rouge">A</code>. We say that <code class="language-plaintext highlighter-rouge">x ≐ y</code> holds if
+for every predicate <code class="language-plaintext highlighter-rouge">P</code> over type <code class="language-plaintext highlighter-rouge">A</code> we have that <code class="language-plaintext highlighter-rouge">P x</code> implies <code class="language-plaintext highlighter-rouge">P y</code>:</p>
 <pre class="Agda"><a id="_≐_"></a><a id="15919" href="/Equality/#15919" class="Function Operator">_≐_</a> <a id="15923" class="Symbol">:</a> <a id="15925" class="Symbol">∀</a> <a id="15927" class="Symbol">{</a><a id="15928" href="plfa.part1.Equality.html#15928" class="Bound">A</a> <a id="15930" class="Symbol">:</a> <a id="15932" class="PrimitiveType">Set</a><a id="15935" class="Symbol">}</a> <a id="15937" class="Symbol">(</a><a id="15938" href="plfa.part1.Equality.html#15938" class="Bound">x</a> <a id="15940" href="plfa.part1.Equality.html#15940" class="Bound">y</a> <a id="15942" class="Symbol">:</a> <a id="15944" href="plfa.part1.Equality.html#15928" class="Bound">A</a><a id="15945" class="Symbol">)</a> <a id="15947" class="Symbol">→</a> <a id="15949" class="PrimitiveType">Set₁</a>
 <a id="15954" href="/Equality/#15919" class="Function Operator">_≐_</a> <a id="15958" class="Symbol">{</a><a id="15959" href="plfa.part1.Equality.html#15959" class="Bound">A</a><a id="15960" class="Symbol">}</a> <a id="15962" href="plfa.part1.Equality.html#15962" class="Bound">x</a> <a id="15964" href="plfa.part1.Equality.html#15964" class="Bound">y</a> <a id="15966" class="Symbol">=</a> <a id="15968" class="Symbol">∀</a> <a id="15970" class="Symbol">(</a><a id="15971" href="plfa.part1.Equality.html#15971" class="Bound">P</a> <a id="15973" class="Symbol">:</a> <a id="15975" href="plfa.part1.Equality.html#15959" class="Bound">A</a> <a id="15977" class="Symbol">→</a> <a id="15979" class="PrimitiveType">Set</a><a id="15982" class="Symbol">)</a> <a id="15984" class="Symbol">→</a> <a id="15986" href="plfa.part1.Equality.html#15971" class="Bound">P</a> <a id="15988" href="plfa.part1.Equality.html#15962" class="Bound">x</a> <a id="15990" class="Symbol">→</a> <a id="15992" href="plfa.part1.Equality.html#15971" class="Bound">P</a> <a id="15994" href="plfa.part1.Equality.html#15964" class="Bound">y</a>
 </pre>
-<p>We cannot write the left-hand side of the equation as <code class="highlighter-rouge">x ≐ y</code>,
-and instead we write <code class="highlighter-rouge">_≐_ {A} x y</code> to provide access to the implicit
-parameter <code class="highlighter-rouge">A</code> which appears on the right-hand side.</p>
+<p>We cannot write the left-hand side of the equation as <code class="language-plaintext highlighter-rouge">x ≐ y</code>,
+and instead we write <code class="language-plaintext highlighter-rouge">_≐_ {A} x y</code> to provide access to the implicit
+parameter <code class="language-plaintext highlighter-rouge">A</code> which appears on the right-hand side.</p>
 
-<p>This is our first use of <em>levels</em>.  We cannot assign <code class="highlighter-rouge">Set</code> the type
-<code class="highlighter-rouge">Set</code>, since this would lead to contradictions such as Russell’s
+<p>This is our first use of <em>levels</em>.  We cannot assign <code class="language-plaintext highlighter-rouge">Set</code> the type
+<code class="language-plaintext highlighter-rouge">Set</code>, since this would lead to contradictions such as Russell’s
 Paradox and Girard’s Paradox.  Instead, there is a hierarchy of types,
-where <code class="highlighter-rouge">Set : Set₁</code>, <code class="highlighter-rouge">Set₁ : Set₂</code>, and so on.  In fact, <code class="highlighter-rouge">Set</code> itself
-is just an abbreviation for <code class="highlighter-rouge">Set₀</code>.  Since the equation defining <code class="highlighter-rouge">_≐_</code>
-mentions <code class="highlighter-rouge">Set</code> on the right-hand side, the corresponding signature
-must use <code class="highlighter-rouge">Set₁</code>.  We say a bit more about levels below.</p>
+where <code class="language-plaintext highlighter-rouge">Set : Set₁</code>, <code class="language-plaintext highlighter-rouge">Set₁ : Set₂</code>, and so on.  In fact, <code class="language-plaintext highlighter-rouge">Set</code> itself
+is just an abbreviation for <code class="language-plaintext highlighter-rouge">Set₀</code>.  Since the equation defining <code class="language-plaintext highlighter-rouge">_≐_</code>
+mentions <code class="language-plaintext highlighter-rouge">Set</code> on the right-hand side, the corresponding signature
+must use <code class="language-plaintext highlighter-rouge">Set₁</code>.  We say a bit more about levels below.</p>
 
 <p>Leibniz equality is reflexive and transitive,
 where the first follows by a variant of the identity function
@@ -600,8 +600,8 @@ and the second by a variant of function composition:</p>
   <a id="16943" class="Symbol">→</a> <a id="16945" href="/Equality/#16900" class="Bound">x</a> <a id="16947" href="plfa.part1.Equality.html#15919" class="Function Operator">≐</a> <a id="16949" href="plfa.part1.Equality.html#16904" class="Bound">z</a>
 <a id="16951" href="/Equality/#16877" class="Function">trans-≐</a> <a id="16959" href="plfa.part1.Equality.html#16959" class="Bound">x≐y</a> <a id="16963" href="plfa.part1.Equality.html#16963" class="Bound">y≐z</a> <a id="16967" href="plfa.part1.Equality.html#16967" class="Bound">P</a> <a id="16969" href="plfa.part1.Equality.html#16969" class="Bound">Px</a>  <a id="16973" class="Symbol">=</a>  <a id="16976" href="plfa.part1.Equality.html#16963" class="Bound">y≐z</a> <a id="16980" href="plfa.part1.Equality.html#16967" class="Bound">P</a> <a id="16982" class="Symbol">(</a><a id="16983" href="plfa.part1.Equality.html#16959" class="Bound">x≐y</a> <a id="16987" href="plfa.part1.Equality.html#16967" class="Bound">P</a> <a id="16989" href="plfa.part1.Equality.html#16969" class="Bound">Px</a><a id="16991" class="Symbol">)</a>
 </pre>
-<p>Symmetry is less obvious.  We have to show that if <code class="highlighter-rouge">P x</code> implies <code class="highlighter-rouge">P y</code>
-for all predicates <code class="highlighter-rouge">P</code>, then the implication holds the other way round
+<p>Symmetry is less obvious.  We have to show that if <code class="language-plaintext highlighter-rouge">P x</code> implies <code class="language-plaintext highlighter-rouge">P y</code>
+for all predicates <code class="language-plaintext highlighter-rouge">P</code>, then the implication holds the other way round
 as well:</p>
 <pre class="Agda"><a id="sym-≐"></a><a id="17153" href="/Equality/#17153" class="Function">sym-≐</a> <a id="17159" class="Symbol">:</a> <a id="17161" class="Symbol">∀</a> <a id="17163" class="Symbol">{</a><a id="17164" href="plfa.part1.Equality.html#17164" class="Bound">A</a> <a id="17166" class="Symbol">:</a> <a id="17168" class="PrimitiveType">Set</a><a id="17171" class="Symbol">}</a> <a id="17173" class="Symbol">{</a><a id="17174" href="plfa.part1.Equality.html#17174" class="Bound">x</a> <a id="17176" href="plfa.part1.Equality.html#17176" class="Bound">y</a> <a id="17178" class="Symbol">:</a> <a id="17180" href="plfa.part1.Equality.html#17164" class="Bound">A</a><a id="17181" class="Symbol">}</a>
   <a id="17185" class="Symbol">→</a> <a id="17187" href="/Equality/#17174" class="Bound">x</a> <a id="17189" href="plfa.part1.Equality.html#15919" class="Function Operator">≐</a> <a id="17191" href="plfa.part1.Equality.html#17176" class="Bound">y</a>
@@ -616,17 +616,17 @@ as well:</p>
     <a id="17323" href="/Equality/#17323" class="Function">Qy</a> <a id="17326" class="Symbol">:</a> <a id="17328" href="plfa.part1.Equality.html#17256" class="Function">Q</a> <a id="17330" href="plfa.part1.Equality.html#17228" class="Bound">y</a>
     <a id="17336" href="/Equality/#17323" class="Function">Qy</a> <a id="17339" class="Symbol">=</a> <a id="17341" href="plfa.part1.Equality.html#17231" class="Bound">x≐y</a> <a id="17345" href="plfa.part1.Equality.html#17256" class="Function">Q</a> <a id="17347" href="plfa.part1.Equality.html#17292" class="Function">Qx</a>
 </pre>
-<p>Given <code class="highlighter-rouge">x ≐ y</code>, a specific <code class="highlighter-rouge">P</code>, we have to construct a proof that <code class="highlighter-rouge">P y</code>
-implies <code class="highlighter-rouge">P x</code>.  To do so, we instantiate the equality with a predicate
-<code class="highlighter-rouge">Q</code> such that <code class="highlighter-rouge">Q z</code> holds if <code class="highlighter-rouge">P z</code> implies <code class="highlighter-rouge">P x</code>.  The property <code class="highlighter-rouge">Q x</code>
-is trivial by reflexivity, and hence <code class="highlighter-rouge">Q y</code> follows from <code class="highlighter-rouge">x ≐ y</code>.  But
-<code class="highlighter-rouge">Q y</code> is exactly a proof of what we require, that <code class="highlighter-rouge">P y</code> implies <code class="highlighter-rouge">P x</code>.</p>
+<p>Given <code class="language-plaintext highlighter-rouge">x ≐ y</code>, a specific <code class="language-plaintext highlighter-rouge">P</code>, we have to construct a proof that <code class="language-plaintext highlighter-rouge">P y</code>
+implies <code class="language-plaintext highlighter-rouge">P x</code>.  To do so, we instantiate the equality with a predicate
+<code class="language-plaintext highlighter-rouge">Q</code> such that <code class="language-plaintext highlighter-rouge">Q z</code> holds if <code class="language-plaintext highlighter-rouge">P z</code> implies <code class="language-plaintext highlighter-rouge">P x</code>.  The property <code class="language-plaintext highlighter-rouge">Q x</code>
+is trivial by reflexivity, and hence <code class="language-plaintext highlighter-rouge">Q y</code> follows from <code class="language-plaintext highlighter-rouge">x ≐ y</code>.  But
+<code class="language-plaintext highlighter-rouge">Q y</code> is exactly a proof of what we require, that <code class="language-plaintext highlighter-rouge">P y</code> implies <code class="language-plaintext highlighter-rouge">P x</code>.</p>
 
 <p>We now show that Martin Löf equality implies
 Leibniz equality, and vice versa.  In the forward direction, if we know
-<code class="highlighter-rouge">x ≡ y</code> we need for any <code class="highlighter-rouge">P</code> to take evidence of <code class="highlighter-rouge">P x</code> to evidence of <code class="highlighter-rouge">P y</code>,
-which is easy since equality of <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> implies that any proof
-of <code class="highlighter-rouge">P x</code> is also a proof of <code class="highlighter-rouge">P y</code>:</p>
+<code class="language-plaintext highlighter-rouge">x ≡ y</code> we need for any <code class="language-plaintext highlighter-rouge">P</code> to take evidence of <code class="language-plaintext highlighter-rouge">P x</code> to evidence of <code class="language-plaintext highlighter-rouge">P y</code>,
+which is easy since equality of <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> implies that any proof
+of <code class="language-plaintext highlighter-rouge">P x</code> is also a proof of <code class="language-plaintext highlighter-rouge">P y</code>:</p>
 <pre class="Agda"><a id="≡-implies-≐"></a><a id="18008" href="/Equality/#18008" class="Function">≡-implies-≐</a> <a id="18020" class="Symbol">:</a> <a id="18022" class="Symbol">∀</a> <a id="18024" class="Symbol">{</a><a id="18025" href="plfa.part1.Equality.html#18025" class="Bound">A</a> <a id="18027" class="Symbol">:</a> <a id="18029" class="PrimitiveType">Set</a><a id="18032" class="Symbol">}</a> <a id="18034" class="Symbol">{</a><a id="18035" href="plfa.part1.Equality.html#18035" class="Bound">x</a> <a id="18037" href="plfa.part1.Equality.html#18037" class="Bound">y</a> <a id="18039" class="Symbol">:</a> <a id="18041" href="plfa.part1.Equality.html#18025" class="Bound">A</a><a id="18042" class="Symbol">}</a>
   <a id="18046" class="Symbol">→</a> <a id="18048" href="/Equality/#18035" class="Bound">x</a> <a id="18050" href="plfa.part1.Equality.html#730" class="Datatype Operator">≡</a> <a id="18052" href="plfa.part1.Equality.html#18037" class="Bound">y</a>
     <a id="18058" class="Comment">-----</a>
@@ -635,8 +635,8 @@ of <code class="highlighter-rouge">P x</code> is also a proof of <code class="hi
 </pre>
 <p>This direction follows from substitution, which we showed earlier.</p>
 
-<p>In the reverse direction, given that for any <code class="highlighter-rouge">P</code> we can take a proof of <code class="highlighter-rouge">P x</code>
-to a proof of <code class="highlighter-rouge">P y</code> we need to show <code class="highlighter-rouge">x ≡ y</code>:</p>
+<p>In the reverse direction, given that for any <code class="language-plaintext highlighter-rouge">P</code> we can take a proof of <code class="language-plaintext highlighter-rouge">P x</code>
+to a proof of <code class="language-plaintext highlighter-rouge">P y</code> we need to show <code class="language-plaintext highlighter-rouge">x ≡ y</code>:</p>
 <pre class="Agda"><a id="≐-implies-≡"></a><a id="18307" href="/Equality/#18307" class="Function">≐-implies-≡</a> <a id="18319" class="Symbol">:</a> <a id="18321" class="Symbol">∀</a> <a id="18323" class="Symbol">{</a><a id="18324" href="plfa.part1.Equality.html#18324" class="Bound">A</a> <a id="18326" class="Symbol">:</a> <a id="18328" class="PrimitiveType">Set</a><a id="18331" class="Symbol">}</a> <a id="18333" class="Symbol">{</a><a id="18334" href="plfa.part1.Equality.html#18334" class="Bound">x</a> <a id="18336" href="plfa.part1.Equality.html#18336" class="Bound">y</a> <a id="18338" class="Symbol">:</a> <a id="18340" href="plfa.part1.Equality.html#18324" class="Bound">A</a><a id="18341" class="Symbol">}</a>
   <a id="18345" class="Symbol">→</a> <a id="18347" href="/Equality/#18334" class="Bound">x</a> <a id="18349" href="plfa.part1.Equality.html#15919" class="Function Operator">≐</a> <a id="18351" href="plfa.part1.Equality.html#18336" class="Bound">y</a>
     <a id="18357" class="Comment">-----</a>
@@ -651,10 +651,10 @@ to a proof of <code class="highlighter-rouge">P y</code> we need to show <code c
     <a id="18492" href="/Equality/#18479" class="Function">Qy</a> <a id="18495" class="Symbol">=</a> <a id="18497" href="plfa.part1.Equality.html#18397" class="Bound">x≐y</a> <a id="18501" href="plfa.part1.Equality.html#18420" class="Function">Q</a> <a id="18503" href="plfa.part1.Equality.html#18452" class="Function">Qx</a>
 </pre>
 <p>The proof is similar to that for symmetry of Leibniz equality. We take
-<code class="highlighter-rouge">Q</code> to be the predicate that holds of <code class="highlighter-rouge">z</code> if <code class="highlighter-rouge">x ≡ z</code>. Then <code class="highlighter-rouge">Q x</code> is
-trivial by reflexivity of Martin Löf equality, and hence <code class="highlighter-rouge">Q y</code>
-follows from <code class="highlighter-rouge">x ≐ y</code>.  But <code class="highlighter-rouge">Q y</code> is exactly a proof of what we
-require, that <code class="highlighter-rouge">x ≡ y</code>.</p>
+<code class="language-plaintext highlighter-rouge">Q</code> to be the predicate that holds of <code class="language-plaintext highlighter-rouge">z</code> if <code class="language-plaintext highlighter-rouge">x ≡ z</code>. Then <code class="language-plaintext highlighter-rouge">Q x</code> is
+trivial by reflexivity of Martin Löf equality, and hence <code class="language-plaintext highlighter-rouge">Q y</code>
+follows from <code class="language-plaintext highlighter-rouge">x ≐ y</code>.  But <code class="language-plaintext highlighter-rouge">Q y</code> is exactly a proof of what we
+require, that <code class="language-plaintext highlighter-rouge">x ≡ y</code>.</p>
 
 <p>(Parts of this section are adapted from <em>≐≃≡: Leibniz Equality is
 Isomorphic to Martin-Löf Identity, Parametrically</em>, by Andreas Abel,
@@ -663,37 +663,37 @@ draft, 2017.)</p>
 
 <h2 id="unipoly">Universe polymorphism</h2>
 
-<p>As we have seen, not every type belongs to <code class="highlighter-rouge">Set</code>, but instead every
-type belongs somewhere in the hierarchy <code class="highlighter-rouge">Set₀</code>, <code class="highlighter-rouge">Set₁</code>, <code class="highlighter-rouge">Set₂</code>, and so on,
-where <code class="highlighter-rouge">Set</code> abbreviates <code class="highlighter-rouge">Set₀</code>, and <code class="highlighter-rouge">Set₀ : Set₁</code>, <code class="highlighter-rouge">Set₁ : Set₂</code>, and so on.
+<p>As we have seen, not every type belongs to <code class="language-plaintext highlighter-rouge">Set</code>, but instead every
+type belongs somewhere in the hierarchy <code class="language-plaintext highlighter-rouge">Set₀</code>, <code class="language-plaintext highlighter-rouge">Set₁</code>, <code class="language-plaintext highlighter-rouge">Set₂</code>, and so on,
+where <code class="language-plaintext highlighter-rouge">Set</code> abbreviates <code class="language-plaintext highlighter-rouge">Set₀</code>, and <code class="language-plaintext highlighter-rouge">Set₀ : Set₁</code>, <code class="language-plaintext highlighter-rouge">Set₁ : Set₂</code>, and so on.
 The definition of equality given above is fine if we want to compare two
-values of a type that belongs to <code class="highlighter-rouge">Set</code>, but what if we want to compare
-two values of a type that belongs to <code class="highlighter-rouge">Set ℓ</code> for some arbitrary level <code class="highlighter-rouge">ℓ</code>?</p>
+values of a type that belongs to <code class="language-plaintext highlighter-rouge">Set</code>, but what if we want to compare
+two values of a type that belongs to <code class="language-plaintext highlighter-rouge">Set ℓ</code> for some arbitrary level <code class="language-plaintext highlighter-rouge">ℓ</code>?</p>
 
 <p>The answer is <em>universe polymorphism</em>, where a definition is made
-with respect to an arbitrary level <code class="highlighter-rouge">ℓ</code>. To make use of levels, we
+with respect to an arbitrary level <code class="language-plaintext highlighter-rouge">ℓ</code>. To make use of levels, we
 first import the following:</p>
 <pre class="Agda"><a id="19658" class="Keyword">open</a> <a id="19663" class="Keyword">import</a> <a id="19670" href="https://agda.github.io/agda-stdlib/v1.1/Level.html" class="Module">Level</a> <a id="19676" class="Keyword">using</a> <a id="19682" class="Symbol">(</a><a id="19683" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="19688" class="Symbol">;</a> <a id="19690" href="Agda.Primitive.html#657" class="Primitive Operator">_⊔_</a><a id="19693" class="Symbol">)</a> <a id="19695" class="Keyword">renaming</a> <a id="19704" class="Symbol">(</a><a id="19705" href="Agda.Primitive.html#611" class="Primitive">zero</a> <a id="19710" class="Symbol">to</a> <a id="19713" href="Agda.Primitive.html#611" class="Primitive">lzero</a><a id="19718" class="Symbol">;</a> <a id="19720" href="Agda.Primitive.html#627" class="Primitive">suc</a> <a id="19724" class="Symbol">to</a> <a id="19727" href="Agda.Primitive.html#627" class="Primitive">lsuc</a><a id="19731" class="Symbol">)</a>
 </pre>
-<p>We rename constructors <code class="highlighter-rouge">zero</code> and <code class="highlighter-rouge">suc</code> to <code class="highlighter-rouge">lzero</code> and <code class="highlighter-rouge">lsuc</code> to avoid confusion
+<p>We rename constructors <code class="language-plaintext highlighter-rouge">zero</code> and <code class="language-plaintext highlighter-rouge">suc</code> to <code class="language-plaintext highlighter-rouge">lzero</code> and <code class="language-plaintext highlighter-rouge">lsuc</code> to avoid confusion
 between levels and naturals.</p>
 
 <p>Levels are isomorphic to natural numbers, and have similar constructors:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lzero : Level
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lzero : Level
 lsuc  : Level → Level
 </code></pre></div></div>
 
-<p>The names <code class="highlighter-rouge">Set₀</code>, <code class="highlighter-rouge">Set₁</code>, <code class="highlighter-rouge">Set₂</code>, and so on, are abbreviations for</p>
+<p>The names <code class="language-plaintext highlighter-rouge">Set₀</code>, <code class="language-plaintext highlighter-rouge">Set₁</code>, <code class="language-plaintext highlighter-rouge">Set₂</code>, and so on, are abbreviations for</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Set lzero
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Set lzero
 Set (lsuc lzero)
 Set (lsuc (lsuc lzero))
 </code></pre></div></div>
 
 <p>and so on. There is also an operator</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_⊔_ : Level → Level → Level
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_⊔_ : Level → Level → Level
 </code></pre></div></div>
 
 <p>that given two levels returns the larger of the two.</p>
@@ -717,9 +717,9 @@ equality, are generalised to arbitrary levels as above.</p>
 <pre class="Agda"><a id="_≐′_"></a><a id="20810" href="/Equality/#20810" class="Function Operator">_≐′_</a> <a id="20815" class="Symbol">:</a> <a id="20817" class="Symbol">∀</a> <a id="20819" class="Symbol">{</a><a id="20820" href="plfa.part1.Equality.html#20820" class="Bound">ℓ</a> <a id="20822" class="Symbol">:</a> <a id="20824" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="20829" class="Symbol">}</a> <a id="20831" class="Symbol">{</a><a id="20832" href="plfa.part1.Equality.html#20832" class="Bound">A</a> <a id="20834" class="Symbol">:</a> <a id="20836" class="PrimitiveType">Set</a> <a id="20840" href="plfa.part1.Equality.html#20820" class="Bound">ℓ</a><a id="20841" class="Symbol">}</a> <a id="20843" class="Symbol">(</a><a id="20844" href="plfa.part1.Equality.html#20844" class="Bound">x</a> <a id="20846" href="plfa.part1.Equality.html#20846" class="Bound">y</a> <a id="20848" class="Symbol">:</a> <a id="20850" href="plfa.part1.Equality.html#20832" class="Bound">A</a><a id="20851" class="Symbol">)</a> <a id="20853" class="Symbol">→</a> <a id="20855" class="PrimitiveType">Set</a> <a id="20859" class="Symbol">(</a><a id="20860" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="20865" href="plfa.part1.Equality.html#20820" class="Bound">ℓ</a><a id="20866" class="Symbol">)</a>
 <a id="20868" href="/Equality/#20810" class="Function Operator">_≐′_</a> <a id="20873" class="Symbol">{</a><a id="20874" href="plfa.part1.Equality.html#20874" class="Bound">ℓ</a><a id="20875" class="Symbol">}</a> <a id="20877" class="Symbol">{</a><a id="20878" href="plfa.part1.Equality.html#20878" class="Bound">A</a><a id="20879" class="Symbol">}</a> <a id="20881" href="plfa.part1.Equality.html#20881" class="Bound">x</a> <a id="20883" href="plfa.part1.Equality.html#20883" class="Bound">y</a> <a id="20885" class="Symbol">=</a> <a id="20887" class="Symbol">∀</a> <a id="20889" class="Symbol">(</a><a id="20890" href="plfa.part1.Equality.html#20890" class="Bound">P</a> <a id="20892" class="Symbol">:</a> <a id="20894" href="plfa.part1.Equality.html#20878" class="Bound">A</a> <a id="20896" class="Symbol">→</a> <a id="20898" class="PrimitiveType">Set</a> <a id="20902" href="plfa.part1.Equality.html#20874" class="Bound">ℓ</a><a id="20903" class="Symbol">)</a> <a id="20905" class="Symbol">→</a> <a id="20907" href="plfa.part1.Equality.html#20890" class="Bound">P</a> <a id="20909" href="plfa.part1.Equality.html#20881" class="Bound">x</a> <a id="20911" class="Symbol">→</a> <a id="20913" href="plfa.part1.Equality.html#20890" class="Bound">P</a> <a id="20915" href="plfa.part1.Equality.html#20883" class="Bound">y</a>
 </pre>
-<p>Before the signature used <code class="highlighter-rouge">Set₁</code> as the type of a term that includes
-<code class="highlighter-rouge">Set</code>, whereas here the signature uses <code class="highlighter-rouge">Set (lsuc ℓ)</code> as the type of a
-term that includes <code class="highlighter-rouge">Set ℓ</code>.</p>
+<p>Before the signature used <code class="language-plaintext highlighter-rouge">Set₁</code> as the type of a term that includes
+<code class="language-plaintext highlighter-rouge">Set</code>, whereas here the signature uses <code class="language-plaintext highlighter-rouge">Set (lsuc ℓ)</code> as the type of a
+term that includes <code class="language-plaintext highlighter-rouge">Set ℓ</code>.</p>
 
 <p>Most other functions in the standard library are also generalised to
 arbitrary levels. For instance, here is the definition of composition.</p>
@@ -744,7 +744,7 @@ collisions, as mentioned in the introduction.</p>
 
 <p>This chapter uses the following unicode:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>≡  U+2261  IDENTICAL TO (\==, \equiv)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>≡  U+2261  IDENTICAL TO (\==, \equiv)
 ⟨  U+27E8  MATHEMATICAL LEFT ANGLE BRACKET (\&lt;)
 ⟩  U+27E9  MATHEMATICAL RIGHT ANGLE BRACKET (\&gt;)
 ∎  U+220E  END OF PROOF (\qed)

@@ -85,7 +85,7 @@ cause problems.</p>
 either by cloning the repository,
 or by downloading <a href="https://github.com/plfa/plfa.github.io/archive/dev.zip">the zip archive</a>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/plfa/plfa.github.io
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/plfa/plfa.github.io
 </code></pre></div></div>
 
 <p>Finally, we need to let Agda know where to find the standard library.
@@ -93,15 +93,15 @@ For this, you can follow the instructions
 <a href="https://agda.readthedocs.io/en/v2.6.0.1/tools/package-system.html#example-using-the-standard-library">here</a>.</p>
 
 <p>It is possible to set up PLFA as an Agda library as well.  If you want
-to complete the exercises found in the <code class="highlighter-rouge">courses</code> folder, or to import
+to complete the exercises found in the <code class="language-plaintext highlighter-rouge">courses</code> folder, or to import
 modules from the book, you need to do this.  To do so, add the path to
-<code class="highlighter-rouge">plfa.agda-lib</code> to <code class="highlighter-rouge">~/.agda/libraries</code> and add <code class="highlighter-rouge">plfa</code> to
-<code class="highlighter-rouge">~/.agda/defaults</code>, both on lines of their own.</p>
+<code class="language-plaintext highlighter-rouge">plfa.agda-lib</code> to <code class="language-plaintext highlighter-rouge">~/.agda/libraries</code> and add <code class="language-plaintext highlighter-rouge">plfa</code> to
+<code class="language-plaintext highlighter-rouge">~/.agda/defaults</code>, both on lines of their own.</p>
 
-<h2 id="auto-loading-agda-mode-in-emacs">Auto-loading <code class="highlighter-rouge">agda-mode</code> in Emacs</h2>
+<h2 id="auto-loading-agda-mode-in-emacs">Auto-loading <code class="language-plaintext highlighter-rouge">agda-mode</code> in Emacs</h2>
 
-<p>In order to have <code class="highlighter-rouge">agda-mode</code> automatically loaded whenever you open a file ending
-with <code class="highlighter-rouge">.agda</code> or <code class="highlighter-rouge">.lagda.md</code>, put the following on your Emacs configuration file:</p>
+<p>In order to have <code class="language-plaintext highlighter-rouge">agda-mode</code> automatically loaded whenever you open a file ending
+with <code class="language-plaintext highlighter-rouge">.agda</code> or <code class="language-plaintext highlighter-rouge">.lagda.md</code>, put the following on your Emacs configuration file:</p>
 
 <div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="k">setq</span> <span class="nv">auto-mode-alist</span>
    <span class="p">(</span><span class="nb">append</span>
@@ -110,9 +110,9 @@ with <code class="highlighter-rouge">.agda</code> or <code class="highlighter-ro
      <span class="nv">auto-mode-alist</span><span class="p">))</span>
 </code></pre></div></div>
 
-<p>The configuration file for Emacs is normally located in <code class="highlighter-rouge">~/.emacs</code> or <code class="highlighter-rouge">~/.emacs.d/init.el</code>,
+<p>The configuration file for Emacs is normally located in <code class="language-plaintext highlighter-rouge">~/.emacs</code> or <code class="language-plaintext highlighter-rouge">~/.emacs.d/init.el</code>,
 but Aquamacs users might need to move their startup settings to the Preferences.el file in
-<code class="highlighter-rouge">~/Library/Preferences/Aquamacs Emacs/Preferences</code>.</p>
+<code class="language-plaintext highlighter-rouge">~/Library/Preferences/Aquamacs Emacs/Preferences</code>.</p>
 
 <h2 id="unicode-characters">Unicode characters</h2>
 
@@ -121,16 +121,16 @@ each chapter should provide a list of the unicode characters introduced in that
 chapter. For a full list of supported characters, see
 <a href="https://github.com/agda/agda/blob/master/src/data/emacs-mode/agda-input.el#L194">agda-input.el</a>.</p>
 
-<h2 id="using-agda-mode">Using <code class="highlighter-rouge">agda-mode</code></h2>
+<h2 id="using-agda-mode">Using <code class="language-plaintext highlighter-rouge">agda-mode</code></h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?            hole
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?            hole
 {!...!}      hole with contents
 C-c C-l      load buffer
 </code></pre></div></div>
 
 <p>Command to give when in a hole:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C-c C-c x    split on variable x
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C-c C-c x    split on variable x
 C-c C-space  fill in hole
 C-c C-r      refine with constructor
 C-c C-a      automatically fill in hole
@@ -146,11 +146,11 @@ for more details.</p>
 you can do the following:</p>
 
 <ul>
-  <li>Load your Agda file and do <code class="highlighter-rouge">C-c C-l</code>;</li>
-  <li>type <code class="highlighter-rouge">C-x 1</code> to get only your Agda file showing;</li>
-  <li>type <code class="highlighter-rouge">C-x 3</code> to split the window horizontally;</li>
+  <li>Load your Agda file and do <code class="language-plaintext highlighter-rouge">C-c C-l</code>;</li>
+  <li>type <code class="language-plaintext highlighter-rouge">C-x 1</code> to get only your Agda file showing;</li>
+  <li>type <code class="language-plaintext highlighter-rouge">C-x 3</code> to split the window horizontally;</li>
   <li>move your cursor to the right-hand half of your frame;</li>
-  <li>type <code class="highlighter-rouge">C-x b</code> and switch to the buffer called “Agda information”</li>
+  <li>type <code class="language-plaintext highlighter-rouge">C-x b</code> and switch to the buffer called “Agda information”</li>
 </ul>
 
 <p>Now, error messages from Agda will appear next to your file, rather than
@@ -158,7 +158,7 @@ squished beneath it.</p>
 
 <h2 id="fonts-in-emacs">Fonts in Emacs</h2>
 
-<p>It is recommended that you install the font <a href="https://madmalik.github.io/mononoki/">mononoki</a>, and add the following to the end of your emacs configuration file at <code class="highlighter-rouge">~/.emacs</code>:</p>
+<p>It is recommended that you install the font <a href="https://madmalik.github.io/mononoki/">mononoki</a>, and add the following to the end of your emacs configuration file at <code class="language-plaintext highlighter-rouge">~/.emacs</code>:</p>
 
 <div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">;; default to mononoki</span>
 <span class="p">(</span><span class="nv">set-face-attribute</span> <span class="ss">'default</span> <span class="no">nil</span>
@@ -181,22 +181,22 @@ squished beneath it.</p>
 Most recent versions of Ruby should work.
 You install the Ruby dependencies—<a href="https://jekyllrb.com/">Jekyll</a>, <a href="https://github.com/gjtorikian/html-proofer">html-proofer</a>, <em>etc.</em>—using Bundler:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
 </code></pre></div></div>
 
 <p>Once you have installed all of the dependencies, you can build a copy of the book by running:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make build
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make build
 </code></pre></div></div>
 
 <p>You can host your copy of the book locally by running:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make serve
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make serve
 </code></pre></div></div>
 
 <p>The Makefile offers more than just these options:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make                      (see make test)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make                      (see make test)
 make build                (builds lagda-&gt;markdown and the website)
 make build-incremental    (builds lagda-&gt;markdown and the website incrementally)
 make test                 (checks all links are valid)
@@ -216,7 +216,7 @@ to host the book (see above). To host the book this way, download a copy of the
 <a href="https://github.com/plfa/plfa.github.io/archive/master.zip">master branch</a>,
 unzip, and from within the directory run</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
 bundle exec jekyll serve
 </code></pre></div></div>
 

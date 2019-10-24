@@ -94,35 +94,35 @@
 type, which has appeared throughout this book.  For instance, in
 Chapter Induction we showed addition is associative:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+-assoc : ∀ (m n p : ℕ) → (m + n) + p ≡ m + (n + p)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+-assoc : ∀ (m n p : ℕ) → (m + n) + p ≡ m + (n + p)
 </code></pre></div></div>
 
-<p>which asserts for all natural numbers <code class="highlighter-rouge">m</code>, <code class="highlighter-rouge">n</code>, and <code class="highlighter-rouge">p</code>
-that <code class="highlighter-rouge">(m + n) + p ≡ m + (n + p)</code> holds.  It is a dependent
-function, which given values for <code class="highlighter-rouge">m</code>, <code class="highlighter-rouge">n</code>, and <code class="highlighter-rouge">p</code> returns
+<p>which asserts for all natural numbers <code class="language-plaintext highlighter-rouge">m</code>, <code class="language-plaintext highlighter-rouge">n</code>, and <code class="language-plaintext highlighter-rouge">p</code>
+that <code class="language-plaintext highlighter-rouge">(m + n) + p ≡ m + (n + p)</code> holds.  It is a dependent
+function, which given values for <code class="language-plaintext highlighter-rouge">m</code>, <code class="language-plaintext highlighter-rouge">n</code>, and <code class="language-plaintext highlighter-rouge">p</code> returns
 evidence for the corresponding equation.</p>
 
-<p>In general, given a variable <code class="highlighter-rouge">x</code> of type <code class="highlighter-rouge">A</code> and a proposition <code class="highlighter-rouge">B x</code>
-which contains <code class="highlighter-rouge">x</code> as a free variable, the universally quantified
-proposition <code class="highlighter-rouge">∀ (x : A) → B x</code> holds if for every term <code class="highlighter-rouge">M</code> of type <code class="highlighter-rouge">A</code>
-the proposition <code class="highlighter-rouge">B M</code> holds.  Here <code class="highlighter-rouge">B M</code> stands for the proposition
-<code class="highlighter-rouge">B x</code> with each free occurrence of <code class="highlighter-rouge">x</code> replaced by <code class="highlighter-rouge">M</code>.  Variable <code class="highlighter-rouge">x</code>
-appears free in <code class="highlighter-rouge">B x</code> but bound in <code class="highlighter-rouge">∀ (x : A) → B x</code>.</p>
+<p>In general, given a variable <code class="language-plaintext highlighter-rouge">x</code> of type <code class="language-plaintext highlighter-rouge">A</code> and a proposition <code class="language-plaintext highlighter-rouge">B x</code>
+which contains <code class="language-plaintext highlighter-rouge">x</code> as a free variable, the universally quantified
+proposition <code class="language-plaintext highlighter-rouge">∀ (x : A) → B x</code> holds if for every term <code class="language-plaintext highlighter-rouge">M</code> of type <code class="language-plaintext highlighter-rouge">A</code>
+the proposition <code class="language-plaintext highlighter-rouge">B M</code> holds.  Here <code class="language-plaintext highlighter-rouge">B M</code> stands for the proposition
+<code class="language-plaintext highlighter-rouge">B x</code> with each free occurrence of <code class="language-plaintext highlighter-rouge">x</code> replaced by <code class="language-plaintext highlighter-rouge">M</code>.  Variable <code class="language-plaintext highlighter-rouge">x</code>
+appears free in <code class="language-plaintext highlighter-rouge">B x</code> but bound in <code class="language-plaintext highlighter-rouge">∀ (x : A) → B x</code>.</p>
 
-<p>Evidence that <code class="highlighter-rouge">∀ (x : A) → B x</code> holds is of the form</p>
+<p>Evidence that <code class="language-plaintext highlighter-rouge">∀ (x : A) → B x</code> holds is of the form</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>λ (x : A) → N x
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>λ (x : A) → N x
 </code></pre></div></div>
 
-<p>where <code class="highlighter-rouge">N x</code> is a term of type <code class="highlighter-rouge">B x</code>, and <code class="highlighter-rouge">N x</code> and <code class="highlighter-rouge">B x</code> both contain
-a free variable <code class="highlighter-rouge">x</code> of type <code class="highlighter-rouge">A</code>.  Given a term <code class="highlighter-rouge">L</code> providing evidence
-that <code class="highlighter-rouge">∀ (x : A) → B x</code> holds, and a term <code class="highlighter-rouge">M</code> of type <code class="highlighter-rouge">A</code>, the term <code class="highlighter-rouge">L
-M</code> provides evidence that <code class="highlighter-rouge">B M</code> holds.  In other words, evidence that
-<code class="highlighter-rouge">∀ (x : A) → B x</code> holds is a function that converts a term <code class="highlighter-rouge">M</code> of type
-<code class="highlighter-rouge">A</code> into evidence that <code class="highlighter-rouge">B M</code> holds.</p>
+<p>where <code class="language-plaintext highlighter-rouge">N x</code> is a term of type <code class="language-plaintext highlighter-rouge">B x</code>, and <code class="language-plaintext highlighter-rouge">N x</code> and <code class="language-plaintext highlighter-rouge">B x</code> both contain
+a free variable <code class="language-plaintext highlighter-rouge">x</code> of type <code class="language-plaintext highlighter-rouge">A</code>.  Given a term <code class="language-plaintext highlighter-rouge">L</code> providing evidence
+that <code class="language-plaintext highlighter-rouge">∀ (x : A) → B x</code> holds, and a term <code class="language-plaintext highlighter-rouge">M</code> of type <code class="language-plaintext highlighter-rouge">A</code>, the term <code class="language-plaintext highlighter-rouge">L
+M</code> provides evidence that <code class="language-plaintext highlighter-rouge">B M</code> holds.  In other words, evidence that
+<code class="language-plaintext highlighter-rouge">∀ (x : A) → B x</code> holds is a function that converts a term <code class="language-plaintext highlighter-rouge">M</code> of type
+<code class="language-plaintext highlighter-rouge">A</code> into evidence that <code class="language-plaintext highlighter-rouge">B M</code> holds.</p>
 
-<p>Put another way, if we know that <code class="highlighter-rouge">∀ (x : A) → B x</code> holds and that <code class="highlighter-rouge">M</code>
-is a term of type <code class="highlighter-rouge">A</code> then we may conclude that <code class="highlighter-rouge">B M</code> holds:</p>
+<p>Put another way, if we know that <code class="language-plaintext highlighter-rouge">∀ (x : A) → B x</code> holds and that <code class="language-plaintext highlighter-rouge">M</code>
+is a term of type <code class="language-plaintext highlighter-rouge">A</code> then we may conclude that <code class="language-plaintext highlighter-rouge">B M</code> holds:</p>
 <pre class="Agda"><a id="∀-elim"></a><a id="2092" href="/Quantifiers/#2092" class="Function">∀-elim</a> <a id="2099" class="Symbol">:</a> <a id="2101" class="Symbol">∀</a> <a id="2103" class="Symbol">{</a><a id="2104" href="plfa.part1.Quantifiers.html#2104" class="Bound">A</a> <a id="2106" class="Symbol">:</a> <a id="2108" class="PrimitiveType">Set</a><a id="2111" class="Symbol">}</a> <a id="2113" class="Symbol">{</a><a id="2114" href="plfa.part1.Quantifiers.html#2114" class="Bound">B</a> <a id="2116" class="Symbol">:</a> <a id="2118" href="plfa.part1.Quantifiers.html#2104" class="Bound">A</a> <a id="2120" class="Symbol">→</a> <a id="2122" class="PrimitiveType">Set</a><a id="2125" class="Symbol">}</a>
   <a id="2129" class="Symbol">→</a> <a id="2131" class="Symbol">(</a><a id="2132" href="/Quantifiers/#2132" class="Bound">L</a> <a id="2134" class="Symbol">:</a> <a id="2136" class="Symbol">∀</a> <a id="2138" class="Symbol">(</a><a id="2139" href="plfa.part1.Quantifiers.html#2139" class="Bound">x</a> <a id="2141" class="Symbol">:</a> <a id="2143" href="plfa.part1.Quantifiers.html#2104" class="Bound">A</a><a id="2144" class="Symbol">)</a> <a id="2146" class="Symbol">→</a> <a id="2148" href="plfa.part1.Quantifiers.html#2114" class="Bound">B</a> <a id="2150" href="plfa.part1.Quantifiers.html#2139" class="Bound">x</a><a id="2151" class="Symbol">)</a>
   <a id="2155" class="Symbol">→</a> <a id="2157" class="Symbol">(</a><a id="2158" href="/Quantifiers/#2158" class="Bound">M</a> <a id="2160" class="Symbol">:</a> <a id="2162" href="plfa.part1.Quantifiers.html#2104" class="Bound">A</a><a id="2163" class="Symbol">)</a>
@@ -130,7 +130,7 @@ is a term of type <code class="highlighter-rouge">A</code> then we may conclude 
   <a id="2189" class="Symbol">→</a> <a id="2191" href="/Quantifiers/#2114" class="Bound">B</a> <a id="2193" href="plfa.part1.Quantifiers.html#2158" class="Bound">M</a>
 <a id="2195" href="/Quantifiers/#2092" class="Function">∀-elim</a> <a id="2202" href="plfa.part1.Quantifiers.html#2202" class="Bound">L</a> <a id="2204" href="plfa.part1.Quantifiers.html#2204" class="Bound">M</a> <a id="2206" class="Symbol">=</a> <a id="2208" href="plfa.part1.Quantifiers.html#2202" class="Bound">L</a> <a id="2210" href="plfa.part1.Quantifiers.html#2204" class="Bound">M</a>
 </pre>
-<p>As with <code class="highlighter-rouge">→-elim</code>, the rule corresponds to function application.</p>
+<p>As with <code class="language-plaintext highlighter-rouge">→-elim</code>, the rule corresponds to function application.</p>
 
 <p>Functions arise as a special case of dependent functions,
 where the range does not depend on a variable drawn from the domain.
@@ -143,25 +143,25 @@ a matter of interpretation, since in Agda a value of a type and
 evidence of a proposition are indistinguishable.</p>
 
 <p>Dependent function types are sometimes referred to as dependent
-products, because if <code class="highlighter-rouge">A</code> is a finite type with values <code class="highlighter-rouge">x₁ , ⋯ , xₙ</code>,
-and if each of the types <code class="highlighter-rouge">B x₁ , ⋯ , B xₙ</code> has <code class="highlighter-rouge">m₁ , ⋯ , mₙ</code> distinct
-members, then <code class="highlighter-rouge">∀ (x : A) → B x</code> has <code class="highlighter-rouge">m₁ * ⋯ * mₙ</code> members.  Indeed,
-sometimes the notation <code class="highlighter-rouge">∀ (x : A) → B x</code> is replaced by a notation
-such as <code class="highlighter-rouge">Π[ x ∈ A ] (B x)</code>, where <code class="highlighter-rouge">Π</code> stands for product.  However, we
+products, because if <code class="language-plaintext highlighter-rouge">A</code> is a finite type with values <code class="language-plaintext highlighter-rouge">x₁ , ⋯ , xₙ</code>,
+and if each of the types <code class="language-plaintext highlighter-rouge">B x₁ , ⋯ , B xₙ</code> has <code class="language-plaintext highlighter-rouge">m₁ , ⋯ , mₙ</code> distinct
+members, then <code class="language-plaintext highlighter-rouge">∀ (x : A) → B x</code> has <code class="language-plaintext highlighter-rouge">m₁ * ⋯ * mₙ</code> members.  Indeed,
+sometimes the notation <code class="language-plaintext highlighter-rouge">∀ (x : A) → B x</code> is replaced by a notation
+such as <code class="language-plaintext highlighter-rouge">Π[ x ∈ A ] (B x)</code>, where <code class="language-plaintext highlighter-rouge">Π</code> stands for product.  However, we
 will stick with the name dependent function, because (as we will see)
 dependent product is ambiguous.</p>
 
-<h4 id="exercise--distrib--recommended">Exercise <code class="highlighter-rouge">∀-distrib-×</code> (recommended)</h4>
+<h4 id="exercise--distrib--recommended">Exercise <code class="language-plaintext highlighter-rouge">∀-distrib-×</code> (recommended)</h4>
 
 <p>Show that universals distribute over conjunction:</p>
 <pre class="Agda"><a id="3474" class="Keyword">postulate</a>
   <a id="∀-distrib-×"></a><a id="3486" href="/Quantifiers/#3486" class="Postulate">∀-distrib-×</a> <a id="3498" class="Symbol">:</a> <a id="3500" class="Symbol">∀</a> <a id="3502" class="Symbol">{</a><a id="3503" href="plfa.part1.Quantifiers.html#3503" class="Bound">A</a> <a id="3505" class="Symbol">:</a> <a id="3507" class="PrimitiveType">Set</a><a id="3510" class="Symbol">}</a> <a id="3512" class="Symbol">{</a><a id="3513" href="plfa.part1.Quantifiers.html#3513" class="Bound">B</a> <a id="3515" href="plfa.part1.Quantifiers.html#3515" class="Bound">C</a> <a id="3517" class="Symbol">:</a> <a id="3519" href="plfa.part1.Quantifiers.html#3503" class="Bound">A</a> <a id="3521" class="Symbol">→</a> <a id="3523" class="PrimitiveType">Set</a><a id="3526" class="Symbol">}</a> <a id="3528" class="Symbol">→</a>
     <a id="3534" class="Symbol">(∀</a> <a id="3537" class="Symbol">(</a><a id="3538" href="/Quantifiers/#3538" class="Bound">x</a> <a id="3540" class="Symbol">:</a> <a id="3542" href="plfa.part1.Quantifiers.html#3503" class="Bound">A</a><a id="3543" class="Symbol">)</a> <a id="3545" class="Symbol">→</a> <a id="3547" href="plfa.part1.Quantifiers.html#3513" class="Bound">B</a> <a id="3549" href="plfa.part1.Quantifiers.html#3538" class="Bound">x</a> <a id="3551" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1162" class="Function Operator">×</a> <a id="3553" href="plfa.part1.Quantifiers.html#3515" class="Bound">C</a> <a id="3555" href="plfa.part1.Quantifiers.html#3538" class="Bound">x</a><a id="3556" class="Symbol">)</a> <a id="3558" href="/Isomorphism/#4365" class="Record Operator">≃</a> <a id="3560" class="Symbol">(∀</a> <a id="3563" class="Symbol">(</a><a id="3564" href="plfa.part1.Quantifiers.html#3564" class="Bound">x</a> <a id="3566" class="Symbol">:</a> <a id="3568" href="plfa.part1.Quantifiers.html#3503" class="Bound">A</a><a id="3569" class="Symbol">)</a> <a id="3571" class="Symbol">→</a> <a id="3573" href="plfa.part1.Quantifiers.html#3513" class="Bound">B</a> <a id="3575" href="plfa.part1.Quantifiers.html#3564" class="Bound">x</a><a id="3576" class="Symbol">)</a> <a id="3578" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1162" class="Function Operator">×</a> <a id="3580" class="Symbol">(∀</a> <a id="3583" class="Symbol">(</a><a id="3584" href="plfa.part1.Quantifiers.html#3584" class="Bound">x</a> <a id="3586" class="Symbol">:</a> <a id="3588" href="plfa.part1.Quantifiers.html#3503" class="Bound">A</a><a id="3589" class="Symbol">)</a> <a id="3591" class="Symbol">→</a> <a id="3593" href="plfa.part1.Quantifiers.html#3515" class="Bound">C</a> <a id="3595" href="plfa.part1.Quantifiers.html#3584" class="Bound">x</a><a id="3596" class="Symbol">)</a>
 </pre>
-<p>Compare this with the result (<code class="highlighter-rouge">→-distrib-×</code>) in
+<p>Compare this with the result (<code class="language-plaintext highlighter-rouge">→-distrib-×</code>) in
 Chapter <a href="/Connectives/">Connectives</a>.</p>
 
-<h4 id="exercise--implies--practice">Exercise <code class="highlighter-rouge">⊎∀-implies-∀⊎</code> (practice)</h4>
+<h4 id="exercise--implies--practice">Exercise <code class="language-plaintext highlighter-rouge">⊎∀-implies-∀⊎</code> (practice)</h4>
 
 <p>Show that a disjunction of universals implies a universal of disjunctions:</p>
 <pre class="Agda"><a id="3828" class="Keyword">postulate</a>
@@ -170,7 +170,7 @@ Chapter <a href="/Connectives/">Connectives</a>.</p>
 </pre>
 <p>Does the converse hold? If so, prove; if not, explain why.</p>
 
-<h4 id="exercise---practice">Exercise <code class="highlighter-rouge">∀-×</code> (practice)</h4>
+<h4 id="exercise---practice">Exercise <code class="language-plaintext highlighter-rouge">∀-×</code> (practice)</h4>
 
 <p>Consider the following type.</p>
 <pre class="Agda"><a id="4084" class="Keyword">data</a> <a id="Tri"></a><a id="4089" href="/Quantifiers/#4089" class="Datatype">Tri</a> <a id="4093" class="Symbol">:</a> <a id="4095" class="PrimitiveType">Set</a> <a id="4099" class="Keyword">where</a>
@@ -178,18 +178,18 @@ Chapter <a href="/Connectives/">Connectives</a>.</p>
   <a id="Tri.bb"></a><a id="4118" href="/Quantifiers/#4118" class="InductiveConstructor">bb</a> <a id="4121" class="Symbol">:</a> <a id="4123" href="plfa.part1.Quantifiers.html#4089" class="Datatype">Tri</a>
   <a id="Tri.cc"></a><a id="4129" href="/Quantifiers/#4129" class="InductiveConstructor">cc</a> <a id="4132" class="Symbol">:</a> <a id="4134" href="plfa.part1.Quantifiers.html#4089" class="Datatype">Tri</a>
 </pre>
-<p>Let <code class="highlighter-rouge">B</code> be a type indexed by <code class="highlighter-rouge">Tri</code>, that is <code class="highlighter-rouge">B : Tri → Set</code>.
-Show that <code class="highlighter-rouge">∀ (x : Tri) → B x</code> is isomorphic to <code class="highlighter-rouge">B aa × B bb × B cc</code>.</p>
+<p>Let <code class="language-plaintext highlighter-rouge">B</code> be a type indexed by <code class="language-plaintext highlighter-rouge">Tri</code>, that is <code class="language-plaintext highlighter-rouge">B : Tri → Set</code>.
+Show that <code class="language-plaintext highlighter-rouge">∀ (x : Tri) → B x</code> is isomorphic to <code class="language-plaintext highlighter-rouge">B aa × B bb × B cc</code>.</p>
 
 <h2 id="existentials">Existentials</h2>
 
-<p>Given a variable <code class="highlighter-rouge">x</code> of type <code class="highlighter-rouge">A</code> and a proposition <code class="highlighter-rouge">B x</code> which
-contains <code class="highlighter-rouge">x</code> as a free variable, the existentially quantified
-proposition <code class="highlighter-rouge">Σ[ x ∈ A ] B x</code> holds if for some term <code class="highlighter-rouge">M</code> of type
-<code class="highlighter-rouge">A</code> the proposition <code class="highlighter-rouge">B M</code> holds.  Here <code class="highlighter-rouge">B M</code> stands for
-the proposition <code class="highlighter-rouge">B x</code> with each free occurrence of <code class="highlighter-rouge">x</code> replaced by
-<code class="highlighter-rouge">M</code>.  Variable <code class="highlighter-rouge">x</code> appears free in <code class="highlighter-rouge">B x</code> but bound in
-<code class="highlighter-rouge">Σ[ x ∈ A ] B x</code>.</p>
+<p>Given a variable <code class="language-plaintext highlighter-rouge">x</code> of type <code class="language-plaintext highlighter-rouge">A</code> and a proposition <code class="language-plaintext highlighter-rouge">B x</code> which
+contains <code class="language-plaintext highlighter-rouge">x</code> as a free variable, the existentially quantified
+proposition <code class="language-plaintext highlighter-rouge">Σ[ x ∈ A ] B x</code> holds if for some term <code class="language-plaintext highlighter-rouge">M</code> of type
+<code class="language-plaintext highlighter-rouge">A</code> the proposition <code class="language-plaintext highlighter-rouge">B M</code> holds.  Here <code class="language-plaintext highlighter-rouge">B M</code> stands for
+the proposition <code class="language-plaintext highlighter-rouge">B x</code> with each free occurrence of <code class="language-plaintext highlighter-rouge">x</code> replaced by
+<code class="language-plaintext highlighter-rouge">M</code>.  Variable <code class="language-plaintext highlighter-rouge">x</code> appears free in <code class="language-plaintext highlighter-rouge">B x</code> but bound in
+<code class="language-plaintext highlighter-rouge">Σ[ x ∈ A ] B x</code>.</p>
 
 <p>We formalise existential quantification by declaring a suitable
 inductive type:</p>
@@ -204,11 +204,11 @@ inductive type:</p>
 <p>This is our first use of a syntax declaration, which specifies that
 the term on the left may be written with the syntax on the right.
 The special syntax is available only when the identifier
-<code class="highlighter-rouge">Σ-syntax</code> is imported.</p>
+<code class="language-plaintext highlighter-rouge">Σ-syntax</code> is imported.</p>
 
-<p>Evidence that <code class="highlighter-rouge">Σ[ x ∈ A ] B x</code> holds is of the form
-<code class="highlighter-rouge">⟨ M , N ⟩</code> where <code class="highlighter-rouge">M</code> is a term of type <code class="highlighter-rouge">A</code>, and <code class="highlighter-rouge">N</code> is evidence
-that <code class="highlighter-rouge">B M</code> holds.</p>
+<p>Evidence that <code class="language-plaintext highlighter-rouge">Σ[ x ∈ A ] B x</code> holds is of the form
+<code class="language-plaintext highlighter-rouge">⟨ M , N ⟩</code> where <code class="language-plaintext highlighter-rouge">M</code> is a term of type <code class="language-plaintext highlighter-rouge">A</code>, and <code class="language-plaintext highlighter-rouge">N</code> is evidence
+that <code class="language-plaintext highlighter-rouge">B M</code> holds.</p>
 
 <p>Equivalently, we could also declare existentials as a record type:</p>
 <pre class="Agda"><a id="5402" class="Keyword">record</a> <a id="Σ′"></a><a id="5409" href="/Quantifiers/#5409" class="Record">Σ′</a> <a id="5412" class="Symbol">(</a><a id="5413" href="plfa.part1.Quantifiers.html#5413" class="Bound">A</a> <a id="5415" class="Symbol">:</a> <a id="5417" class="PrimitiveType">Set</a><a id="5420" class="Symbol">)</a> <a id="5422" class="Symbol">(</a><a id="5423" href="plfa.part1.Quantifiers.html#5423" class="Bound">B</a> <a id="5425" class="Symbol">:</a> <a id="5427" href="plfa.part1.Quantifiers.html#5413" class="Bound">A</a> <a id="5429" class="Symbol">→</a> <a id="5431" class="PrimitiveType">Set</a><a id="5434" class="Symbol">)</a> <a id="5436" class="Symbol">:</a> <a id="5438" class="PrimitiveType">Set</a> <a id="5442" class="Keyword">where</a>
@@ -218,7 +218,7 @@ that <code class="highlighter-rouge">B M</code> holds.</p>
 </pre>
 <p>Here record construction</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>record
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>record
   { proj₁′ = M
   ; proj₂′ = N
   }
@@ -226,10 +226,10 @@ that <code class="highlighter-rouge">B M</code> holds.</p>
 
 <p>corresponds to the term</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⟨ M , N ⟩
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⟨ M , N ⟩
 </code></pre></div></div>
 
-<p>where <code class="highlighter-rouge">M</code> is a term of type <code class="highlighter-rouge">A</code> and <code class="highlighter-rouge">N</code> is a term of type <code class="highlighter-rouge">B M</code>.</p>
+<p>where <code class="language-plaintext highlighter-rouge">M</code> is a term of type <code class="language-plaintext highlighter-rouge">A</code> and <code class="language-plaintext highlighter-rouge">N</code> is a term of type <code class="language-plaintext highlighter-rouge">B M</code>.</p>
 
 <p>Products arise as a special case of existentials, where the second
 component does not depend on a variable drawn from the first
@@ -242,17 +242,17 @@ difference is largely a matter of interpretation, since in Agda a value
 of a type and evidence of a proposition are indistinguishable.</p>
 
 <p>Existentials are sometimes referred to as dependent sums,
-because if <code class="highlighter-rouge">A</code> is a finite type with values <code class="highlighter-rouge">x₁ , ⋯ , xₙ</code>, and if
-each of the types <code class="highlighter-rouge">B x₁ , ⋯ B xₙ</code> has <code class="highlighter-rouge">m₁ , ⋯ , mₙ</code> distinct members,
-then <code class="highlighter-rouge">Σ[ x ∈ A ] B x</code> has <code class="highlighter-rouge">m₁ + ⋯ + mₙ</code> members, which explains the
-choice of notation for existentials, since <code class="highlighter-rouge">Σ</code> stands for sum.</p>
+because if <code class="language-plaintext highlighter-rouge">A</code> is a finite type with values <code class="language-plaintext highlighter-rouge">x₁ , ⋯ , xₙ</code>, and if
+each of the types <code class="language-plaintext highlighter-rouge">B x₁ , ⋯ B xₙ</code> has <code class="language-plaintext highlighter-rouge">m₁ , ⋯ , mₙ</code> distinct members,
+then <code class="language-plaintext highlighter-rouge">Σ[ x ∈ A ] B x</code> has <code class="language-plaintext highlighter-rouge">m₁ + ⋯ + mₙ</code> members, which explains the
+choice of notation for existentials, since <code class="language-plaintext highlighter-rouge">Σ</code> stands for sum.</p>
 
 <p>Existentials are sometimes referred to as dependent products, since
 products arise as a special case.  However, that choice of names is
 doubly confusing, since universals also have a claim to the name dependent
 product and since existentials also have a claim to the name dependent sum.</p>
 
-<p>A common notation for existentials is <code class="highlighter-rouge">∃</code> (analogous to <code class="highlighter-rouge">∀</code> for universals).
+<p>A common notation for existentials is <code class="language-plaintext highlighter-rouge">∃</code> (analogous to <code class="language-plaintext highlighter-rouge">∀</code> for universals).
 We follow the convention of the Agda standard library, and reserve this
 notation for the case where the domain of the bound variable is left implicit:</p>
 <pre class="Agda"><a id="∃"></a><a id="7133" href="/Quantifiers/#7133" class="Function">∃</a> <a id="7135" class="Symbol">:</a> <a id="7137" class="Symbol">∀</a> <a id="7139" class="Symbol">{</a><a id="7140" href="plfa.part1.Quantifiers.html#7140" class="Bound">A</a> <a id="7142" class="Symbol">:</a> <a id="7144" class="PrimitiveType">Set</a><a id="7147" class="Symbol">}</a> <a id="7149" class="Symbol">(</a><a id="7150" href="plfa.part1.Quantifiers.html#7150" class="Bound">B</a> <a id="7152" class="Symbol">:</a> <a id="7154" href="plfa.part1.Quantifiers.html#7140" class="Bound">A</a> <a id="7156" class="Symbol">→</a> <a id="7158" class="PrimitiveType">Set</a><a id="7161" class="Symbol">)</a> <a id="7163" class="Symbol">→</a> <a id="7165" class="PrimitiveType">Set</a>
@@ -261,12 +261,12 @@ notation for the case where the domain of the bound variable is left implicit:</
 <a id="∃-syntax"></a><a id="7186" href="/Quantifiers/#7186" class="Function">∃-syntax</a> <a id="7195" class="Symbol">=</a> <a id="7197" href="plfa.part1.Quantifiers.html#7133" class="Function">∃</a>
 <a id="7199" class="Keyword">syntax</a> <a id="7206" href="/Quantifiers/#7186" class="Function">∃-syntax</a> <a id="7215" class="Symbol">(λ</a> <a id="7218" class="Bound">x</a> <a id="7220" class="Symbol">→</a> <a id="7222" class="Bound">B</a><a id="7223" class="Symbol">)</a> <a id="7225" class="Symbol">=</a> <a id="7227" class="Function">∃[</a> <a id="7230" class="Bound">x</a> <a id="7232" class="Function">]</a> <a id="7234" class="Bound">B</a>
 </pre>
-<p>The special syntax is available only when the identifier <code class="highlighter-rouge">∃-syntax</code> is imported.
+<p>The special syntax is available only when the identifier <code class="language-plaintext highlighter-rouge">∃-syntax</code> is imported.
 We will tend to use this syntax, since it is shorter and more familiar.</p>
 
-<p>Given evidence that <code class="highlighter-rouge">∀ x → B x → C</code> holds, where <code class="highlighter-rouge">C</code> does not contain
-<code class="highlighter-rouge">x</code> as a free variable, and given evidence that <code class="highlighter-rouge">∃[ x ] B x</code> holds, we
-may conclude that <code class="highlighter-rouge">C</code> holds:</p>
+<p>Given evidence that <code class="language-plaintext highlighter-rouge">∀ x → B x → C</code> holds, where <code class="language-plaintext highlighter-rouge">C</code> does not contain
+<code class="language-plaintext highlighter-rouge">x</code> as a free variable, and given evidence that <code class="language-plaintext highlighter-rouge">∃[ x ] B x</code> holds, we
+may conclude that <code class="language-plaintext highlighter-rouge">C</code> holds:</p>
 <pre class="Agda"><a id="∃-elim"></a><a id="7568" href="/Quantifiers/#7568" class="Function">∃-elim</a> <a id="7575" class="Symbol">:</a> <a id="7577" class="Symbol">∀</a> <a id="7579" class="Symbol">{</a><a id="7580" href="plfa.part1.Quantifiers.html#7580" class="Bound">A</a> <a id="7582" class="Symbol">:</a> <a id="7584" class="PrimitiveType">Set</a><a id="7587" class="Symbol">}</a> <a id="7589" class="Symbol">{</a><a id="7590" href="plfa.part1.Quantifiers.html#7590" class="Bound">B</a> <a id="7592" class="Symbol">:</a> <a id="7594" href="plfa.part1.Quantifiers.html#7580" class="Bound">A</a> <a id="7596" class="Symbol">→</a> <a id="7598" class="PrimitiveType">Set</a><a id="7601" class="Symbol">}</a> <a id="7603" class="Symbol">{</a><a id="7604" href="plfa.part1.Quantifiers.html#7604" class="Bound">C</a> <a id="7606" class="Symbol">:</a> <a id="7608" class="PrimitiveType">Set</a><a id="7611" class="Symbol">}</a>
   <a id="7615" class="Symbol">→</a> <a id="7617" class="Symbol">(∀</a> <a id="7620" href="/Quantifiers/#7620" class="Bound">x</a> <a id="7622" class="Symbol">→</a> <a id="7624" href="plfa.part1.Quantifiers.html#7590" class="Bound">B</a> <a id="7626" href="plfa.part1.Quantifiers.html#7620" class="Bound">x</a> <a id="7628" class="Symbol">→</a> <a id="7630" href="plfa.part1.Quantifiers.html#7604" class="Bound">C</a><a id="7631" class="Symbol">)</a>
   <a id="7635" class="Symbol">→</a> <a id="7637" href="/Quantifiers/#7186" class="Function">∃[</a> <a id="7640" href="plfa.part1.Quantifiers.html#7640" class="Bound">x</a> <a id="7642" href="plfa.part1.Quantifiers.html#7186" class="Function">]</a> <a id="7644" href="plfa.part1.Quantifiers.html#7590" class="Bound">B</a> <a id="7646" href="plfa.part1.Quantifiers.html#7640" class="Bound">x</a>
@@ -274,12 +274,12 @@ may conclude that <code class="highlighter-rouge">C</code> holds:</p>
   <a id="7670" class="Symbol">→</a> <a id="7672" href="/Quantifiers/#7604" class="Bound">C</a>
 <a id="7674" href="/Quantifiers/#7568" class="Function">∃-elim</a> <a id="7681" href="plfa.part1.Quantifiers.html#7681" class="Bound">f</a> <a id="7683" href="plfa.part1.Quantifiers.html#4805" class="InductiveConstructor Operator">⟨</a> <a id="7685" href="plfa.part1.Quantifiers.html#7685" class="Bound">x</a> <a id="7687" href="plfa.part1.Quantifiers.html#4805" class="InductiveConstructor Operator">,</a> <a id="7689" href="plfa.part1.Quantifiers.html#7689" class="Bound">y</a> <a id="7691" href="plfa.part1.Quantifiers.html#4805" class="InductiveConstructor Operator">⟩</a> <a id="7693" class="Symbol">=</a> <a id="7695" href="plfa.part1.Quantifiers.html#7681" class="Bound">f</a> <a id="7697" href="plfa.part1.Quantifiers.html#7685" class="Bound">x</a> <a id="7699" href="plfa.part1.Quantifiers.html#7689" class="Bound">y</a>
 </pre>
-<p>In other words, if we know for every <code class="highlighter-rouge">x</code> of type <code class="highlighter-rouge">A</code> that <code class="highlighter-rouge">B x</code>
-implies <code class="highlighter-rouge">C</code>, and we know for some <code class="highlighter-rouge">x</code> of type <code class="highlighter-rouge">A</code> that <code class="highlighter-rouge">B x</code> holds,
-then we may conclude that <code class="highlighter-rouge">C</code> holds.  This is because we may
-instantiate that proof that <code class="highlighter-rouge">∀ x → B x → C</code> to any value <code class="highlighter-rouge">x</code> of type
-<code class="highlighter-rouge">A</code> and any <code class="highlighter-rouge">y</code> of type <code class="highlighter-rouge">B x</code>, and exactly such values are provided by
-the evidence for <code class="highlighter-rouge">∃[ x ] B x</code>.</p>
+<p>In other words, if we know for every <code class="language-plaintext highlighter-rouge">x</code> of type <code class="language-plaintext highlighter-rouge">A</code> that <code class="language-plaintext highlighter-rouge">B x</code>
+implies <code class="language-plaintext highlighter-rouge">C</code>, and we know for some <code class="language-plaintext highlighter-rouge">x</code> of type <code class="language-plaintext highlighter-rouge">A</code> that <code class="language-plaintext highlighter-rouge">B x</code> holds,
+then we may conclude that <code class="language-plaintext highlighter-rouge">C</code> holds.  This is because we may
+instantiate that proof that <code class="language-plaintext highlighter-rouge">∀ x → B x → C</code> to any value <code class="language-plaintext highlighter-rouge">x</code> of type
+<code class="language-plaintext highlighter-rouge">A</code> and any <code class="language-plaintext highlighter-rouge">y</code> of type <code class="language-plaintext highlighter-rouge">B x</code>, and exactly such values are provided by
+the evidence for <code class="language-plaintext highlighter-rouge">∃[ x ] B x</code>.</p>
 
 <p>Indeed, the converse also holds, and the two together form an isomorphism:</p>
 <pre class="Agda"><a id="∀∃-currying"></a><a id="8149" href="/Quantifiers/#8149" class="Function">∀∃-currying</a> <a id="8161" class="Symbol">:</a> <a id="8163" class="Symbol">∀</a> <a id="8165" class="Symbol">{</a><a id="8166" href="plfa.part1.Quantifiers.html#8166" class="Bound">A</a> <a id="8168" class="Symbol">:</a> <a id="8170" class="PrimitiveType">Set</a><a id="8173" class="Symbol">}</a> <a id="8175" class="Symbol">{</a><a id="8176" href="plfa.part1.Quantifiers.html#8176" class="Bound">B</a> <a id="8178" class="Symbol">:</a> <a id="8180" href="plfa.part1.Quantifiers.html#8166" class="Bound">A</a> <a id="8182" class="Symbol">→</a> <a id="8184" class="PrimitiveType">Set</a><a id="8187" class="Symbol">}</a> <a id="8189" class="Symbol">{</a><a id="8190" href="plfa.part1.Quantifiers.html#8190" class="Bound">C</a> <a id="8192" class="Symbol">:</a> <a id="8194" class="PrimitiveType">Set</a><a id="8197" class="Symbol">}</a>
@@ -296,14 +296,14 @@ the evidence for <code class="highlighter-rouge">∃[ x ] B x</code>.</p>
 establish the isomorphism is identical to what we wrote when discussing
 <a href="/Connectives/#implication">implication</a>.</p>
 
-<h4 id="exercise--distrib--recommended-1">Exercise <code class="highlighter-rouge">∃-distrib-⊎</code> (recommended)</h4>
+<h4 id="exercise--distrib--recommended-1">Exercise <code class="language-plaintext highlighter-rouge">∃-distrib-⊎</code> (recommended)</h4>
 
 <p>Show that existentials distribute over disjunction:</p>
 <pre class="Agda"><a id="8777" class="Keyword">postulate</a>
   <a id="∃-distrib-⊎"></a><a id="8789" href="/Quantifiers/#8789" class="Postulate">∃-distrib-⊎</a> <a id="8801" class="Symbol">:</a> <a id="8803" class="Symbol">∀</a> <a id="8805" class="Symbol">{</a><a id="8806" href="plfa.part1.Quantifiers.html#8806" class="Bound">A</a> <a id="8808" class="Symbol">:</a> <a id="8810" class="PrimitiveType">Set</a><a id="8813" class="Symbol">}</a> <a id="8815" class="Symbol">{</a><a id="8816" href="plfa.part1.Quantifiers.html#8816" class="Bound">B</a> <a id="8818" href="plfa.part1.Quantifiers.html#8818" class="Bound">C</a> <a id="8820" class="Symbol">:</a> <a id="8822" href="plfa.part1.Quantifiers.html#8806" class="Bound">A</a> <a id="8824" class="Symbol">→</a> <a id="8826" class="PrimitiveType">Set</a><a id="8829" class="Symbol">}</a> <a id="8831" class="Symbol">→</a>
     <a id="8837" href="/Quantifiers/#7186" class="Function">∃[</a> <a id="8840" href="plfa.part1.Quantifiers.html#8840" class="Bound">x</a> <a id="8842" href="plfa.part1.Quantifiers.html#7186" class="Function">]</a> <a id="8844" class="Symbol">(</a><a id="8845" href="plfa.part1.Quantifiers.html#8816" class="Bound">B</a> <a id="8847" href="plfa.part1.Quantifiers.html#8840" class="Bound">x</a> <a id="8849" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#612" class="Datatype Operator">⊎</a> <a id="8851" href="plfa.part1.Quantifiers.html#8818" class="Bound">C</a> <a id="8853" href="plfa.part1.Quantifiers.html#8840" class="Bound">x</a><a id="8854" class="Symbol">)</a> <a id="8856" href="/Isomorphism/#4365" class="Record Operator">≃</a> <a id="8858" class="Symbol">(</a><a id="8859" href="plfa.part1.Quantifiers.html#7186" class="Function">∃[</a> <a id="8862" href="plfa.part1.Quantifiers.html#8862" class="Bound">x</a> <a id="8864" href="plfa.part1.Quantifiers.html#7186" class="Function">]</a> <a id="8866" href="plfa.part1.Quantifiers.html#8816" class="Bound">B</a> <a id="8868" href="plfa.part1.Quantifiers.html#8862" class="Bound">x</a><a id="8869" class="Symbol">)</a> <a id="8871" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#612" class="Datatype Operator">⊎</a> <a id="8873" class="Symbol">(</a><a id="8874" href="plfa.part1.Quantifiers.html#7186" class="Function">∃[</a> <a id="8877" href="plfa.part1.Quantifiers.html#8877" class="Bound">x</a> <a id="8879" href="plfa.part1.Quantifiers.html#7186" class="Function">]</a> <a id="8881" href="plfa.part1.Quantifiers.html#8818" class="Bound">C</a> <a id="8883" href="plfa.part1.Quantifiers.html#8877" class="Bound">x</a><a id="8884" class="Symbol">)</a>
 </pre>
-<h4 id="exercise--implies--practice-1">Exercise <code class="highlighter-rouge">∃×-implies-×∃</code> (practice)</h4>
+<h4 id="exercise--implies--practice-1">Exercise <code class="language-plaintext highlighter-rouge">∃×-implies-×∃</code> (practice)</h4>
 
 <p>Show that an existential of conjunctions implies a conjunction of existentials:</p>
 <pre class="Agda"><a id="9017" class="Keyword">postulate</a>
@@ -312,14 +312,14 @@ establish the isomorphism is identical to what we wrote when discussing
 </pre>
 <p>Does the converse hold? If so, prove; if not, explain why.</p>
 
-<h4 id="exercise---practice-1">Exercise <code class="highlighter-rouge">∃-⊎</code> (practice)</h4>
+<h4 id="exercise---practice-1">Exercise <code class="language-plaintext highlighter-rouge">∃-⊎</code> (practice)</h4>
 
-<p>Let <code class="highlighter-rouge">Tri</code> and <code class="highlighter-rouge">B</code> be as in Exercise <code class="highlighter-rouge">∀-×</code>.
-Show that <code class="highlighter-rouge">∃[ x ] B x</code> is isomorphic to <code class="highlighter-rouge">B aa ⊎ B bb ⊎ B cc</code>.</p>
+<p>Let <code class="language-plaintext highlighter-rouge">Tri</code> and <code class="language-plaintext highlighter-rouge">B</code> be as in Exercise <code class="language-plaintext highlighter-rouge">∀-×</code>.
+Show that <code class="language-plaintext highlighter-rouge">∃[ x ] B x</code> is isomorphic to <code class="language-plaintext highlighter-rouge">B aa ⊎ B bb ⊎ B cc</code>.</p>
 
 <h2 id="an-existential-example">An existential example</h2>
 
-<p>Recall the definitions of <code class="highlighter-rouge">even</code> and <code class="highlighter-rouge">odd</code> from
+<p>Recall the definitions of <code class="language-plaintext highlighter-rouge">even</code> and <code class="language-plaintext highlighter-rouge">odd</code> from
 Chapter <a href="/Relations/">Relations</a>:</p>
 <pre class="Agda"><a id="9462" class="Keyword">data</a> <a id="even"></a><a id="9467" href="/Quantifiers/#9467" class="Datatype">even</a> <a id="9472" class="Symbol">:</a> <a id="9474" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a> <a id="9476" class="Symbol">→</a> <a id="9478" class="PrimitiveType">Set</a>
 <a id="9482" class="Keyword">data</a> <a id="odd"></a><a id="9487" href="/Quantifiers/#9487" class="Datatype">odd</a>  <a id="9492" class="Symbol">:</a> <a id="9494" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a> <a id="9496" class="Symbol">→</a> <a id="9498" class="PrimitiveType">Set</a>
@@ -346,9 +346,9 @@ odd if it is the successor of an even number.</p>
 other number, and odd if and only if it is one more than twice
 some other number.  In other words, we will show:</p>
 
-<p><code class="highlighter-rouge">even n</code>   iff   <code class="highlighter-rouge">∃[ m ] (    m * 2 ≡ n)</code></p>
+<p><code class="language-plaintext highlighter-rouge">even n</code>   iff   <code class="language-plaintext highlighter-rouge">∃[ m ] (    m * 2 ≡ n)</code></p>
 
-<p><code class="highlighter-rouge">odd  n</code>   iff   <code class="highlighter-rouge">∃[ m ] (1 + m * 2 ≡ n)</code></p>
+<p><code class="language-plaintext highlighter-rouge">odd  n</code>   iff   <code class="language-plaintext highlighter-rouge">∃[ m ] (1 + m * 2 ≡ n)</code></p>
 
 <p>By convention, one tends to write constant factors first and to put
 the constant term in a sum last. Here we’ve reversed each of those
@@ -366,9 +366,9 @@ conventions, because doing so eases the proof.</p>
 <a id="10616" class="Symbol">...</a>                    <a id="10639" class="Symbol">|</a> <a id="10641" href="/Quantifiers/#4805" class="InductiveConstructor Operator">⟨</a> <a id="10643" href="plfa.part1.Quantifiers.html#10643" class="Bound">m</a> <a id="10645" href="plfa.part1.Quantifiers.html#4805" class="InductiveConstructor Operator">,</a> <a id="10647" href="Agda.Builtin.Equality.html#182" class="InductiveConstructor">refl</a> <a id="10652" href="plfa.part1.Quantifiers.html#4805" class="InductiveConstructor Operator">⟩</a>  <a id="10655" class="Symbol">=</a>  <a id="10658" href="plfa.part1.Quantifiers.html#4805" class="InductiveConstructor Operator">⟨</a> <a id="10660" href="plfa.part1.Quantifiers.html#10643" class="Bound">m</a> <a id="10662" href="plfa.part1.Quantifiers.html#4805" class="InductiveConstructor Operator">,</a> <a id="10664" href="Agda.Builtin.Equality.html#182" class="InductiveConstructor">refl</a> <a id="10669" href="plfa.part1.Quantifiers.html#4805" class="InductiveConstructor Operator">⟩</a>
 </pre>
 <p>We define two mutually recursive functions. Given
-evidence that <code class="highlighter-rouge">n</code> is even or odd, we return a
-number <code class="highlighter-rouge">m</code> and evidence that <code class="highlighter-rouge">m * 2 ≡ n</code> or <code class="highlighter-rouge">1 + m * 2 ≡ n</code>.
-We induct over the evidence that <code class="highlighter-rouge">n</code> is even or odd:</p>
+evidence that <code class="language-plaintext highlighter-rouge">n</code> is even or odd, we return a
+number <code class="language-plaintext highlighter-rouge">m</code> and evidence that <code class="language-plaintext highlighter-rouge">m * 2 ≡ n</code> or <code class="language-plaintext highlighter-rouge">1 + m * 2 ≡ n</code>.
+We induct over the evidence that <code class="language-plaintext highlighter-rouge">n</code> is even or odd:</p>
 
 <ul>
   <li>
@@ -377,17 +377,17 @@ consisting of zero and the evidence that twice zero is zero.</p>
   </li>
   <li>
     <p>If the number is even because it is one more than an odd number,
-then we apply the induction hypothesis to give a number <code class="highlighter-rouge">m</code> and
-evidence that <code class="highlighter-rouge">1 + m * 2 ≡ n</code>. We return a pair consisting of <code class="highlighter-rouge">suc m</code>
-and evidence that <code class="highlighter-rouge">suc m * 2 ≡ suc n</code>, which is immediate after
-substituting for <code class="highlighter-rouge">n</code>.</p>
+then we apply the induction hypothesis to give a number <code class="language-plaintext highlighter-rouge">m</code> and
+evidence that <code class="language-plaintext highlighter-rouge">1 + m * 2 ≡ n</code>. We return a pair consisting of <code class="language-plaintext highlighter-rouge">suc m</code>
+and evidence that <code class="language-plaintext highlighter-rouge">suc m * 2 ≡ suc n</code>, which is immediate after
+substituting for <code class="language-plaintext highlighter-rouge">n</code>.</p>
   </li>
   <li>
     <p>If the number is odd because it is the successor of an even number,
-then we apply the induction hypothesis to give a number <code class="highlighter-rouge">m</code> and
-evidence that <code class="highlighter-rouge">m * 2 ≡ n</code>. We return a pair consisting of <code class="highlighter-rouge">suc m</code> and
-evidence that <code class="highlighter-rouge">1 + m * 2 ≡ suc n</code>, which is immediate after
-substituting for <code class="highlighter-rouge">n</code>.</p>
+then we apply the induction hypothesis to give a number <code class="language-plaintext highlighter-rouge">m</code> and
+evidence that <code class="language-plaintext highlighter-rouge">m * 2 ≡ n</code>. We return a pair consisting of <code class="language-plaintext highlighter-rouge">suc m</code> and
+evidence that <code class="language-plaintext highlighter-rouge">1 + m * 2 ≡ suc n</code>, which is immediate after
+substituting for <code class="language-plaintext highlighter-rouge">n</code>.</p>
   </li>
 </ul>
 
@@ -410,35 +410,35 @@ that is doubled:</p>
 
 <ul>
   <li>
-    <p>In the even case for <code class="highlighter-rouge">zero</code>, we must show <code class="highlighter-rouge">zero * 2</code> is even, which
-follows by <code class="highlighter-rouge">even-zero</code>.</p>
+    <p>In the even case for <code class="language-plaintext highlighter-rouge">zero</code>, we must show <code class="language-plaintext highlighter-rouge">zero * 2</code> is even, which
+follows by <code class="language-plaintext highlighter-rouge">even-zero</code>.</p>
   </li>
   <li>
-    <p>In the even case for <code class="highlighter-rouge">suc n</code>, we must show <code class="highlighter-rouge">suc m * 2</code> is even.  The
-inductive hypothesis tells us that <code class="highlighter-rouge">1 + m * 2</code> is odd, from which the
-desired result follows by <code class="highlighter-rouge">even-suc</code>.</p>
+    <p>In the even case for <code class="language-plaintext highlighter-rouge">suc n</code>, we must show <code class="language-plaintext highlighter-rouge">suc m * 2</code> is even.  The
+inductive hypothesis tells us that <code class="language-plaintext highlighter-rouge">1 + m * 2</code> is odd, from which the
+desired result follows by <code class="language-plaintext highlighter-rouge">even-suc</code>.</p>
   </li>
   <li>
-    <p>In the odd case, we must show <code class="highlighter-rouge">1 + m * 2</code> is odd.  The inductive
-hypothesis tell us that <code class="highlighter-rouge">m * 2</code> is even, from which the desired result
-follows by <code class="highlighter-rouge">odd-suc</code>.</p>
+    <p>In the odd case, we must show <code class="language-plaintext highlighter-rouge">1 + m * 2</code> is odd.  The inductive
+hypothesis tell us that <code class="language-plaintext highlighter-rouge">m * 2</code> is even, from which the desired result
+follows by <code class="language-plaintext highlighter-rouge">odd-suc</code>.</p>
   </li>
 </ul>
 
 <p>This completes the proof in the backward direction.</p>
 
-<h4 id="exercise--even-odd-practice">Exercise <code class="highlighter-rouge">∃-even-odd</code> (practice)</h4>
+<h4 id="exercise--even-odd-practice">Exercise <code class="language-plaintext highlighter-rouge">∃-even-odd</code> (practice)</h4>
 
-<p>How do the proofs become more difficult if we replace <code class="highlighter-rouge">m * 2</code> and <code class="highlighter-rouge">1 + m * 2</code>
-by <code class="highlighter-rouge">2 * m</code> and <code class="highlighter-rouge">2 * m + 1</code>?  Rewrite the proofs of <code class="highlighter-rouge">∃-even</code> and <code class="highlighter-rouge">∃-odd</code> when
+<p>How do the proofs become more difficult if we replace <code class="language-plaintext highlighter-rouge">m * 2</code> and <code class="language-plaintext highlighter-rouge">1 + m * 2</code>
+by <code class="language-plaintext highlighter-rouge">2 * m</code> and <code class="language-plaintext highlighter-rouge">2 * m + 1</code>?  Rewrite the proofs of <code class="language-plaintext highlighter-rouge">∃-even</code> and <code class="language-plaintext highlighter-rouge">∃-odd</code> when
 restated in this way.</p>
 
 <pre class="Agda"><a id="12954" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise----practice">Exercise <code class="highlighter-rouge">∃-+-≤</code> (practice)</h4>
+<h4 id="exercise----practice">Exercise <code class="language-plaintext highlighter-rouge">∃-+-≤</code> (practice)</h4>
 
-<p>Show that <code class="highlighter-rouge">y ≤ z</code> holds if and only if there exists a <code class="highlighter-rouge">x</code> such that
-<code class="highlighter-rouge">x + y ≡ z</code>.</p>
+<p>Show that <code class="language-plaintext highlighter-rouge">y ≤ z</code> holds if and only if there exists a <code class="language-plaintext highlighter-rouge">x</code> such that
+<code class="language-plaintext highlighter-rouge">x + y ≡ z</code>.</p>
 
 <pre class="Agda"><a id="13102" class="Comment">-- Your code goes here</a>
 </pre>
@@ -460,23 +460,23 @@ of a disjunction is isomorphic to a conjunction of negations:</p>
     <a id="13731" class="Symbol">;</a> <a id="13733" href="/Isomorphism/#4481" class="Field">to∘from</a> <a id="13741" class="Symbol">=</a>  <a id="13744" class="Symbol">λ{</a> <a id="13747" href="/Quantifiers/#13747" class="Bound">∀¬xy</a> <a id="13752" class="Symbol">→</a> <a id="13754" href="Agda.Builtin.Equality.html#182" class="InductiveConstructor">refl</a> <a id="13759" class="Symbol">}</a>
     <a id="13765" class="Symbol">}</a>
 </pre>
-<p>In the <code class="highlighter-rouge">to</code> direction, we are given a value <code class="highlighter-rouge">¬∃xy</code> of type
-<code class="highlighter-rouge">¬ ∃[ x ] B x</code>, and need to show that given a value
-<code class="highlighter-rouge">x</code> that <code class="highlighter-rouge">¬ B x</code> follows, in other words, from
-a value <code class="highlighter-rouge">y</code> of type <code class="highlighter-rouge">B x</code> we can derive false.  Combining
-<code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> gives us a value <code class="highlighter-rouge">⟨ x , y ⟩</code> of type <code class="highlighter-rouge">∃[ x ] B x</code>,
-and applying <code class="highlighter-rouge">¬∃xy</code> to that yields a contradiction.</p>
+<p>In the <code class="language-plaintext highlighter-rouge">to</code> direction, we are given a value <code class="language-plaintext highlighter-rouge">¬∃xy</code> of type
+<code class="language-plaintext highlighter-rouge">¬ ∃[ x ] B x</code>, and need to show that given a value
+<code class="language-plaintext highlighter-rouge">x</code> that <code class="language-plaintext highlighter-rouge">¬ B x</code> follows, in other words, from
+a value <code class="language-plaintext highlighter-rouge">y</code> of type <code class="language-plaintext highlighter-rouge">B x</code> we can derive false.  Combining
+<code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> gives us a value <code class="language-plaintext highlighter-rouge">⟨ x , y ⟩</code> of type <code class="language-plaintext highlighter-rouge">∃[ x ] B x</code>,
+and applying <code class="language-plaintext highlighter-rouge">¬∃xy</code> to that yields a contradiction.</p>
 
-<p>In the <code class="highlighter-rouge">from</code> direction, we are given a value <code class="highlighter-rouge">∀¬xy</code> of type
-<code class="highlighter-rouge">∀ x → ¬ B x</code>, and need to show that from a value <code class="highlighter-rouge">⟨ x , y ⟩</code>
-of type <code class="highlighter-rouge">∃[ x ] B x</code> we can derive false.  Applying <code class="highlighter-rouge">∀¬xy</code>
-to <code class="highlighter-rouge">x</code> gives a value of type <code class="highlighter-rouge">¬ B x</code>, and applying that to <code class="highlighter-rouge">y</code> yields
+<p>In the <code class="language-plaintext highlighter-rouge">from</code> direction, we are given a value <code class="language-plaintext highlighter-rouge">∀¬xy</code> of type
+<code class="language-plaintext highlighter-rouge">∀ x → ¬ B x</code>, and need to show that from a value <code class="language-plaintext highlighter-rouge">⟨ x , y ⟩</code>
+of type <code class="language-plaintext highlighter-rouge">∃[ x ] B x</code> we can derive false.  Applying <code class="language-plaintext highlighter-rouge">∀¬xy</code>
+to <code class="language-plaintext highlighter-rouge">x</code> gives a value of type <code class="language-plaintext highlighter-rouge">¬ B x</code>, and applying that to <code class="language-plaintext highlighter-rouge">y</code> yields
 a contradiction.</p>
 
 <p>The two inverse proofs are straightforward, where one direction
 requires extensionality.</p>
 
-<h4 id="exercise--implies--recommended">Exercise <code class="highlighter-rouge">∃¬-implies-¬∀</code> (recommended)</h4>
+<h4 id="exercise--implies--recommended">Exercise <code class="language-plaintext highlighter-rouge">∃¬-implies-¬∀</code> (recommended)</h4>
 
 <p>Show that existential of a negation implies negation of a universal:</p>
 <pre class="Agda"><a id="14582" class="Keyword">postulate</a>
@@ -487,23 +487,23 @@ requires extensionality.</p>
 </pre>
 <p>Does the converse hold? If so, prove; if not, explain why.</p>
 
-<h4 id="Bin-isomorphism">Exercise <code class="highlighter-rouge">Bin-isomorphism</code> (stretch)</h4>
+<h4 id="Bin-isomorphism">Exercise <code class="language-plaintext highlighter-rouge">Bin-isomorphism</code> (stretch)</h4>
 
 <p>Recall that Exercises
 <a href="/Naturals/#Bin">Bin</a>,
 <a href="/Induction/#Bin-laws">Bin-laws</a>, and
 <a href="/Relations/#Bin-predicates">Bin-predicates</a>
-define a datatype <code class="highlighter-rouge">Bin</code> of bitstrings representing natural numbers,
+define a datatype <code class="language-plaintext highlighter-rouge">Bin</code> of bitstrings representing natural numbers,
 and asks you to define the following functions and predicates:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>to   : ℕ → Bin
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>to   : ℕ → Bin
 from : Bin → ℕ
 Can  : Bin → Set
 </code></pre></div></div>
 
 <p>And to establish the following properties:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from (to n) ≡ n
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from (to n) ≡ n
 
 ----------
 Can (to n)
@@ -513,8 +513,8 @@ Can b
 to (from b) ≡ b
 </code></pre></div></div>
 
-<p>Using the above, establish that there is an isomorphism between <code class="highlighter-rouge">ℕ</code> and
-<code class="highlighter-rouge">∃[ b ](Can b)</code>.</p>
+<p>Using the above, establish that there is an isomorphism between <code class="language-plaintext highlighter-rouge">ℕ</code> and
+<code class="language-plaintext highlighter-rouge">∃[ b ](Can b)</code>.</p>
 
 <pre class="Agda"><a id="15440" class="Comment">-- Your code goes here</a>
 </pre>
@@ -529,7 +529,7 @@ to (from b) ≡ b
 
 <p>This chapter uses the following unicode:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Π  U+03A0  GREEK CAPITAL LETTER PI (\Pi)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Π  U+03A0  GREEK CAPITAL LETTER PI (\Pi)
 Σ  U+03A3  GREEK CAPITAL LETTER SIGMA (\Sigma)
 ∃  U+2203  THERE EXISTS (\ex, \exists)
 </code></pre></div></div>

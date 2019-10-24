@@ -83,7 +83,7 @@ then those imports only may be placed above the module declaration.</p>
   </li>
   <li>If it is important that certain names only come into scope later in
 the file then the module should still be imported at the top of the
-file but it can be given a shorter name using <code class="highlighter-rouge">as</code> and then opened
+file but it can be given a shorter name using <code class="language-plaintext highlighter-rouge">as</code> and then opened
 later on in the file when needed, e.g.
     <pre><code class="language-agda">import Data.List.Relation.Binary.Equality.Setoid as SetoidEquality
 ...
@@ -95,7 +95,7 @@ open SetoidEquality S
     <p>The list of module imports should be in alphabetical order.</p>
   </li>
   <li>When using only a few items from a module, the items should be
-enumerated in the import with <code class="highlighter-rouge">using</code> in order to make dependencies
+enumerated in the import with <code class="language-plaintext highlighter-rouge">using</code> in order to make dependencies
 clearer.</li>
 </ul>
 
@@ -110,8 +110,8 @@ clearer.</li>
 two spaces.</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">where</code> blocks should be indented by two spaces and their contents
-should be aligned with the <code class="highlighter-rouge">where</code>.</p>
+    <p><code class="language-plaintext highlighter-rouge">where</code> blocks should be indented by two spaces and their contents
+should be aligned with the <code class="language-plaintext highlighter-rouge">where</code>.</p>
   </li>
   <li>If the type of a term does not fit on one line then the subsequent
 lines of the type should all be indented by two spaces, e.g.
@@ -138,7 +138,7 @@ grouped logically by line then it is fine to do so, otherwise a line
 each is probably clearest.</p>
   </li>
   <li>
-    <p>The <code class="highlighter-rouge">where</code> should go on it’s own line at the end.</p>
+    <p>The <code class="language-plaintext highlighter-rouge">where</code> should go on it’s own line at the end.</p>
   </li>
   <li>
     <p>For example:</p>
@@ -154,14 +154,14 @@ each is probably clearest.</p>
 
 <ul>
   <li>
-    <p>The <code class="highlighter-rouge">begin</code> clause should go on a new line.</p>
+    <p>The <code class="language-plaintext highlighter-rouge">begin</code> clause should go on a new line.</p>
   </li>
   <li>
-    <p>Every subsequent combinator <code class="highlighter-rouge">_≡⟨_⟩_</code> should go on its own line,
+    <p>Every subsequent combinator <code class="language-plaintext highlighter-rouge">_≡⟨_⟩_</code> should go on its own line,
 with the intermediate terms on their own line, indented by two spaces.</p>
   </li>
   <li>
-    <p>The relation sign (e.g. <code class="highlighter-rouge">≡</code>) for each line should be aligned if possible.</p>
+    <p>The relation sign (e.g. <code class="language-plaintext highlighter-rouge">≡</code>) for each line should be aligned if possible.</p>
   </li>
   <li>For example:
     <pre><code class="language-agda">+-comm : Commutative _+_
@@ -179,7 +179,7 @@ with the intermediate terms on their own line, indented by two spaces.</p>
 </code></pre>
   </li>
   <li>When multiple reasoning frameworks need to be used in the same file, the
-<code class="highlighter-rouge">open</code> statement should always come in a where clause local to the
+<code class="language-plaintext highlighter-rouge">open</code> statement should always come in a where clause local to the
 definition. This way users can easily see which reasoning toolkit is
 being used. For instance:
     <pre><code class="language-agda">foo m n p = begin
@@ -193,17 +193,17 @@ being used. For instance:
 
 <ul>
   <li>
-    <p>The <code class="highlighter-rouge">record</code> declaration should go on the same line as the rest of the proof.</p>
+    <p>The <code class="language-plaintext highlighter-rouge">record</code> declaration should go on the same line as the rest of the proof.</p>
   </li>
   <li>
-    <p>The next line with the first record item should start with a single <code class="highlighter-rouge">{</code>.</p>
+    <p>The next line with the first record item should start with a single <code class="language-plaintext highlighter-rouge">{</code>.</p>
   </li>
   <li>
     <p>Every subsequent item of the record should go on its own line starting with
-a <code class="highlighter-rouge">;</code>.</p>
+a <code class="language-plaintext highlighter-rouge">;</code>.</p>
   </li>
   <li>
-    <p>The final line should end with <code class="highlighter-rouge">}</code> on its own.</p>
+    <p>The final line should end with <code class="language-plaintext highlighter-rouge">}</code> on its own.</p>
   </li>
   <li>
     <p>For example:</p>
@@ -217,19 +217,19 @@ a <code class="highlighter-rouge">;</code>.</p>
   </li>
 </ul>
 
-<h4 id="where-blocks"><code class="highlighter-rouge">where</code> blocks</h4>
+<h4 id="where-blocks"><code class="language-plaintext highlighter-rouge">where</code> blocks</h4>
 
 <ul>
   <li>
-    <p><code class="highlighter-rouge">where</code> blocks are preferred rather than the <code class="highlighter-rouge">let</code> construction.</p>
+    <p><code class="language-plaintext highlighter-rouge">where</code> blocks are preferred rather than the <code class="language-plaintext highlighter-rouge">let</code> construction.</p>
   </li>
   <li>
-    <p>The <code class="highlighter-rouge">where</code> should be placed on the line below the main proof,
+    <p>The <code class="language-plaintext highlighter-rouge">where</code> should be placed on the line below the main proof,
 indented by two spaces.</p>
   </li>
   <li>If the contents of the block is non-trivial then types should be
 provided alongside the terms, and all terms should be on lines after
-the <code class="highlighter-rouge">where</code>, e.g.
+the <code class="language-plaintext highlighter-rouge">where</code>, e.g.
     <pre><code class="language-agda">statement : Statement
 statement = proof
   where
@@ -237,8 +237,8 @@ statement = proof
       proof = some-very-long-proof
 </code></pre>
   </li>
-  <li>If the contents of the block is trivial or is an <code class="highlighter-rouge">open</code> statement then
-it can provided on the same line as the <code class="highlighter-rouge">where</code> and a type can be
+  <li>If the contents of the block is trivial or is an <code class="language-plaintext highlighter-rouge">open</code> statement then
+it can provided on the same line as the <code class="language-plaintext highlighter-rouge">where</code> and a type can be
 omitted, e.g.
     <pre><code class="language-agda">statement : Statement
 statement = proof
@@ -251,12 +251,12 @@ statement = proof
 
 <ul>
   <li>
-    <p>Non-trivial proofs in <code class="highlighter-rouge">private</code> blocks are generally discouraged. If its
+    <p>Non-trivial proofs in <code class="language-plaintext highlighter-rouge">private</code> blocks are generally discouraged. If its
 non-trivial then the chances are someone will want to reuse it as some
 point!</p>
   </li>
   <li>
-    <p>The <code class="highlighter-rouge">with</code> syntax is preferred over the use of <code class="highlighter-rouge">case</code> from the <code class="highlighter-rouge">Function</code>
+    <p>The <code class="language-plaintext highlighter-rouge">with</code> syntax is preferred over the use of <code class="language-plaintext highlighter-rouge">case</code> from the <code class="language-plaintext highlighter-rouge">Function</code>
 module.</p>
   </li>
 </ul>
@@ -276,7 +276,7 @@ then they should be left explicit.</p>
 of proofs they should be extracted by using an anonymous module.</p>
   </li>
   <li>
-    <p>Implicit of type <code class="highlighter-rouge">Level</code> and <code class="highlighter-rouge">Set</code> can be generalised using <code class="highlighter-rouge">variable</code>.
+    <p>Implicit of type <code class="language-plaintext highlighter-rouge">Level</code> and <code class="language-plaintext highlighter-rouge">Set</code> can be generalised using <code class="language-plaintext highlighter-rouge">variable</code>.
 At the moment the policy is <em>not</em> to generalise over any other types in
 order to minimise the amount of information that users have to keep in
 their head concurrently.</p>
@@ -305,22 +305,22 @@ lowercase.</p>
 
 <ul>
   <li>
-    <p>Natural variables are named <code class="highlighter-rouge">m</code>, <code class="highlighter-rouge">n</code>, <code class="highlighter-rouge">o</code>, … (default <code class="highlighter-rouge">n</code>)</p>
+    <p>Natural variables are named <code class="language-plaintext highlighter-rouge">m</code>, <code class="language-plaintext highlighter-rouge">n</code>, <code class="language-plaintext highlighter-rouge">o</code>, … (default <code class="language-plaintext highlighter-rouge">n</code>)</p>
   </li>
   <li>
-    <p>Integer variables are named <code class="highlighter-rouge">i</code>, <code class="highlighter-rouge">j</code>, <code class="highlighter-rouge">k</code>, … (default <code class="highlighter-rouge">i</code>)</p>
+    <p>Integer variables are named <code class="language-plaintext highlighter-rouge">i</code>, <code class="language-plaintext highlighter-rouge">j</code>, <code class="language-plaintext highlighter-rouge">k</code>, … (default <code class="language-plaintext highlighter-rouge">i</code>)</p>
   </li>
   <li>
-    <p>Rational variables are named <code class="highlighter-rouge">p</code>, <code class="highlighter-rouge">q</code>, <code class="highlighter-rouge">r</code>, … (default <code class="highlighter-rouge">p</code>)</p>
+    <p>Rational variables are named <code class="language-plaintext highlighter-rouge">p</code>, <code class="language-plaintext highlighter-rouge">q</code>, <code class="language-plaintext highlighter-rouge">r</code>, … (default <code class="language-plaintext highlighter-rouge">p</code>)</p>
   </li>
   <li>
     <p>When naming proofs, the variables should occur in order, e.g.
-<code class="highlighter-rouge">m≤n+m</code> rather than <code class="highlighter-rouge">n≤m+n</code>.</p>
+<code class="language-plaintext highlighter-rouge">m≤n+m</code> rather than <code class="language-plaintext highlighter-rouge">n≤m+n</code>.</p>
   </li>
   <li>
-    <p>Collections of elements are usually indicated by appending an <code class="highlighter-rouge">s</code>
-(e.g. if you are naming your variables <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> then lists
-should be named <code class="highlighter-rouge">xs</code> and <code class="highlighter-rouge">ys</code>).</p>
+    <p>Collections of elements are usually indicated by appending an <code class="language-plaintext highlighter-rouge">s</code>
+(e.g. if you are naming your variables <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> then lists
+should be named <code class="language-plaintext highlighter-rouge">xs</code> and <code class="language-plaintext highlighter-rouge">ys</code>).</p>
   </li>
 </ul>
 
@@ -333,15 +333,15 @@ should be named <code class="highlighter-rouge">xs</code> and <code class="highl
   </li>
   <li>
     <p>Preconditions of results should be prepended to a description
-of the result by using the symbol <code class="highlighter-rouge">⇒</code> in names (e.g. <code class="highlighter-rouge">asym⇒antisym</code>)</p>
+of the result by using the symbol <code class="language-plaintext highlighter-rouge">⇒</code> in names (e.g. <code class="language-plaintext highlighter-rouge">asym⇒antisym</code>)</p>
   </li>
   <li>
     <p>Preconditions and postconditions should be combined using the symbols
-<code class="highlighter-rouge">∨</code> and <code class="highlighter-rouge">∧</code> (e.g. <code class="highlighter-rouge">m*n≡0⇒m≡0∨n≡0</code>)</p>
+<code class="language-plaintext highlighter-rouge">∨</code> and <code class="language-plaintext highlighter-rouge">∧</code> (e.g. <code class="language-plaintext highlighter-rouge">m*n≡0⇒m≡0∨n≡0</code>)</p>
   </li>
   <li>
     <p>Try to avoid the need for bracketing but if necessary use square
-brackets (e.g. <code class="highlighter-rouge">[m∸n]⊓[n∸m]≡0</code>)</p>
+brackets (e.g. <code class="language-plaintext highlighter-rouge">[m∸n]⊓[n∸m]≡0</code>)</p>
   </li>
 </ul>
 
@@ -350,21 +350,21 @@ brackets (e.g. <code class="highlighter-rouge">[m∸n]⊓[n∸m]≡0</code>)</p>
 <ul>
   <li>
     <p>Operators and relations should be defined using mixfix notation where
-applicable (e.g. <code class="highlighter-rouge">_+_</code>, <code class="highlighter-rouge">_&lt;_</code>)</p>
+applicable (e.g. <code class="language-plaintext highlighter-rouge">_+_</code>, <code class="language-plaintext highlighter-rouge">_&lt;_</code>)</p>
   </li>
   <li>
     <p>Common properties such as those in rings/orders/equivalences etc.
-have defined abbreviations (e.g. commutativity is shortened to <code class="highlighter-rouge">comm</code>).
-<code class="highlighter-rouge">Data.Nat.Properties</code> is a good place to look for examples.</p>
+have defined abbreviations (e.g. commutativity is shortened to <code class="language-plaintext highlighter-rouge">comm</code>).
+<code class="language-plaintext highlighter-rouge">Data.Nat.Properties</code> is a good place to look for examples.</p>
   </li>
   <li>
     <p>Properties should be by prefixed by the relevant operator/relation
-(e.g. commutativity of <code class="highlighter-rouge">_+_</code> is named <code class="highlighter-rouge">+-comm</code>)</p>
+(e.g. commutativity of <code class="language-plaintext highlighter-rouge">_+_</code> is named <code class="language-plaintext highlighter-rouge">+-comm</code>)</p>
   </li>
   <li>
     <p>If the relevant unicode characters are available, negated forms of
-relations should be used over the <code class="highlighter-rouge">¬</code> symbol (e.g. <code class="highlighter-rouge">m+n≮n</code> should be
-used instead of <code class="highlighter-rouge">¬m+n&lt;n</code>).</p>
+relations should be used over the <code class="language-plaintext highlighter-rouge">¬</code> symbol (e.g. <code class="language-plaintext highlighter-rouge">m+n≮n</code> should be
+used instead of <code class="language-plaintext highlighter-rouge">¬m+n&lt;n</code>).</p>
   </li>
 </ul>
 
@@ -372,9 +372,9 @@ used instead of <code class="highlighter-rouge">¬m+n&lt;n</code>).</p>
 
 <ul>
   <li>When defining a new relation over a datatype
-(e.g. <code class="highlighter-rouge">Data.List.Relation.Binary.Pointwise</code>)
+(e.g. <code class="language-plaintext highlighter-rouge">Data.List.Relation.Binary.Pointwise</code>)
 it is often common to define how to introduce and eliminate that
-relation over various simple functions (e.g. <code class="highlighter-rouge">map</code>) over that datatype:
+relation over various simple functions (e.g. <code class="language-plaintext highlighter-rouge">map</code>) over that datatype:
     <pre><code class="language-agda">map⁺ : Pointwise (λ a b → R (f a) (g b)) as bs →
                Pointwise R (map f as) (map g bs)
 
@@ -382,7 +382,7 @@ map⁻ : Pointwise R (map f as) (map g bs) →
                Pointwise (λ a b → R (f a) (g b)) as bs
 </code></pre>
     <p>Such elimination and introduction proofs are called the name of the
-function superscripted with either a <code class="highlighter-rouge">+</code> or <code class="highlighter-rouge">-</code> accordingly.</p>
+function superscripted with either a <code class="language-plaintext highlighter-rouge">+</code> or <code class="language-plaintext highlighter-rouge">-</code> accordingly.</p>
   </li>
 </ul>
 

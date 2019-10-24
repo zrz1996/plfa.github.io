@@ -87,22 +87,22 @@ left over as you started with.</p>
 
 <p>Everyone is familiar with the natural numbers</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0
 1
 2
 3
 ...
 </code></pre></div></div>
 
-<p>and so on. We write <code class="highlighter-rouge">ℕ</code> for the <em>type</em> of natural numbers, and say that
-<code class="highlighter-rouge">0</code>, <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">2</code>, <code class="highlighter-rouge">3</code>, and so on are <em>values</em> of type <code class="highlighter-rouge">ℕ</code>, indicated by
-writing <code class="highlighter-rouge">0 : ℕ</code>, <code class="highlighter-rouge">1 : ℕ</code>, <code class="highlighter-rouge">2 : ℕ</code>, <code class="highlighter-rouge">3 : ℕ</code>, and so on.</p>
+<p>and so on. We write <code class="language-plaintext highlighter-rouge">ℕ</code> for the <em>type</em> of natural numbers, and say that
+<code class="language-plaintext highlighter-rouge">0</code>, <code class="language-plaintext highlighter-rouge">1</code>, <code class="language-plaintext highlighter-rouge">2</code>, <code class="language-plaintext highlighter-rouge">3</code>, and so on are <em>values</em> of type <code class="language-plaintext highlighter-rouge">ℕ</code>, indicated by
+writing <code class="language-plaintext highlighter-rouge">0 : ℕ</code>, <code class="language-plaintext highlighter-rouge">1 : ℕ</code>, <code class="language-plaintext highlighter-rouge">2 : ℕ</code>, <code class="language-plaintext highlighter-rouge">3 : ℕ</code>, and so on.</p>
 
 <p>The set of natural numbers is infinite, yet we can write down
 its definition in just a few lines.  Here is the definition
 as a pair of inference rules:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--------
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--------
 zero : ℕ
 
 m : ℕ
@@ -115,37 +115,37 @@ suc m : ℕ
   <a id="ℕ.zero"></a><a id="1129" href="/Naturals/#1129" class="InductiveConstructor">zero</a> <a id="1134" class="Symbol">:</a> <a id="1136" href="plfa.part1.Naturals.html#1113" class="Datatype">ℕ</a>
   <a id="ℕ.suc"></a><a id="1140" href="/Naturals/#1140" class="InductiveConstructor">suc</a>  <a id="1145" class="Symbol">:</a> <a id="1147" href="plfa.part1.Naturals.html#1113" class="Datatype">ℕ</a> <a id="1149" class="Symbol">→</a> <a id="1151" href="plfa.part1.Naturals.html#1113" class="Datatype">ℕ</a>
 </pre>
-<p>Here <code class="highlighter-rouge">ℕ</code> is the name of the <em>datatype</em> we are defining,
-and <code class="highlighter-rouge">zero</code> and <code class="highlighter-rouge">suc</code> (short for <em>successor</em>) are the
+<p>Here <code class="language-plaintext highlighter-rouge">ℕ</code> is the name of the <em>datatype</em> we are defining,
+and <code class="language-plaintext highlighter-rouge">zero</code> and <code class="language-plaintext highlighter-rouge">suc</code> (short for <em>successor</em>) are the
 <em>constructors</em> of the datatype.</p>
 
 <p>Both definitions above tell us the same two things:</p>
 
 <ul>
-  <li><em>Base case</em>: <code class="highlighter-rouge">zero</code> is a natural number.</li>
-  <li><em>Inductive case</em>: if <code class="highlighter-rouge">m</code> is a natural number, then <code class="highlighter-rouge">suc m</code> is also a
+  <li><em>Base case</em>: <code class="language-plaintext highlighter-rouge">zero</code> is a natural number.</li>
+  <li><em>Inductive case</em>: if <code class="language-plaintext highlighter-rouge">m</code> is a natural number, then <code class="language-plaintext highlighter-rouge">suc m</code> is also a
 natural number.</li>
 </ul>
 
 <p>Further, these two rules give the <em>only</em> ways of creating natural numbers.
 Hence, the possible natural numbers are:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zero
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zero
 suc zero
 suc (suc zero)
 suc (suc (suc zero))
 ...
 </code></pre></div></div>
 
-<p>We write <code class="highlighter-rouge">0</code> as shorthand for <code class="highlighter-rouge">zero</code>; and <code class="highlighter-rouge">1</code> is shorthand
-for <code class="highlighter-rouge">suc zero</code>, the successor of zero, that is, the natural that comes
-after zero; and <code class="highlighter-rouge">2</code> is shorthand for <code class="highlighter-rouge">suc (suc zero)</code>, which is the
-same as <code class="highlighter-rouge">suc 1</code>, the successor of one; and <code class="highlighter-rouge">3</code> is shorthand for the
+<p>We write <code class="language-plaintext highlighter-rouge">0</code> as shorthand for <code class="language-plaintext highlighter-rouge">zero</code>; and <code class="language-plaintext highlighter-rouge">1</code> is shorthand
+for <code class="language-plaintext highlighter-rouge">suc zero</code>, the successor of zero, that is, the natural that comes
+after zero; and <code class="language-plaintext highlighter-rouge">2</code> is shorthand for <code class="language-plaintext highlighter-rouge">suc (suc zero)</code>, which is the
+same as <code class="language-plaintext highlighter-rouge">suc 1</code>, the successor of one; and <code class="language-plaintext highlighter-rouge">3</code> is shorthand for the
 successor of two; and so on.</p>
 
-<h4 id="seven">Exercise <code class="highlighter-rouge">seven</code> (practice)</h4>
+<h4 id="seven">Exercise <code class="language-plaintext highlighter-rouge">seven</code> (practice)</h4>
 
-<p>Write out <code class="highlighter-rouge">7</code> in longhand.</p>
+<p>Write out <code class="language-plaintext highlighter-rouge">7</code> in longhand.</p>
 
 <pre class="Agda"><a id="2049" class="Comment">-- Your code goes here</a>
 </pre>
@@ -156,36 +156,36 @@ successor of two; and so on.</p>
 zero or more <em>judgments</em> written above a horizontal line, called the
 <em>hypotheses</em>, and a single judgment written below, called the
 <em>conclusion</em>.  The first rule is the base case. It has no hypotheses,
-and the conclusion asserts that <code class="highlighter-rouge">zero</code> is a natural.  The second rule
-is the inductive case. It has one hypothesis, which assumes that <code class="highlighter-rouge">m</code>
-is a natural, and the conclusion asserts that <code class="highlighter-rouge">suc m</code>
+and the conclusion asserts that <code class="language-plaintext highlighter-rouge">zero</code> is a natural.  The second rule
+is the inductive case. It has one hypothesis, which assumes that <code class="language-plaintext highlighter-rouge">m</code>
+is a natural, and the conclusion asserts that <code class="language-plaintext highlighter-rouge">suc m</code>
 is a also a natural.</p>
 
 <h2 id="unpacking-the-agda-definition">Unpacking the Agda definition</h2>
 
-<p>Let’s unpack the Agda definition. The keyword <code class="highlighter-rouge">data</code> tells us this is an
+<p>Let’s unpack the Agda definition. The keyword <code class="language-plaintext highlighter-rouge">data</code> tells us this is an
 inductive definition, that is, that we are defining a new datatype
 with constructors.  The phrase</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ℕ : Set
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ℕ : Set
 </code></pre></div></div>
 
-<p>tells us that <code class="highlighter-rouge">ℕ</code> is the name of the new datatype, and that it is a
-<code class="highlighter-rouge">Set</code>, which is the way in Agda of saying that it is a type.  The
-keyword <code class="highlighter-rouge">where</code> separates the declaration of the datatype from the
+<p>tells us that <code class="language-plaintext highlighter-rouge">ℕ</code> is the name of the new datatype, and that it is a
+<code class="language-plaintext highlighter-rouge">Set</code>, which is the way in Agda of saying that it is a type.  The
+keyword <code class="language-plaintext highlighter-rouge">where</code> separates the declaration of the datatype from the
 declaration of its constructors. Each constructor is declared on a
 separate line, which is indented to indicate that it belongs to the
-corresponding <code class="highlighter-rouge">data</code> declaration.  The lines</p>
+corresponding <code class="language-plaintext highlighter-rouge">data</code> declaration.  The lines</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zero : ℕ
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zero : ℕ
 suc  : ℕ → ℕ
 </code></pre></div></div>
 
-<p>give <em>signatures</em> specifying the types of the constructors <code class="highlighter-rouge">zero</code> and <code class="highlighter-rouge">suc</code>.
-They tell us that <code class="highlighter-rouge">zero</code> is a natural number and that <code class="highlighter-rouge">suc</code> takes a natural
+<p>give <em>signatures</em> specifying the types of the constructors <code class="language-plaintext highlighter-rouge">zero</code> and <code class="language-plaintext highlighter-rouge">suc</code>.
+They tell us that <code class="language-plaintext highlighter-rouge">zero</code> is a natural number and that <code class="language-plaintext highlighter-rouge">suc</code> takes a natural
 number as argument and returns a natural number.</p>
 
-<p>You may have noticed that <code class="highlighter-rouge">ℕ</code> and <code class="highlighter-rouge">→</code> don’t appear on your keyboard.
+<p>You may have noticed that <code class="language-plaintext highlighter-rouge">ℕ</code> and <code class="language-plaintext highlighter-rouge">→</code> don’t appear on your keyboard.
 They are symbols in <em>unicode</em>.  At the end of each chapter is a list
 of all unicode symbols introduced in the chapter, including
 instructions on how to type them in the Emacs text editor.  Here
@@ -196,8 +196,8 @@ instructions on how to type them in the Emacs text editor.  Here
 <p>Let’s look again at the rules that define the natural numbers:</p>
 
 <ul>
-  <li><em>Base case</em>: <code class="highlighter-rouge">zero</code> is a natural number.</li>
-  <li><em>Inductive case</em>: if <code class="highlighter-rouge">m</code> is a natural number, then <code class="highlighter-rouge">suc m</code> is also a
+  <li><em>Base case</em>: <code class="language-plaintext highlighter-rouge">zero</code> is a natural number.</li>
+  <li><em>Inductive case</em>: if <code class="language-plaintext highlighter-rouge">m</code> is a natural number, then <code class="language-plaintext highlighter-rouge">suc m</code> is also a
 natural number.</li>
 </ul>
 
@@ -213,37 +213,37 @@ while only working with <em>finite</em> sets and never referring to the
 <p>We will think of it as a creation story.  To start with, we know about
 no natural numbers at all:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- In the beginning, there are no natural numbers.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- In the beginning, there are no natural numbers.
 </code></pre></div></div>
 
 <p>Now, we apply the rules to all the natural numbers we know about.  The
-base case tells us that <code class="highlighter-rouge">zero</code> is a natural number, so we add it to the set
-of known natural numbers.  The inductive case tells us that if <code class="highlighter-rouge">m</code> is a
-natural number (on the day before today) then <code class="highlighter-rouge">suc m</code> is also a
+base case tells us that <code class="language-plaintext highlighter-rouge">zero</code> is a natural number, so we add it to the set
+of known natural numbers.  The inductive case tells us that if <code class="language-plaintext highlighter-rouge">m</code> is a
+natural number (on the day before today) then <code class="language-plaintext highlighter-rouge">suc m</code> is also a
 natural number (today).  We didn’t know about any natural numbers
 before today, so the inductive case doesn’t apply:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the first day, there is one natural number.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the first day, there is one natural number.
 zero : ℕ
 </code></pre></div></div>
 
 <p>Then we repeat the process. On the next day we know about all the
 numbers from the day before, plus any numbers added by the rules.  The
-base case tells us that <code class="highlighter-rouge">zero</code> is a natural number, but we already knew
-that. But now the inductive case tells us that since <code class="highlighter-rouge">zero</code> was a natural
-number yesterday, then <code class="highlighter-rouge">suc zero</code> is a natural number today:</p>
+base case tells us that <code class="language-plaintext highlighter-rouge">zero</code> is a natural number, but we already knew
+that. But now the inductive case tells us that since <code class="language-plaintext highlighter-rouge">zero</code> was a natural
+number yesterday, then <code class="language-plaintext highlighter-rouge">suc zero</code> is a natural number today:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the second day, there are two natural numbers.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the second day, there are two natural numbers.
 zero : ℕ
 suc zero : ℕ
 </code></pre></div></div>
 
 <p>And we repeat the process again. Now the inductive case
-tells us that since <code class="highlighter-rouge">zero</code> and <code class="highlighter-rouge">suc zero</code> are both natural numbers, then
-<code class="highlighter-rouge">suc zero</code> and <code class="highlighter-rouge">suc (suc zero)</code> are natural numbers. We already knew about
+tells us that since <code class="language-plaintext highlighter-rouge">zero</code> and <code class="language-plaintext highlighter-rouge">suc zero</code> are both natural numbers, then
+<code class="language-plaintext highlighter-rouge">suc zero</code> and <code class="language-plaintext highlighter-rouge">suc (suc zero)</code> are natural numbers. We already knew about
 the first of these, but the second is new:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the third day, there are three natural numbers.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the third day, there are three natural numbers.
 zero : ℕ
 suc zero : ℕ
 suc (suc zero) : ℕ
@@ -251,7 +251,7 @@ suc (suc zero) : ℕ
 
 <p>You’ve got the hang of it by now:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the fourth day, there are four natural numbers.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the fourth day, there are four natural numbers.
 zero : ℕ
 suc zero : ℕ
 suc (suc zero) : ℕ
@@ -298,17 +298,17 @@ presented by a new method), published the following year.</p>
 
 <h2 id="a-pragma">A pragma</h2>
 
-<p>In Agda, any text following <code class="highlighter-rouge">--</code> or enclosed between <code class="highlighter-rouge">{-</code>
-and <code class="highlighter-rouge">-}</code> is considered a <em>comment</em>.  Comments have no effect on the
+<p>In Agda, any text following <code class="language-plaintext highlighter-rouge">--</code> or enclosed between <code class="language-plaintext highlighter-rouge">{-</code>
+and <code class="language-plaintext highlighter-rouge">-}</code> is considered a <em>comment</em>.  Comments have no effect on the
 code, with the exception of one special kind of comment, called a
-<em>pragma</em>, which is enclosed between <code class="highlighter-rouge">{-#</code> and <code class="highlighter-rouge">#-}</code>.</p>
+<em>pragma</em>, which is enclosed between <code class="language-plaintext highlighter-rouge">{-#</code> and <code class="language-plaintext highlighter-rouge">#-}</code>.</p>
 
 <p>Including the line</p>
 <pre class="Agda"><a id="8259" class="Symbol">{-#</a> <a id="8263" class="Keyword">BUILTIN</a> <a id="8271" class="Pragma">NATURAL</a> <a id="8279" href="/Naturals/#1113" class="Datatype">ℕ</a> <a id="8281" class="Symbol">#-}</a>
 </pre>
-<p>tells Agda that <code class="highlighter-rouge">ℕ</code> corresponds to the natural numbers, and hence one
-is permitted to type <code class="highlighter-rouge">0</code> as shorthand for <code class="highlighter-rouge">zero</code>, <code class="highlighter-rouge">1</code> as shorthand for
-<code class="highlighter-rouge">suc zero</code>, <code class="highlighter-rouge">2</code> as shorthand for <code class="highlighter-rouge">suc (suc zero)</code>, and so on.  The
+<p>tells Agda that <code class="language-plaintext highlighter-rouge">ℕ</code> corresponds to the natural numbers, and hence one
+is permitted to type <code class="language-plaintext highlighter-rouge">0</code> as shorthand for <code class="language-plaintext highlighter-rouge">zero</code>, <code class="language-plaintext highlighter-rouge">1</code> as shorthand for
+<code class="language-plaintext highlighter-rouge">suc zero</code>, <code class="language-plaintext highlighter-rouge">2</code> as shorthand for <code class="language-plaintext highlighter-rouge">suc (suc zero)</code>, and so on.  The
 declaration is not permitted unless the type given has exactly two
 constructors, one with no arguments (corresponding to zero) and
 one with a single argument of the same type given in the pragma
@@ -317,7 +317,7 @@ one with a single argument of the same type given in the pragma
 <p>As well as enabling the above shorthand, the pragma also enables a
 more efficient internal representation of naturals using the Haskell
 type for arbitrary-precision integers.  Representing the natural <em>n</em>
-with <code class="highlighter-rouge">zero</code> and <code class="highlighter-rouge">suc</code> requires space proportional to <em>n</em>, whereas
+with <code class="language-plaintext highlighter-rouge">zero</code> and <code class="language-plaintext highlighter-rouge">suc</code> requires space proportional to <em>n</em>, whereas
 representing it as an arbitrary-precision integer in Haskell only
 requires space proportional to the logarithm of <em>n</em>.</p>
 
@@ -333,25 +333,25 @@ about it from the Agda standard library:</p>
 <a id="9433" class="Keyword">open</a> <a id="9438" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2499" class="Module">Eq.≡-Reasoning</a> <a id="9453" class="Keyword">using</a> <a id="9459" class="Symbol">(</a><a id="9460" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2597" class="Function Operator">begin_</a><a id="9466" class="Symbol">;</a> <a id="9468" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2655" class="Function Operator">_≡⟨⟩_</a><a id="9473" class="Symbol">;</a> <a id="9475" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2892" class="Function Operator">_∎</a><a id="9477" class="Symbol">)</a>
 </pre>
 <p>The first line brings the standard library module that defines
-equality into scope and gives it the name <code class="highlighter-rouge">Eq</code>. The second line
+equality into scope and gives it the name <code class="language-plaintext highlighter-rouge">Eq</code>. The second line
 opens that module, that is, adds all the names specified in the
-<code class="highlighter-rouge">using</code> clause into the current scope. In this case the names added
-are <code class="highlighter-rouge">_≡_</code>, the equality operator, and <code class="highlighter-rouge">refl</code>, the name for evidence
+<code class="language-plaintext highlighter-rouge">using</code> clause into the current scope. In this case the names added
+are <code class="language-plaintext highlighter-rouge">_≡_</code>, the equality operator, and <code class="language-plaintext highlighter-rouge">refl</code>, the name for evidence
 that two terms are equal.  The third line takes a module that
 specifies operators to support reasoning about equivalence, and adds
-all the names specified in the <code class="highlighter-rouge">using</code> clause into the current scope.
-In this case, the names added are <code class="highlighter-rouge">begin_</code>, <code class="highlighter-rouge">_≡⟨⟩_</code>, and <code class="highlighter-rouge">_∎</code>.  We
+all the names specified in the <code class="language-plaintext highlighter-rouge">using</code> clause into the current scope.
+In this case, the names added are <code class="language-plaintext highlighter-rouge">begin_</code>, <code class="language-plaintext highlighter-rouge">_≡⟨⟩_</code>, and <code class="language-plaintext highlighter-rouge">_∎</code>.  We
 will see how these are used below.  We take these as givens for now,
 but will see how they are defined in
 Chapter <a href="/Equality/">Equality</a>.</p>
 
 <p>Agda uses underbars to indicate where terms appear in infix or mixfix
-operators. Thus, <code class="highlighter-rouge">_≡_</code> and <code class="highlighter-rouge">_≡⟨⟩_</code> are infix (each operator is written
-between two terms), while <code class="highlighter-rouge">begin_</code> is prefix (it is written before a
-term), and <code class="highlighter-rouge">_∎</code> is postfix (it is written after a term).</p>
+operators. Thus, <code class="language-plaintext highlighter-rouge">_≡_</code> and <code class="language-plaintext highlighter-rouge">_≡⟨⟩_</code> are infix (each operator is written
+between two terms), while <code class="language-plaintext highlighter-rouge">begin_</code> is prefix (it is written before a
+term), and <code class="language-plaintext highlighter-rouge">_∎</code> is postfix (it is written after a term).</p>
 
 <p>Parentheses and semicolons are among the few characters that cannot
-appear in names, so we do not need extra spaces in the <code class="highlighter-rouge">using</code> list.</p>
+appear in names, so we do not need extra spaces in the <code class="language-plaintext highlighter-rouge">using</code> list.</p>
 
 <h2 id="plus">Operations on naturals are recursive functions</h2>
 
@@ -373,23 +373,23 @@ just a couple of lines.</p>
 </pre>
 <p>Let’s unpack this definition.  Addition is an infix operator.  It is
 written with underbars where the arguments go, hence its name is
-<code class="highlighter-rouge">_+_</code>.  The first line is a signature specifying the type of the operator.
-The type <code class="highlighter-rouge">ℕ → ℕ → ℕ</code>, indicates that addition accepts two naturals
+<code class="language-plaintext highlighter-rouge">_+_</code>.  The first line is a signature specifying the type of the operator.
+The type <code class="language-plaintext highlighter-rouge">ℕ → ℕ → ℕ</code>, indicates that addition accepts two naturals
 and returns a natural.  Infix notation is just a shorthand for application;
-the terms <code class="highlighter-rouge">m + n</code> and <code class="highlighter-rouge">_+_ m n</code> are equivalent.</p>
+the terms <code class="language-plaintext highlighter-rouge">m + n</code> and <code class="language-plaintext highlighter-rouge">_+_ m n</code> are equivalent.</p>
 
 <p>The definition has a base case and an inductive case, corresponding to
 those for the natural numbers.  The base case says that adding zero to
-a number, <code class="highlighter-rouge">zero + n</code>, returns that number, <code class="highlighter-rouge">n</code>.  The inductive case
+a number, <code class="language-plaintext highlighter-rouge">zero + n</code>, returns that number, <code class="language-plaintext highlighter-rouge">n</code>.  The inductive case
 says that adding the successor of a number to another number,
-<code class="highlighter-rouge">(suc m) + n</code>, returns the successor of adding the two numbers, <code class="highlighter-rouge">suc (m + n)</code>.
+<code class="language-plaintext highlighter-rouge">(suc m) + n</code>, returns the successor of adding the two numbers, <code class="language-plaintext highlighter-rouge">suc (m + n)</code>.
 We say we use <em>pattern matching</em> when constructors appear on the
 left-hand side of an equation.</p>
 
-<p>If we write <code class="highlighter-rouge">zero</code> as <code class="highlighter-rouge">0</code> and <code class="highlighter-rouge">suc m</code> as <code class="highlighter-rouge">1 + m</code>, the definition turns
+<p>If we write <code class="language-plaintext highlighter-rouge">zero</code> as <code class="language-plaintext highlighter-rouge">0</code> and <code class="language-plaintext highlighter-rouge">suc m</code> as <code class="language-plaintext highlighter-rouge">1 + m</code>, the definition turns
 into two familiar equations:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 0       + n  ≡  n
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 0       + n  ≡  n
  (1 + m) + n  ≡  1 + (m + n)
 </code></pre></div></div>
 
@@ -397,13 +397,13 @@ into two familiar equations:</p>
 second because addition is associative.  In its most general form,
 associativity is written</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> (m + n) + p  ≡  m + (n + p)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> (m + n) + p  ≡  m + (n + p)
 </code></pre></div></div>
 
 <p>meaning that the location of parentheses is irrelevant.  We get the
-second equation from the third by taking <code class="highlighter-rouge">m</code> to be <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">n</code> to be <code class="highlighter-rouge">m</code>,
-and <code class="highlighter-rouge">p</code> to be <code class="highlighter-rouge">n</code>.  We write <code class="highlighter-rouge">=</code> for definitions, while we
-write <code class="highlighter-rouge">≡</code> for assertions that two already defined things are the same.</p>
+second equation from the third by taking <code class="language-plaintext highlighter-rouge">m</code> to be <code class="language-plaintext highlighter-rouge">1</code>, <code class="language-plaintext highlighter-rouge">n</code> to be <code class="language-plaintext highlighter-rouge">m</code>,
+and <code class="language-plaintext highlighter-rouge">p</code> to be <code class="language-plaintext highlighter-rouge">n</code>.  We write <code class="language-plaintext highlighter-rouge">=</code> for definitions, while we
+write <code class="language-plaintext highlighter-rouge">≡</code> for assertions that two already defined things are the same.</p>
 
 <p>The definition is <em>recursive</em>, in that the last line defines addition
 in terms of addition.  As with the inductive definition of the
@@ -444,21 +444,21 @@ expanding shorthand as needed:</p>
     <a id="13718" class="Number">5</a>
   <a id="13722" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2892" class="Function Operator">∎</a>
 </pre>
-<p>The first line matches the inductive case by taking <code class="highlighter-rouge">m = 1</code> and <code class="highlighter-rouge">n = 3</code>,
-the second line matches the inductive case by taking <code class="highlighter-rouge">m = 0</code> and <code class="highlighter-rouge">n = 3</code>,
-and the third line matches the base case by taking <code class="highlighter-rouge">n = 3</code>.</p>
+<p>The first line matches the inductive case by taking <code class="language-plaintext highlighter-rouge">m = 1</code> and <code class="language-plaintext highlighter-rouge">n = 3</code>,
+the second line matches the inductive case by taking <code class="language-plaintext highlighter-rouge">m = 0</code> and <code class="language-plaintext highlighter-rouge">n = 3</code>,
+and the third line matches the base case by taking <code class="language-plaintext highlighter-rouge">n = 3</code>.</p>
 
-<p>Both derivations consist of a signature (written with a colon, <code class="highlighter-rouge">:</code>),
-giving a type, and a binding (written with an equal sign, <code class="highlighter-rouge">=</code>),
-giving a term of the given type.  Here we use the dummy name <code class="highlighter-rouge">_</code>.  The
+<p>Both derivations consist of a signature (written with a colon, <code class="language-plaintext highlighter-rouge">:</code>),
+giving a type, and a binding (written with an equal sign, <code class="language-plaintext highlighter-rouge">=</code>),
+giving a term of the given type.  Here we use the dummy name <code class="language-plaintext highlighter-rouge">_</code>.  The
 dummy name can be reused, and is convenient for examples.  Names other
-than <code class="highlighter-rouge">_</code> must be used only once in a module.</p>
+than <code class="language-plaintext highlighter-rouge">_</code> must be used only once in a module.</p>
 
-<p>Here the type is <code class="highlighter-rouge">2 + 3 ≡ 5</code> and the term provides <em>evidence</em> for the
+<p>Here the type is <code class="language-plaintext highlighter-rouge">2 + 3 ≡ 5</code> and the term provides <em>evidence</em> for the
 corresponding equation, here written in tabular form as a chain of
-equations.  The chain starts with <code class="highlighter-rouge">begin</code> and finishes with <code class="highlighter-rouge">∎</code>
+equations.  The chain starts with <code class="language-plaintext highlighter-rouge">begin</code> and finishes with <code class="language-plaintext highlighter-rouge">∎</code>
 (pronounced “qed” or “tombstone”, the latter from its appearance), and
-consists of a series of terms separated by <code class="highlighter-rouge">≡⟨⟩</code>.</p>
+consists of a series of terms separated by <code class="language-plaintext highlighter-rouge">≡⟨⟩</code>.</p>
 
 <p>In fact, both proofs are longer than need be, and Agda is satisfied
 with the following:</p>
@@ -466,19 +466,19 @@ with the following:</p>
 <a id="14686" class="Symbol">_</a> <a id="14688" class="Symbol">=</a> <a id="14690" href="Agda.Builtin.Equality.html#182" class="InductiveConstructor">refl</a>
 </pre>
 <p>Agda knows how to
-compute the value of <code class="highlighter-rouge">2 + 3</code>, and so can immediately
-check it is the same as <code class="highlighter-rouge">5</code>.  A binary relation is said to be <em>reflexive</em>
+compute the value of <code class="language-plaintext highlighter-rouge">2 + 3</code>, and so can immediately
+check it is the same as <code class="language-plaintext highlighter-rouge">5</code>.  A binary relation is said to be <em>reflexive</em>
 if every value relates to itself.  Evidence that a value is equal to
-itself is written <code class="highlighter-rouge">refl</code>.</p>
+itself is written <code class="language-plaintext highlighter-rouge">refl</code>.</p>
 
 <p>In the chains of equations, all Agda checks is that each term
 simplifies to the same value. If we jumble the equations, omit lines, or
 add extraneous lines it will still be accepted.  It’s up to us to write
 the equations in an order that makes sense to the reader.</p>
 
-<p>Here <code class="highlighter-rouge">2 + 3 ≡ 5</code> is a type, and the chains of equations (and also
-<code class="highlighter-rouge">refl</code>) are terms of the given type; alternatively, one can think of
-each term as <em>evidence</em> for the assertion <code class="highlighter-rouge">2 + 3 ≡ 5</code>.  This duality
+<p>Here <code class="language-plaintext highlighter-rouge">2 + 3 ≡ 5</code> is a type, and the chains of equations (and also
+<code class="language-plaintext highlighter-rouge">refl</code>) are terms of the given type; alternatively, one can think of
+each term as <em>evidence</em> for the assertion <code class="language-plaintext highlighter-rouge">2 + 3 ≡ 5</code>.  This duality
 of interpretation—of a type as a proposition, and of a term as
 evidence—is central to how we formalise concepts in Agda, and will
 be a running theme throughout this book.</p>
@@ -488,9 +488,9 @@ is not like testimony in a court which must be weighed to determine
 whether the witness is trustworthy.  Rather, it is ironclad.  The
 other word for evidence, which we will use interchangeably, is <em>proof</em>.</p>
 
-<h4 id="plus-example">Exercise <code class="highlighter-rouge">+-example</code> (practice)</h4>
+<h4 id="plus-example">Exercise <code class="language-plaintext highlighter-rouge">+-example</code> (practice)</h4>
 
-<p>Compute <code class="highlighter-rouge">3 + 4</code>, writing out your reasoning as a chain of equations.</p>
+<p>Compute <code class="language-plaintext highlighter-rouge">3 + 4</code>, writing out your reasoning as a chain of equations.</p>
 
 <pre class="Agda"><a id="15992" class="Comment">-- Your code goes here</a>
 </pre>
@@ -503,11 +503,11 @@ as repeated addition:</p>
 <a id="16142" href="/Naturals/#1129" class="InductiveConstructor">zero</a>    <a id="16150" href="plfa.part1.Naturals.html#16126" class="Function Operator">*</a> <a id="16152" href="plfa.part1.Naturals.html#16152" class="Bound">n</a>  <a id="16155" class="Symbol">=</a>  <a id="16158" href="plfa.part1.Naturals.html#1129" class="InductiveConstructor">zero</a>
 <a id="16163" class="Symbol">(</a><a id="16164" href="/Naturals/#1140" class="InductiveConstructor">suc</a> <a id="16168" href="plfa.part1.Naturals.html#16168" class="Bound">m</a><a id="16169" class="Symbol">)</a> <a id="16171" href="plfa.part1.Naturals.html#16126" class="Function Operator">*</a> <a id="16173" href="plfa.part1.Naturals.html#16173" class="Bound">n</a>  <a id="16176" class="Symbol">=</a>  <a id="16179" href="plfa.part1.Naturals.html#16173" class="Bound">n</a> <a id="16181" href="plfa.part1.Naturals.html#11248" class="Function Operator">+</a> <a id="16183" class="Symbol">(</a><a id="16184" href="plfa.part1.Naturals.html#16168" class="Bound">m</a> <a id="16186" href="plfa.part1.Naturals.html#16126" class="Function Operator">*</a> <a id="16188" href="plfa.part1.Naturals.html#16173" class="Bound">n</a><a id="16189" class="Symbol">)</a>
 </pre>
-<p>Computing <code class="highlighter-rouge">m * n</code> returns the sum of <code class="highlighter-rouge">m</code> copies of <code class="highlighter-rouge">n</code>.</p>
+<p>Computing <code class="language-plaintext highlighter-rouge">m * n</code> returns the sum of <code class="language-plaintext highlighter-rouge">m</code> copies of <code class="language-plaintext highlighter-rouge">n</code>.</p>
 
 <p>Again, rewriting turns the definition into two familiar equations:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0       * n  ≡  0
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0       * n  ≡  0
 (1 + m) * n  ≡  n + (m * n)
 </code></pre></div></div>
 
@@ -516,12 +516,12 @@ follows because multiplication distributes over addition.
 In its most general form, distribution of multiplication over addition
 is written</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(m + n) * p  ≡  (m * p) + (n * p)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(m + n) * p  ≡  (m * p) + (n * p)
 </code></pre></div></div>
 
-<p>We get the second equation from the third by taking <code class="highlighter-rouge">m</code> to be <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">n</code>
-to be <code class="highlighter-rouge">m</code>, and <code class="highlighter-rouge">p</code> to be <code class="highlighter-rouge">n</code>, and then using the fact that one is an
-identity for multiplication, so <code class="highlighter-rouge">1 * n ≡ n</code>.</p>
+<p>We get the second equation from the third by taking <code class="language-plaintext highlighter-rouge">m</code> to be <code class="language-plaintext highlighter-rouge">1</code>, <code class="language-plaintext highlighter-rouge">n</code>
+to be <code class="language-plaintext highlighter-rouge">m</code>, and <code class="language-plaintext highlighter-rouge">p</code> to be <code class="language-plaintext highlighter-rouge">n</code>, and then using the fact that one is an
+identity for multiplication, so <code class="language-plaintext highlighter-rouge">1 * n ≡ n</code>.</p>
 
 <p>Again, the definition is well founded in that multiplication of
 larger numbers is defined in terms of multiplication of smaller numbers.</p>
@@ -540,28 +540,28 @@ larger numbers is defined in terms of multiplication of smaller numbers.</p>
     <a id="17173" class="Number">6</a>
   <a id="17177" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2892" class="Function Operator">∎</a>
 </pre>
-<p>The first line matches the inductive case by taking <code class="highlighter-rouge">m = 1</code> and <code class="highlighter-rouge">n = 3</code>,
-The second line matches the inductive case by taking <code class="highlighter-rouge">m = 0</code> and <code class="highlighter-rouge">n = 3</code>,
-and the third line matches the base case by taking <code class="highlighter-rouge">n = 3</code>.
-Here we have omitted the signature declaring <code class="highlighter-rouge">_ : 2 * 3 ≡ 6</code>, since
+<p>The first line matches the inductive case by taking <code class="language-plaintext highlighter-rouge">m = 1</code> and <code class="language-plaintext highlighter-rouge">n = 3</code>,
+The second line matches the inductive case by taking <code class="language-plaintext highlighter-rouge">m = 0</code> and <code class="language-plaintext highlighter-rouge">n = 3</code>,
+and the third line matches the base case by taking <code class="language-plaintext highlighter-rouge">n = 3</code>.
+Here we have omitted the signature declaring <code class="language-plaintext highlighter-rouge">_ : 2 * 3 ≡ 6</code>, since
 it can easily be inferred from the corresponding term.</p>
 
-<h4 id="times-example">Exercise <code class="highlighter-rouge">*-example</code> (practice)</h4>
+<h4 id="times-example">Exercise <code class="language-plaintext highlighter-rouge">*-example</code> (practice)</h4>
 
-<p>Compute <code class="highlighter-rouge">3 * 4</code>, writing out your reasoning as a chain of equations.</p>
+<p>Compute <code class="language-plaintext highlighter-rouge">3 * 4</code>, writing out your reasoning as a chain of equations.</p>
 
 <pre class="Agda"><a id="17644" class="Comment">-- Your code goes here</a>
 </pre>
 
-<h4 id="power">Exercise <code class="highlighter-rouge">_^_</code> (recommended)</h4>
+<h4 id="power">Exercise <code class="language-plaintext highlighter-rouge">_^_</code> (recommended)</h4>
 
 <p>Define exponentiation, which is given by the following equations:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>m ^ 0        =  1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>m ^ 0        =  1
 m ^ (1 + n)  =  m * (m ^ n)
 </code></pre></div></div>
 
-<p>Check that <code class="highlighter-rouge">3 ^ 4</code> is <code class="highlighter-rouge">81</code>.</p>
+<p>Check that <code class="language-plaintext highlighter-rouge">3 ^ 4</code> is <code class="language-plaintext highlighter-rouge">81</code>.</p>
 
 <pre class="Agda"><a id="17872" class="Comment">-- Your code goes here</a>
 </pre>
@@ -585,11 +585,11 @@ matching against both arguments:</p>
 <ul>
   <li>Consider the second argument.
     <ul>
-      <li>If it is <code class="highlighter-rouge">zero</code>, then the first equation applies.</li>
-      <li>If it is <code class="highlighter-rouge">suc n</code>, then consider the first argument.
+      <li>If it is <code class="language-plaintext highlighter-rouge">zero</code>, then the first equation applies.</li>
+      <li>If it is <code class="language-plaintext highlighter-rouge">suc n</code>, then consider the first argument.
         <ul>
-          <li>If it is <code class="highlighter-rouge">zero</code>, then the second equation applies.</li>
-          <li>If it is <code class="highlighter-rouge">suc m</code>, then the third equation applies.</li>
+          <li>If it is <code class="language-plaintext highlighter-rouge">zero</code>, then the second equation applies.</li>
+          <li>If it is <code class="language-plaintext highlighter-rouge">suc m</code>, then the third equation applies.</li>
         </ul>
       </li>
     </ul>
@@ -625,9 +625,9 @@ if we try to subtract a larger number from a smaller one:</p>
     <a id="19124" class="Number">0</a>
   <a id="19128" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2892" class="Function Operator">∎</a>
 </pre>
-<h4 id="monus-examples">Exercise <code class="highlighter-rouge">∸-examples</code> (recommended)</h4>
+<h4 id="monus-examples">Exercise <code class="language-plaintext highlighter-rouge">∸-examples</code> (recommended)</h4>
 
-<p>Compute <code class="highlighter-rouge">5 ∸ 3</code> and <code class="highlighter-rouge">3 ∸ 5</code>, writing out your reasoning as a chain of equations.</p>
+<p>Compute <code class="language-plaintext highlighter-rouge">5 ∸ 3</code> and <code class="language-plaintext highlighter-rouge">3 ∸ 5</code>, writing out your reasoning as a chain of equations.</p>
 
 <pre class="Agda"><a id="19281" class="Comment">-- Your code goes here</a>
 </pre>
@@ -636,24 +636,24 @@ if we try to subtract a larger number from a smaller one:</p>
 
 <p>We often use <em>precedence</em> to avoid writing too many parentheses.
 Application <em>binds more tightly than</em> (or <em>has precedence over</em>) any
-operator, and so we may write <code class="highlighter-rouge">suc m + n</code> to mean <code class="highlighter-rouge">(suc m) + n</code>.
+operator, and so we may write <code class="language-plaintext highlighter-rouge">suc m + n</code> to mean <code class="language-plaintext highlighter-rouge">(suc m) + n</code>.
 As another example, we say that multiplication binds more tightly than
-addition, and so write <code class="highlighter-rouge">n + m * n</code> to mean <code class="highlighter-rouge">n + (m * n)</code>.
+addition, and so write <code class="language-plaintext highlighter-rouge">n + m * n</code> to mean <code class="language-plaintext highlighter-rouge">n + (m * n)</code>.
 We also sometimes say that addition <em>associates to the left</em>, and
-so write <code class="highlighter-rouge">m + n + p</code> to mean <code class="highlighter-rouge">(m + n) + p</code>.</p>
+so write <code class="language-plaintext highlighter-rouge">m + n + p</code> to mean <code class="language-plaintext highlighter-rouge">(m + n) + p</code>.</p>
 
 <p>In Agda the precedence and associativity of infix operators
 needs to be declared:</p>
 <pre class="Agda"><a id="19850" class="Keyword">infixl</a> <a id="19857" class="Number">6</a>  <a id="19860" href="/Naturals/#11248" class="Primitive Operator">_+_</a>  <a id="19865" href="plfa.part1.Naturals.html#18256" class="Primitive Operator">_∸_</a>
 <a id="19869" class="Keyword">infixl</a> <a id="19876" class="Number">7</a>  <a id="19879" href="/Naturals/#16126" class="Primitive Operator">_*_</a>
 </pre>
-<p>This states operators <code class="highlighter-rouge">_+_</code> and <code class="highlighter-rouge">_∸_</code> have precedence level 6,
-and operator <code class="highlighter-rouge">_*_</code> has precedence level 7.
+<p>This states operators <code class="language-plaintext highlighter-rouge">_+_</code> and <code class="language-plaintext highlighter-rouge">_∸_</code> have precedence level 6,
+and operator <code class="language-plaintext highlighter-rouge">_*_</code> has precedence level 7.
 Addition and monus bind less tightly than multiplication
 because they have lower precedence.
-Writing <code class="highlighter-rouge">infixl</code> indicates that all three
-operators associate to the left.  One can also write <code class="highlighter-rouge">infixr</code> to
-indicate that an operator associates to the right, or just <code class="highlighter-rouge">infix</code> to
+Writing <code class="language-plaintext highlighter-rouge">infixl</code> indicates that all three
+operators associate to the left.  One can also write <code class="language-plaintext highlighter-rouge">infixr</code> to
+indicate that an operator associates to the right, or just <code class="language-plaintext highlighter-rouge">infix</code> to
 indicate that parentheses are always required to disambiguate.</p>
 
 <h2 id="currying">Currying</h2>
@@ -666,13 +666,13 @@ second argument.  This trick goes by the name <em>currying</em>.</p>
 is designed to make currying easy to use.  Function
 arrows associate to the right and application associates to the left</p>
 
-<p><code class="highlighter-rouge">ℕ → ℕ → ℕ</code> stands for <code class="highlighter-rouge">ℕ → (ℕ → ℕ)</code></p>
+<p><code class="language-plaintext highlighter-rouge">ℕ → ℕ → ℕ</code> stands for <code class="language-plaintext highlighter-rouge">ℕ → (ℕ → ℕ)</code></p>
 
 <p>and</p>
 
-<p><code class="highlighter-rouge">_+_ 2 3</code> stands for <code class="highlighter-rouge">(_+_ 2) 3</code>.</p>
+<p><code class="language-plaintext highlighter-rouge">_+_ 2 3</code> stands for <code class="language-plaintext highlighter-rouge">(_+_ 2) 3</code>.</p>
 
-<p>The term <code class="highlighter-rouge">_+_ 2</code> by itself stands for the function that adds two to
+<p>The term <code class="language-plaintext highlighter-rouge">_+_ 2</code> by itself stands for the function that adds two to
 its argument, hence applying it to three yields five.</p>
 
 <p>Currying is named for Haskell Curry, after whom the programming
@@ -694,7 +694,7 @@ of addition.</p>
 resorting to unpermitted circularities.  We do so by reducing our
 definition to equivalent inference rules for judgments about equality:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>n : ℕ
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>n : ℕ
 --------------
 zero + n  =  n
 
@@ -704,26 +704,26 @@ m + n  =  p
 </code></pre></div></div>
 
 <p>Here we assume we have already defined the infinite set of natural
-numbers, specifying the meaning of the judgment <code class="highlighter-rouge">n : ℕ</code>.  The first
-inference rule is the base case.  It asserts that if <code class="highlighter-rouge">n</code> is a natural number
-then adding zero to it gives <code class="highlighter-rouge">n</code>.  The second inference rule is the inductive
-case. It asserts that if adding <code class="highlighter-rouge">m</code> and <code class="highlighter-rouge">n</code> gives <code class="highlighter-rouge">p</code>, then adding <code class="highlighter-rouge">suc m</code> and
-<code class="highlighter-rouge">n</code> gives <code class="highlighter-rouge">suc p</code>.</p>
+numbers, specifying the meaning of the judgment <code class="language-plaintext highlighter-rouge">n : ℕ</code>.  The first
+inference rule is the base case.  It asserts that if <code class="language-plaintext highlighter-rouge">n</code> is a natural number
+then adding zero to it gives <code class="language-plaintext highlighter-rouge">n</code>.  The second inference rule is the inductive
+case. It asserts that if adding <code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code> gives <code class="language-plaintext highlighter-rouge">p</code>, then adding <code class="language-plaintext highlighter-rouge">suc m</code> and
+<code class="language-plaintext highlighter-rouge">n</code> gives <code class="language-plaintext highlighter-rouge">suc p</code>.</p>
 
 <p>Again we resort to a creation story, where this time we are
 concerned with judgments about addition:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- In the beginning, we know nothing about addition.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- In the beginning, we know nothing about addition.
 </code></pre></div></div>
 
 <p>Now, we apply the rules to all the judgment we know about.
-The base case tells us that <code class="highlighter-rouge">zero + n = n</code> for every natural <code class="highlighter-rouge">n</code>,
+The base case tells us that <code class="language-plaintext highlighter-rouge">zero + n = n</code> for every natural <code class="language-plaintext highlighter-rouge">n</code>,
 so we add all those equations.  The inductive case tells us that if
-<code class="highlighter-rouge">m + n = p</code> (on the day before today) then <code class="highlighter-rouge">suc m + n = suc p</code>
+<code class="language-plaintext highlighter-rouge">m + n = p</code> (on the day before today) then <code class="language-plaintext highlighter-rouge">suc m + n = suc p</code>
 (today).  We didn’t know any equations about addition before today,
 so that rule doesn’t give us any new equations:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the first day, we know about addition of 0.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the first day, we know about addition of 0.
 0 + 0 = 0     0 + 1 = 1    0 + 2 = 2     ...
 </code></pre></div></div>
 
@@ -732,14 +732,14 @@ equations from the day before, plus any equations added by the rules.
 The base case tells us nothing new, but now the inductive case adds
 more equations:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the second day, we know about addition of 0 and 1.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the second day, we know about addition of 0 and 1.
 0 + 0 = 0     0 + 1 = 1     0 + 2 = 2     0 + 3 = 3     ...
 1 + 0 = 1     1 + 1 = 2     1 + 2 = 3     1 + 3 = 4     ...
 </code></pre></div></div>
 
 <p>And we repeat the process again:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the third day, we know about addition of 0, 1, and 2.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the third day, we know about addition of 0, 1, and 2.
 0 + 0 = 0     0 + 1 = 1     0 + 2 = 2     0 + 3 = 3     ...
 1 + 0 = 1     1 + 1 = 2     1 + 2 = 3     1 + 3 = 4     ...
 2 + 0 = 2     2 + 1 = 3     2 + 2 = 4     2 + 3 = 5     ...
@@ -747,7 +747,7 @@ more equations:</p>
 
 <p>You’ve got the hang of it by now:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the fourth day, we know about addition of 0, 1, 2, and 3.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the fourth day, we know about addition of 0, 1, 2, and 3.
 0 + 0 = 0     0 + 1 = 1     0 + 2 = 2     0 + 3 = 3     ...
 1 + 0 = 1     1 + 1 = 2     1 + 2 = 3     1 + 3 = 4     ...
 2 + 0 = 2     2 + 1 = 3     2 + 2 = 4     2 + 3 = 5     ...
@@ -772,20 +772,20 @@ infinite set of instances.</p>
 of addition at the same time. Then on any day there would be only
 a finite set of instances:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- In the beginning, we know nothing.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- In the beginning, we know nothing.
 </code></pre></div></div>
 
 <p>Now, we apply the rules to all the judgment we know about.  Only the
 base case for naturals applies:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the first day, we know zero.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the first day, we know zero.
 0 : ℕ
 </code></pre></div></div>
 
 <p>Again, we apply all the rules we know.  This gives us a new natural,
 and our first equation about addition.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the second day, we know one and all sums that yield zero.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the second day, we know one and all sums that yield zero.
 0 : ℕ
 1 : ℕ    0 + 0 = 0
 </code></pre></div></div>
@@ -794,7 +794,7 @@ and our first equation about addition.</p>
 from the base case, and also get an equation from the inductive case,
 applied to equation of the previous day:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the third day, we know two and all sums that yield one.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the third day, we know two and all sums that yield one.
 0 : ℕ
 1 : ℕ    0 + 0 = 0
 2 : ℕ    0 + 1 = 1   1 + 0 = 1
@@ -802,7 +802,7 @@ applied to equation of the previous day:</p>
 
 <p>You’ve got the hang of it by now:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the fourth day, we know three and all sums that yield two.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- On the fourth day, we know three and all sums that yield two.
 0 : ℕ
 1 : ℕ    0 + 0 = 0
 2 : ℕ    0 + 1 = 1   1 + 0 = 1
@@ -823,16 +823,16 @@ and proofs interactively.</p>
 
 <p>Begin by typing:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_+_ : ℕ → ℕ → ℕ
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_+_ : ℕ → ℕ → ℕ
 m + n = ?
 </code></pre></div></div>
 
 <p>The question mark indicates that you would like Agda to help with
-filling in that part of the code. If you type <code class="highlighter-rouge">C-c C-l</code> (pressing
-the control key while hitting the <code class="highlighter-rouge">c</code> key followed by the <code class="highlighter-rouge">l</code> key)
+filling in that part of the code. If you type <code class="language-plaintext highlighter-rouge">C-c C-l</code> (pressing
+the control key while hitting the <code class="language-plaintext highlighter-rouge">c</code> key followed by the <code class="language-plaintext highlighter-rouge">l</code> key)
 the question mark will be replaced:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_+_ : ℕ → ℕ → ℕ
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_+_ : ℕ → ℕ → ℕ
 m + n = { }0
 </code></pre></div></div>
 
@@ -840,23 +840,23 @@ m + n = { }0
 referring to the hole.  The hole will display highlighted in green.
 Emacs will also create a window displaying the text</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?0 : ℕ
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?0 : ℕ
 </code></pre></div></div>
 
-<p>to indicate that hole 0 is to be filled in with a term of type <code class="highlighter-rouge">ℕ</code>.
-Typing <code class="highlighter-rouge">C-c C-f</code> will move you into the next hole.</p>
+<p>to indicate that hole 0 is to be filled in with a term of type <code class="language-plaintext highlighter-rouge">ℕ</code>.
+Typing <code class="language-plaintext highlighter-rouge">C-c C-f</code> will move you into the next hole.</p>
 
 <p>We wish to define addition by recursion on the first argument.
-Move the cursor into the hole and type <code class="highlighter-rouge">C-c C-c</code>.   You will be given
+Move the cursor into the hole and type <code class="language-plaintext highlighter-rouge">C-c C-c</code>.   You will be given
 the prompt:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pattern variables to case (empty for split on result):
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pattern variables to case (empty for split on result):
 </code></pre></div></div>
 
-<p>Typing <code class="highlighter-rouge">m</code> will cause a split on that variable, resulting
+<p>Typing <code class="language-plaintext highlighter-rouge">m</code> will cause a split on that variable, resulting
 in an update to the code:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_+_ : ℕ → ℕ → ℕ
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_+_ : ℕ → ℕ → ℕ
 zero + n = { }0
 suc m + n = { }1
 </code></pre></div></div>
@@ -864,67 +864,67 @@ suc m + n = { }1
 <p>There are now two holes, and the window at the bottom tells you the
 required type of each:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?0 : ℕ
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?0 : ℕ
 ?1 : ℕ
 </code></pre></div></div>
 
-<p>Going into hole 0 and type <code class="highlighter-rouge">C-c C-,</code> will display information on the
+<p>Going into hole 0 and type <code class="language-plaintext highlighter-rouge">C-c C-,</code> will display information on the
 required type of the hole, and what free variables are available:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Goal: ℕ
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Goal: ℕ
 ————————————————————————————————————————————————————————————
 n : ℕ
 </code></pre></div></div>
 
-<p>This strongly suggests filling the hole with <code class="highlighter-rouge">n</code>.  After the hole is
-filled, you can type <code class="highlighter-rouge">C-c C-space</code>, which will remove the hole:</p>
+<p>This strongly suggests filling the hole with <code class="language-plaintext highlighter-rouge">n</code>.  After the hole is
+filled, you can type <code class="language-plaintext highlighter-rouge">C-c C-space</code>, which will remove the hole:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_+_ : ℕ → ℕ → ℕ
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_+_ : ℕ → ℕ → ℕ
 zero + n = n
 suc m + n = { }1
 </code></pre></div></div>
 
-<p>Again, going into hole 1 and type <code class="highlighter-rouge">C-c C-,</code> will display information on the
+<p>Again, going into hole 1 and type <code class="language-plaintext highlighter-rouge">C-c C-,</code> will display information on the
 required type of the hole, and what free variables are available:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Goal: ℕ
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Goal: ℕ
 ————————————————————————————————————————————————————————————
 n : ℕ
 m : ℕ
 </code></pre></div></div>
 
-<p>Going into the hole and type <code class="highlighter-rouge">C-c C-r</code> will fill it in with a constructor
+<p>Going into the hole and type <code class="language-plaintext highlighter-rouge">C-c C-r</code> will fill it in with a constructor
 (if there is a unique choice) or tell you what constructors you might use,
 if there is a choice.  In this case, it displays the following:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Don't know which constructor to introduce of zero or suc
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Don't know which constructor to introduce of zero or suc
 </code></pre></div></div>
 
-<p>Filling the hole with <code class="highlighter-rouge">suc ?</code> and typing <code class="highlighter-rouge">C-c C-space</code> results in the following:</p>
+<p>Filling the hole with <code class="language-plaintext highlighter-rouge">suc ?</code> and typing <code class="language-plaintext highlighter-rouge">C-c C-space</code> results in the following:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_+_ : ℕ → ℕ → ℕ
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_+_ : ℕ → ℕ → ℕ
 zero + n = n
 suc m + n = suc { }1
 </code></pre></div></div>
 
-<p>Going into the new hole and typing <code class="highlighter-rouge">C-c C-,</code> gives similar information to before:</p>
+<p>Going into the new hole and typing <code class="language-plaintext highlighter-rouge">C-c C-,</code> gives similar information to before:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Goal: ℕ
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Goal: ℕ
 ————————————————————————————————————————————————————————————
 n : ℕ
 m : ℕ
 </code></pre></div></div>
 
-<p>We can fill the hole with <code class="highlighter-rouge">m + n</code> and type <code class="highlighter-rouge">C-c C-space</code> to complete the program:</p>
+<p>We can fill the hole with <code class="language-plaintext highlighter-rouge">m + n</code> and type <code class="language-plaintext highlighter-rouge">C-c C-space</code> to complete the program:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_+_ : ℕ → ℕ → ℕ
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_+_ : ℕ → ℕ → ℕ
 zero + n = n
 suc m + n = suc (m + n)
 </code></pre></div></div>
 
 <p>Exploiting interaction to this degree is probably not helpful for a program this
 simple, but the same techniques can help with more complex programs.  Even for
-a program this simple, using <code class="highlighter-rouge">C-c C-c</code> to split cases can be helpful.</p>
+a program this simple, using <code class="language-plaintext highlighter-rouge">C-c C-c</code> to split cases can be helpful.</p>
 
 <h2 id="more-pragmas">More pragmas</h2>
 
@@ -936,16 +936,16 @@ a program this simple, using <code class="highlighter-rouge">C-c C-c</code> to s
 <p>tells Agda that these three operators correspond to the usual ones,
 and enables it to perform these computations using the corresponding
 Haskell operators on the arbitrary-precision integer type.
-Representing naturals with <code class="highlighter-rouge">zero</code> and <code class="highlighter-rouge">suc</code> requires time proportional
+Representing naturals with <code class="language-plaintext highlighter-rouge">zero</code> and <code class="language-plaintext highlighter-rouge">suc</code> requires time proportional
 to <em>m</em> to add <em>m</em> and <em>n</em>, whereas representing naturals as integers
 in Haskell requires time proportional to the larger of the logarithms
-of <em>m</em> and <em>n</em>.  Similarly, representing naturals with <code class="highlighter-rouge">zero</code>
-and <code class="highlighter-rouge">suc</code> requires time proportional to the product of <em>m</em> and <em>n</em> to
+of <em>m</em> and <em>n</em>.  Similarly, representing naturals with <code class="language-plaintext highlighter-rouge">zero</code>
+and <code class="language-plaintext highlighter-rouge">suc</code> requires time proportional to the product of <em>m</em> and <em>n</em> to
 multiply <em>m</em> and <em>n</em>, whereas representing naturals as integers in
 Haskell requires time proportional to the sum of the logarithms of
 <em>m</em> and <em>n</em>.</p>
 
-<h4 id="Bin">Exercise <code class="highlighter-rouge">Bin</code> (stretch)</h4>
+<h4 id="Bin">Exercise <code class="language-plaintext highlighter-rouge">Bin</code> (stretch)</h4>
 
 <p>A more efficient representation of natural numbers uses a binary
 rather than a unary system.  We represent a number as a bitstring:</p>
@@ -956,29 +956,29 @@ rather than a unary system.  We represent a number as a bitstring:</p>
 </pre>
 <p>For instance, the bitstring</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1011
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1011
 </code></pre></div></div>
 
 <p>standing for the number eleven is encoded as</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⟨⟩ I O I I
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⟨⟩ I O I I
 </code></pre></div></div>
 
 <p>Representations are not unique due to leading zeros.
-Hence, eleven is also represented by <code class="highlighter-rouge">001011</code>, encoded as:</p>
+Hence, eleven is also represented by <code class="language-plaintext highlighter-rouge">001011</code>, encoded as:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⟨⟩ O I O I I
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⟨⟩ O I O I I
 </code></pre></div></div>
 
 <p>Define a function</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>inc : Bin → Bin
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>inc : Bin → Bin
 </code></pre></div></div>
 
 <p>that converts a bitstring to the bitstring for the next higher
-number.  For example, since <code class="highlighter-rouge">1100</code> encodes twelve, we should have:</p>
+number.  For example, since <code class="language-plaintext highlighter-rouge">1100</code> encodes twelve, we should have:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>inc (⟨⟩ I O I I) ≡ ⟨⟩ I I O O
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>inc (⟨⟩ I O I I) ≡ ⟨⟩ I I O O
 </code></pre></div></div>
 
 <p>Confirm that this gives the correct answer for the bitstrings
@@ -987,12 +987,12 @@ encoding zero through four.</p>
 <p>Using the above, define a pair of functions to convert
 between the two representations.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>to   : ℕ → Bin
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>to   : ℕ → Bin
 from : Bin → ℕ
 </code></pre></div></div>
 
 <p>For the former, choose the bitstring to have no leading zeros if it
-represents a positive natural, and represent zero by <code class="highlighter-rouge">⟨⟩ O</code>.
+represents a positive natural, and represent zero by <code class="language-plaintext highlighter-rouge">⟨⟩ O</code>.
 Confirm that these both give the correct answer for zero through four.</p>
 
 <pre class="Agda"><a id="30893" class="Comment">-- Your code goes here</a>
@@ -1003,18 +1003,18 @@ Confirm that these both give the correct answer for zero through four.</p>
 <p>At the end of each chapter, we will show where to find relevant
 definitions in the standard library.  The naturals, constructors for
 them, and basic operators upon them, are defined in the standard
-library module <code class="highlighter-rouge">Data.Nat</code>:</p>
+library module <code class="language-plaintext highlighter-rouge">Data.Nat</code>:</p>
 
 <pre class="Agda"><a id="31173" class="Comment">-- import Data.Nat using (ℕ; zero; suc; _+_; _*_; _^_; _∸_)</a>
 </pre>
 <p>Normally, we will show an import as running code, so Agda will
 complain if we attempt to import a definition that is not available.
 This time, however, we have only shown the import as a comment.  Both
-this chapter and the standard library invoke the <code class="highlighter-rouge">NATURAL</code> pragma, the
-former on <code class="highlighter-rouge">ℕ</code>, and the latter on the equivalent type <code class="highlighter-rouge">Data.Nat.ℕ</code>.
+this chapter and the standard library invoke the <code class="language-plaintext highlighter-rouge">NATURAL</code> pragma, the
+former on <code class="language-plaintext highlighter-rouge">ℕ</code>, and the latter on the equivalent type <code class="language-plaintext highlighter-rouge">Data.Nat.ℕ</code>.
 Such a pragma can only be invoked once, as invoking it twice would
-raise confusion as to whether <code class="highlighter-rouge">2</code> is a value of type <code class="highlighter-rouge">ℕ</code> or type
-<code class="highlighter-rouge">Data.Nat.ℕ</code>.  Similar confusions arise if other pragmas are invoked
+raise confusion as to whether <code class="language-plaintext highlighter-rouge">2</code> is a value of type <code class="language-plaintext highlighter-rouge">ℕ</code> or type
+<code class="language-plaintext highlighter-rouge">Data.Nat.ℕ</code>.  Similar confusions arise if other pragmas are invoked
 twice. For this reason, we will usually avoid pragmas in future chapters.
 Information on pragmas can be found in the Agda documentation.</p>
 
@@ -1022,7 +1022,7 @@ Information on pragmas can be found in the Agda documentation.</p>
 
 <p>This chapter uses the following unicode:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ℕ  U+2115  DOUBLE-STRUCK CAPITAL N (\bN)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ℕ  U+2115  DOUBLE-STRUCK CAPITAL N (\bN)
 →  U+2192  RIGHTWARDS ARROW (\to, \r, \-&gt;)
 ∸  U+2238  DOT MINUS (\.-)
 ≡  U+2261  IDENTICAL TO (\==)
@@ -1031,25 +1031,25 @@ Information on pragmas can be found in the Agda documentation.</p>
 ∎  U+220E  END OF PROOF (\qed)
 </code></pre></div></div>
 
-<p>Each line consists of the Unicode character (<code class="highlighter-rouge">ℕ</code>), the corresponding
-code point (<code class="highlighter-rouge">U+2115</code>), the name of the character (<code class="highlighter-rouge">DOUBLE-STRUCK CAPITAL N</code>),
-and the sequence to type into Emacs to generate the character (<code class="highlighter-rouge">\bN</code>).</p>
+<p>Each line consists of the Unicode character (<code class="language-plaintext highlighter-rouge">ℕ</code>), the corresponding
+code point (<code class="language-plaintext highlighter-rouge">U+2115</code>), the name of the character (<code class="language-plaintext highlighter-rouge">DOUBLE-STRUCK CAPITAL N</code>),
+and the sequence to type into Emacs to generate the character (<code class="language-plaintext highlighter-rouge">\bN</code>).</p>
 
-<p>The command <code class="highlighter-rouge">\r</code> gives access to a wide variety of rightward arrows.
-After typing <code class="highlighter-rouge">\r</code>, one can access the many available arrows by using
+<p>The command <code class="language-plaintext highlighter-rouge">\r</code> gives access to a wide variety of rightward arrows.
+After typing <code class="language-plaintext highlighter-rouge">\r</code>, one can access the many available arrows by using
 the left, right, up, and down keys to navigate.  The command remembers
 where you navigated to the last time, and starts with the same
-character next time.  The command <code class="highlighter-rouge">\l</code> works similarly for left arrows.</p>
+character next time.  The command <code class="language-plaintext highlighter-rouge">\l</code> works similarly for left arrows.</p>
 
 <p>In place of left, right, up, and down keys, one may also use control characters:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C-b  left (backward one character)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C-b  left (backward one character)
 C-f  right (forward one character)
 C-p  up (to the previous line)
 C-n  down (to the next line)
 </code></pre></div></div>
 
-<p>We write <code class="highlighter-rouge">C-b</code> to stand for control-b, and similarly.  One can also navigate
+<p>We write <code class="language-plaintext highlighter-rouge">C-b</code> to stand for control-b, and similarly.  One can also navigate
 left and right by typing the digits that appear in the displayed list.</p>
 
   </div>

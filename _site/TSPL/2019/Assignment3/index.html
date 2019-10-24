@@ -123,41 +123,41 @@ yourself, or your group in the case of group practicals).</p>
 
 <h2 id="lists">Lists</h2>
 
-<h4 id="exercise-reverse--distrib-recommended">Exercise <code class="highlighter-rouge">reverse-++-distrib</code> (recommended)</h4>
+<h4 id="exercise-reverse--distrib-recommended">Exercise <code class="language-plaintext highlighter-rouge">reverse-++-distrib</code> (recommended)</h4>
 
 <p>Show that the reverse of one list appended to another is the
 reverse of the second appended to the reverse of the first:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reverse (xs ++ ys) ≡ reverse ys ++ reverse xs
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reverse (xs ++ ys) ≡ reverse ys ++ reverse xs
 </code></pre></div></div>
 
-<h4 id="exercise-reverse-involutive-recommended">Exercise <code class="highlighter-rouge">reverse-involutive</code> (recommended)</h4>
+<h4 id="exercise-reverse-involutive-recommended">Exercise <code class="language-plaintext highlighter-rouge">reverse-involutive</code> (recommended)</h4>
 
 <p>A function is an <em>involution</em> if when applied twice it acts
 as the identity function.  Show that reverse is an involution:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reverse (reverse xs) ≡ xs
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reverse (reverse xs) ≡ xs
 </code></pre></div></div>
 
-<h4 id="exercise-map-compose-practice">Exercise <code class="highlighter-rouge">map-compose</code> (practice)</h4>
+<h4 id="exercise-map-compose-practice">Exercise <code class="language-plaintext highlighter-rouge">map-compose</code> (practice)</h4>
 
 <p>Prove that the map of a composition is equal to the composition of two maps:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map (g ∘ f) ≡ map g ∘ map f
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map (g ∘ f) ≡ map g ∘ map f
 </code></pre></div></div>
 
 <p>The last step of the proof requires extensionality.</p>
 
-<h4 id="exercise-map--distribute-practice">Exercise <code class="highlighter-rouge">map-++-distribute</code> (practice)</h4>
+<h4 id="exercise-map--distribute-practice">Exercise <code class="language-plaintext highlighter-rouge">map-++-distribute</code> (practice)</h4>
 
 <p>Prove the following relationship between map and append:</p>
 
 <p>map f (xs ++ ys) ≡ map f xs ++ map f ys</p>
 
-<h4 id="exercise-map-tree-practice">Exercise <code class="highlighter-rouge">map-Tree</code> (practice)</h4>
+<h4 id="exercise-map-tree-practice">Exercise <code class="language-plaintext highlighter-rouge">map-Tree</code> (practice)</h4>
 
-<p>Define a type of trees with leaves of type <code class="highlighter-rouge">A</code> and internal
-nodes of type <code class="highlighter-rouge">B</code>:</p>
+<p>Define a type of trees with leaves of type <code class="language-plaintext highlighter-rouge">A</code> and internal
+nodes of type <code class="language-plaintext highlighter-rouge">B</code>:</p>
 <pre class="Agda"><a id="3323" class="Keyword">data</a> <a id="Tree"></a><a id="3328" href="/TSPL/2019/Assignment3/#3328" class="Datatype">Tree</a> <a id="3333" class="Symbol">(</a><a id="3334" href="Assignment3.html#3334" class="Bound">A</a> <a id="3336" href="Assignment3.html#3336" class="Bound">B</a> <a id="3338" class="Symbol">:</a> <a id="3340" class="PrimitiveType">Set</a><a id="3343" class="Symbol">)</a> <a id="3345" class="Symbol">:</a> <a id="3347" class="PrimitiveType">Set</a> <a id="3351" class="Keyword">where</a>
   <a id="Tree.leaf"></a><a id="3359" href="/TSPL/2019/Assignment3/#3359" class="InductiveConstructor">leaf</a> <a id="3364" class="Symbol">:</a> <a id="3366" href="Assignment3.html#3334" class="Bound">A</a> <a id="3368" class="Symbol">→</a> <a id="3370" href="Assignment3.html#3328" class="Datatype">Tree</a> <a id="3375" href="Assignment3.html#3334" class="Bound">A</a> <a id="3377" href="Assignment3.html#3336" class="Bound">B</a>
   <a id="Tree.node"></a><a id="3381" href="/TSPL/2019/Assignment3/#3381" class="InductiveConstructor">node</a> <a id="3386" class="Symbol">:</a> <a id="3388" href="Assignment3.html#3328" class="Datatype">Tree</a> <a id="3393" href="Assignment3.html#3334" class="Bound">A</a> <a id="3395" href="Assignment3.html#3336" class="Bound">B</a> <a id="3397" class="Symbol">→</a> <a id="3399" href="Assignment3.html#3336" class="Bound">B</a> <a id="3401" class="Symbol">→</a> <a id="3403" href="Assignment3.html#3328" class="Datatype">Tree</a> <a id="3408" href="Assignment3.html#3334" class="Bound">A</a> <a id="3410" href="Assignment3.html#3336" class="Bound">B</a> <a id="3412" class="Symbol">→</a> <a id="3414" href="Assignment3.html#3328" class="Datatype">Tree</a> <a id="3419" href="Assignment3.html#3334" class="Bound">A</a> <a id="3421" href="Assignment3.html#3336" class="Bound">B</a>
@@ -168,17 +168,17 @@ nodes of type <code class="highlighter-rouge">B</code>:</p>
     <a id="3519" class="Symbol">→</a> <a id="3521" class="Symbol">(</a><a id="3522" href="/TSPL/2019/Assignment3/#3500" class="Bound">A</a> <a id="3524" class="Symbol">→</a> <a id="3526" href="Assignment3.html#3504" class="Bound">C</a><a id="3527" class="Symbol">)</a> <a id="3529" class="Symbol">→</a> <a id="3531" class="Symbol">(</a><a id="3532" href="Assignment3.html#3502" class="Bound">B</a> <a id="3534" class="Symbol">→</a> <a id="3536" href="Assignment3.html#3506" class="Bound">D</a><a id="3537" class="Symbol">)</a> <a id="3539" class="Symbol">→</a> <a id="3541" href="Assignment3.html#3328" class="Datatype">Tree</a> <a id="3546" href="Assignment3.html#3500" class="Bound">A</a> <a id="3548" href="Assignment3.html#3502" class="Bound">B</a> <a id="3550" class="Symbol">→</a> <a id="3552" href="Assignment3.html#3328" class="Datatype">Tree</a> <a id="3557" href="Assignment3.html#3504" class="Bound">C</a> <a id="3559" href="Assignment3.html#3506" class="Bound">D</a>
 </pre>
 
-<h4 id="exercise-product-recommended">Exercise <code class="highlighter-rouge">product</code> (recommended)</h4>
+<h4 id="exercise-product-recommended">Exercise <code class="language-plaintext highlighter-rouge">product</code> (recommended)</h4>
 
 <p>Use fold to define a function to find the product of a list of numbers.
 For example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>product [ 1 , 2 , 3 , 4 ] ≡ 24
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>product [ 1 , 2 , 3 , 4 ] ≡ 24
 </code></pre></div></div>
 
 <pre class="Agda"><a id="3732" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-foldr--recommended">Exercise <code class="highlighter-rouge">foldr-++</code> (recommended)</h4>
+<h4 id="exercise-foldr--recommended">Exercise <code class="language-plaintext highlighter-rouge">foldr-++</code> (recommended)</h4>
 
 <p>Show that fold and append are related as follows:</p>
 <pre class="Agda"><a id="3854" class="Keyword">postulate</a>
@@ -186,7 +186,7 @@ For example:</p>
     <a id="3940" href="/Lists/#15293" class="Function">foldr</a> <a id="3946" href="/TSPL/2019/Assignment3/#3892" class="Bound Operator">_⊗_</a> <a id="3950" href="Assignment3.html#3910" class="Bound">e</a> <a id="3952" class="Symbol">(</a><a id="3953" href="Assignment3.html#3918" class="Bound">xs</a> <a id="3956" href="plfa.part1.Lists.html#3467" class="Function Operator">++</a> <a id="3959" href="Assignment3.html#3921" class="Bound">ys</a><a id="3961" class="Symbol">)</a> <a id="3963" href="Agda.Builtin.Equality.html#125" class="Datatype Operator">≡</a> <a id="3965" href="plfa.part1.Lists.html#15293" class="Function">foldr</a> <a id="3971" href="Assignment3.html#3892" class="Bound Operator">_⊗_</a> <a id="3975" class="Symbol">(</a><a id="3976" href="plfa.part1.Lists.html#15293" class="Function">foldr</a> <a id="3982" href="Assignment3.html#3892" class="Bound Operator">_⊗_</a> <a id="3986" href="Assignment3.html#3910" class="Bound">e</a> <a id="3988" href="Assignment3.html#3921" class="Bound">ys</a><a id="3990" class="Symbol">)</a> <a id="3992" href="Assignment3.html#3918" class="Bound">xs</a>
 </pre>
 
-<h4 id="exercise-map-is-foldr-practice">Exercise <code class="highlighter-rouge">map-is-foldr</code> (practice)</h4>
+<h4 id="exercise-map-is-foldr-practice">Exercise <code class="language-plaintext highlighter-rouge">map-is-foldr</code> (practice)</h4>
 
 <p>Show that map can be defined using fold:</p>
 <pre class="Agda"><a id="4087" class="Keyword">postulate</a>
@@ -195,7 +195,7 @@ For example:</p>
 </pre>
 <p>This requires extensionality.</p>
 
-<h4 id="exercise-fold-tree-practice">Exercise <code class="highlighter-rouge">fold-Tree</code> (practice)</h4>
+<h4 id="exercise-fold-tree-practice">Exercise <code class="language-plaintext highlighter-rouge">fold-Tree</code> (practice)</h4>
 
 <p>Define a suitable fold function for the type of trees given earlier:</p>
 <pre class="Agda"><a id="4329" class="Keyword">postulate</a>
@@ -204,13 +204,13 @@ For example:</p>
 </pre>
 <pre class="Agda"><a id="4425" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-map-is-fold-tree-practice">Exercise <code class="highlighter-rouge">map-is-fold-Tree</code> (practice)</h4>
+<h4 id="exercise-map-is-fold-tree-practice">Exercise <code class="language-plaintext highlighter-rouge">map-is-fold-Tree</code> (practice)</h4>
 
-<p>Demonstrate an analogue of <code class="highlighter-rouge">map-is-foldr</code> for the type of trees.</p>
+<p>Demonstrate an analogue of <code class="language-plaintext highlighter-rouge">map-is-foldr</code> for the type of trees.</p>
 
 <pre class="Agda"><a id="4568" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-sum-downfrom-stretch">Exercise <code class="highlighter-rouge">sum-downFrom</code> (stretch)</h4>
+<h4 id="exercise-sum-downfrom-stretch">Exercise <code class="language-plaintext highlighter-rouge">sum-downFrom</code> (stretch)</h4>
 
 <p>Define a function that counts down as follows:</p>
 <pre class="Agda"><a id="downFrom"></a><a id="4687" href="/TSPL/2019/Assignment3/#4687" class="Function">downFrom</a> <a id="4696" class="Symbol">:</a> <a id="4698" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a> <a id="4700" class="Symbol">→</a> <a id="4702" href="/Lists/#1067" class="Datatype">List</a> <a id="4707" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a>
@@ -221,92 +221,92 @@ For example:</p>
 <pre class="Agda"><a id="4790" href="/TSPL/2019/Assignment3/#4790" class="Function">_</a> <a id="4792" class="Symbol">:</a> <a id="4794" href="Assignment3.html#4687" class="Function">downFrom</a> <a id="4803" class="Number">3</a> <a id="4805" href="Agda.Builtin.Equality.html#125" class="Datatype Operator">≡</a> <a id="4807" href="/Lists/#2881" class="InductiveConstructor Operator">[</a> <a id="4809" class="Number">2</a> <a id="4811" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">,</a> <a id="4813" class="Number">1</a> <a id="4815" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">,</a> <a id="4817" class="Number">0</a> <a id="4819" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">]</a>
 <a id="4821" class="Symbol">_</a> <a id="4823" class="Symbol">=</a> <a id="4825" href="Agda.Builtin.Equality.html#182" class="InductiveConstructor">refl</a>
 </pre>
-<p>Prove that the sum of the numbers <code class="highlighter-rouge">(n - 1) + ⋯ + 0</code> is
-equal to <code class="highlighter-rouge">n * (n ∸ 1) / 2</code>:</p>
+<p>Prove that the sum of the numbers <code class="language-plaintext highlighter-rouge">(n - 1) + ⋯ + 0</code> is
+equal to <code class="language-plaintext highlighter-rouge">n * (n ∸ 1) / 2</code>:</p>
 <pre class="Agda"><a id="4921" class="Keyword">postulate</a>
   <a id="sum-downFrom"></a><a id="4933" href="/TSPL/2019/Assignment3/#4933" class="Postulate">sum-downFrom</a> <a id="4946" class="Symbol">:</a> <a id="4948" class="Symbol">∀</a> <a id="4950" class="Symbol">(</a><a id="4951" href="Assignment3.html#4951" class="Bound">n</a> <a id="4953" class="Symbol">:</a> <a id="4955" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a><a id="4956" class="Symbol">)</a>
     <a id="4962" class="Symbol">→</a> <a id="4964" href="/Lists/#16256" class="Function">sum</a> <a id="4968" class="Symbol">(</a><a id="4969" href="/TSPL/2019/Assignment3/#4687" class="Function">downFrom</a> <a id="4978" href="Assignment3.html#4951" class="Bound">n</a><a id="4979" class="Symbol">)</a> <a id="4981" href="Agda.Builtin.Nat.html#501" class="Primitive Operator">*</a> <a id="4983" class="Number">2</a> <a id="4985" href="Agda.Builtin.Equality.html#125" class="Datatype Operator">≡</a> <a id="4987" href="Assignment3.html#4951" class="Bound">n</a> <a id="4989" href="Agda.Builtin.Nat.html#501" class="Primitive Operator">*</a> <a id="4991" class="Symbol">(</a><a id="4992" href="Assignment3.html#4951" class="Bound">n</a> <a id="4994" href="Agda.Builtin.Nat.html#388" class="Primitive Operator">∸</a> <a id="4996" class="Number">1</a><a id="4997" class="Symbol">)</a>
 </pre>
 
-<h4 id="exercise-foldl-practice">Exercise <code class="highlighter-rouge">foldl</code> (practice)</h4>
+<h4 id="exercise-foldl-practice">Exercise <code class="language-plaintext highlighter-rouge">foldl</code> (practice)</h4>
 
-<p>Define a function <code class="highlighter-rouge">foldl</code> which is analogous to <code class="highlighter-rouge">foldr</code>, but where
+<p>Define a function <code class="language-plaintext highlighter-rouge">foldl</code> which is analogous to <code class="language-plaintext highlighter-rouge">foldr</code>, but where
 operations associate to the left rather than the right.  For example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foldr _⊗_ e [ x , y , z ]  =  x ⊗ (y ⊗ (z ⊗ e))
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foldr _⊗_ e [ x , y , z ]  =  x ⊗ (y ⊗ (z ⊗ e))
 foldl _⊗_ e [ x , y , z ]  =  ((e ⊗ x) ⊗ y) ⊗ z
 </code></pre></div></div>
 
 <pre class="Agda"><a id="5286" class="Comment">-- Your code goes here</a>
 </pre>
 
-<h4 id="exercise-foldr-monoid-foldl-practice">Exercise <code class="highlighter-rouge">foldr-monoid-foldl</code> (practice)</h4>
+<h4 id="exercise-foldr-monoid-foldl-practice">Exercise <code class="language-plaintext highlighter-rouge">foldr-monoid-foldl</code> (practice)</h4>
 
-<p>Show that if <code class="highlighter-rouge">_⊗_</code> and <code class="highlighter-rouge">e</code> form a monoid, then <code class="highlighter-rouge">foldr _⊗_ e</code> and
-<code class="highlighter-rouge">foldl _⊗_ e</code> always compute the same result.</p>
+<p>Show that if <code class="language-plaintext highlighter-rouge">_⊗_</code> and <code class="language-plaintext highlighter-rouge">e</code> form a monoid, then <code class="language-plaintext highlighter-rouge">foldr _⊗_ e</code> and
+<code class="language-plaintext highlighter-rouge">foldl _⊗_ e</code> always compute the same result.</p>
 
 <pre class="Agda"><a id="5478" class="Comment">-- Your code goes here</a>
 </pre>
 
-<h4 id="exercise-any---recommended">Exercise <code class="highlighter-rouge">Any-++-⇔</code> (recommended)</h4>
+<h4 id="exercise-any---recommended">Exercise <code class="language-plaintext highlighter-rouge">Any-++-⇔</code> (recommended)</h4>
 
-<p>Prove a result similar to <code class="highlighter-rouge">All-++-⇔</code>, but with <code class="highlighter-rouge">Any</code> in place of <code class="highlighter-rouge">All</code>, and a suitable
-replacement for <code class="highlighter-rouge">_×_</code>.  As a consequence, demonstrate an equivalence relating
-<code class="highlighter-rouge">_∈_</code> and <code class="highlighter-rouge">_++_</code>.</p>
+<p>Prove a result similar to <code class="language-plaintext highlighter-rouge">All-++-⇔</code>, but with <code class="language-plaintext highlighter-rouge">Any</code> in place of <code class="language-plaintext highlighter-rouge">All</code>, and a suitable
+replacement for <code class="language-plaintext highlighter-rouge">_×_</code>.  As a consequence, demonstrate an equivalence relating
+<code class="language-plaintext highlighter-rouge">_∈_</code> and <code class="language-plaintext highlighter-rouge">_++_</code>.</p>
 
 <pre class="Agda"><a id="5735" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-all---stretch">Exercise <code class="highlighter-rouge">All-++-≃</code> (stretch)</h4>
+<h4 id="exercise-all---stretch">Exercise <code class="language-plaintext highlighter-rouge">All-++-≃</code> (stretch)</h4>
 
-<p>Show that the equivalence <code class="highlighter-rouge">All-++-⇔</code> can be extended to an isomorphism.</p>
+<p>Show that the equivalence <code class="language-plaintext highlighter-rouge">All-++-⇔</code> can be extended to an isomorphism.</p>
 
 <pre class="Agda"><a id="5876" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-anyall-recommended">Exercise <code class="highlighter-rouge">¬Any≃All¬</code> (recommended)</h4>
+<h4 id="exercise-anyall-recommended">Exercise <code class="language-plaintext highlighter-rouge">¬Any≃All¬</code> (recommended)</h4>
 
-<p>Show that <code class="highlighter-rouge">Any</code> and <code class="highlighter-rouge">All</code> satisfy a version of De Morgan’s Law:</p>
+<p>Show that <code class="language-plaintext highlighter-rouge">Any</code> and <code class="language-plaintext highlighter-rouge">All</code> satisfy a version of De Morgan’s Law:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(¬_ ∘ Any P) xs ≃ All (¬_ ∘ P) xs
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(¬_ ∘ Any P) xs ≃ All (¬_ ∘ P) xs
 </code></pre></div></div>
 
-<p>(Can you see why it is important that here <code class="highlighter-rouge">_∘_</code> is generalised
+<p>(Can you see why it is important that here <code class="language-plaintext highlighter-rouge">_∘_</code> is generalised
 to arbitrary levels, as described in the section on
 <a href="/Equality/#unipoly">universe polymorphism</a>?)</p>
 
 <p>Do we also have the following?</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(¬_ ∘ All P) xs ≃ Any (¬_ ∘ P) xs
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(¬_ ∘ All P) xs ≃ Any (¬_ ∘ P) xs
 </code></pre></div></div>
 
 <p>If so, prove; if not, explain why.</p>
 
-<h4 id="exercise-all--practice">Exercise <code class="highlighter-rouge">All-∀</code> (practice)</h4>
+<h4 id="exercise-all--practice">Exercise <code class="language-plaintext highlighter-rouge">All-∀</code> (practice)</h4>
 
-<p>Show that <code class="highlighter-rouge">All P xs</code> is isomorphic to <code class="highlighter-rouge">∀ {x} → x ∈ xs → P x</code>.</p>
+<p>Show that <code class="language-plaintext highlighter-rouge">All P xs</code> is isomorphic to <code class="language-plaintext highlighter-rouge">∀ {x} → x ∈ xs → P x</code>.</p>
 
 <pre class="Agda"><a id="6439" class="Comment">-- You code goes here</a>
 </pre>
 
-<h4 id="exercise-any--practice">Exercise <code class="highlighter-rouge">Any-∃</code> (practice)</h4>
+<h4 id="exercise-any--practice">Exercise <code class="language-plaintext highlighter-rouge">Any-∃</code> (practice)</h4>
 
-<p>Show that <code class="highlighter-rouge">Any P xs</code> is isomorphic to <code class="highlighter-rouge">∃[ x ] (x ∈ xs × P x)</code>.</p>
+<p>Show that <code class="language-plaintext highlighter-rouge">Any P xs</code> is isomorphic to <code class="language-plaintext highlighter-rouge">∃[ x ] (x ∈ xs × P x)</code>.</p>
 
 <pre class="Agda"><a id="6569" class="Comment">-- You code goes here</a>
 </pre>
 
-<h4 id="exercise-any-stretch">Exercise <code class="highlighter-rouge">any?</code> (stretch)</h4>
+<h4 id="exercise-any-stretch">Exercise <code class="language-plaintext highlighter-rouge">any?</code> (stretch)</h4>
 
-<p>Just as <code class="highlighter-rouge">All</code> has analogues <code class="highlighter-rouge">all</code> and <code class="highlighter-rouge">All?</code> which determine whether a
-predicate holds for every element of a list, so does <code class="highlighter-rouge">Any</code> have
-analogues <code class="highlighter-rouge">any</code> and <code class="highlighter-rouge">Any?</code> which determine whether a predicate holds
+<p>Just as <code class="language-plaintext highlighter-rouge">All</code> has analogues <code class="language-plaintext highlighter-rouge">all</code> and <code class="language-plaintext highlighter-rouge">All?</code> which determine whether a
+predicate holds for every element of a list, so does <code class="language-plaintext highlighter-rouge">Any</code> have
+analogues <code class="language-plaintext highlighter-rouge">any</code> and <code class="language-plaintext highlighter-rouge">Any?</code> which determine whether a predicate holds
 for some element of a list.  Give their definitions.</p>
 
 <pre class="Agda"><a id="6891" class="Comment">-- Your code goes here</a>
 </pre>
 
-<h4 id="exercise-filter-stretch">Exercise <code class="highlighter-rouge">filter?</code> (stretch)</h4>
+<h4 id="exercise-filter-stretch">Exercise <code class="language-plaintext highlighter-rouge">filter?</code> (stretch)</h4>
 
-<p>Define the following variant of the traditional <code class="highlighter-rouge">filter</code> function on lists,
+<p>Define the following variant of the traditional <code class="language-plaintext highlighter-rouge">filter</code> function on lists,
 which given a decidable predicate and a list returns all elements of the
 list satisfying the predicate:</p>
 <pre class="Agda"><a id="7139" class="Keyword">postulate</a>
@@ -316,28 +316,28 @@ list satisfying the predicate:</p>
 
 <h2 id="lambda">Lambda</h2>
 
-<h4 id="exercise-mul-recommended">Exercise <code class="highlighter-rouge">mul</code> (recommended)</h4>
+<h4 id="exercise-mul-recommended">Exercise <code class="language-plaintext highlighter-rouge">mul</code> (recommended)</h4>
 
 <p>Write out the definition of a lambda term that multiplies
-two natural numbers.  Your definition may use <code class="highlighter-rouge">plus</code> as
+two natural numbers.  Your definition may use <code class="language-plaintext highlighter-rouge">plus</code> as
 defined earlier.</p>
 
 <pre class="Agda"><a id="7432" class="Comment">-- Your code goes here</a>
 </pre>
 
-<h4 id="exercise-mulᶜ-practice">Exercise <code class="highlighter-rouge">mulᶜ</code> (practice)</h4>
+<h4 id="exercise-mulᶜ-practice">Exercise <code class="language-plaintext highlighter-rouge">mulᶜ</code> (practice)</h4>
 
 <p>Write out the definition of a lambda term that multiplies
 two natural numbers represented as Church numerals. Your
-definition may use <code class="highlighter-rouge">plusᶜ</code> as defined earlier (or may not
+definition may use <code class="language-plaintext highlighter-rouge">plusᶜ</code> as defined earlier (or may not
 — there are nice definitions both ways).</p>
 
 <pre class="Agda"><a id="7713" class="Comment">-- Your code goes here</a>
 </pre>
 
-<h4 id="primed">Exercise <code class="highlighter-rouge">primed</code> (stretch)</h4>
+<h4 id="primed">Exercise <code class="language-plaintext highlighter-rouge">primed</code> (stretch)</h4>
 
-<p>Some people find it annoying to write <code class="highlighter-rouge">` "x"</code> instead of <code class="highlighter-rouge">x</code>.
+<p>Some people find it annoying to write <code class="language-plaintext highlighter-rouge">` "x"</code> instead of <code class="language-plaintext highlighter-rouge">x</code>.
 We can make examples with lambda terms slightly easier to write
 by adding the following definitions:</p>
 <pre class="Agda"><a id="ƛ′_⇒_"></a><a id="7957" href="/TSPL/2019/Assignment3/#7957" class="Function Operator">ƛ′_⇒_</a> <a id="7963" class="Symbol">:</a> <a id="7965" href="/Lambda/#3796" class="Datatype">Term</a> <a id="7970" class="Symbol">→</a> <a id="7972" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a> <a id="7977" class="Symbol">→</a> <a id="7979" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a>
@@ -356,20 +356,20 @@ by adding the following definitions:</p>
   <a id="8381" class="Keyword">where</a> <a id="8387" class="Keyword">postulate</a> <a id="8397" href="/TSPL/2019/Assignment3/#8397" class="Postulate">impossible</a> <a id="8408" class="Symbol">:</a> <a id="8410" href="https://agda.github.io/agda-stdlib/v1.1/Data.Empty.html#279" class="Datatype">⊥</a>
 </pre>
 <p>We intend to apply the function only when the first term is a variable, which we
-indicate by postulating a term <code class="highlighter-rouge">impossible</code> of the empty type <code class="highlighter-rouge">⊥</code>.  If we use
+indicate by postulating a term <code class="language-plaintext highlighter-rouge">impossible</code> of the empty type <code class="language-plaintext highlighter-rouge">⊥</code>.  If we use
 C-c C-n to normalise the term</p>
 
 <p>ƛ′ two ⇒ two</p>
 
 <p>Agda will return an answer warning us that the impossible has occurred:</p>
 
-<p>⊥-elim (plfa.part2.Lambda.impossible (<code class="highlighter-rouge">`suc (`suc `zero)) (`suc (`suc `zero))</code>)</p>
+<p>⊥-elim (plfa.part2.Lambda.impossible (<code class="language-plaintext highlighter-rouge">`suc (`suc `zero)) (`suc (`suc `zero))</code>)</p>
 
 <p>While postulating the impossible is a useful technique, it must be
 used with care, since such postulation could allow us to provide
 evidence of <em>any</em> proposition whatsoever, regardless of its truth.</p>
 
-<p>The definition of <code class="highlighter-rouge">plus</code> can now be written as follows:</p>
+<p>The definition of <code class="language-plaintext highlighter-rouge">plus</code> can now be written as follows:</p>
 <pre class="Agda"><a id="plus′"></a><a id="9042" href="/TSPL/2019/Assignment3/#9042" class="Function">plus′</a> <a id="9048" class="Symbol">:</a> <a id="9050" href="/Lambda/#3796" class="Datatype">Term</a>
 <a id="9055" href="/TSPL/2019/Assignment3/#9042" class="Function">plus′</a> <a id="9061" class="Symbol">=</a> <a id="9063" href="Assignment3.html#8292" class="Function Operator">μ′</a> <a id="9066" href="Assignment3.html#9173" class="Function">+</a> <a id="9068" href="Assignment3.html#8292" class="Function Operator">⇒</a> <a id="9070" href="Assignment3.html#7957" class="Function Operator">ƛ′</a> <a id="9073" href="Assignment3.html#9187" class="Function">m</a> <a id="9075" href="Assignment3.html#7957" class="Function Operator">⇒</a> <a id="9077" href="Assignment3.html#7957" class="Function Operator">ƛ′</a> <a id="9080" href="Assignment3.html#9201" class="Function">n</a> <a id="9082" href="Assignment3.html#7957" class="Function Operator">⇒</a>
           <a id="9094" href="/TSPL/2019/Assignment3/#8078" class="Function Operator">case′</a> <a id="9100" href="Assignment3.html#9187" class="Function">m</a>
@@ -382,10 +382,10 @@ evidence of <em>any</em> proposition whatsoever, regardless of its truth.</p>
 </pre>
 <p>Write out the definition of multiplication in the same style.</p>
 
-<h4 id="exercise-___-stretch">Exercise <code class="highlighter-rouge">_[_:=_]′</code> (stretch)</h4>
+<h4 id="exercise-___-stretch">Exercise <code class="language-plaintext highlighter-rouge">_[_:=_]′</code> (stretch)</h4>
 
-<p>The definition of substitution above has three clauses (<code class="highlighter-rouge">ƛ</code>, <code class="highlighter-rouge">case</code>,
-and <code class="highlighter-rouge">μ</code>) that invoke a <code class="highlighter-rouge">with</code> clause to deal with bound variables.
+<p>The definition of substitution above has three clauses (<code class="language-plaintext highlighter-rouge">ƛ</code>, <code class="language-plaintext highlighter-rouge">case</code>,
+and <code class="language-plaintext highlighter-rouge">μ</code>) that invoke a <code class="language-plaintext highlighter-rouge">with</code> clause to deal with bound variables.
 Rewrite the definition to factor the common part of these three
 clauses into a single function, defined by mutual recursion with
 substitution.</p>
@@ -393,46 +393,46 @@ substitution.</p>
 <pre class="Agda"><a id="9601" class="Comment">-- Your code goes here</a>
 </pre>
 
-<h4 id="exercise--practice">Exercise <code class="highlighter-rouge">—↠≲—↠′</code> (practice)</h4>
+<h4 id="exercise--practice">Exercise <code class="language-plaintext highlighter-rouge">—↠≲—↠′</code> (practice)</h4>
 
 <p>Show that the first notion of reflexive and transitive closure
 above embeds into the second. Why are they not isomorphic?</p>
 
 <pre class="Agda"><a id="9792" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-plus-example-practice">Exercise <code class="highlighter-rouge">plus-example</code> (practice)</h4>
+<h4 id="exercise-plus-example-practice">Exercise <code class="language-plaintext highlighter-rouge">plus-example</code> (practice)</h4>
 
 <p>Write out the reduction sequence demonstrating that one plus one is two.</p>
 
 <pre class="Agda"><a id="9939" class="Comment">-- Your code goes here</a>
 </pre>
 
-<h4 id="exercise-context--practice">Exercise <code class="highlighter-rouge">Context-≃</code> (practice)</h4>
+<h4 id="exercise-context--practice">Exercise <code class="language-plaintext highlighter-rouge">Context-≃</code> (practice)</h4>
 
-<p>Show that <code class="highlighter-rouge">Context</code> is isomorphic to <code class="highlighter-rouge">List (Id × Type)</code>.
+<p>Show that <code class="language-plaintext highlighter-rouge">Context</code> is isomorphic to <code class="language-plaintext highlighter-rouge">List (Id × Type)</code>.
 For instance, the isomorphism relates the context</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>∅ , "s" ⦂ `ℕ ⇒ `ℕ , "z" ⦂ `ℕ
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>∅ , "s" ⦂ `ℕ ⇒ `ℕ , "z" ⦂ `ℕ
 </code></pre></div></div>
 
 <p>to the list</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ ⟨ "z" , `ℕ ⟩ , ⟨ "s" , `ℕ ⇒ `ℕ ⟩ ]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ ⟨ "z" , `ℕ ⟩ , ⟨ "s" , `ℕ ⇒ `ℕ ⟩ ]
 </code></pre></div></div>
 
 <pre class="Agda"><a id="10207" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-mul-type-recommended">Exercise <code class="highlighter-rouge">mul-type</code> (recommended)</h4>
+<h4 id="exercise-mul-type-recommended">Exercise <code class="language-plaintext highlighter-rouge">mul-type</code> (recommended)</h4>
 
-<p>Using the term <code class="highlighter-rouge">mul</code> you defined earlier, write out the derivation
+<p>Using the term <code class="language-plaintext highlighter-rouge">mul</code> you defined earlier, write out the derivation
 showing that it is well typed.</p>
 
 <pre class="Agda"><a id="10378" class="Comment">-- Your code goes here</a>
 </pre>
 
-<h4 id="exercise-mulᶜ-type-practice">Exercise <code class="highlighter-rouge">mulᶜ-type</code> (practice)</h4>
+<h4 id="exercise-mulᶜ-type-practice">Exercise <code class="language-plaintext highlighter-rouge">mulᶜ-type</code> (practice)</h4>
 
-<p>Using the term <code class="highlighter-rouge">mulᶜ</code> you defined earlier, write out the derivation
+<p>Using the term <code class="language-plaintext highlighter-rouge">mulᶜ</code> you defined earlier, write out the derivation
 showing that it is well typed.</p>
 
 <pre class="Agda"><a id="10549" class="Comment">-- Your code goes here</a>
@@ -440,29 +440,29 @@ showing that it is well typed.</p>
 
 <h2 id="properties">Properties</h2>
 
-<h4 id="exercise-progress--practice">Exercise <code class="highlighter-rouge">Progress-≃</code> (practice)</h4>
+<h4 id="exercise-progress--practice">Exercise <code class="language-plaintext highlighter-rouge">Progress-≃</code> (practice)</h4>
 
-<p>Show that <code class="highlighter-rouge">Progress M</code> is isomorphic to <code class="highlighter-rouge">Value M ⊎ ∃[ N ](M —→ N)</code>.</p>
+<p>Show that <code class="language-plaintext highlighter-rouge">Progress M</code> is isomorphic to <code class="language-plaintext highlighter-rouge">Value M ⊎ ∃[ N ](M —→ N)</code>.</p>
 
 <pre class="Agda"><a id="10706" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-progress-practice">Exercise <code class="highlighter-rouge">progress′</code> (practice)</h4>
+<h4 id="exercise-progress-practice">Exercise <code class="language-plaintext highlighter-rouge">progress′</code> (practice)</h4>
 
-<p>Write out the proof of <code class="highlighter-rouge">progress′</code> in full, and compare it to the
-proof of <code class="highlighter-rouge">progress</code> above.</p>
+<p>Write out the proof of <code class="language-plaintext highlighter-rouge">progress′</code> in full, and compare it to the
+proof of <code class="language-plaintext highlighter-rouge">progress</code> above.</p>
 
 <pre class="Agda"><a id="10870" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-value-practice">Exercise <code class="highlighter-rouge">value?</code> (practice)</h4>
+<h4 id="exercise-value-practice">Exercise <code class="language-plaintext highlighter-rouge">value?</code> (practice)</h4>
 
-<p>Combine <code class="highlighter-rouge">progress</code> and <code class="highlighter-rouge">—→¬V</code> to write a program that decides
+<p>Combine <code class="language-plaintext highlighter-rouge">progress</code> and <code class="language-plaintext highlighter-rouge">—→¬V</code> to write a program that decides
 whether a well-typed term is a value:</p>
 <pre class="Agda"><a id="11037" class="Keyword">postulate</a>
   <a id="value?"></a><a id="11049" href="/TSPL/2019/Assignment3/#11049" class="Postulate">value?</a> <a id="11056" class="Symbol">:</a> <a id="11058" class="Symbol">∀</a> <a id="11060" class="Symbol">{</a><a id="11061" href="Assignment3.html#11061" class="Bound">A</a> <a id="11063" href="Assignment3.html#11063" class="Bound">M</a><a id="11064" class="Symbol">}</a> <a id="11066" class="Symbol">→</a> <a id="11068" href="/Lambda/#31710" class="InductiveConstructor">∅</a> <a id="11070" href="plfa.part2.Lambda.html#34086" class="Datatype Operator">⊢</a> <a id="11072" href="Assignment3.html#11063" class="Bound">M</a> <a id="11074" href="plfa.part2.Lambda.html#34086" class="Datatype Operator">⦂</a> <a id="11076" href="Assignment3.html#11061" class="Bound">A</a> <a id="11078" class="Symbol">→</a> <a id="11080" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.html#605" class="Datatype">Dec</a> <a id="11084" class="Symbol">(</a><a id="11085" href="plfa.part2.Lambda.html#12171" class="Datatype">Value</a> <a id="11091" href="Assignment3.html#11063" class="Bound">M</a><a id="11092" class="Symbol">)</a>
 </pre>
-<h4 id="exercise-subst-stretch">Exercise <code class="highlighter-rouge">subst′</code> (stretch)</h4>
+<h4 id="exercise-subst-stretch">Exercise <code class="language-plaintext highlighter-rouge">subst′</code> (stretch)</h4>
 
-<p>Rewrite <code class="highlighter-rouge">subst</code> to work with the modified definition <code class="highlighter-rouge">_[_:=_]′</code>
+<p>Rewrite <code class="language-plaintext highlighter-rouge">subst</code> to work with the modified definition <code class="language-plaintext highlighter-rouge">_[_:=_]′</code>
 from the exercise in the previous chapter.  As before, this
 should factor dealing with bound variables into a single function,
 defined by mutual recursion with the proof that substitution
@@ -471,14 +471,14 @@ preserves types.</p>
 <pre class="Agda"><a id="11407" class="Comment">-- Your code goes here</a>
 </pre>
 
-<h4 id="exercise-mul-eval-recommended">Exercise <code class="highlighter-rouge">mul-eval</code> (recommended)</h4>
+<h4 id="exercise-mul-eval-recommended">Exercise <code class="language-plaintext highlighter-rouge">mul-eval</code> (recommended)</h4>
 
 <p>Using the evaluator, confirm that two times two is four.</p>
 
 <pre class="Agda"><a id="11538" class="Comment">-- Your code goes here</a>
 </pre>
 
-<h4 id="exercise-progress-preservation-practice">Exercise: <code class="highlighter-rouge">progress-preservation</code> (practice)</h4>
+<h4 id="exercise-progress-preservation-practice">Exercise: <code class="language-plaintext highlighter-rouge">progress-preservation</code> (practice)</h4>
 
 <p>Without peeking at their statements above, write down the progress
 and preservation theorems for the simply typed lambda-calculus.</p>
@@ -486,29 +486,29 @@ and preservation theorems for the simply typed lambda-calculus.</p>
 <pre class="Agda"><a id="11754" class="Comment">-- Your code goes here</a>
 </pre>
 
-<h4 id="exercise-subject_expansion-practice">Exercise <code class="highlighter-rouge">subject_expansion</code> (practice)</h4>
+<h4 id="exercise-subject_expansion-practice">Exercise <code class="language-plaintext highlighter-rouge">subject_expansion</code> (practice)</h4>
 
-<p>We say that <code class="highlighter-rouge">M</code> <em>reduces</em> to <code class="highlighter-rouge">N</code> if <code class="highlighter-rouge">M —→ N</code>,
+<p>We say that <code class="language-plaintext highlighter-rouge">M</code> <em>reduces</em> to <code class="language-plaintext highlighter-rouge">N</code> if <code class="language-plaintext highlighter-rouge">M —→ N</code>,
 but we can also describe the same situation by saying
-that <code class="highlighter-rouge">N</code> <em>expands</em> to <code class="highlighter-rouge">M</code>.
+that <code class="language-plaintext highlighter-rouge">N</code> <em>expands</em> to <code class="language-plaintext highlighter-rouge">M</code>.
 The preservation property is sometimes called <em>subject reduction</em>.
 Its opposite is <em>subject expansion</em>, which holds if
-<code class="highlighter-rouge">M —→ N</code> and <code class="highlighter-rouge">∅ ⊢ N ⦂ A</code> imply <code class="highlighter-rouge">∅ ⊢ M ⦂ A</code>.
+<code class="language-plaintext highlighter-rouge">M —→ N</code> and <code class="language-plaintext highlighter-rouge">∅ ⊢ N ⦂ A</code> imply <code class="language-plaintext highlighter-rouge">∅ ⊢ M ⦂ A</code>.
 Find two counter-examples to subject expansion, one
 with case expressions and one not involving case expressions.</p>
 
 <pre class="Agda"><a id="12238" class="Comment">-- Your code goes here</a>
 </pre>
 
-<h4 id="exercise-stuck-practice">Exercise <code class="highlighter-rouge">stuck</code> (practice)</h4>
+<h4 id="exercise-stuck-practice">Exercise <code class="language-plaintext highlighter-rouge">stuck</code> (practice)</h4>
 
 <p>Give an example of an ill-typed term that does get stuck.</p>
 
 <pre class="Agda"><a id="12364" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-unstuck-recommended">Exercise <code class="highlighter-rouge">unstuck</code> (recommended)</h4>
+<h4 id="exercise-unstuck-recommended">Exercise <code class="language-plaintext highlighter-rouge">unstuck</code> (recommended)</h4>
 
-<p>Provide proofs of the three postulates, <code class="highlighter-rouge">unstuck</code>, <code class="highlighter-rouge">preserves</code>, and <code class="highlighter-rouge">wttdgs</code> above.</p>
+<p>Provide proofs of the three postulates, <code class="language-plaintext highlighter-rouge">unstuck</code>, <code class="language-plaintext highlighter-rouge">preserves</code>, and <code class="language-plaintext highlighter-rouge">wttdgs</code> above.</p>
 
 <pre class="Agda"><a id="12520" class="Comment">-- Your code goes here</a>
 </pre>

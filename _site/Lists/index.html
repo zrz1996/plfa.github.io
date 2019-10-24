@@ -104,21 +104,21 @@ examples of polymorphic types and higher-order functions.</p>
 
 <a id="1138" class="Keyword">infixr</a> <a id="1145" class="Number">5</a> <a id="1147" href="/Lists/#1111" class="InductiveConstructor Operator">_∷_</a>
 </pre>
-<p>Let’s unpack this definition. If <code class="highlighter-rouge">A</code> is a set, then <code class="highlighter-rouge">List A</code> is a set.
-The next two lines tell us that <code class="highlighter-rouge">[]</code> (pronounced <em>nil</em>) is a list of
-type <code class="highlighter-rouge">A</code> (often called the <em>empty</em> list), and that <code class="highlighter-rouge">_∷_</code> (pronounced
-<em>cons</em>, short for <em>constructor</em>) takes a value of type <code class="highlighter-rouge">A</code> and a value
-of type <code class="highlighter-rouge">List A</code> and returns a value of type <code class="highlighter-rouge">List A</code>.  Operator <code class="highlighter-rouge">_∷_</code>
+<p>Let’s unpack this definition. If <code class="language-plaintext highlighter-rouge">A</code> is a set, then <code class="language-plaintext highlighter-rouge">List A</code> is a set.
+The next two lines tell us that <code class="language-plaintext highlighter-rouge">[]</code> (pronounced <em>nil</em>) is a list of
+type <code class="language-plaintext highlighter-rouge">A</code> (often called the <em>empty</em> list), and that <code class="language-plaintext highlighter-rouge">_∷_</code> (pronounced
+<em>cons</em>, short for <em>constructor</em>) takes a value of type <code class="language-plaintext highlighter-rouge">A</code> and a value
+of type <code class="language-plaintext highlighter-rouge">List A</code> and returns a value of type <code class="language-plaintext highlighter-rouge">List A</code>.  Operator <code class="language-plaintext highlighter-rouge">_∷_</code>
 has precedence level 5 and associates to the right.</p>
 
 <p>For example,</p>
 <pre class="Agda"><a id="1576" href="/Lists/#1576" class="Function">_</a> <a id="1578" class="Symbol">:</a> <a id="1580" href="plfa.part1.Lists.html#1067" class="Datatype">List</a> <a id="1585" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a>
 <a id="1587" class="Symbol">_</a> <a id="1589" class="Symbol">=</a> <a id="1591" class="Number">0</a> <a id="1593" href="/Lists/#1111" class="InductiveConstructor Operator">∷</a> <a id="1595" class="Number">1</a> <a id="1597" href="plfa.part1.Lists.html#1111" class="InductiveConstructor Operator">∷</a> <a id="1599" class="Number">2</a> <a id="1601" href="plfa.part1.Lists.html#1111" class="InductiveConstructor Operator">∷</a> <a id="1603" href="plfa.part1.Lists.html#1096" class="InductiveConstructor">[]</a>
 </pre>
-<p>denotes the list of the first three natural numbers.  Since <code class="highlighter-rouge">_∷_</code>
-associates to the right, the term parses as <code class="highlighter-rouge">0 ∷ (1 ∷ (2 ∷ []))</code>.
-Here <code class="highlighter-rouge">0</code> is the first element of the list, called the <em>head</em>,
-and <code class="highlighter-rouge">1 ∷ (2 ∷ [])</code> is a list of the remaining elements, called the
+<p>denotes the list of the first three natural numbers.  Since <code class="language-plaintext highlighter-rouge">_∷_</code>
+associates to the right, the term parses as <code class="language-plaintext highlighter-rouge">0 ∷ (1 ∷ (2 ∷ []))</code>.
+Here <code class="language-plaintext highlighter-rouge">0</code> is the first element of the list, called the <em>head</em>,
+and <code class="language-plaintext highlighter-rouge">1 ∷ (2 ∷ [])</code> is a list of the remaining elements, called the
 <em>tail</em>. A list is a strange beast: it has a head and a tail,
 nothing in between, and the tail is itself another list!</p>
 
@@ -137,11 +137,11 @@ Thus, our example list could also be written:</p>
 
 <p>Including the pragma:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{-# BUILTIN LIST List #-}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{-# BUILTIN LIST List #-}
 </code></pre></div></div>
 
-<p>tells Agda that the type <code class="highlighter-rouge">List</code> corresponds to the Haskell type
-list, and the constructors <code class="highlighter-rouge">[]</code> and <code class="highlighter-rouge">_∷_</code> correspond to nil and
+<p>tells Agda that the type <code class="language-plaintext highlighter-rouge">List</code> corresponds to the Haskell type
+list, and the constructors <code class="language-plaintext highlighter-rouge">[]</code> and <code class="language-plaintext highlighter-rouge">_∷_</code> correspond to nil and
 cons respectively, allowing a more efficient representation of lists.</p>
 
 <h2 id="list-syntax">List syntax</h2>
@@ -155,14 +155,14 @@ cons respectively, allowing a more efficient representation of lists.</p>
 <a id="3014" class="Keyword">pattern</a> <a id="[_,_,_,_,_,_]"></a><a id="3022" href="/Lists/#3022" class="InductiveConstructor Operator">[_,_,_,_,_,_]</a> <a id="3036" href="plfa.part1.Lists.html#3050" class="Bound">u</a> <a id="3038" href="plfa.part1.Lists.html#3054" class="Bound">v</a> <a id="3040" href="plfa.part1.Lists.html#3058" class="Bound">w</a> <a id="3042" href="plfa.part1.Lists.html#3062" class="Bound">x</a> <a id="3044" href="plfa.part1.Lists.html#3066" class="Bound">y</a> <a id="3046" href="plfa.part1.Lists.html#3070" class="Bound">z</a> <a id="3048" class="Symbol">=</a> <a id="3050" href="plfa.part1.Lists.html#3050" class="Bound">u</a> <a id="3052" href="plfa.part1.Lists.html#1111" class="InductiveConstructor Operator">∷</a> <a id="3054" href="plfa.part1.Lists.html#3054" class="Bound">v</a> <a id="3056" href="plfa.part1.Lists.html#1111" class="InductiveConstructor Operator">∷</a> <a id="3058" href="plfa.part1.Lists.html#3058" class="Bound">w</a> <a id="3060" href="plfa.part1.Lists.html#1111" class="InductiveConstructor Operator">∷</a> <a id="3062" href="plfa.part1.Lists.html#3062" class="Bound">x</a> <a id="3064" href="plfa.part1.Lists.html#1111" class="InductiveConstructor Operator">∷</a> <a id="3066" href="plfa.part1.Lists.html#3066" class="Bound">y</a> <a id="3068" href="plfa.part1.Lists.html#1111" class="InductiveConstructor Operator">∷</a> <a id="3070" href="plfa.part1.Lists.html#3070" class="Bound">z</a> <a id="3072" href="plfa.part1.Lists.html#1111" class="InductiveConstructor Operator">∷</a> <a id="3074" href="plfa.part1.Lists.html#1096" class="InductiveConstructor">[]</a>
 </pre>
 <p>This is our first use of pattern declarations.  For instance,
-the third line tells us that <code class="highlighter-rouge">[ x , y , z ]</code> is equivalent to
-<code class="highlighter-rouge">x ∷ y ∷ z ∷ []</code>, and permits the former to appear either in
+the third line tells us that <code class="language-plaintext highlighter-rouge">[ x , y , z ]</code> is equivalent to
+<code class="language-plaintext highlighter-rouge">x ∷ y ∷ z ∷ []</code>, and permits the former to appear either in
 a pattern on the left-hand side of an equation, or a term
 on the right-hand side of an equation.</p>
 
 <h2 id="append">Append</h2>
 
-<p>Our first function on lists is written <code class="highlighter-rouge">_++_</code> and pronounced
+<p>Our first function on lists is written <code class="language-plaintext highlighter-rouge">_++_</code> and pronounced
 <em>append</em>:</p>
 
 <pre class="Agda"><a id="3452" class="Keyword">infixr</a> <a id="3459" class="Number">5</a> <a id="3461" href="/Lists/#3467" class="Function Operator">_++_</a>
@@ -171,7 +171,7 @@ on the right-hand side of an equation.</p>
 <a id="3513" href="/Lists/#1096" class="InductiveConstructor">[]</a>       <a id="3522" href="plfa.part1.Lists.html#3467" class="Function Operator">++</a> <a id="3525" href="plfa.part1.Lists.html#3525" class="Bound">ys</a>  <a id="3529" class="Symbol">=</a>  <a id="3532" href="plfa.part1.Lists.html#3525" class="Bound">ys</a>
 <a id="3535" class="Symbol">(</a><a id="3536" href="/Lists/#3536" class="Bound">x</a> <a id="3538" href="plfa.part1.Lists.html#1111" class="InductiveConstructor Operator">∷</a> <a id="3540" href="plfa.part1.Lists.html#3540" class="Bound">xs</a><a id="3542" class="Symbol">)</a> <a id="3544" href="plfa.part1.Lists.html#3467" class="Function Operator">++</a> <a id="3547" href="plfa.part1.Lists.html#3547" class="Bound">ys</a>  <a id="3551" class="Symbol">=</a>  <a id="3554" href="plfa.part1.Lists.html#3536" class="Bound">x</a> <a id="3556" href="plfa.part1.Lists.html#1111" class="InductiveConstructor Operator">∷</a> <a id="3558" class="Symbol">(</a><a id="3559" href="plfa.part1.Lists.html#3540" class="Bound">xs</a> <a id="3562" href="plfa.part1.Lists.html#3467" class="Function Operator">++</a> <a id="3565" href="plfa.part1.Lists.html#3547" class="Bound">ys</a><a id="3567" class="Symbol">)</a>
 </pre>
-<p>The type <code class="highlighter-rouge">A</code> is an implicit argument to append, making it a
+<p>The type <code class="language-plaintext highlighter-rouge">A</code> is an implicit argument to append, making it a
 <em>polymorphic</em> function (one that can be used at many types).  The
 empty list appended to another list yields the other list.  A
 non-empty list appended to another list yields a list with head the
@@ -225,26 +225,26 @@ about numbers.  Here is the proof that append is associative:</p>
   <a id="4935" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2892" class="Function Operator">∎</a>
 </pre>
 <p>The proof is by induction on the first argument. The base case instantiates
-to <code class="highlighter-rouge">[]</code>, and follows by straightforward computation.
-The inductive case instantiates to <code class="highlighter-rouge">x ∷ xs</code>,
+to <code class="language-plaintext highlighter-rouge">[]</code>, and follows by straightforward computation.
+The inductive case instantiates to <code class="language-plaintext highlighter-rouge">x ∷ xs</code>,
 and follows by straightforward computation combined with the
 inductive hypothesis.  As usual, the inductive hypothesis is indicated by a recursive
-invocation of the proof, in this case <code class="highlighter-rouge">++-assoc xs ys zs</code>.</p>
+invocation of the proof, in this case <code class="language-plaintext highlighter-rouge">++-assoc xs ys zs</code>.</p>
 
 <p>Recall that Agda supports <a href="/Induction/#sections">sections</a>.
-Applying <code class="highlighter-rouge">cong (x ∷_)</code> promotes the inductive hypothesis:</p>
+Applying <code class="language-plaintext highlighter-rouge">cong (x ∷_)</code> promotes the inductive hypothesis:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(xs ++ ys) ++ zs ≡ xs ++ (ys ++ zs)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(xs ++ ys) ++ zs ≡ xs ++ (ys ++ zs)
 </code></pre></div></div>
 
 <p>to the equality:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x ∷ ((xs ++ ys) ++ zs) ≡ x ∷ (xs ++ (ys ++ zs))
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x ∷ ((xs ++ ys) ++ zs) ≡ x ∷ (xs ++ (ys ++ zs))
 </code></pre></div></div>
 
 <p>which is needed in the proof.</p>
 
-<p>It is also easy to show that <code class="highlighter-rouge">[]</code> is a left and right identity for <code class="highlighter-rouge">_++_</code>.
+<p>It is also easy to show that <code class="language-plaintext highlighter-rouge">[]</code> is a left and right identity for <code class="language-plaintext highlighter-rouge">_++_</code>.
 That it is a left identity is immediate from the definition:</p>
 <pre class="Agda"><a id="++-identityˡ"></a><a id="5742" href="/Lists/#5742" class="Function">++-identityˡ</a> <a id="5755" class="Symbol">:</a> <a id="5757" class="Symbol">∀</a> <a id="5759" class="Symbol">{</a><a id="5760" href="plfa.part1.Lists.html#5760" class="Bound">A</a> <a id="5762" class="Symbol">:</a> <a id="5764" class="PrimitiveType">Set</a><a id="5767" class="Symbol">}</a> <a id="5769" class="Symbol">(</a><a id="5770" href="plfa.part1.Lists.html#5770" class="Bound">xs</a> <a id="5773" class="Symbol">:</a> <a id="5775" href="plfa.part1.Lists.html#1067" class="Datatype">List</a> <a id="5780" href="plfa.part1.Lists.html#5760" class="Bound">A</a><a id="5781" class="Symbol">)</a> <a id="5783" class="Symbol">→</a> <a id="5785" href="plfa.part1.Lists.html#1096" class="InductiveConstructor">[]</a> <a id="5788" href="plfa.part1.Lists.html#3467" class="Function Operator">++</a> <a id="5791" href="plfa.part1.Lists.html#5770" class="Bound">xs</a> <a id="5794" href="Agda.Builtin.Equality.html#125" class="Datatype Operator">≡</a> <a id="5796" href="plfa.part1.Lists.html#5770" class="Bound">xs</a>
 <a id="5799" href="/Lists/#5742" class="Function">++-identityˡ</a> <a id="5812" href="plfa.part1.Lists.html#5812" class="Bound">xs</a> <a id="5815" class="Symbol">=</a>
@@ -272,7 +272,7 @@ That it is a left identity is immediate from the definition:</p>
   <a id="6159" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2892" class="Function Operator">∎</a>
 </pre>
 <p>As we will see later,
-these three properties establish that <code class="highlighter-rouge">_++_</code> and <code class="highlighter-rouge">[]</code> form
+these three properties establish that <code class="language-plaintext highlighter-rouge">_++_</code> and <code class="language-plaintext highlighter-rouge">[]</code> form
 a <em>monoid</em> over lists.</p>
 
 <h2 id="length">Length</h2>
@@ -282,7 +282,7 @@ a <em>monoid</em> over lists.</p>
 <a id="6365" href="/Lists/#6331" class="Function">length</a> <a id="6372" href="plfa.part1.Lists.html#1096" class="InductiveConstructor">[]</a>        <a id="6382" class="Symbol">=</a>  <a id="6385" href="Agda.Builtin.Nat.html#183" class="InductiveConstructor">zero</a>
 <a id="6390" href="/Lists/#6331" class="Function">length</a> <a id="6397" class="Symbol">(</a><a id="6398" href="plfa.part1.Lists.html#6398" class="Bound">x</a> <a id="6400" href="plfa.part1.Lists.html#1111" class="InductiveConstructor Operator">∷</a> <a id="6402" href="plfa.part1.Lists.html#6402" class="Bound">xs</a><a id="6404" class="Symbol">)</a>  <a id="6407" class="Symbol">=</a>  <a id="6410" href="Agda.Builtin.Nat.html#196" class="InductiveConstructor">suc</a> <a id="6414" class="Symbol">(</a><a id="6415" href="plfa.part1.Lists.html#6331" class="Function">length</a> <a id="6422" href="plfa.part1.Lists.html#6402" class="Bound">xs</a><a id="6424" class="Symbol">)</a>
 </pre>
-<p>Again, it takes an implicit parameter <code class="highlighter-rouge">A</code>.
+<p>Again, it takes an implicit parameter <code class="language-plaintext highlighter-rouge">A</code>.
 The length of the empty list is zero.
 The length of a non-empty list
 is one greater than the length of the tail of the list.</p>
@@ -305,8 +305,8 @@ is one greater than the length of the tail of the list.</p>
 <p>Computing the length of a list requires time
 linear in the number of elements in the list.</p>
 
-<p>In the second-to-last line, we cannot write simply <code class="highlighter-rouge">length []</code> but
-must instead write <code class="highlighter-rouge">length {ℕ} []</code>.  Since <code class="highlighter-rouge">[]</code> has no elements, Agda
+<p>In the second-to-last line, we cannot write simply <code class="language-plaintext highlighter-rouge">length []</code> but
+must instead write <code class="language-plaintext highlighter-rouge">length {ℕ} []</code>.  Since <code class="language-plaintext highlighter-rouge">[]</code> has no elements, Agda
 has insufficient information to infer the implicit parameter.</p>
 
 <h2 id="reasoning-about-length">Reasoning about length</h2>
@@ -335,13 +335,13 @@ sum of the lengths of the lists:</p>
   <a id="7697" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2892" class="Function Operator">∎</a>
 </pre>
 <p>The proof is by induction on the first argument. The base case
-instantiates to <code class="highlighter-rouge">[]</code>, and follows by straightforward computation.  As
-before, Agda cannot infer the implicit type parameter to <code class="highlighter-rouge">length</code>, and
+instantiates to <code class="language-plaintext highlighter-rouge">[]</code>, and follows by straightforward computation.  As
+before, Agda cannot infer the implicit type parameter to <code class="language-plaintext highlighter-rouge">length</code>, and
 it must be given explicitly.  The inductive case instantiates to
-<code class="highlighter-rouge">x ∷ xs</code>, and follows by straightforward computation combined with the
+<code class="language-plaintext highlighter-rouge">x ∷ xs</code>, and follows by straightforward computation combined with the
 inductive hypothesis.  As usual, the inductive hypothesis is indicated
-by a recursive invocation of the proof, in this case <code class="highlighter-rouge">length-++ xs ys</code>,
-and it is promoted by the congruence <code class="highlighter-rouge">cong suc</code>.</p>
+by a recursive invocation of the proof, in this case <code class="language-plaintext highlighter-rouge">length-++ xs ys</code>,
+and it is promoted by the congruence <code class="language-plaintext highlighter-rouge">cong suc</code>.</p>
 
 <h2 id="reverse">Reverse</h2>
 
@@ -388,25 +388,25 @@ containing its head.</p>
 </pre>
 <p>Reversing a list in this way takes time <em>quadratic</em> in the length of
 the list. This is because reverse ends up appending lists of lengths
-<code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">2</code>, up to <code class="highlighter-rouge">n - 1</code>, where <code class="highlighter-rouge">n</code> is the length of the list being
+<code class="language-plaintext highlighter-rouge">1</code>, <code class="language-plaintext highlighter-rouge">2</code>, up to <code class="language-plaintext highlighter-rouge">n - 1</code>, where <code class="language-plaintext highlighter-rouge">n</code> is the length of the list being
 reversed, append takes time linear in the length of the first
-list, and the sum of the numbers up to <code class="highlighter-rouge">n - 1</code> is <code class="highlighter-rouge">n * (n - 1) / 2</code>.
+list, and the sum of the numbers up to <code class="language-plaintext highlighter-rouge">n - 1</code> is <code class="language-plaintext highlighter-rouge">n * (n - 1) / 2</code>.
 (We will validate that last fact in an exercise later in this chapter.)</p>
 
-<h4 id="exercise-reverse--distrib-recommended">Exercise <code class="highlighter-rouge">reverse-++-distrib</code> (recommended)</h4>
+<h4 id="exercise-reverse--distrib-recommended">Exercise <code class="language-plaintext highlighter-rouge">reverse-++-distrib</code> (recommended)</h4>
 
 <p>Show that the reverse of one list appended to another is the
 reverse of the second appended to the reverse of the first:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reverse (xs ++ ys) ≡ reverse ys ++ reverse xs
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reverse (xs ++ ys) ≡ reverse ys ++ reverse xs
 </code></pre></div></div>
 
-<h4 id="exercise-reverse-involutive-recommended">Exercise <code class="highlighter-rouge">reverse-involutive</code> (recommended)</h4>
+<h4 id="exercise-reverse-involutive-recommended">Exercise <code class="language-plaintext highlighter-rouge">reverse-involutive</code> (recommended)</h4>
 
 <p>A function is an <em>involution</em> if when applied twice it acts
 as the identity function.  Show that reverse is an involution:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reverse (reverse xs) ≡ xs
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reverse (reverse xs) ≡ xs
 </code></pre></div></div>
 
 <h2 id="faster-reverse">Faster reverse</h2>
@@ -449,8 +449,8 @@ on which we recurse becomes <em>smaller</em>.</p>
   <a id="11077" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2892" class="Function Operator">∎</a>
 </pre>
 <p>The proof is by induction on the first argument.
-The base case instantiates to <code class="highlighter-rouge">[]</code>, and follows by straightforward computation.
-The inductive case instantiates to <code class="highlighter-rouge">x ∷ xs</code> and follows by the inductive
+The base case instantiates to <code class="language-plaintext highlighter-rouge">[]</code>, and follows by straightforward computation.
+The inductive case instantiates to <code class="language-plaintext highlighter-rouge">x ∷ xs</code> and follows by the inductive
 hypothesis and associativity of append.  When we invoke the inductive hypothesis,
 the second argument actually becomes <em>larger</em>, but this is not a problem because
 the argument on which we induct becomes <em>smaller</em>.</p>
@@ -479,7 +479,7 @@ the two definitions equivalent:</p>
     <a id="12211" href="/Lists/#8321" class="Function">reverse</a> <a id="12219" href="plfa.part1.Lists.html#12075" class="Bound">xs</a>
   <a id="12224" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2892" class="Function Operator">∎</a>
 </pre>
-<p>Here is an example showing fast reverse of the list <code class="highlighter-rouge">[ 0 , 1 , 2 ]</code>:</p>
+<p>Here is an example showing fast reverse of the list <code class="language-plaintext highlighter-rouge">[ 0 , 1 , 2 ]</code>:</p>
 <pre class="Agda"><a id="12304" href="/Lists/#12304" class="Function">_</a> <a id="12306" class="Symbol">:</a> <a id="12308" href="plfa.part1.Lists.html#11836" class="Function">reverse′</a> <a id="12317" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">[</a> <a id="12319" class="Number">0</a> <a id="12321" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">,</a> <a id="12323" class="Number">1</a> <a id="12325" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">,</a> <a id="12327" class="Number">2</a> <a id="12329" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">]</a> <a id="12331" href="Agda.Builtin.Equality.html#125" class="Datatype Operator">≡</a> <a id="12333" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">[</a> <a id="12335" class="Number">2</a> <a id="12337" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">,</a> <a id="12339" class="Number">1</a> <a id="12341" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">,</a> <a id="12343" class="Number">0</a> <a id="12345" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">]</a>
 <a id="12347" class="Symbol">_</a> <a id="12349" class="Symbol">=</a>
   <a id="12353" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2597" class="Function Operator">begin</a>
@@ -554,37 +554,37 @@ parameterised on the range of the function. Further, a type that is
 parameterised on <em>n</em> types will have a map that is parameterised on
 <em>n</em> functions.</p>
 
-<h4 id="exercise-map-compose-practice">Exercise <code class="highlighter-rouge">map-compose</code> (practice)</h4>
+<h4 id="exercise-map-compose-practice">Exercise <code class="language-plaintext highlighter-rouge">map-compose</code> (practice)</h4>
 
 <p>Prove that the map of a composition is equal to the composition of two maps:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map (g ∘ f) ≡ map g ∘ map f
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map (g ∘ f) ≡ map g ∘ map f
 </code></pre></div></div>
 
 <p>The last step of the proof requires extensionality.</p>
 
 <pre class="Agda"><a id="14527" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-map--distribute-practice">Exercise <code class="highlighter-rouge">map-++-distribute</code> (practice)</h4>
+<h4 id="exercise-map--distribute-practice">Exercise <code class="language-plaintext highlighter-rouge">map-++-distribute</code> (practice)</h4>
 
 <p>Prove the following relationship between map and append:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map f (xs ++ ys) ≡ map f xs ++ map f ys
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map f (xs ++ ys) ≡ map f xs ++ map f ys
 </code></pre></div></div>
 
 <pre class="Agda"><a id="14708" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-map-tree-practice">Exercise <code class="highlighter-rouge">map-Tree</code> (practice)</h4>
+<h4 id="exercise-map-tree-practice">Exercise <code class="language-plaintext highlighter-rouge">map-Tree</code> (practice)</h4>
 
-<p>Define a type of trees with leaves of type <code class="highlighter-rouge">A</code> and internal
-nodes of type <code class="highlighter-rouge">B</code>:</p>
+<p>Define a type of trees with leaves of type <code class="language-plaintext highlighter-rouge">A</code> and internal
+nodes of type <code class="language-plaintext highlighter-rouge">B</code>:</p>
 <pre class="Agda"><a id="14856" class="Keyword">data</a> <a id="Tree"></a><a id="14861" href="/Lists/#14861" class="Datatype">Tree</a> <a id="14866" class="Symbol">(</a><a id="14867" href="plfa.part1.Lists.html#14867" class="Bound">A</a> <a id="14869" href="plfa.part1.Lists.html#14869" class="Bound">B</a> <a id="14871" class="Symbol">:</a> <a id="14873" class="PrimitiveType">Set</a><a id="14876" class="Symbol">)</a> <a id="14878" class="Symbol">:</a> <a id="14880" class="PrimitiveType">Set</a> <a id="14884" class="Keyword">where</a>
   <a id="Tree.leaf"></a><a id="14892" href="/Lists/#14892" class="InductiveConstructor">leaf</a> <a id="14897" class="Symbol">:</a> <a id="14899" href="plfa.part1.Lists.html#14867" class="Bound">A</a> <a id="14901" class="Symbol">→</a> <a id="14903" href="plfa.part1.Lists.html#14861" class="Datatype">Tree</a> <a id="14908" href="plfa.part1.Lists.html#14867" class="Bound">A</a> <a id="14910" href="plfa.part1.Lists.html#14869" class="Bound">B</a>
   <a id="Tree.node"></a><a id="14914" href="/Lists/#14914" class="InductiveConstructor">node</a> <a id="14919" class="Symbol">:</a> <a id="14921" href="plfa.part1.Lists.html#14861" class="Datatype">Tree</a> <a id="14926" href="plfa.part1.Lists.html#14867" class="Bound">A</a> <a id="14928" href="plfa.part1.Lists.html#14869" class="Bound">B</a> <a id="14930" class="Symbol">→</a> <a id="14932" href="plfa.part1.Lists.html#14869" class="Bound">B</a> <a id="14934" class="Symbol">→</a> <a id="14936" href="plfa.part1.Lists.html#14861" class="Datatype">Tree</a> <a id="14941" href="plfa.part1.Lists.html#14867" class="Bound">A</a> <a id="14943" href="plfa.part1.Lists.html#14869" class="Bound">B</a> <a id="14945" class="Symbol">→</a> <a id="14947" href="plfa.part1.Lists.html#14861" class="Datatype">Tree</a> <a id="14952" href="plfa.part1.Lists.html#14867" class="Bound">A</a> <a id="14954" href="plfa.part1.Lists.html#14869" class="Bound">B</a>
 </pre>
 <p>Define a suitable map operator over trees:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map-Tree : ∀ {A B C D : Set} → (A → C) → (B → D) → Tree A B → Tree C D
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map-Tree : ∀ {A B C D : Set} → (A → C) → (B → D) → Tree A B → Tree C D
 </code></pre></div></div>
 
 <pre class="Agda"><a id="15084" class="Comment">-- Your code goes here</a>
@@ -619,7 +619,7 @@ the head of the list and the fold of the tail of the list.</p>
     <a id="15932" class="Number">1</a> <a id="15934" href="Agda.Builtin.Nat.html#298" class="Primitive Operator">+</a> <a id="15936" class="Symbol">(</a><a id="15937" class="Number">2</a> <a id="15939" href="Agda.Builtin.Nat.html#298" class="Primitive Operator">+</a> <a id="15941" class="Symbol">(</a><a id="15942" class="Number">3</a> <a id="15944" href="Agda.Builtin.Nat.html#298" class="Primitive Operator">+</a> <a id="15946" class="Symbol">(</a><a id="15947" class="Number">4</a> <a id="15949" href="Agda.Builtin.Nat.html#298" class="Primitive Operator">+</a> <a id="15951" class="Number">0</a><a id="15952" class="Symbol">)))</a>
   <a id="15958" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2892" class="Function Operator">∎</a>
 </pre>
-<p>Here we have an instance of <code class="highlighter-rouge">foldr</code> where <code class="highlighter-rouge">A</code> and <code class="highlighter-rouge">B</code> are both <code class="highlighter-rouge">ℕ</code>.
+<p>Here we have an instance of <code class="language-plaintext highlighter-rouge">foldr</code> where <code class="language-plaintext highlighter-rouge">A</code> and <code class="language-plaintext highlighter-rouge">B</code> are both <code class="language-plaintext highlighter-rouge">ℕ</code>.
 Fold requires time linear in the length of the list.</p>
 
 <p>It is often convenient to exploit currying by applying
@@ -638,85 +638,85 @@ and at a later point applying the resulting function:</p>
     <a id="16411" class="Number">10</a>
   <a id="16416" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2892" class="Function Operator">∎</a>
 </pre>
-<p>Just as the list type has two constructors, <code class="highlighter-rouge">[]</code> and <code class="highlighter-rouge">_∷_</code>,
-so the fold function takes two arguments, <code class="highlighter-rouge">e</code> and <code class="highlighter-rouge">_⊗_</code>
+<p>Just as the list type has two constructors, <code class="language-plaintext highlighter-rouge">[]</code> and <code class="language-plaintext highlighter-rouge">_∷_</code>,
+so the fold function takes two arguments, <code class="language-plaintext highlighter-rouge">e</code> and <code class="language-plaintext highlighter-rouge">_⊗_</code>
 (in addition to the list argument).
 In general, a data type with <em>n</em> constructors will have
 a corresponding fold function that takes <em>n</em> arguments.</p>
 
 <p>As another example, observe that</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foldr _∷_ [] xs ≡ xs
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foldr _∷_ [] xs ≡ xs
 </code></pre></div></div>
 
-<p>Here, if <code class="highlighter-rouge">xs</code> is of type <code class="highlighter-rouge">List A</code>, then we see we have an instance of
-<code class="highlighter-rouge">foldr</code> where <code class="highlighter-rouge">A</code> is <code class="highlighter-rouge">A</code> and <code class="highlighter-rouge">B</code> is <code class="highlighter-rouge">List A</code>.  It follows that</p>
+<p>Here, if <code class="language-plaintext highlighter-rouge">xs</code> is of type <code class="language-plaintext highlighter-rouge">List A</code>, then we see we have an instance of
+<code class="language-plaintext highlighter-rouge">foldr</code> where <code class="language-plaintext highlighter-rouge">A</code> is <code class="language-plaintext highlighter-rouge">A</code> and <code class="language-plaintext highlighter-rouge">B</code> is <code class="language-plaintext highlighter-rouge">List A</code>.  It follows that</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xs ++ ys ≡ foldr _∷_ ys xs
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xs ++ ys ≡ foldr _∷_ ys xs
 </code></pre></div></div>
 
 <p>Demonstrating both these equations is left as an exercise.</p>
 
-<h4 id="exercise-product-recommended">Exercise <code class="highlighter-rouge">product</code> (recommended)</h4>
+<h4 id="exercise-product-recommended">Exercise <code class="language-plaintext highlighter-rouge">product</code> (recommended)</h4>
 
 <p>Use fold to define a function to find the product of a list of numbers.
 For example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>product [ 1 , 2 , 3 , 4 ] ≡ 24
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>product [ 1 , 2 , 3 , 4 ] ≡ 24
 </code></pre></div></div>
 
 <pre class="Agda"><a id="17140" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-foldr--recommended">Exercise <code class="highlighter-rouge">foldr-++</code> (recommended)</h4>
+<h4 id="exercise-foldr--recommended">Exercise <code class="language-plaintext highlighter-rouge">foldr-++</code> (recommended)</h4>
 
 <p>Show that fold and append are related as follows:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foldr _⊗_ e (xs ++ ys) ≡ foldr _⊗_ (foldr _⊗_ e ys) xs
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foldr _⊗_ e (xs ++ ys) ≡ foldr _⊗_ (foldr _⊗_ e ys) xs
 </code></pre></div></div>
 
 <pre class="Agda"><a id="17323" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-foldr--practice">Exercise <code class="highlighter-rouge">foldr-∷</code> (practice)</h4>
+<h4 id="exercise-foldr--practice">Exercise <code class="language-plaintext highlighter-rouge">foldr-∷</code> (practice)</h4>
 
 <p>Show</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foldr _∷_ [] xs ≡ xs
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foldr _∷_ [] xs ≡ xs
 </code></pre></div></div>
 
-<p>Show as a consequence of <code class="highlighter-rouge">foldr-++</code> above that</p>
+<p>Show as a consequence of <code class="language-plaintext highlighter-rouge">foldr-++</code> above that</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xs ++ ys ≡ foldr _∷_ ys xs    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xs ++ ys ≡ foldr _∷_ ys xs    
 </code></pre></div></div>
 
 <pre class="Agda"><a id="17508" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-map-is-foldr-practice">Exercise <code class="highlighter-rouge">map-is-foldr</code> (practice)</h4>
+<h4 id="exercise-map-is-foldr-practice">Exercise <code class="language-plaintext highlighter-rouge">map-is-foldr</code> (practice)</h4>
 
 <p>Show that map can be defined using fold:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map f ≡ foldr (λ x xs → f x ∷ xs) []
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map f ≡ foldr (λ x xs → f x ∷ xs) []
 </code></pre></div></div>
 
 <p>The proof requires extensionality.</p>
 
 <pre class="Agda"><a id="17701" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-fold-tree-practice">Exercise <code class="highlighter-rouge">fold-Tree</code> (practice)</h4>
+<h4 id="exercise-fold-tree-practice">Exercise <code class="language-plaintext highlighter-rouge">fold-Tree</code> (practice)</h4>
 
 <p>Define a suitable fold function for the type of trees given earlier:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fold-Tree : ∀ {A B C : Set} → (A → C) → (C → B → C → C) → Tree A B → C
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fold-Tree : ∀ {A B C : Set} → (A → C) → (C → B → C → C) → Tree A B → C
 </code></pre></div></div>
 
 <pre class="Agda"><a id="17918" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-map-is-fold-tree-practice">Exercise <code class="highlighter-rouge">map-is-fold-Tree</code> (practice)</h4>
+<h4 id="exercise-map-is-fold-tree-practice">Exercise <code class="language-plaintext highlighter-rouge">map-is-fold-Tree</code> (practice)</h4>
 
-<p>Demonstrate an analogue of <code class="highlighter-rouge">map-is-foldr</code> for the type of trees.</p>
+<p>Demonstrate an analogue of <code class="language-plaintext highlighter-rouge">map-is-foldr</code> for the type of trees.</p>
 
 <pre class="Agda"><a id="18061" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-sum-downfrom-stretch">Exercise <code class="highlighter-rouge">sum-downFrom</code> (stretch)</h4>
+<h4 id="exercise-sum-downfrom-stretch">Exercise <code class="language-plaintext highlighter-rouge">sum-downFrom</code> (stretch)</h4>
 
 <p>Define a function that counts down as follows:</p>
 <pre class="Agda"><a id="downFrom"></a><a id="18180" href="/Lists/#18180" class="Function">downFrom</a> <a id="18189" class="Symbol">:</a> <a id="18191" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a> <a id="18193" class="Symbol">→</a> <a id="18195" href="plfa.part1.Lists.html#1067" class="Datatype">List</a> <a id="18200" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a>
@@ -727,10 +727,10 @@ For example:</p>
 <pre class="Agda"><a id="18283" href="/Lists/#18283" class="Function">_</a> <a id="18285" class="Symbol">:</a> <a id="18287" href="plfa.part1.Lists.html#18180" class="Function">downFrom</a> <a id="18296" class="Number">3</a> <a id="18298" href="Agda.Builtin.Equality.html#125" class="Datatype Operator">≡</a> <a id="18300" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">[</a> <a id="18302" class="Number">2</a> <a id="18304" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">,</a> <a id="18306" class="Number">1</a> <a id="18308" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">,</a> <a id="18310" class="Number">0</a> <a id="18312" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">]</a>
 <a id="18314" class="Symbol">_</a> <a id="18316" class="Symbol">=</a> <a id="18318" href="Agda.Builtin.Equality.html#182" class="InductiveConstructor">refl</a>
 </pre>
-<p>Prove that the sum of the numbers <code class="highlighter-rouge">(n - 1) + ⋯ + 0</code> is
-equal to <code class="highlighter-rouge">n * (n ∸ 1) / 2</code>:</p>
+<p>Prove that the sum of the numbers <code class="language-plaintext highlighter-rouge">(n - 1) + ⋯ + 0</code> is
+equal to <code class="language-plaintext highlighter-rouge">n * (n ∸ 1) / 2</code>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sum (downFrom n) * 2 ≡ n * (n ∸ 1)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sum (downFrom n) * 2 ≡ n * (n ∸ 1)
 </code></pre></div></div>
 
 <h2 id="monoids">Monoids</h2>
@@ -774,7 +774,7 @@ list, are all examples of monoids:</p>
     <a id="19432" class="Symbol">;</a> <a id="19434" href="/Lists/#18862" class="Field">identityʳ</a> <a id="19444" class="Symbol">=</a> <a id="19446" href="plfa.part1.Lists.html#5920" class="Function">++-identityʳ</a>
     <a id="19463" class="Symbol">}</a>
 </pre>
-<p>If <code class="highlighter-rouge">_⊗_</code> and <code class="highlighter-rouge">e</code> form a monoid, then we can re-express fold on the
+<p>If <code class="language-plaintext highlighter-rouge">_⊗_</code> and <code class="language-plaintext highlighter-rouge">e</code> form a monoid, then we can re-express fold on the
 same operator and an arbitrary value:</p>
 <pre class="Agda"><a id="foldr-monoid"></a><a id="19579" href="/Lists/#19579" class="Function">foldr-monoid</a> <a id="19592" class="Symbol">:</a> <a id="19594" class="Symbol">∀</a> <a id="19596" class="Symbol">{</a><a id="19597" href="plfa.part1.Lists.html#19597" class="Bound">A</a> <a id="19599" class="Symbol">:</a> <a id="19601" class="PrimitiveType">Set</a><a id="19604" class="Symbol">}</a> <a id="19606" class="Symbol">(</a><a id="19607" href="plfa.part1.Lists.html#19607" class="Bound Operator">_⊗_</a> <a id="19611" class="Symbol">:</a> <a id="19613" href="plfa.part1.Lists.html#19597" class="Bound">A</a> <a id="19615" class="Symbol">→</a> <a id="19617" href="plfa.part1.Lists.html#19597" class="Bound">A</a> <a id="19619" class="Symbol">→</a> <a id="19621" href="plfa.part1.Lists.html#19597" class="Bound">A</a><a id="19622" class="Symbol">)</a> <a id="19624" class="Symbol">(</a><a id="19625" href="plfa.part1.Lists.html#19625" class="Bound">e</a> <a id="19627" class="Symbol">:</a> <a id="19629" href="plfa.part1.Lists.html#19597" class="Bound">A</a><a id="19630" class="Symbol">)</a> <a id="19632" class="Symbol">→</a> <a id="19634" href="plfa.part1.Lists.html#18701" class="Record">IsMonoid</a> <a id="19643" href="plfa.part1.Lists.html#19607" class="Bound Operator">_⊗_</a> <a id="19647" href="plfa.part1.Lists.html#19625" class="Bound">e</a> <a id="19649" class="Symbol">→</a>
   <a id="19653" class="Symbol">∀</a> <a id="19655" class="Symbol">(</a><a id="19656" href="/Lists/#19656" class="Bound">xs</a> <a id="19659" class="Symbol">:</a> <a id="19661" href="plfa.part1.Lists.html#1067" class="Datatype">List</a> <a id="19666" href="plfa.part1.Lists.html#19597" class="Bound">A</a><a id="19667" class="Symbol">)</a> <a id="19669" class="Symbol">(</a><a id="19670" href="plfa.part1.Lists.html#19670" class="Bound">y</a> <a id="19672" class="Symbol">:</a> <a id="19674" href="plfa.part1.Lists.html#19597" class="Bound">A</a><a id="19675" class="Symbol">)</a> <a id="19677" class="Symbol">→</a> <a id="19679" href="plfa.part1.Lists.html#15293" class="Function">foldr</a> <a id="19685" href="plfa.part1.Lists.html#19607" class="Bound Operator">_⊗_</a> <a id="19689" href="plfa.part1.Lists.html#19670" class="Bound">y</a> <a id="19691" href="plfa.part1.Lists.html#19656" class="Bound">xs</a> <a id="19694" href="Agda.Builtin.Equality.html#125" class="Datatype Operator">≡</a> <a id="19696" href="plfa.part1.Lists.html#15293" class="Function">foldr</a> <a id="19702" href="plfa.part1.Lists.html#19607" class="Bound Operator">_⊗_</a> <a id="19706" href="plfa.part1.Lists.html#19625" class="Bound">e</a> <a id="19708" href="plfa.part1.Lists.html#19656" class="Bound">xs</a> <a id="19711" href="plfa.part1.Lists.html#19607" class="Bound Operator">⊗</a> <a id="19713" href="plfa.part1.Lists.html#19670" class="Bound">y</a>
@@ -818,22 +818,22 @@ same operator and an arbitrary value:</p>
     <a id="20797" href="/Lists/#15293" class="Function">foldr</a> <a id="20803" href="plfa.part1.Lists.html#20618" class="Bound Operator">_⊗_</a> <a id="20807" href="plfa.part1.Lists.html#20622" class="Bound">e</a> <a id="20809" href="plfa.part1.Lists.html#20633" class="Bound">xs</a> <a id="20812" href="plfa.part1.Lists.html#20618" class="Bound Operator">⊗</a> <a id="20814" href="plfa.part1.Lists.html#15293" class="Function">foldr</a> <a id="20820" href="plfa.part1.Lists.html#20618" class="Bound Operator">_⊗_</a> <a id="20824" href="plfa.part1.Lists.html#20622" class="Bound">e</a> <a id="20826" href="plfa.part1.Lists.html#20636" class="Bound">ys</a>
   <a id="20831" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#2892" class="Function Operator">∎</a>
 </pre>
-<h4 id="exercise-foldl-practice">Exercise <code class="highlighter-rouge">foldl</code> (practice)</h4>
+<h4 id="exercise-foldl-practice">Exercise <code class="language-plaintext highlighter-rouge">foldl</code> (practice)</h4>
 
-<p>Define a function <code class="highlighter-rouge">foldl</code> which is analogous to <code class="highlighter-rouge">foldr</code>, but where
+<p>Define a function <code class="language-plaintext highlighter-rouge">foldl</code> which is analogous to <code class="language-plaintext highlighter-rouge">foldr</code>, but where
 operations associate to the left rather than the right.  For example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foldr _⊗_ e [ x , y , z ]  =  x ⊗ (y ⊗ (z ⊗ e))
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foldr _⊗_ e [ x , y , z ]  =  x ⊗ (y ⊗ (z ⊗ e))
 foldl _⊗_ e [ x , y , z ]  =  ((e ⊗ x) ⊗ y) ⊗ z
 </code></pre></div></div>
 
 <pre class="Agda"><a id="21119" class="Comment">-- Your code goes here</a>
 </pre>
 
-<h4 id="exercise-foldr-monoid-foldl-practice">Exercise <code class="highlighter-rouge">foldr-monoid-foldl</code> (practice)</h4>
+<h4 id="exercise-foldr-monoid-foldl-practice">Exercise <code class="language-plaintext highlighter-rouge">foldr-monoid-foldl</code> (practice)</h4>
 
-<p>Show that if <code class="highlighter-rouge">_⊗_</code> and <code class="highlighter-rouge">e</code> form a monoid, then <code class="highlighter-rouge">foldr _⊗_ e</code> and
-<code class="highlighter-rouge">foldl _⊗_ e</code> always compute the same result.</p>
+<p>Show that if <code class="language-plaintext highlighter-rouge">_⊗_</code> and <code class="language-plaintext highlighter-rouge">e</code> form a monoid, then <code class="language-plaintext highlighter-rouge">foldr _⊗_ e</code> and
+<code class="language-plaintext highlighter-rouge">foldl _⊗_ e</code> always compute the same result.</p>
 
 <pre class="Agda"><a id="21311" class="Comment">-- Your code goes here</a>
 </pre>
@@ -841,46 +841,46 @@ foldl _⊗_ e [ x , y , z ]  =  ((e ⊗ x) ⊗ y) ⊗ z
 <h2 id="All">All</h2>
 
 <p>We can also define predicates over lists. Two of the most important
-are <code class="highlighter-rouge">All</code> and <code class="highlighter-rouge">Any</code>.</p>
+are <code class="language-plaintext highlighter-rouge">All</code> and <code class="language-plaintext highlighter-rouge">Any</code>.</p>
 
-<p>Predicate <code class="highlighter-rouge">All P</code> holds if predicate <code class="highlighter-rouge">P</code> is satisfied by every element of a list:</p>
+<p>Predicate <code class="language-plaintext highlighter-rouge">All P</code> holds if predicate <code class="language-plaintext highlighter-rouge">P</code> is satisfied by every element of a list:</p>
 <pre class="Agda"><a id="21531" class="Keyword">data</a> <a id="All"></a><a id="21536" href="/Lists/#21536" class="Datatype">All</a> <a id="21540" class="Symbol">{</a><a id="21541" href="plfa.part1.Lists.html#21541" class="Bound">A</a> <a id="21543" class="Symbol">:</a> <a id="21545" class="PrimitiveType">Set</a><a id="21548" class="Symbol">}</a> <a id="21550" class="Symbol">(</a><a id="21551" href="plfa.part1.Lists.html#21551" class="Bound">P</a> <a id="21553" class="Symbol">:</a> <a id="21555" href="plfa.part1.Lists.html#21541" class="Bound">A</a> <a id="21557" class="Symbol">→</a> <a id="21559" class="PrimitiveType">Set</a><a id="21562" class="Symbol">)</a> <a id="21564" class="Symbol">:</a> <a id="21566" href="plfa.part1.Lists.html#1067" class="Datatype">List</a> <a id="21571" href="plfa.part1.Lists.html#21541" class="Bound">A</a> <a id="21573" class="Symbol">→</a> <a id="21575" class="PrimitiveType">Set</a> <a id="21579" class="Keyword">where</a>
   <a id="All.[]"></a><a id="21587" href="/Lists/#21587" class="InductiveConstructor">[]</a>  <a id="21591" class="Symbol">:</a> <a id="21593" href="plfa.part1.Lists.html#21536" class="Datatype">All</a> <a id="21597" href="plfa.part1.Lists.html#21551" class="Bound">P</a> <a id="21599" href="plfa.part1.Lists.html#1096" class="InductiveConstructor">[]</a>
   <a id="All._∷_"></a><a id="21604" href="/Lists/#21604" class="InductiveConstructor Operator">_∷_</a> <a id="21608" class="Symbol">:</a> <a id="21610" class="Symbol">∀</a> <a id="21612" class="Symbol">{</a><a id="21613" href="plfa.part1.Lists.html#21613" class="Bound">x</a> <a id="21615" class="Symbol">:</a> <a id="21617" href="plfa.part1.Lists.html#21541" class="Bound">A</a><a id="21618" class="Symbol">}</a> <a id="21620" class="Symbol">{</a><a id="21621" href="plfa.part1.Lists.html#21621" class="Bound">xs</a> <a id="21624" class="Symbol">:</a> <a id="21626" href="plfa.part1.Lists.html#1067" class="Datatype">List</a> <a id="21631" href="plfa.part1.Lists.html#21541" class="Bound">A</a><a id="21632" class="Symbol">}</a> <a id="21634" class="Symbol">→</a> <a id="21636" href="plfa.part1.Lists.html#21551" class="Bound">P</a> <a id="21638" href="plfa.part1.Lists.html#21613" class="Bound">x</a> <a id="21640" class="Symbol">→</a> <a id="21642" href="plfa.part1.Lists.html#21536" class="Datatype">All</a> <a id="21646" href="plfa.part1.Lists.html#21551" class="Bound">P</a> <a id="21648" href="plfa.part1.Lists.html#21621" class="Bound">xs</a> <a id="21651" class="Symbol">→</a> <a id="21653" href="plfa.part1.Lists.html#21536" class="Datatype">All</a> <a id="21657" href="plfa.part1.Lists.html#21551" class="Bound">P</a> <a id="21659" class="Symbol">(</a><a id="21660" href="plfa.part1.Lists.html#21613" class="Bound">x</a> <a id="21662" href="plfa.part1.Lists.html#1111" class="InductiveConstructor Operator">∷</a> <a id="21664" href="plfa.part1.Lists.html#21621" class="Bound">xs</a><a id="21666" class="Symbol">)</a>
 </pre>
 <p>The type has two constructors, reusing the names of the same constructors for lists.
-The first asserts that <code class="highlighter-rouge">P</code> holds for every element of the empty list.
-The second asserts that if <code class="highlighter-rouge">P</code> holds of the head of a list and for every
-element of the tail of a list, then <code class="highlighter-rouge">P</code> holds for every element of the list.
+The first asserts that <code class="language-plaintext highlighter-rouge">P</code> holds for every element of the empty list.
+The second asserts that if <code class="language-plaintext highlighter-rouge">P</code> holds of the head of a list and for every
+element of the tail of a list, then <code class="language-plaintext highlighter-rouge">P</code> holds for every element of the list.
 Agda uses types to disambiguate whether the constructor is building
-a list or evidence that <code class="highlighter-rouge">All P</code> holds.</p>
+a list or evidence that <code class="language-plaintext highlighter-rouge">All P</code> holds.</p>
 
-<p>For example, <code class="highlighter-rouge">All (_≤ 2)</code> holds of a list where every element is less
-than or equal to two.  Recall that <code class="highlighter-rouge">z≤n</code> proves <code class="highlighter-rouge">zero ≤ n</code> for any
-<code class="highlighter-rouge">n</code>, and that if <code class="highlighter-rouge">m≤n</code> proves <code class="highlighter-rouge">m ≤ n</code> then <code class="highlighter-rouge">s≤s m≤n</code> proves <code class="highlighter-rouge">suc m ≤
-suc n</code>, for any <code class="highlighter-rouge">m</code> and <code class="highlighter-rouge">n</code>:</p>
+<p>For example, <code class="language-plaintext highlighter-rouge">All (_≤ 2)</code> holds of a list where every element is less
+than or equal to two.  Recall that <code class="language-plaintext highlighter-rouge">z≤n</code> proves <code class="language-plaintext highlighter-rouge">zero ≤ n</code> for any
+<code class="language-plaintext highlighter-rouge">n</code>, and that if <code class="language-plaintext highlighter-rouge">m≤n</code> proves <code class="language-plaintext highlighter-rouge">m ≤ n</code> then <code class="language-plaintext highlighter-rouge">s≤s m≤n</code> proves <code class="language-plaintext highlighter-rouge">suc m ≤
+suc n</code>, for any <code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code>:</p>
 <pre class="Agda"><a id="22324" href="/Lists/#22324" class="Function">_</a> <a id="22326" class="Symbol">:</a> <a id="22328" href="plfa.part1.Lists.html#21536" class="Datatype">All</a> <a id="22332" class="Symbol">(</a><a id="22333" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Base.html#895" class="Datatype Operator">_≤</a> <a id="22336" class="Number">2</a><a id="22337" class="Symbol">)</a> <a id="22339" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">[</a> <a id="22341" class="Number">0</a> <a id="22343" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">,</a> <a id="22345" class="Number">1</a> <a id="22347" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">,</a> <a id="22349" class="Number">2</a> <a id="22351" href="plfa.part1.Lists.html#2881" class="InductiveConstructor Operator">]</a>
 <a id="22353" class="Symbol">_</a> <a id="22355" class="Symbol">=</a> <a id="22357" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Base.html#918" class="InductiveConstructor">z≤n</a> <a id="22361" href="/Lists/#21604" class="InductiveConstructor Operator">∷</a> <a id="22363" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Base.html#960" class="InductiveConstructor">s≤s</a> <a id="22367" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Base.html#918" class="InductiveConstructor">z≤n</a> <a id="22371" href="plfa.part1.Lists.html#21604" class="InductiveConstructor Operator">∷</a> <a id="22373" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Base.html#960" class="InductiveConstructor">s≤s</a> <a id="22377" class="Symbol">(</a><a id="22378" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Base.html#960" class="InductiveConstructor">s≤s</a> <a id="22382" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Base.html#918" class="InductiveConstructor">z≤n</a><a id="22385" class="Symbol">)</a> <a id="22387" href="plfa.part1.Lists.html#21604" class="InductiveConstructor Operator">∷</a> <a id="22389" href="plfa.part1.Lists.html#21587" class="InductiveConstructor">[]</a>
 </pre>
-<p>Here <code class="highlighter-rouge">_∷_</code> and <code class="highlighter-rouge">[]</code> are the constructors of <code class="highlighter-rouge">All P</code> rather than of <code class="highlighter-rouge">List A</code>.
-The three items are proofs of <code class="highlighter-rouge">0 ≤ 2</code>, <code class="highlighter-rouge">1 ≤ 2</code>, and <code class="highlighter-rouge">2 ≤ 2</code>, respectively.</p>
+<p>Here <code class="language-plaintext highlighter-rouge">_∷_</code> and <code class="language-plaintext highlighter-rouge">[]</code> are the constructors of <code class="language-plaintext highlighter-rouge">All P</code> rather than of <code class="language-plaintext highlighter-rouge">List A</code>.
+The three items are proofs of <code class="language-plaintext highlighter-rouge">0 ≤ 2</code>, <code class="language-plaintext highlighter-rouge">1 ≤ 2</code>, and <code class="language-plaintext highlighter-rouge">2 ≤ 2</code>, respectively.</p>
 
-<p>(One might wonder whether a pattern such as <code class="highlighter-rouge">[_,_,_]</code> can be used to
-construct values of type <code class="highlighter-rouge">All</code> as well as type <code class="highlighter-rouge">List</code>, since both use
+<p>(One might wonder whether a pattern such as <code class="language-plaintext highlighter-rouge">[_,_,_]</code> can be used to
+construct values of type <code class="language-plaintext highlighter-rouge">All</code> as well as type <code class="language-plaintext highlighter-rouge">List</code>, since both use
 the same constructors. Indeed it can, so long as both types are in
 scope when the pattern is declared.  That’s not the case here, since
-<code class="highlighter-rouge">List</code> is defined before <code class="highlighter-rouge">[_,_,_]</code>, but <code class="highlighter-rouge">All</code> is defined later.)</p>
+<code class="language-plaintext highlighter-rouge">List</code> is defined before <code class="language-plaintext highlighter-rouge">[_,_,_]</code>, but <code class="language-plaintext highlighter-rouge">All</code> is defined later.)</p>
 
 <h2 id="any">Any</h2>
 
-<p>Predicate <code class="highlighter-rouge">Any P</code> holds if predicate <code class="highlighter-rouge">P</code> is satisfied by some element of a list:</p>
+<p>Predicate <code class="language-plaintext highlighter-rouge">Any P</code> holds if predicate <code class="language-plaintext highlighter-rouge">P</code> is satisfied by some element of a list:</p>
 <pre class="Agda"><a id="22984" class="Keyword">data</a> <a id="Any"></a><a id="22989" href="/Lists/#22989" class="Datatype">Any</a> <a id="22993" class="Symbol">{</a><a id="22994" href="plfa.part1.Lists.html#22994" class="Bound">A</a> <a id="22996" class="Symbol">:</a> <a id="22998" class="PrimitiveType">Set</a><a id="23001" class="Symbol">}</a> <a id="23003" class="Symbol">(</a><a id="23004" href="plfa.part1.Lists.html#23004" class="Bound">P</a> <a id="23006" class="Symbol">:</a> <a id="23008" href="plfa.part1.Lists.html#22994" class="Bound">A</a> <a id="23010" class="Symbol">→</a> <a id="23012" class="PrimitiveType">Set</a><a id="23015" class="Symbol">)</a> <a id="23017" class="Symbol">:</a> <a id="23019" href="plfa.part1.Lists.html#1067" class="Datatype">List</a> <a id="23024" href="plfa.part1.Lists.html#22994" class="Bound">A</a> <a id="23026" class="Symbol">→</a> <a id="23028" class="PrimitiveType">Set</a> <a id="23032" class="Keyword">where</a>
   <a id="Any.here"></a><a id="23040" href="/Lists/#23040" class="InductiveConstructor">here</a>  <a id="23046" class="Symbol">:</a> <a id="23048" class="Symbol">∀</a> <a id="23050" class="Symbol">{</a><a id="23051" href="plfa.part1.Lists.html#23051" class="Bound">x</a> <a id="23053" class="Symbol">:</a> <a id="23055" href="plfa.part1.Lists.html#22994" class="Bound">A</a><a id="23056" class="Symbol">}</a> <a id="23058" class="Symbol">{</a><a id="23059" href="plfa.part1.Lists.html#23059" class="Bound">xs</a> <a id="23062" class="Symbol">:</a> <a id="23064" href="plfa.part1.Lists.html#1067" class="Datatype">List</a> <a id="23069" href="plfa.part1.Lists.html#22994" class="Bound">A</a><a id="23070" class="Symbol">}</a> <a id="23072" class="Symbol">→</a> <a id="23074" href="plfa.part1.Lists.html#23004" class="Bound">P</a> <a id="23076" href="plfa.part1.Lists.html#23051" class="Bound">x</a> <a id="23078" class="Symbol">→</a> <a id="23080" href="plfa.part1.Lists.html#22989" class="Datatype">Any</a> <a id="23084" href="plfa.part1.Lists.html#23004" class="Bound">P</a> <a id="23086" class="Symbol">(</a><a id="23087" href="plfa.part1.Lists.html#23051" class="Bound">x</a> <a id="23089" href="plfa.part1.Lists.html#1111" class="InductiveConstructor Operator">∷</a> <a id="23091" href="plfa.part1.Lists.html#23059" class="Bound">xs</a><a id="23093" class="Symbol">)</a>
   <a id="Any.there"></a><a id="23097" href="/Lists/#23097" class="InductiveConstructor">there</a> <a id="23103" class="Symbol">:</a> <a id="23105" class="Symbol">∀</a> <a id="23107" class="Symbol">{</a><a id="23108" href="plfa.part1.Lists.html#23108" class="Bound">x</a> <a id="23110" class="Symbol">:</a> <a id="23112" href="plfa.part1.Lists.html#22994" class="Bound">A</a><a id="23113" class="Symbol">}</a> <a id="23115" class="Symbol">{</a><a id="23116" href="plfa.part1.Lists.html#23116" class="Bound">xs</a> <a id="23119" class="Symbol">:</a> <a id="23121" href="plfa.part1.Lists.html#1067" class="Datatype">List</a> <a id="23126" href="plfa.part1.Lists.html#22994" class="Bound">A</a><a id="23127" class="Symbol">}</a> <a id="23129" class="Symbol">→</a> <a id="23131" href="plfa.part1.Lists.html#22989" class="Datatype">Any</a> <a id="23135" href="plfa.part1.Lists.html#23004" class="Bound">P</a> <a id="23137" href="plfa.part1.Lists.html#23116" class="Bound">xs</a> <a id="23140" class="Symbol">→</a> <a id="23142" href="plfa.part1.Lists.html#22989" class="Datatype">Any</a> <a id="23146" href="plfa.part1.Lists.html#23004" class="Bound">P</a> <a id="23148" class="Symbol">(</a><a id="23149" href="plfa.part1.Lists.html#23108" class="Bound">x</a> <a id="23151" href="plfa.part1.Lists.html#1111" class="InductiveConstructor Operator">∷</a> <a id="23153" href="plfa.part1.Lists.html#23116" class="Bound">xs</a><a id="23155" class="Symbol">)</a>
 </pre>
 <p>The first constructor provides evidence that the head of the list
-satisfies <code class="highlighter-rouge">P</code>, while the second provides evidence that some element of
-the tail of the list satisfies <code class="highlighter-rouge">P</code>.  For example, we can define list
+satisfies <code class="language-plaintext highlighter-rouge">P</code>, while the second provides evidence that some element of
+the tail of the list satisfies <code class="language-plaintext highlighter-rouge">P</code>.  For example, we can define list
 membership as follows:</p>
 <pre class="Agda"><a id="23394" class="Keyword">infix</a> <a id="23400" class="Number">4</a> <a id="23402" href="/Lists/#23411" class="Function Operator">_∈_</a> <a id="23406" href="plfa.part1.Lists.html#23481" class="Function Operator">_∉_</a>
 
@@ -890,7 +890,7 @@ membership as follows:</p>
 <a id="_∉_"></a><a id="23481" href="/Lists/#23481" class="Function Operator">_∉_</a> <a id="23485" class="Symbol">:</a> <a id="23487" class="Symbol">∀</a> <a id="23489" class="Symbol">{</a><a id="23490" href="plfa.part1.Lists.html#23490" class="Bound">A</a> <a id="23492" class="Symbol">:</a> <a id="23494" class="PrimitiveType">Set</a><a id="23497" class="Symbol">}</a> <a id="23499" class="Symbol">(</a><a id="23500" href="plfa.part1.Lists.html#23500" class="Bound">x</a> <a id="23502" class="Symbol">:</a> <a id="23504" href="plfa.part1.Lists.html#23490" class="Bound">A</a><a id="23505" class="Symbol">)</a> <a id="23507" class="Symbol">(</a><a id="23508" href="plfa.part1.Lists.html#23508" class="Bound">xs</a> <a id="23511" class="Symbol">:</a> <a id="23513" href="plfa.part1.Lists.html#1067" class="Datatype">List</a> <a id="23518" href="plfa.part1.Lists.html#23490" class="Bound">A</a><a id="23519" class="Symbol">)</a> <a id="23521" class="Symbol">→</a> <a id="23523" class="PrimitiveType">Set</a>
 <a id="23527" href="/Lists/#23527" class="Bound">x</a> <a id="23529" href="plfa.part1.Lists.html#23481" class="Function Operator">∉</a> <a id="23531" href="plfa.part1.Lists.html#23531" class="Bound">xs</a> <a id="23534" class="Symbol">=</a> <a id="23536" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.html#535" class="Function Operator">¬</a> <a id="23538" class="Symbol">(</a><a id="23539" href="plfa.part1.Lists.html#23527" class="Bound">x</a> <a id="23541" href="plfa.part1.Lists.html#23411" class="Function Operator">∈</a> <a id="23543" href="plfa.part1.Lists.html#23531" class="Bound">xs</a><a id="23545" class="Symbol">)</a>
 </pre>
-<p>For example, zero is an element of the list <code class="highlighter-rouge">[ 0 , 1 , 0 , 2 ]</code>.  Indeed, we can demonstrate
+<p>For example, zero is an element of the list <code class="language-plaintext highlighter-rouge">[ 0 , 1 , 0 , 2 ]</code>.  Indeed, we can demonstrate
 this fact in two different ways, corresponding to the two different
 occurrences of zero in the list, as the first element and as the third element:</p>
 <pre class="Agda"><a id="23796" href="/Lists/#23796" class="Function">_</a> <a id="23798" class="Symbol">:</a> <a id="23800" class="Number">0</a> <a id="23802" href="plfa.part1.Lists.html#23411" class="Function Operator">∈</a> <a id="23804" href="plfa.part1.Lists.html#2920" class="InductiveConstructor Operator">[</a> <a id="23806" class="Number">0</a> <a id="23808" href="plfa.part1.Lists.html#2920" class="InductiveConstructor Operator">,</a> <a id="23810" class="Number">1</a> <a id="23812" href="plfa.part1.Lists.html#2920" class="InductiveConstructor Operator">,</a> <a id="23814" class="Number">0</a> <a id="23816" href="plfa.part1.Lists.html#2920" class="InductiveConstructor Operator">,</a> <a id="23818" class="Number">2</a> <a id="23820" href="plfa.part1.Lists.html#2920" class="InductiveConstructor Operator">]</a>
@@ -908,9 +908,9 @@ any possible proof that it is in the list leads to contradiction:</p>
 <a id="24140" href="/Lists/#24034" class="Function">not-in</a> <a id="24147" class="Symbol">(</a><a id="24148" href="plfa.part1.Lists.html#23097" class="InductiveConstructor">there</a> <a id="24154" class="Symbol">(</a><a id="24155" href="plfa.part1.Lists.html#23097" class="InductiveConstructor">there</a> <a id="24161" class="Symbol">(</a><a id="24162" href="plfa.part1.Lists.html#23097" class="InductiveConstructor">there</a> <a id="24168" class="Symbol">(</a><a id="24169" href="plfa.part1.Lists.html#23040" class="InductiveConstructor">here</a> <a id="24174" class="Symbol">()))))</a>
 <a id="24181" href="/Lists/#24034" class="Function">not-in</a> <a id="24188" class="Symbol">(</a><a id="24189" href="plfa.part1.Lists.html#23097" class="InductiveConstructor">there</a> <a id="24195" class="Symbol">(</a><a id="24196" href="plfa.part1.Lists.html#23097" class="InductiveConstructor">there</a> <a id="24202" class="Symbol">(</a><a id="24203" href="plfa.part1.Lists.html#23097" class="InductiveConstructor">there</a> <a id="24209" class="Symbol">(</a><a id="24210" href="plfa.part1.Lists.html#23097" class="InductiveConstructor">there</a> <a id="24216" class="Symbol">()))))</a>
 </pre>
-<p>The five occurrences of <code class="highlighter-rouge">()</code> attest to the fact that there is no
-possible evidence for <code class="highlighter-rouge">3 ≡ 0</code>, <code class="highlighter-rouge">3 ≡ 1</code>, <code class="highlighter-rouge">3 ≡ 0</code>, <code class="highlighter-rouge">3 ≡ 2</code>, and
-<code class="highlighter-rouge">3 ∈ []</code>, respectively.</p>
+<p>The five occurrences of <code class="language-plaintext highlighter-rouge">()</code> attest to the fact that there is no
+possible evidence for <code class="language-plaintext highlighter-rouge">3 ≡ 0</code>, <code class="language-plaintext highlighter-rouge">3 ≡ 1</code>, <code class="language-plaintext highlighter-rouge">3 ≡ 0</code>, <code class="language-plaintext highlighter-rouge">3 ≡ 2</code>, and
+<code class="language-plaintext highlighter-rouge">3 ∈ []</code>, respectively.</p>
 
 <h2 id="all-and-append">All and append</h2>
 
@@ -936,48 +936,48 @@ only if it holds for every element of both lists:</p>
   <a id="25048" href="/Lists/#24950" class="Function">from</a> <a id="25053" href="plfa.part1.Lists.html#1096" class="InductiveConstructor">[]</a> <a id="25056" href="plfa.part1.Lists.html#25056" class="Bound">ys</a> <a id="25059" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">⟨</a> <a id="25061" href="plfa.part1.Lists.html#21587" class="InductiveConstructor">[]</a> <a id="25064" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">,</a> <a id="25066" href="plfa.part1.Lists.html#25066" class="Bound">Pys</a> <a id="25070" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">⟩</a> <a id="25072" class="Symbol">=</a> <a id="25074" href="plfa.part1.Lists.html#25066" class="Bound">Pys</a>
   <a id="25080" href="/Lists/#24950" class="Function">from</a> <a id="25085" class="Symbol">(</a><a id="25086" href="plfa.part1.Lists.html#25086" class="Bound">x</a> <a id="25088" href="plfa.part1.Lists.html#1111" class="InductiveConstructor Operator">∷</a> <a id="25090" href="plfa.part1.Lists.html#25090" class="Bound">xs</a><a id="25092" class="Symbol">)</a> <a id="25094" href="plfa.part1.Lists.html#25094" class="Bound">ys</a> <a id="25097" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">⟨</a> <a id="25099" href="plfa.part1.Lists.html#25099" class="Bound">Px</a> <a id="25102" href="plfa.part1.Lists.html#21604" class="InductiveConstructor Operator">∷</a> <a id="25104" href="plfa.part1.Lists.html#25104" class="Bound">Pxs</a> <a id="25108" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">,</a> <a id="25110" href="plfa.part1.Lists.html#25110" class="Bound">Pys</a> <a id="25114" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">⟩</a> <a id="25116" class="Symbol">=</a>  <a id="25119" href="plfa.part1.Lists.html#25099" class="Bound">Px</a> <a id="25122" href="plfa.part1.Lists.html#21604" class="InductiveConstructor Operator">∷</a> <a id="25124" href="plfa.part1.Lists.html#24950" class="Function">from</a> <a id="25129" href="plfa.part1.Lists.html#25090" class="Bound">xs</a> <a id="25132" href="plfa.part1.Lists.html#25094" class="Bound">ys</a> <a id="25135" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">⟨</a> <a id="25137" href="plfa.part1.Lists.html#25104" class="Bound">Pxs</a> <a id="25141" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">,</a> <a id="25143" href="plfa.part1.Lists.html#25110" class="Bound">Pys</a> <a id="25147" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">⟩</a>
 </pre>
-<h4 id="exercise-any---recommended">Exercise <code class="highlighter-rouge">Any-++-⇔</code> (recommended)</h4>
+<h4 id="exercise-any---recommended">Exercise <code class="language-plaintext highlighter-rouge">Any-++-⇔</code> (recommended)</h4>
 
-<p>Prove a result similar to <code class="highlighter-rouge">All-++-⇔</code>, but with <code class="highlighter-rouge">Any</code> in place of <code class="highlighter-rouge">All</code>, and a suitable
-replacement for <code class="highlighter-rouge">_×_</code>.  As a consequence, demonstrate an equivalence relating
-<code class="highlighter-rouge">_∈_</code> and <code class="highlighter-rouge">_++_</code>.</p>
+<p>Prove a result similar to <code class="language-plaintext highlighter-rouge">All-++-⇔</code>, but with <code class="language-plaintext highlighter-rouge">Any</code> in place of <code class="language-plaintext highlighter-rouge">All</code>, and a suitable
+replacement for <code class="language-plaintext highlighter-rouge">_×_</code>.  As a consequence, demonstrate an equivalence relating
+<code class="language-plaintext highlighter-rouge">_∈_</code> and <code class="language-plaintext highlighter-rouge">_++_</code>.</p>
 
 <pre class="Agda"><a id="25382" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-all---stretch">Exercise <code class="highlighter-rouge">All-++-≃</code> (stretch)</h4>
+<h4 id="exercise-all---stretch">Exercise <code class="language-plaintext highlighter-rouge">All-++-≃</code> (stretch)</h4>
 
-<p>Show that the equivalence <code class="highlighter-rouge">All-++-⇔</code> can be extended to an isomorphism.</p>
+<p>Show that the equivalence <code class="language-plaintext highlighter-rouge">All-++-⇔</code> can be extended to an isomorphism.</p>
 
 <pre class="Agda"><a id="25523" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-anyall-recommended">Exercise <code class="highlighter-rouge">¬Any≃All¬</code> (recommended)</h4>
+<h4 id="exercise-anyall-recommended">Exercise <code class="language-plaintext highlighter-rouge">¬Any≃All¬</code> (recommended)</h4>
 
-<p>Show that <code class="highlighter-rouge">Any</code> and <code class="highlighter-rouge">All</code> satisfy a version of De Morgan’s Law:</p>
+<p>Show that <code class="language-plaintext highlighter-rouge">Any</code> and <code class="language-plaintext highlighter-rouge">All</code> satisfy a version of De Morgan’s Law:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(¬_ ∘ Any P) xs ≃ All (¬_ ∘ P) xs
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(¬_ ∘ Any P) xs ≃ All (¬_ ∘ P) xs
 </code></pre></div></div>
 
-<p>(Can you see why it is important that here <code class="highlighter-rouge">_∘_</code> is generalised
+<p>(Can you see why it is important that here <code class="language-plaintext highlighter-rouge">_∘_</code> is generalised
 to arbitrary levels, as described in the section on
 <a href="/Equality/#unipoly">universe polymorphism</a>?)</p>
 
 <p>Do we also have the following?</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(¬_ ∘ All P) xs ≃ Any (¬_ ∘ P) xs
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(¬_ ∘ All P) xs ≃ Any (¬_ ∘ P) xs
 </code></pre></div></div>
 
 <p>If so, prove; if not, explain why.</p>
 
-<h4 id="exercise-all--practice">Exercise <code class="highlighter-rouge">All-∀</code> (practice)</h4>
+<h4 id="exercise-all--practice">Exercise <code class="language-plaintext highlighter-rouge">All-∀</code> (practice)</h4>
 
-<p>Show that <code class="highlighter-rouge">All P xs</code> is isomorphic to <code class="highlighter-rouge">∀ {x} → x ∈ xs → P x</code>.</p>
+<p>Show that <code class="language-plaintext highlighter-rouge">All P xs</code> is isomorphic to <code class="language-plaintext highlighter-rouge">∀ {x} → x ∈ xs → P x</code>.</p>
 
 <pre class="Agda"><a id="26086" class="Comment">-- You code goes here</a>
 </pre>
 
-<h4 id="exercise-any--practice">Exercise <code class="highlighter-rouge">Any-∃</code> (practice)</h4>
+<h4 id="exercise-any--practice">Exercise <code class="language-plaintext highlighter-rouge">Any-∃</code> (practice)</h4>
 
-<p>Show that <code class="highlighter-rouge">Any P xs</code> is isomorphic to <code class="highlighter-rouge">∃[ x ] (x ∈ xs × P x)</code>.</p>
+<p>Show that <code class="language-plaintext highlighter-rouge">Any P xs</code> is isomorphic to <code class="language-plaintext highlighter-rouge">∃[ x ] (x ∈ xs × P x)</code>.</p>
 
 <pre class="Agda"><a id="26216" class="Comment">-- You code goes here</a>
 </pre>
@@ -985,23 +985,23 @@ to arbitrary levels, as described in the section on
 <h2 id="decidability-of-all">Decidability of All</h2>
 
 <p>If we consider a predicate as a function that yields a boolean,
-it is easy to define an analogue of <code class="highlighter-rouge">All</code>, which returns true if
+it is easy to define an analogue of <code class="language-plaintext highlighter-rouge">All</code>, which returns true if
 a given predicate returns true for every element of a list:</p>
 <pre class="Agda"><a id="all"></a><a id="26461" href="/Lists/#26461" class="Function">all</a> <a id="26465" class="Symbol">:</a> <a id="26467" class="Symbol">∀</a> <a id="26469" class="Symbol">{</a><a id="26470" href="plfa.part1.Lists.html#26470" class="Bound">A</a> <a id="26472" class="Symbol">:</a> <a id="26474" class="PrimitiveType">Set</a><a id="26477" class="Symbol">}</a> <a id="26479" class="Symbol">→</a> <a id="26481" class="Symbol">(</a><a id="26482" href="plfa.part1.Lists.html#26470" class="Bound">A</a> <a id="26484" class="Symbol">→</a> <a id="26486" href="Agda.Builtin.Bool.html#135" class="Datatype">Bool</a><a id="26490" class="Symbol">)</a> <a id="26492" class="Symbol">→</a> <a id="26494" href="plfa.part1.Lists.html#1067" class="Datatype">List</a> <a id="26499" href="plfa.part1.Lists.html#26470" class="Bound">A</a> <a id="26501" class="Symbol">→</a> <a id="26503" href="Agda.Builtin.Bool.html#135" class="Datatype">Bool</a>
 <a id="26508" href="/Lists/#26461" class="Function">all</a> <a id="26512" href="plfa.part1.Lists.html#26512" class="Bound">p</a>  <a id="26515" class="Symbol">=</a>  <a id="26518" href="plfa.part1.Lists.html#15293" class="Function">foldr</a> <a id="26524" href="https://agda.github.io/agda-stdlib/v1.1/Data.Bool.Base.html#1015" class="Function Operator">_∧_</a> <a id="26528" href="Agda.Builtin.Bool.html#160" class="InductiveConstructor">true</a> <a id="26533" href="https://agda.github.io/agda-stdlib/v1.1/Function.html#1099" class="Function Operator">∘</a> <a id="26535" href="plfa.part1.Lists.html#12867" class="Function">map</a> <a id="26539" href="plfa.part1.Lists.html#26512" class="Bound">p</a>
 </pre>
 <p>The function can be written in a particularly compact style by
-using the higher-order functions <code class="highlighter-rouge">map</code> and <code class="highlighter-rouge">foldr</code>.</p>
+using the higher-order functions <code class="language-plaintext highlighter-rouge">map</code> and <code class="language-plaintext highlighter-rouge">foldr</code>.</p>
 
 <p>As one would hope, if we replace booleans by decidables there is again
-an analogue of <code class="highlighter-rouge">All</code>.  First, return to the notion of a predicate <code class="highlighter-rouge">P</code> as
-a function of type <code class="highlighter-rouge">A → Set</code>, taking a value <code class="highlighter-rouge">x</code> of type <code class="highlighter-rouge">A</code> into evidence
-<code class="highlighter-rouge">P x</code> that a property holds for <code class="highlighter-rouge">x</code>.  Say that a predicate <code class="highlighter-rouge">P</code> is <em>decidable</em>
-if we have a function that for a given <code class="highlighter-rouge">x</code> can decide <code class="highlighter-rouge">P x</code>:</p>
+an analogue of <code class="language-plaintext highlighter-rouge">All</code>.  First, return to the notion of a predicate <code class="language-plaintext highlighter-rouge">P</code> as
+a function of type <code class="language-plaintext highlighter-rouge">A → Set</code>, taking a value <code class="language-plaintext highlighter-rouge">x</code> of type <code class="language-plaintext highlighter-rouge">A</code> into evidence
+<code class="language-plaintext highlighter-rouge">P x</code> that a property holds for <code class="language-plaintext highlighter-rouge">x</code>.  Say that a predicate <code class="language-plaintext highlighter-rouge">P</code> is <em>decidable</em>
+if we have a function that for a given <code class="language-plaintext highlighter-rouge">x</code> can decide <code class="language-plaintext highlighter-rouge">P x</code>:</p>
 <pre class="Agda"><a id="Decidable"></a><a id="27023" href="/Lists/#27023" class="Function">Decidable</a> <a id="27033" class="Symbol">:</a> <a id="27035" class="Symbol">∀</a> <a id="27037" class="Symbol">{</a><a id="27038" href="plfa.part1.Lists.html#27038" class="Bound">A</a> <a id="27040" class="Symbol">:</a> <a id="27042" class="PrimitiveType">Set</a><a id="27045" class="Symbol">}</a> <a id="27047" class="Symbol">→</a> <a id="27049" class="Symbol">(</a><a id="27050" href="plfa.part1.Lists.html#27038" class="Bound">A</a> <a id="27052" class="Symbol">→</a> <a id="27054" class="PrimitiveType">Set</a><a id="27057" class="Symbol">)</a> <a id="27059" class="Symbol">→</a> <a id="27061" class="PrimitiveType">Set</a>
 <a id="27065" href="/Lists/#27023" class="Function">Decidable</a> <a id="27075" class="Symbol">{</a><a id="27076" href="plfa.part1.Lists.html#27076" class="Bound">A</a><a id="27077" class="Symbol">}</a> <a id="27079" href="plfa.part1.Lists.html#27079" class="Bound">P</a>  <a id="27082" class="Symbol">=</a>  <a id="27085" class="Symbol">∀</a> <a id="27087" class="Symbol">(</a><a id="27088" href="plfa.part1.Lists.html#27088" class="Bound">x</a> <a id="27090" class="Symbol">:</a> <a id="27092" href="plfa.part1.Lists.html#27076" class="Bound">A</a><a id="27093" class="Symbol">)</a> <a id="27095" class="Symbol">→</a> <a id="27097" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.html#605" class="Datatype">Dec</a> <a id="27101" class="Symbol">(</a><a id="27102" href="plfa.part1.Lists.html#27079" class="Bound">P</a> <a id="27104" href="plfa.part1.Lists.html#27088" class="Bound">x</a><a id="27105" class="Symbol">)</a>
 </pre>
-<p>Then if predicate <code class="highlighter-rouge">P</code> is decidable, it is also decidable whether every
+<p>Then if predicate <code class="language-plaintext highlighter-rouge">P</code> is decidable, it is also decidable whether every
 element of a list satisfies the predicate:</p>
 <pre class="Agda"><a id="All?"></a><a id="27229" href="/Lists/#27229" class="Function">All?</a> <a id="27234" class="Symbol">:</a> <a id="27236" class="Symbol">∀</a> <a id="27238" class="Symbol">{</a><a id="27239" href="plfa.part1.Lists.html#27239" class="Bound">A</a> <a id="27241" class="Symbol">:</a> <a id="27243" class="PrimitiveType">Set</a><a id="27246" class="Symbol">}</a> <a id="27248" class="Symbol">{</a><a id="27249" href="plfa.part1.Lists.html#27249" class="Bound">P</a> <a id="27251" class="Symbol">:</a> <a id="27253" href="plfa.part1.Lists.html#27239" class="Bound">A</a> <a id="27255" class="Symbol">→</a> <a id="27257" class="PrimitiveType">Set</a><a id="27260" class="Symbol">}</a> <a id="27262" class="Symbol">→</a> <a id="27264" href="plfa.part1.Lists.html#27023" class="Function">Decidable</a> <a id="27274" href="plfa.part1.Lists.html#27249" class="Bound">P</a> <a id="27276" class="Symbol">→</a> <a id="27278" href="plfa.part1.Lists.html#27023" class="Function">Decidable</a> <a id="27288" class="Symbol">(</a><a id="27289" href="plfa.part1.Lists.html#21536" class="Datatype">All</a> <a id="27293" href="plfa.part1.Lists.html#27249" class="Bound">P</a><a id="27294" class="Symbol">)</a>
 <a id="27296" href="/Lists/#27229" class="Function">All?</a> <a id="27301" href="plfa.part1.Lists.html#27301" class="Bound">P?</a> <a id="27304" href="plfa.part1.Lists.html#1096" class="InductiveConstructor">[]</a>                                 <a id="27339" class="Symbol">=</a>  <a id="27342" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.html#641" class="InductiveConstructor">yes</a> <a id="27346" href="plfa.part1.Lists.html#21587" class="InductiveConstructor">[]</a>
@@ -1010,25 +1010,25 @@ element of a list satisfies the predicate:</p>
 <a id="27452" class="Symbol">...</a>                 <a id="27472" class="Symbol">|</a> <a id="27474" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.html#668" class="InductiveConstructor">no</a> <a id="27477" href="/Lists/#27477" class="Bound">¬Px</a> <a id="27481" class="Symbol">|</a> <a id="27483" class="Symbol">_</a>           <a id="27495" class="Symbol">=</a>  <a id="27498" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.html#668" class="InductiveConstructor">no</a> <a id="27501" class="Symbol">λ{</a> <a id="27504" class="Symbol">(</a><a id="27505" href="plfa.part1.Lists.html#27505" class="Bound">Px</a> <a id="27508" href="plfa.part1.Lists.html#21604" class="InductiveConstructor Operator">∷</a> <a id="27510" href="plfa.part1.Lists.html#27510" class="Bound">Pxs</a><a id="27513" class="Symbol">)</a> <a id="27515" class="Symbol">→</a> <a id="27517" href="plfa.part1.Lists.html#27477" class="Bound">¬Px</a> <a id="27521" href="plfa.part1.Lists.html#27505" class="Bound">Px</a>   <a id="27526" class="Symbol">}</a>
 <a id="27528" class="CatchallClause Symbol">...</a><a id="27531" class="CatchallClause">                 </a><a id="27548" class="CatchallClause Symbol">|</a><a id="27549" class="CatchallClause"> </a><a id="27550" class="CatchallClause Symbol">_</a><a id="27551" class="CatchallClause">      </a><a id="27557" class="CatchallClause Symbol">|</a><a id="27558" class="CatchallClause"> </a><a id="27559" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.html#668" class="CatchallClause InductiveConstructor">no</a><a id="27561" class="CatchallClause"> </a><a id="27562" href="/Lists/#27562" class="CatchallClause Bound">¬Pxs</a>     <a id="27571" class="Symbol">=</a>  <a id="27574" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.html#668" class="InductiveConstructor">no</a> <a id="27577" class="Symbol">λ{</a> <a id="27580" class="Symbol">(</a><a id="27581" href="plfa.part1.Lists.html#27581" class="Bound">Px</a> <a id="27584" href="plfa.part1.Lists.html#21604" class="InductiveConstructor Operator">∷</a> <a id="27586" href="plfa.part1.Lists.html#27586" class="Bound">Pxs</a><a id="27589" class="Symbol">)</a> <a id="27591" class="Symbol">→</a> <a id="27593" href="plfa.part1.Lists.html#27562" class="Bound">¬Pxs</a> <a id="27598" href="plfa.part1.Lists.html#27586" class="Bound">Pxs</a> <a id="27602" class="Symbol">}</a>
 </pre>
-<p>If the list is empty, then trivially <code class="highlighter-rouge">P</code> holds for every element of
+<p>If the list is empty, then trivially <code class="language-plaintext highlighter-rouge">P</code> holds for every element of
 the list.  Otherwise, the structure of the proof is similar to that
 showing that the conjunction of two decidable propositions is itself
-decidable, using <code class="highlighter-rouge">_∷_</code> rather than <code class="highlighter-rouge">⟨_,_⟩</code> to combine the evidence for
+decidable, using <code class="language-plaintext highlighter-rouge">_∷_</code> rather than <code class="language-plaintext highlighter-rouge">⟨_,_⟩</code> to combine the evidence for
 the head and tail of the list.</p>
 
-<h4 id="exercise-any-stretch">Exercise <code class="highlighter-rouge">any?</code> (stretch)</h4>
+<h4 id="exercise-any-stretch">Exercise <code class="language-plaintext highlighter-rouge">any?</code> (stretch)</h4>
 
-<p>Just as <code class="highlighter-rouge">All</code> has analogues <code class="highlighter-rouge">all</code> and <code class="highlighter-rouge">All?</code> which determine whether a
-predicate holds for every element of a list, so does <code class="highlighter-rouge">Any</code> have
-analogues <code class="highlighter-rouge">any</code> and <code class="highlighter-rouge">Any?</code> which determine whether a predicate holds
+<p>Just as <code class="language-plaintext highlighter-rouge">All</code> has analogues <code class="language-plaintext highlighter-rouge">all</code> and <code class="language-plaintext highlighter-rouge">All?</code> which determine whether a
+predicate holds for every element of a list, so does <code class="language-plaintext highlighter-rouge">Any</code> have
+analogues <code class="language-plaintext highlighter-rouge">any</code> and <code class="language-plaintext highlighter-rouge">Any?</code> which determine whether a predicate holds
 for some element of a list.  Give their definitions.</p>
 
 <pre class="Agda"><a id="28211" class="Comment">-- Your code goes here</a>
 </pre>
 
-<h4 id="exercise-split-stretch">Exercise <code class="highlighter-rouge">split</code> (stretch)</h4>
+<h4 id="exercise-split-stretch">Exercise <code class="language-plaintext highlighter-rouge">split</code> (stretch)</h4>
 
-<p>The relation <code class="highlighter-rouge">merge</code> holds when two lists merge to give a third list.</p>
+<p>The relation <code class="language-plaintext highlighter-rouge">merge</code> holds when two lists merge to give a third list.</p>
 <pre class="Agda"><a id="28347" class="Keyword">data</a> <a id="merge"></a><a id="28352" href="/Lists/#28352" class="Datatype">merge</a> <a id="28358" class="Symbol">{</a><a id="28359" href="plfa.part1.Lists.html#28359" class="Bound">A</a> <a id="28361" class="Symbol">:</a> <a id="28363" class="PrimitiveType">Set</a><a id="28366" class="Symbol">}</a> <a id="28368" class="Symbol">:</a> <a id="28370" class="Symbol">(</a><a id="28371" href="plfa.part1.Lists.html#28371" class="Bound">xs</a> <a id="28374" href="plfa.part1.Lists.html#28374" class="Bound">ys</a> <a id="28377" href="plfa.part1.Lists.html#28377" class="Bound">zs</a> <a id="28380" class="Symbol">:</a> <a id="28382" href="plfa.part1.Lists.html#1067" class="Datatype">List</a> <a id="28387" href="plfa.part1.Lists.html#28359" class="Bound">A</a><a id="28388" class="Symbol">)</a> <a id="28390" class="Symbol">→</a> <a id="28392" class="PrimitiveType">Set</a> <a id="28396" class="Keyword">where</a>
 
   <a id="merge.[]"></a><a id="28405" href="/Lists/#28405" class="InductiveConstructor">[]</a> <a id="28408" class="Symbol">:</a>
@@ -1055,11 +1055,11 @@ into two lists that merge to give the original list, where all
 elements of one list satisfy the predicate, and all elements of
 the other do not satisfy the predicate.</p>
 
-<p>Define the following variant of the traditional <code class="highlighter-rouge">filter</code> function on lists,
+<p>Define the following variant of the traditional <code class="language-plaintext highlighter-rouge">filter</code> function on lists,
 which given a decidable predicate and a list returns all elements of the
 list satisfying the predicate:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>split : ∀ {A : Set} {P : A → Set} (P? : Decidable P) (xs : List A)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>split : ∀ {A : Set} {P : A → Set} (P? : Decidable P) (xs : List A)
   → ∃[ ys ] ∃[ zs ] ( merge xs ys zs × All P ys × All (¬_ ∘ P) zs )
 </code></pre></div></div>
 
@@ -1079,19 +1079,19 @@ list satisfying the predicate:</p>
 <a id="29894" class="Keyword">import</a> <a id="29901" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Unary.html" class="Module">Relation.Unary</a> <a id="29916" class="Keyword">using</a> <a id="29922" class="Symbol">(</a><a id="29923" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Unary.html#3474" class="Function">Decidable</a><a id="29932" class="Symbol">)</a>
 <a id="29934" class="Keyword">import</a> <a id="29941" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.html" class="Module">Relation.Binary</a> <a id="29957" class="Keyword">using</a> <a id="29963" class="Symbol">(</a><a id="29964" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.Core.html#5557" class="Function">Decidable</a><a id="29973" class="Symbol">)</a>
 </pre>
-<p>The standard library version of <code class="highlighter-rouge">IsMonoid</code> differs from the
+<p>The standard library version of <code class="language-plaintext highlighter-rouge">IsMonoid</code> differs from the
 one given here, in that it is also parameterised on an equivalence relation.</p>
 
-<p>Both <code class="highlighter-rouge">Relation.Unary</code> and <code class="highlighter-rouge">Relation.Binary</code> define a version of <code class="highlighter-rouge">Decidable</code>,
-one for unary relations (as used in this chapter where <code class="highlighter-rouge">P</code> ranges over
-unary predicates) and one for binary relations (as used earlier, where <code class="highlighter-rouge">_≤_</code>
+<p>Both <code class="language-plaintext highlighter-rouge">Relation.Unary</code> and <code class="language-plaintext highlighter-rouge">Relation.Binary</code> define a version of <code class="language-plaintext highlighter-rouge">Decidable</code>,
+one for unary relations (as used in this chapter where <code class="language-plaintext highlighter-rouge">P</code> ranges over
+unary predicates) and one for binary relations (as used earlier, where <code class="language-plaintext highlighter-rouge">_≤_</code>
 ranges over a binary relation).</p>
 
 <h2 id="unicode">Unicode</h2>
 
 <p>This chapter uses the following unicode:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>∷  U+2237  PROPORTION  (\::)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>∷  U+2237  PROPORTION  (\::)
 ⊗  U+2297  CIRCLED TIMES  (\otimes, \ox)
 ∈  U+2208  ELEMENT OF  (\in)
 ∉  U+2209  NOT AN ELEMENT OF  (\inn, \notin)

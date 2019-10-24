@@ -84,11 +84,11 @@ such claims.</p>
 
 <p>Given two different systems, with different terms and reduction rules,
 we define what it means to claim that one <em>simulates</em> the other.
-Let’s call our two systems <em>source</em> and <em>target</em>.  Let <code class="highlighter-rouge">M</code>, <code class="highlighter-rouge">N</code> range
-over terms of the source, and <code class="highlighter-rouge">M†</code>, <code class="highlighter-rouge">N†</code> range over terms of the
+Let’s call our two systems <em>source</em> and <em>target</em>.  Let <code class="language-plaintext highlighter-rouge">M</code>, <code class="language-plaintext highlighter-rouge">N</code> range
+over terms of the source, and <code class="language-plaintext highlighter-rouge">M†</code>, <code class="language-plaintext highlighter-rouge">N†</code> range over terms of the
 target.  We define a relation</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M ~ M†
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M ~ M†
 </code></pre></div></div>
 
 <p>between corresponding terms of the two systems. We have a
@@ -96,14 +96,14 @@ target.  We define a relation</p>
 in the source has a corresponding reduction sequence
 in the target:</p>
 
-<p><em>Simulation</em>: For every <code class="highlighter-rouge">M</code>, <code class="highlighter-rouge">M†</code>, and <code class="highlighter-rouge">N</code>:
-If <code class="highlighter-rouge">M ~ M†</code> and <code class="highlighter-rouge">M —→ N</code>
-then <code class="highlighter-rouge">M† —↠ N†</code> and <code class="highlighter-rouge">N ~ N†</code>
-for some <code class="highlighter-rouge">N†</code>.</p>
+<p><em>Simulation</em>: For every <code class="language-plaintext highlighter-rouge">M</code>, <code class="language-plaintext highlighter-rouge">M†</code>, and <code class="language-plaintext highlighter-rouge">N</code>:
+If <code class="language-plaintext highlighter-rouge">M ~ M†</code> and <code class="language-plaintext highlighter-rouge">M —→ N</code>
+then <code class="language-plaintext highlighter-rouge">M† —↠ N†</code> and <code class="language-plaintext highlighter-rouge">N ~ N†</code>
+for some <code class="language-plaintext highlighter-rouge">N†</code>.</p>
 
 <p>Or, in a diagram:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M  --- —→ --- N
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M  --- —→ --- N
 |             |
 |             |
 ~             ~
@@ -116,7 +116,7 @@ M† --- —↠ --- N†
 corresponds to a reduction (rather than a reduction sequence)
 in the target:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M  --- —→ --- N
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M  --- —→ --- N
 |             |
 |             |
 ~             ~
@@ -138,10 +138,10 @@ reduction step in the source we must show a corresponding reduction
 sequence in the target.</p>
 
 <p>For instance, the source might be lambda calculus with <em>let</em>
-added, and the target the same system with <code class="highlighter-rouge">let</code> translated out.
+added, and the target the same system with <code class="language-plaintext highlighter-rouge">let</code> translated out.
 The key rule defining our relation will be:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M ~ M†
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M ~ M†
 N ~ N†
 --------------------------------
 let x = M in N ~ (ƛ x ⇒ N†) · M†
@@ -151,7 +151,7 @@ let x = M in N ~ (ƛ x ⇒ N†) · M†
 themselves, and abstractions and applications relate if their
 components relate:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-----
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-----
 x ~ x
 
 N ~ N†
@@ -170,7 +170,7 @@ fixpoints, products, and so on — would add little save length.</p>
 <p>In this case, our relation can be specified by a function
 from source to target:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(x) †               =  x
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(x) †               =  x
 (ƛ x ⇒ N) †         =  ƛ x ⇒ (N †)
 (L · M) †           =  (L †) · (M †)
 (let x = M in N) †  =  (ƛ x ⇒ (N †)) · (M †)
@@ -178,7 +178,7 @@ from source to target:</p>
 
 <p>And we have</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M † ≡ N
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M † ≡ N
 -------
 M ~ N
 </code></pre></div></div>
@@ -186,7 +186,7 @@ M ~ N
 <p>and conversely. But in general we may have a relation without any
 corresponding function.</p>
 
-<p>This chapter formalises establishing that <code class="highlighter-rouge">~</code> as defined
+<p>This chapter formalises establishing that <code class="language-plaintext highlighter-rouge">~</code> as defined
 above is a simulation from source to target.  We leave
 establishing it in the reverse direction as an exercise.
 Another exercise is to show the alternative formulations
@@ -237,10 +237,10 @@ However, leaving the simulation small let’s us focus on the essence.
 It’s a handy technical trick that we can have a large source language,
 but only bother to include in the simulation the terms of interest.</p>
 
-<h4 id="exercise-_-practice">Exercise <code class="highlighter-rouge">_†</code> (practice)</h4>
+<h4 id="exercise-_-practice">Exercise <code class="language-plaintext highlighter-rouge">_†</code> (practice)</h4>
 
 <p>Formalise the translation from source to target given in the introduction.
-Show that <code class="highlighter-rouge">M † ≡ N</code> implies <code class="highlighter-rouge">M ~ N</code>, and conversely.</p>
+Show that <code class="language-plaintext highlighter-rouge">M † ≡ N</code> implies <code class="language-plaintext highlighter-rouge">M ~ N</code>, and conversely.</p>
 
 <pre class="Agda"><a id="4741" class="Comment">-- Your code goes here</a>
 </pre>
@@ -248,8 +248,8 @@ Show that <code class="highlighter-rouge">M † ≡ N</code> implies <code class
 <h2 id="simulation-commutes-with-values">Simulation commutes with values</h2>
 
 <p>We need a number of technical results. The first is that simulation
-commutes with values.  That is, if <code class="highlighter-rouge">M ~ M†</code> and <code class="highlighter-rouge">M</code> is a value then
-<code class="highlighter-rouge">M†</code> is also a value:</p>
+commutes with values.  That is, if <code class="language-plaintext highlighter-rouge">M ~ M†</code> and <code class="language-plaintext highlighter-rouge">M</code> is a value then
+<code class="language-plaintext highlighter-rouge">M†</code> is also a value:</p>
 <pre class="Agda"><a id="~val"></a><a id="4968" href="/Bisimulation/#4968" class="Function">~val</a> <a id="4973" class="Symbol">:</a> <a id="4975" class="Symbol">∀</a> <a id="4977" class="Symbol">{</a><a id="4978" href="plfa.part2.Bisimulation.html#4978" class="Bound">Γ</a> <a id="4980" href="plfa.part2.Bisimulation.html#4980" class="Bound">A</a><a id="4981" class="Symbol">}</a> <a id="4983" class="Symbol">{</a><a id="4984" href="plfa.part2.Bisimulation.html#4984" class="Bound">M</a> <a id="4986" href="plfa.part2.Bisimulation.html#4986" class="Bound">M†</a> <a id="4989" class="Symbol">:</a> <a id="4991" href="plfa.part2.Bisimulation.html#4978" class="Bound">Γ</a> <a id="4993" href="/More/#14915" class="Datatype Operator">⊢</a> <a id="4995" href="plfa.part2.Bisimulation.html#4980" class="Bound">A</a><a id="4996" class="Symbol">}</a>
   <a id="5000" class="Symbol">→</a> <a id="5002" href="/Bisimulation/#4984" class="Bound">M</a> <a id="5004" href="plfa.part2.Bisimulation.html#3808" class="Datatype Operator">~</a> <a id="5006" href="plfa.part2.Bisimulation.html#4986" class="Bound">M†</a>
   <a id="5011" class="Symbol">→</a> <a id="5013" href="/More/#18854" class="Datatype">Value</a> <a id="5019" href="/Bisimulation/#4984" class="Bound">M</a>
@@ -263,10 +263,10 @@ commutes with values.  That is, if <code class="highlighter-rouge">M ~ M†</cod
 <p>It is a straightforward case analysis, where here the only value
 of interest is a lambda abstraction.</p>
 
-<h4 id="exercise-val-practice">Exercise <code class="highlighter-rouge">~val⁻¹</code> (practice)</h4>
+<h4 id="exercise-val-practice">Exercise <code class="language-plaintext highlighter-rouge">~val⁻¹</code> (practice)</h4>
 
-<p>Show that this also holds in the reverse direction: if <code class="highlighter-rouge">M ~ M†</code>
-and <code class="highlighter-rouge">Value M†</code> then <code class="highlighter-rouge">Value M</code>.</p>
+<p>Show that this also holds in the reverse direction: if <code class="language-plaintext highlighter-rouge">M ~ M†</code>
+and <code class="language-plaintext highlighter-rouge">Value M†</code> then <code class="language-plaintext highlighter-rouge">Value M</code>.</p>
 
 <pre class="Agda"><a id="5382" class="Comment">-- Your code goes here</a>
 </pre>
@@ -274,8 +274,8 @@ and <code class="highlighter-rouge">Value M†</code> then <code class="highligh
 <h2 id="simulation-commutes-with-renaming">Simulation commutes with renaming</h2>
 
 <p>The next technical result is that simulation commutes with renaming.
-That is, if <code class="highlighter-rouge">ρ</code> maps any judgment <code class="highlighter-rouge">Γ ∋ A</code> to a judgment <code class="highlighter-rouge">Δ ∋ A</code>,
-and if <code class="highlighter-rouge">M ~ M†</code> then <code class="highlighter-rouge">rename ρ M ~ rename ρ M†</code>:</p>
+That is, if <code class="language-plaintext highlighter-rouge">ρ</code> maps any judgment <code class="language-plaintext highlighter-rouge">Γ ∋ A</code> to a judgment <code class="language-plaintext highlighter-rouge">Δ ∋ A</code>,
+and if <code class="language-plaintext highlighter-rouge">M ~ M†</code> then <code class="language-plaintext highlighter-rouge">rename ρ M ~ rename ρ M†</code>:</p>
 
 <pre class="Agda"><a id="~rename"></a><a id="5637" href="/Bisimulation/#5637" class="Function">~rename</a> <a id="5645" class="Symbol">:</a> <a id="5647" class="Symbol">∀</a> <a id="5649" class="Symbol">{</a><a id="5650" href="plfa.part2.Bisimulation.html#5650" class="Bound">Γ</a> <a id="5652" href="plfa.part2.Bisimulation.html#5652" class="Bound">Δ</a><a id="5653" class="Symbol">}</a>
   <a id="5657" class="Symbol">→</a> <a id="5659" class="Symbol">(</a><a id="5660" href="/Bisimulation/#5660" class="Bound">ρ</a> <a id="5662" class="Symbol">:</a> <a id="5664" class="Symbol">∀</a> <a id="5666" class="Symbol">{</a><a id="5667" href="plfa.part2.Bisimulation.html#5667" class="Bound">A</a><a id="5668" class="Symbol">}</a> <a id="5670" class="Symbol">→</a> <a id="5672" href="plfa.part2.Bisimulation.html#5650" class="Bound">Γ</a> <a id="5674" href="/More/#14724" class="Datatype Operator">∋</a> <a id="5676" href="plfa.part2.Bisimulation.html#5667" class="Bound">A</a> <a id="5678" class="Symbol">→</a> <a id="5680" href="plfa.part2.Bisimulation.html#5652" class="Bound">Δ</a> <a id="5682" href="plfa.part2.More.html#14724" class="Datatype Operator">∋</a> <a id="5684" href="plfa.part2.Bisimulation.html#5667" class="Bound">A</a><a id="5685" class="Symbol">)</a>
@@ -294,12 +294,12 @@ where appropriate (in this case, only for the body of an abstraction).</p>
 
 <p>The third technical result is that simulation commutes with substitution.
 It is more complex than renaming, because where we had one renaming map
-<code class="highlighter-rouge">ρ</code> here we need two substitution maps, <code class="highlighter-rouge">σ</code> and <code class="highlighter-rouge">σ†</code>.</p>
+<code class="language-plaintext highlighter-rouge">ρ</code> here we need two substitution maps, <code class="language-plaintext highlighter-rouge">σ</code> and <code class="language-plaintext highlighter-rouge">σ†</code>.</p>
 
 <p>The proof first requires we establish an analogue of extension.
-If <code class="highlighter-rouge">σ</code> and <code class="highlighter-rouge">σ†</code> both map any judgment <code class="highlighter-rouge">Γ ∋ A</code> to a judgment <code class="highlighter-rouge">Δ ⊢ A</code>,
-such that for every <code class="highlighter-rouge">x</code> in <code class="highlighter-rouge">Γ ∋ A</code> we have <code class="highlighter-rouge">σ x ~ σ† x</code>,
-then for any <code class="highlighter-rouge">x</code> in <code class="highlighter-rouge">Γ , B ∋ A</code> we have <code class="highlighter-rouge">exts σ x ~ exts σ† x</code>:</p>
+If <code class="language-plaintext highlighter-rouge">σ</code> and <code class="language-plaintext highlighter-rouge">σ†</code> both map any judgment <code class="language-plaintext highlighter-rouge">Γ ∋ A</code> to a judgment <code class="language-plaintext highlighter-rouge">Δ ⊢ A</code>,
+such that for every <code class="language-plaintext highlighter-rouge">x</code> in <code class="language-plaintext highlighter-rouge">Γ ∋ A</code> we have <code class="language-plaintext highlighter-rouge">σ x ~ σ† x</code>,
+then for any <code class="language-plaintext highlighter-rouge">x</code> in <code class="language-plaintext highlighter-rouge">Γ , B ∋ A</code> we have <code class="language-plaintext highlighter-rouge">exts σ x ~ exts σ† x</code>:</p>
 <pre class="Agda"><a id="~exts"></a><a id="6750" href="/Bisimulation/#6750" class="Function">~exts</a> <a id="6756" class="Symbol">:</a> <a id="6758" class="Symbol">∀</a> <a id="6760" class="Symbol">{</a><a id="6761" href="plfa.part2.Bisimulation.html#6761" class="Bound">Γ</a> <a id="6763" href="plfa.part2.Bisimulation.html#6763" class="Bound">Δ</a><a id="6764" class="Symbol">}</a>
   <a id="6768" class="Symbol">→</a> <a id="6770" class="Symbol">{</a><a id="6771" href="/Bisimulation/#6771" class="Bound">σ</a>  <a id="6774" class="Symbol">:</a> <a id="6776" class="Symbol">∀</a> <a id="6778" class="Symbol">{</a><a id="6779" href="plfa.part2.Bisimulation.html#6779" class="Bound">A</a><a id="6780" class="Symbol">}</a> <a id="6782" class="Symbol">→</a> <a id="6784" href="plfa.part2.Bisimulation.html#6761" class="Bound">Γ</a> <a id="6786" href="/More/#14724" class="Datatype Operator">∋</a> <a id="6788" href="plfa.part2.Bisimulation.html#6779" class="Bound">A</a> <a id="6790" class="Symbol">→</a> <a id="6792" href="plfa.part2.Bisimulation.html#6763" class="Bound">Δ</a> <a id="6794" href="plfa.part2.More.html#14915" class="Datatype Operator">⊢</a> <a id="6796" href="plfa.part2.Bisimulation.html#6779" class="Bound">A</a><a id="6797" class="Symbol">}</a>
   <a id="6801" class="Symbol">→</a> <a id="6803" class="Symbol">{</a><a id="6804" href="/Bisimulation/#6804" class="Bound">σ†</a> <a id="6807" class="Symbol">:</a> <a id="6809" class="Symbol">∀</a> <a id="6811" class="Symbol">{</a><a id="6812" href="plfa.part2.Bisimulation.html#6812" class="Bound">A</a><a id="6813" class="Symbol">}</a> <a id="6815" class="Symbol">→</a> <a id="6817" href="plfa.part2.Bisimulation.html#6761" class="Bound">Γ</a> <a id="6819" href="/More/#14724" class="Datatype Operator">∋</a> <a id="6821" href="plfa.part2.Bisimulation.html#6812" class="Bound">A</a> <a id="6823" class="Symbol">→</a> <a id="6825" href="plfa.part2.Bisimulation.html#6763" class="Bound">Δ</a> <a id="6827" href="plfa.part2.More.html#14915" class="Datatype Operator">⊢</a> <a id="6829" href="plfa.part2.Bisimulation.html#6812" class="Bound">A</a><a id="6830" class="Symbol">}</a>
@@ -314,9 +314,9 @@ The newly introduced variable trivially relates to itself, and otherwise
 we apply renaming to the hypothesis.</p>
 
 <p>With extension under our belts, it is straightforward to show
-substitution commutes.  If <code class="highlighter-rouge">σ</code> and <code class="highlighter-rouge">σ†</code> both map any judgment <code class="highlighter-rouge">Γ ∋ A</code>
-to a judgment <code class="highlighter-rouge">Δ ⊢ A</code>, such that for every <code class="highlighter-rouge">x</code> in <code class="highlighter-rouge">Γ ∋ A</code> we have <code class="highlighter-rouge">σ
-x ~ σ† x</code>, and if <code class="highlighter-rouge">M ~ M†</code>, then <code class="highlighter-rouge">subst σ M ~ subst σ† M†</code>:</p>
+substitution commutes.  If <code class="language-plaintext highlighter-rouge">σ</code> and <code class="language-plaintext highlighter-rouge">σ†</code> both map any judgment <code class="language-plaintext highlighter-rouge">Γ ∋ A</code>
+to a judgment <code class="language-plaintext highlighter-rouge">Δ ⊢ A</code>, such that for every <code class="language-plaintext highlighter-rouge">x</code> in <code class="language-plaintext highlighter-rouge">Γ ∋ A</code> we have <code class="language-plaintext highlighter-rouge">σ
+x ~ σ† x</code>, and if <code class="language-plaintext highlighter-rouge">M ~ M†</code>, then <code class="language-plaintext highlighter-rouge">subst σ M ~ subst σ† M†</code>:</p>
 <pre class="Agda"><a id="~subst"></a><a id="7496" href="/Bisimulation/#7496" class="Function">~subst</a> <a id="7503" class="Symbol">:</a> <a id="7505" class="Symbol">∀</a> <a id="7507" class="Symbol">{</a><a id="7508" href="plfa.part2.Bisimulation.html#7508" class="Bound">Γ</a> <a id="7510" href="plfa.part2.Bisimulation.html#7510" class="Bound">Δ</a><a id="7511" class="Symbol">}</a>
   <a id="7515" class="Symbol">→</a> <a id="7517" class="Symbol">{</a><a id="7518" href="/Bisimulation/#7518" class="Bound">σ</a>  <a id="7521" class="Symbol">:</a> <a id="7523" class="Symbol">∀</a> <a id="7525" class="Symbol">{</a><a id="7526" href="plfa.part2.Bisimulation.html#7526" class="Bound">A</a><a id="7527" class="Symbol">}</a> <a id="7529" class="Symbol">→</a> <a id="7531" href="plfa.part2.Bisimulation.html#7508" class="Bound">Γ</a> <a id="7533" href="/More/#14724" class="Datatype Operator">∋</a> <a id="7535" href="plfa.part2.Bisimulation.html#7526" class="Bound">A</a> <a id="7537" class="Symbol">→</a> <a id="7539" href="plfa.part2.Bisimulation.html#7510" class="Bound">Δ</a> <a id="7541" href="plfa.part2.More.html#14915" class="Datatype Operator">⊢</a> <a id="7543" href="plfa.part2.Bisimulation.html#7526" class="Bound">A</a><a id="7544" class="Symbol">}</a>
   <a id="7548" class="Symbol">→</a> <a id="7550" class="Symbol">{</a><a id="7551" href="/Bisimulation/#7551" class="Bound">σ†</a> <a id="7554" class="Symbol">:</a> <a id="7556" class="Symbol">∀</a> <a id="7558" class="Symbol">{</a><a id="7559" href="plfa.part2.Bisimulation.html#7559" class="Bound">A</a><a id="7560" class="Symbol">}</a> <a id="7562" class="Symbol">→</a> <a id="7564" href="plfa.part2.Bisimulation.html#7508" class="Bound">Γ</a> <a id="7566" href="/More/#14724" class="Datatype Operator">∋</a> <a id="7568" href="plfa.part2.Bisimulation.html#7559" class="Bound">A</a> <a id="7570" class="Symbol">→</a> <a id="7572" href="plfa.part2.Bisimulation.html#7510" class="Bound">Δ</a> <a id="7574" href="plfa.part2.More.html#14915" class="Datatype Operator">⊢</a> <a id="7576" href="plfa.part2.Bisimulation.html#7559" class="Bound">A</a><a id="7577" class="Symbol">}</a>
@@ -334,8 +334,8 @@ extending the environment where appropriate (in this case, only for
 the body of an abstraction).</p>
 
 <p>From the general case of substitution, it is also easy to derive
-the required special case.  If <code class="highlighter-rouge">N ~ N†</code> and <code class="highlighter-rouge">M ~ M†</code>, then
-<code class="highlighter-rouge">N [ M ] ~ N† [ M† ]</code>:</p>
+the required special case.  If <code class="language-plaintext highlighter-rouge">N ~ N†</code> and <code class="language-plaintext highlighter-rouge">M ~ M†</code>, then
+<code class="language-plaintext highlighter-rouge">N [ M ] ~ N† [ M† ]</code>:</p>
 <pre class="Agda"><a id="~sub"></a><a id="8345" href="/Bisimulation/#8345" class="Function">~sub</a> <a id="8350" class="Symbol">:</a> <a id="8352" class="Symbol">∀</a> <a id="8354" class="Symbol">{</a><a id="8355" href="plfa.part2.Bisimulation.html#8355" class="Bound">Γ</a> <a id="8357" href="plfa.part2.Bisimulation.html#8357" class="Bound">A</a> <a id="8359" href="plfa.part2.Bisimulation.html#8359" class="Bound">B</a><a id="8360" class="Symbol">}</a> <a id="8362" class="Symbol">{</a><a id="8363" href="plfa.part2.Bisimulation.html#8363" class="Bound">N</a> <a id="8365" href="plfa.part2.Bisimulation.html#8365" class="Bound">N†</a> <a id="8368" class="Symbol">:</a> <a id="8370" href="plfa.part2.Bisimulation.html#8355" class="Bound">Γ</a> <a id="8372" href="/More/#14640" class="InductiveConstructor Operator">,</a> <a id="8374" href="plfa.part2.Bisimulation.html#8359" class="Bound">B</a> <a id="8376" href="plfa.part2.More.html#14915" class="Datatype Operator">⊢</a> <a id="8378" href="plfa.part2.Bisimulation.html#8357" class="Bound">A</a><a id="8379" class="Symbol">}</a> <a id="8381" class="Symbol">{</a><a id="8382" href="plfa.part2.Bisimulation.html#8382" class="Bound">M</a> <a id="8384" href="plfa.part2.Bisimulation.html#8384" class="Bound">M†</a> <a id="8387" class="Symbol">:</a> <a id="8389" href="plfa.part2.Bisimulation.html#8355" class="Bound">Γ</a> <a id="8391" href="plfa.part2.More.html#14915" class="Datatype Operator">⊢</a> <a id="8393" href="plfa.part2.Bisimulation.html#8359" class="Bound">B</a><a id="8394" class="Symbol">}</a>
   <a id="8398" class="Symbol">→</a> <a id="8400" href="/Bisimulation/#8363" class="Bound">N</a> <a id="8402" href="plfa.part2.Bisimulation.html#3808" class="Datatype Operator">~</a> <a id="8404" href="plfa.part2.Bisimulation.html#8365" class="Bound">N†</a>
   <a id="8409" class="Symbol">→</a> <a id="8411" href="/Bisimulation/#8382" class="Bound">M</a> <a id="8413" href="plfa.part2.Bisimulation.html#3808" class="Datatype Operator">~</a> <a id="8415" href="plfa.part2.Bisimulation.html#8384" class="Bound">M†</a>
@@ -355,14 +355,14 @@ the required special case.  If <code class="highlighter-rouge">N ~ N†</code> a
 In fact, we will show the stronger condition of a lock-step simulation.
 What we wish to show is:</p>
 
-<p><em>Lock-step simulation</em>: For every <code class="highlighter-rouge">M</code>, <code class="highlighter-rouge">M†</code>, and <code class="highlighter-rouge">N</code>:
-If <code class="highlighter-rouge">M ~ M†</code> and <code class="highlighter-rouge">M —→ N</code>
-then <code class="highlighter-rouge">M† —→ N†</code> and <code class="highlighter-rouge">N ~ N†</code>
-for some <code class="highlighter-rouge">N†</code>.</p>
+<p><em>Lock-step simulation</em>: For every <code class="language-plaintext highlighter-rouge">M</code>, <code class="language-plaintext highlighter-rouge">M†</code>, and <code class="language-plaintext highlighter-rouge">N</code>:
+If <code class="language-plaintext highlighter-rouge">M ~ M†</code> and <code class="language-plaintext highlighter-rouge">M —→ N</code>
+then <code class="language-plaintext highlighter-rouge">M† —→ N†</code> and <code class="language-plaintext highlighter-rouge">N ~ N†</code>
+for some <code class="language-plaintext highlighter-rouge">N†</code>.</p>
 
 <p>Or, in a diagram:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M  --- —→ --- N
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M  --- —→ --- N
 |             |
 |             |
 ~             ~
@@ -382,11 +382,11 @@ of the diagram, that is, its right and bottom edges:</p>
     <a id="9390" class="Symbol">→</a> <a id="9392" href="/Bisimulation/#9282" class="Datatype">Leg</a> <a id="9396" href="plfa.part2.Bisimulation.html#9293" class="Bound">M†</a> <a id="9399" href="plfa.part2.Bisimulation.html#9296" class="Bound">N</a>
 </pre>
 <p>For our formalisation, in this case, we can use a stronger
-relation than <code class="highlighter-rouge">—↠</code>, replacing it by <code class="highlighter-rouge">—→</code>.</p>
+relation than <code class="language-plaintext highlighter-rouge">—↠</code>, replacing it by <code class="language-plaintext highlighter-rouge">—→</code>.</p>
 
 <p>We can now state and prove that the relation is a simulation.
 Again, in this case, we can use a stronger relation than
-<code class="highlighter-rouge">—↠</code>, replacing it by <code class="highlighter-rouge">—→</code>:</p>
+<code class="language-plaintext highlighter-rouge">—↠</code>, replacing it by <code class="language-plaintext highlighter-rouge">—→</code>:</p>
 <pre class="Agda"><a id="sim"></a><a id="9658" href="/Bisimulation/#9658" class="Function">sim</a> <a id="9662" class="Symbol">:</a> <a id="9664" class="Symbol">∀</a> <a id="9666" class="Symbol">{</a><a id="9667" href="plfa.part2.Bisimulation.html#9667" class="Bound">Γ</a> <a id="9669" href="plfa.part2.Bisimulation.html#9669" class="Bound">A</a><a id="9670" class="Symbol">}</a> <a id="9672" class="Symbol">{</a><a id="9673" href="plfa.part2.Bisimulation.html#9673" class="Bound">M</a> <a id="9675" href="plfa.part2.Bisimulation.html#9675" class="Bound">M†</a> <a id="9678" href="plfa.part2.Bisimulation.html#9678" class="Bound">N</a> <a id="9680" class="Symbol">:</a> <a id="9682" href="plfa.part2.Bisimulation.html#9667" class="Bound">Γ</a> <a id="9684" href="/More/#14915" class="Datatype Operator">⊢</a> <a id="9686" href="plfa.part2.Bisimulation.html#9669" class="Bound">A</a><a id="9687" class="Symbol">}</a>
   <a id="9691" class="Symbol">→</a> <a id="9693" href="/Bisimulation/#9673" class="Bound">M</a> <a id="9695" href="plfa.part2.Bisimulation.html#3808" class="Datatype Operator">~</a> <a id="9697" href="plfa.part2.Bisimulation.html#9675" class="Bound">M†</a>
   <a id="9702" class="Symbol">→</a> <a id="9704" href="/Bisimulation/#9673" class="Bound">M</a> <a id="9706" href="/More/#19511" class="Datatype Operator">—→</a> <a id="9709" href="plfa.part2.Bisimulation.html#9678" class="Bound">N</a>
@@ -406,9 +406,9 @@ Again, in this case, we can use a stronger relation than
 <a id="10163" class="Symbol">...</a>  <a id="10168" class="Symbol">|</a> <a id="10170" href="/Bisimulation/#9322" class="InductiveConstructor">leg</a> <a id="10174" href="plfa.part2.Bisimulation.html#10174" class="Bound">~M′</a> <a id="10178" href="plfa.part2.Bisimulation.html#10178" class="Bound">M†—→</a>                 <a id="10199" class="Symbol">=</a>  <a id="10202" href="plfa.part2.Bisimulation.html#9322" class="InductiveConstructor">leg</a> <a id="10206" class="Symbol">(</a><a id="10207" href="plfa.part2.Bisimulation.html#4124" class="InductiveConstructor">~let</a> <a id="10212" href="plfa.part2.Bisimulation.html#10174" class="Bound">~M′</a> <a id="10216" class="Bound">~N</a><a id="10218" class="Symbol">)</a> <a id="10220" class="Symbol">(</a><a id="10221" href="/More/#19686" class="InductiveConstructor">ξ-·₂</a> <a id="10226" href="plfa.part2.More.html#18909" class="InductiveConstructor">V-ƛ</a> <a id="10230" href="plfa.part2.Bisimulation.html#10178" class="Bound">M†—→</a><a id="10234" class="Symbol">)</a>
 <a id="10236" href="/Bisimulation/#9658" class="Function">sim</a> <a id="10240" class="Symbol">(</a><a id="10241" href="plfa.part2.Bisimulation.html#4124" class="InductiveConstructor">~let</a> <a id="10246" href="plfa.part2.Bisimulation.html#10246" class="Bound">~V</a> <a id="10249" href="plfa.part2.Bisimulation.html#10249" class="Bound">~N</a><a id="10251" class="Symbol">)</a>    <a id="10256" class="Symbol">(</a><a id="10257" href="/More/#20981" class="InductiveConstructor">β-let</a> <a id="10263" href="plfa.part2.Bisimulation.html#10263" class="Bound">VV</a><a id="10265" class="Symbol">)</a>      <a id="10272" class="Symbol">=</a>  <a id="10275" href="plfa.part2.Bisimulation.html#9322" class="InductiveConstructor">leg</a> <a id="10279" class="Symbol">(</a><a id="10280" href="plfa.part2.Bisimulation.html#8345" class="Function">~sub</a> <a id="10285" href="plfa.part2.Bisimulation.html#10249" class="Bound">~N</a> <a id="10288" href="plfa.part2.Bisimulation.html#10246" class="Bound">~V</a><a id="10290" class="Symbol">)</a>  <a id="10293" class="Symbol">(</a><a id="10294" href="plfa.part2.More.html#19809" class="InductiveConstructor">β-ƛ</a> <a id="10298" class="Symbol">(</a><a id="10299" href="plfa.part2.Bisimulation.html#4968" class="Function">~val</a> <a id="10304" href="plfa.part2.Bisimulation.html#10246" class="Bound">~V</a> <a id="10307" href="plfa.part2.Bisimulation.html#10263" class="Bound">VV</a><a id="10309" class="Symbol">))</a>
 </pre>
-<p>The proof is by case analysis, examining each possible instance of <code class="highlighter-rouge">M ~ M†</code>
-and each possible instance of <code class="highlighter-rouge">M —→ M†</code>, using recursive invocation whenever
-the reduction is by a <code class="highlighter-rouge">ξ</code> rule, and hence contains another reduction.
+<p>The proof is by case analysis, examining each possible instance of <code class="language-plaintext highlighter-rouge">M ~ M†</code>
+and each possible instance of <code class="language-plaintext highlighter-rouge">M —→ M†</code>, using recursive invocation whenever
+the reduction is by a <code class="language-plaintext highlighter-rouge">ξ</code> rule, and hence contains another reduction.
 In its structure, it looks a little bit like a proof of progress:</p>
 
 <ul>
@@ -417,10 +417,10 @@ In its structure, it looks a little bit like a proof of progress:</p>
   <li>If the related terms are applications, there are three subcases:
     <ul>
       <li>
-        <p>The source term reduces via <code class="highlighter-rouge">ξ-·₁</code>, in which case the target term does as well.
+        <p>The source term reduces via <code class="language-plaintext highlighter-rouge">ξ-·₁</code>, in which case the target term does as well.
 Recursive invocation gives us</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>L  --- —→ ---  L′
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>L  --- —→ ---  L′
 |              |
 |              |
 ~              ~
@@ -431,7 +431,7 @@ L† --- —→ --- L′†
 
         <p>from which follows:</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> L · M  --- —→ ---  L′ · M
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> L · M  --- —→ ---  L′ · M
    |                   |
    |                   |
    ~                   ~
@@ -441,10 +441,10 @@ L† · M† --- —→ --- L′† · M†
 </code></pre></div>        </div>
       </li>
       <li>
-        <p>The source term reduces via <code class="highlighter-rouge">ξ-·₂</code>, in which case the target term does as well.
+        <p>The source term reduces via <code class="language-plaintext highlighter-rouge">ξ-·₂</code>, in which case the target term does as well.
 Recursive invocation gives us</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M  --- —→ ---  M′
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M  --- —→ ---  M′
 |              |
 |              |
 ~              ~
@@ -455,7 +455,7 @@ M† --- —→ --- M′†
 
         <p>from which follows:</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> V · M  --- —→ ---  V · M′
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> V · M  --- —→ ---  V · M′
    |                  |
    |                  |
    ~                  ~
@@ -464,12 +464,12 @@ M† --- —→ --- M′†
 V† · M† --- —→ --- V† · M′†
 </code></pre></div>        </div>
 
-        <p>Since simulation commutes with values and <code class="highlighter-rouge">V</code> is a value, <code class="highlighter-rouge">V†</code> is also a value.</p>
+        <p>Since simulation commutes with values and <code class="language-plaintext highlighter-rouge">V</code> is a value, <code class="language-plaintext highlighter-rouge">V†</code> is also a value.</p>
       </li>
       <li>
-        <p>The source term reduces via <code class="highlighter-rouge">β-ƛ</code>, in which case the target term does as well:</p>
+        <p>The source term reduces via <code class="language-plaintext highlighter-rouge">β-ƛ</code>, in which case the target term does as well:</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> (ƛ x ⇒ N) · V  --- —→ ---  N [ x := V ]
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> (ƛ x ⇒ N) · V  --- —→ ---  N [ x := V ]
       |                           |
       |                           |
       ~                           ~
@@ -478,9 +478,9 @@ V† · M† --- —→ --- V† · M′†
 (ƛ x ⇒ N†) · V† --- —→ --- N† [ x :=  V† ]
 </code></pre></div>        </div>
 
-        <p>Since simulation commutes with values and <code class="highlighter-rouge">V</code> is a value, <code class="highlighter-rouge">V†</code> is also a value.
-Since simulation commutes with substitution and <code class="highlighter-rouge">N ~ N†</code> and <code class="highlighter-rouge">V ~ V†</code>,
-we have <code class="highlighter-rouge">N [ x := V ] ~ N† [ x := V† ]</code>.</p>
+        <p>Since simulation commutes with values and <code class="language-plaintext highlighter-rouge">V</code> is a value, <code class="language-plaintext highlighter-rouge">V†</code> is also a value.
+Since simulation commutes with substitution and <code class="language-plaintext highlighter-rouge">N ~ N†</code> and <code class="language-plaintext highlighter-rouge">V ~ V†</code>,
+we have <code class="language-plaintext highlighter-rouge">N [ x := V ] ~ N† [ x := V† ]</code>.</p>
       </li>
     </ul>
   </li>
@@ -490,10 +490,10 @@ there are two subcases:</p>
 
     <ul>
       <li>
-        <p>The source term reduces via <code class="highlighter-rouge">ξ-let</code>, in which case the target term
-reduces via <code class="highlighter-rouge">ξ-·₂</code>.  Recursive invocation gives us</p>
+        <p>The source term reduces via <code class="language-plaintext highlighter-rouge">ξ-let</code>, in which case the target term
+reduces via <code class="language-plaintext highlighter-rouge">ξ-·₂</code>.  Recursive invocation gives us</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M  --- —→ ---  M′
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M  --- —→ ---  M′
 |              |
 |              |
 ~              ~
@@ -504,7 +504,7 @@ M† --- —→ --- M′†
 
         <p>from which follows:</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let x = M in N --- —→ --- let x = M′ in N
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let x = M in N --- —→ --- let x = M′ in N
       |                         |
       |                         |
       ~                         ~
@@ -514,10 +514,10 @@ M† --- —→ --- M′†
 </code></pre></div>        </div>
       </li>
       <li>
-        <p>The source term reduces via <code class="highlighter-rouge">β-let</code>, in which case the target
-term reduces via <code class="highlighter-rouge">β-ƛ</code>:</p>
+        <p>The source term reduces via <code class="language-plaintext highlighter-rouge">β-let</code>, in which case the target
+term reduces via <code class="language-plaintext highlighter-rouge">β-ƛ</code>:</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let x = V in N  --- —→ ---  N [ x := V ]
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let x = V in N  --- —→ ---  N [ x := V ]
       |                         |
       |                         |
       ~                         ~
@@ -526,22 +526,22 @@ term reduces via <code class="highlighter-rouge">β-ƛ</code>:</p>
 (ƛ x ⇒ N†) · V† --- —→ --- N† [ x := V ]
 </code></pre></div>        </div>
 
-        <p>Since simulation commutes with values and <code class="highlighter-rouge">V</code> is a value, <code class="highlighter-rouge">V†</code> is also a value.
-Since simulation commutes with substitution and <code class="highlighter-rouge">N ~ N†</code> and <code class="highlighter-rouge">V ~ V†</code>,
-we have <code class="highlighter-rouge">N [ x := V ] ~ N† [ x := V† ]</code>.</p>
+        <p>Since simulation commutes with values and <code class="language-plaintext highlighter-rouge">V</code> is a value, <code class="language-plaintext highlighter-rouge">V†</code> is also a value.
+Since simulation commutes with substitution and <code class="language-plaintext highlighter-rouge">N ~ N†</code> and <code class="language-plaintext highlighter-rouge">V ~ V†</code>,
+we have <code class="language-plaintext highlighter-rouge">N [ x := V ] ~ N† [ x := V† ]</code>.</p>
       </li>
     </ul>
   </li>
 </ul>
 
-<h4 id="exercise-sim-practice">Exercise <code class="highlighter-rouge">sim⁻¹</code> (practice)</h4>
+<h4 id="exercise-sim-practice">Exercise <code class="language-plaintext highlighter-rouge">sim⁻¹</code> (practice)</h4>
 
 <p>Show that we also have a simulation in the other direction, and hence that we have
 a bisimulation.</p>
 
 <pre class="Agda"><a id="14090" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-products-practice">Exercise <code class="highlighter-rouge">products</code> (practice)</h4>
+<h4 id="exercise-products-practice">Exercise <code class="language-plaintext highlighter-rouge">products</code> (practice)</h4>
 
 <p>Show that the two formulations of products in
 Chapter <a href="/More/">More</a>
@@ -555,7 +555,7 @@ In this case, the simulation is <em>not</em> lock-step.</p>
 
 <p>This chapter uses the following unicode:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>†  U+2020  DAGGER (\dag)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>†  U+2020  DAGGER (\dag)
 ⁻  U+207B  SUPERSCRIPT MINUS (\^-)
 ¹  U+00B9  SUPERSCRIPT ONE (\^1)
 </code></pre></div></div>

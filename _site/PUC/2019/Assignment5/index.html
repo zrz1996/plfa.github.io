@@ -83,7 +83,7 @@ some extra practice.</p>
 
 <p><strong>IMPORTANT</strong> For ease of marking, when modifying the given code please write</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- begin
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- begin
 -- end
 </code></pre></div></div>
 
@@ -399,74 +399,74 @@ some extra practice.</p>
   <a id="9157" href="/PUC/2019/Assignment5/#8768" class="Function Operator">∥</a> <a id="9159" href="Assignment5.html#3792" class="InductiveConstructor">⊢↑</a> <a id="9162" href="Assignment5.html#9162" class="Bound">⊢M</a> <a id="9165" href="Agda.Builtin.Equality.html#182" class="InductiveConstructor">refl</a> <a id="9170" href="Assignment5.html#8768" class="Function Operator">∥⁻</a>      <a id="9178" class="Symbol">=</a>  <a id="9181" href="Assignment5.html#8714" class="Function Operator">∥</a> <a id="9183" href="Assignment5.html#9162" class="Bound">⊢M</a> <a id="9186" href="Assignment5.html#8714" class="Function Operator">∥⁺</a>
 </pre>
 
-<h4 id="bidirectional-mul">Exercise <code class="highlighter-rouge">bidirectional-mul</code> (recommended)</h4>
+<h4 id="bidirectional-mul">Exercise <code class="language-plaintext highlighter-rouge">bidirectional-mul</code> (recommended)</h4>
 
 <p>Rewrite your definition of multiplication from
 Chapter [Lambda][plfa.Lambda], decorated to support inference.</p>
 
-<h4 id="bidirectional-products">Exercise <code class="highlighter-rouge">bidirectional-products</code> (recommended)</h4>
+<h4 id="bidirectional-products">Exercise <code class="language-plaintext highlighter-rouge">bidirectional-products</code> (recommended)</h4>
 
 <p>Extend the bidirectional type rules to include products from
 Chapter [More][plfa.More].</p>
 
-<h4 id="exercise-bidirectional-rest-stretch">Exercise <code class="highlighter-rouge">bidirectional-rest</code> (stretch)</h4>
+<h4 id="exercise-bidirectional-rest-stretch">Exercise <code class="language-plaintext highlighter-rouge">bidirectional-rest</code> (stretch)</h4>
 
 <p>Extend the bidirectional type rules to include the rest of the constructs from
 Chapter [More][plfa.More].</p>
 
-<h4 id="exercise-inference-mul-recommended">Exercise <code class="highlighter-rouge">inference-mul</code> (recommended)</h4>
+<h4 id="exercise-inference-mul-recommended">Exercise <code class="language-plaintext highlighter-rouge">inference-mul</code> (recommended)</h4>
 
 <p>Using the definition from exercise <a href="#bidirectional-mul">bidirectional-mul</a>,
 infer the corresponding inherently typed term.
 Show that erasure of the inferred typing yields your definition of
 multiplication from Chapter [DeBruijn][plfa.DeBruijn].</p>
 
-<h4 id="exercise-inference-products-recommended">Exercise <code class="highlighter-rouge">inference-products</code> (recommended)</h4>
+<h4 id="exercise-inference-products-recommended">Exercise <code class="language-plaintext highlighter-rouge">inference-products</code> (recommended)</h4>
 
 <p>Extend bidirectional inference to include products from
 Chapter [More][plfa.More].</p>
 
-<h4 id="exercise-inference-rest-stretch">Exercise <code class="highlighter-rouge">inference-rest</code> (stretch)</h4>
+<h4 id="exercise-inference-rest-stretch">Exercise <code class="language-plaintext highlighter-rouge">inference-rest</code> (stretch)</h4>
 
 <p>Extend bidirectional inference to include the rest of the constructs from
 Chapter [More][plfa.More].</p>
 
 <h2 id="untyped">Untyped</h2>
 
-<h4 id="exercise-type">Exercise (<code class="highlighter-rouge">Type≃⊤</code>)</h4>
+<h4 id="exercise-type">Exercise (<code class="language-plaintext highlighter-rouge">Type≃⊤</code>)</h4>
 
-<p>Show that <code class="highlighter-rouge">Type</code> is isomorphic to <code class="highlighter-rouge">⊤</code>, the unit type.</p>
+<p>Show that <code class="language-plaintext highlighter-rouge">Type</code> is isomorphic to <code class="language-plaintext highlighter-rouge">⊤</code>, the unit type.</p>
 
-<h4 id="exercise-contextℕ">Exercise (<code class="highlighter-rouge">Context≃ℕ</code>)</h4>
+<h4 id="exercise-contextℕ">Exercise (<code class="language-plaintext highlighter-rouge">Context≃ℕ</code>)</h4>
 
-<p>Show that <code class="highlighter-rouge">Context</code> is isomorphic to <code class="highlighter-rouge">ℕ</code>.</p>
+<p>Show that <code class="language-plaintext highlighter-rouge">Context</code> is isomorphic to <code class="language-plaintext highlighter-rouge">ℕ</code>.</p>
 
-<h4 id="exercise-variant-1">Exercise (<code class="highlighter-rouge">variant-1</code>)</h4>
+<h4 id="exercise-variant-1">Exercise (<code class="language-plaintext highlighter-rouge">variant-1</code>)</h4>
 
 <p>How would the rules change if we want call-by-value where terms
-normalise completely?  Assume that <code class="highlighter-rouge">β</code> should not permit reduction
+normalise completely?  Assume that <code class="language-plaintext highlighter-rouge">β</code> should not permit reduction
 unless both terms are in normal form.</p>
 
-<h4 id="exercise-variant-2">Exercise (<code class="highlighter-rouge">variant-2</code>)</h4>
+<h4 id="exercise-variant-2">Exercise (<code class="language-plaintext highlighter-rouge">variant-2</code>)</h4>
 
 <p>How would the rules change if we want call-by-value where terms
-do not reduce underneath lambda?  Assume that <code class="highlighter-rouge">β</code>
+do not reduce underneath lambda?  Assume that <code class="language-plaintext highlighter-rouge">β</code>
 permits reduction when both terms are values (that is, lambda
-abstractions).  What would <code class="highlighter-rouge">2+2ᶜ</code> reduce to in this case?</p>
+abstractions).  What would <code class="language-plaintext highlighter-rouge">2+2ᶜ</code> reduce to in this case?</p>
 
-<h4 id="exercise-plus-eval">Exercise <code class="highlighter-rouge">plus-eval</code></h4>
+<h4 id="exercise-plus-eval">Exercise <code class="language-plaintext highlighter-rouge">plus-eval</code></h4>
 
-<p>Use the evaluator to confirm that <code class="highlighter-rouge">plus · two · two</code> and <code class="highlighter-rouge">four</code>
+<p>Use the evaluator to confirm that <code class="language-plaintext highlighter-rouge">plus · two · two</code> and <code class="language-plaintext highlighter-rouge">four</code>
 normalise to the same term.</p>
 
-<h4 id="exercise-multiplication-untyped-recommended">Exercise <code class="highlighter-rouge">multiplication-untyped</code> (recommended)</h4>
+<h4 id="exercise-multiplication-untyped-recommended">Exercise <code class="language-plaintext highlighter-rouge">multiplication-untyped</code> (recommended)</h4>
 
 <p>Use the encodings above to translate your definition of
 multiplication from previous chapters with the Scott
 representation and the encoding of the fixpoint operator.
 Confirm that two times two is four.</p>
 
-<h4 id="exercise-encode-more-stretch">Exercise <code class="highlighter-rouge">encode-more</code> (stretch)</h4>
+<h4 id="exercise-encode-more-stretch">Exercise <code class="language-plaintext highlighter-rouge">encode-more</code> (stretch)</h4>
 
 <p>Along the lines above, encode all of the constructs of
 Chapter [More][plfa.More],

@@ -110,18 +110,18 @@ some extra practice.</p>
 </pre>
 <h2 id="equality">Equality</h2>
 
-<h4 id="exercise--reasoning-stretch">Exercise <code class="highlighter-rouge">≤-reasoning</code> (stretch)</h4>
+<h4 id="exercise--reasoning-stretch">Exercise <code class="language-plaintext highlighter-rouge">≤-reasoning</code> (stretch)</h4>
 
 <p>The proof of monotonicity from
 Chapter [Relations][plfa.Relations]
 can be written in a more readable form by using an anologue of our
-notation for <code class="highlighter-rouge">≡-reasoning</code>.  Define <code class="highlighter-rouge">≤-reasoning</code> analogously, and use
+notation for <code class="language-plaintext highlighter-rouge">≡-reasoning</code>.  Define <code class="language-plaintext highlighter-rouge">≤-reasoning</code> analogously, and use
 it to write out an alternative proof that addition is monotonic with
-regard to inequality.  Rewrite both <code class="highlighter-rouge">+-monoˡ-≤</code> and <code class="highlighter-rouge">+-mono-≤</code>.</p>
+regard to inequality.  Rewrite both <code class="language-plaintext highlighter-rouge">+-monoˡ-≤</code> and <code class="language-plaintext highlighter-rouge">+-mono-≤</code>.</p>
 
 <h2 id="isomorphism">Isomorphism</h2>
 
-<h4 id="exercise--implies-">Exercise <code class="highlighter-rouge">≃-implies-≲</code></h4>
+<h4 id="exercise--implies-">Exercise <code class="language-plaintext highlighter-rouge">≃-implies-≲</code></h4>
 
 <p>Show that every isomorphism implies an embedding.</p>
 <pre class="Agda"><a id="2422" class="Keyword">postulate</a>
@@ -130,7 +130,7 @@ regard to inequality.  Rewrite both <code class="highlighter-rouge">+-monoˡ-≤
       <a id="2480" class="Comment">-----</a>
     <a id="2490" class="Symbol">→</a> <a id="2492" href="/TSPL/2018/Assignment2/#2451" class="Bound">A</a> <a id="2494" href="/Isomorphism/#9186" class="Record Operator">≲</a> <a id="2496" href="Assignment2.html#2453" class="Bound">B</a>
 </pre>
-<h4 id="iff">Exercise <code class="highlighter-rouge">_⇔_</code> (recommended)</h4>
+<h4 id="iff">Exercise <code class="language-plaintext highlighter-rouge">_⇔_</code> (recommended)</h4>
 
 <p>Define equivalence of propositions (also known as “if and only if”) as follows.</p>
 <pre class="Agda"><a id="2629" class="Keyword">record</a> <a id="_⇔_"></a><a id="2636" href="/TSPL/2018/Assignment2/#2636" class="Record Operator">_⇔_</a> <a id="2640" class="Symbol">(</a><a id="2641" href="Assignment2.html#2641" class="Bound">A</a> <a id="2643" href="Assignment2.html#2643" class="Bound">B</a> <a id="2645" class="Symbol">:</a> <a id="2647" class="PrimitiveType">Set</a><a id="2650" class="Symbol">)</a> <a id="2652" class="Symbol">:</a> <a id="2654" class="PrimitiveType">Set</a> <a id="2658" class="Keyword">where</a>
@@ -142,7 +142,7 @@ regard to inequality.  Rewrite both <code class="highlighter-rouge">+-monoˡ-≤
 </pre>
 <p>Show that equivalence is reflexive, symmetric, and transitive.</p>
 
-<h4 id="Bin-embedding">Exercise <code class="highlighter-rouge">Bin-embedding</code> (stretch)</h4>
+<h4 id="Bin-embedding">Exercise <code class="language-plaintext highlighter-rouge">Bin-embedding</code> (stretch)</h4>
 
 <p>Recall that Exercises
 [Bin][plfa.Naturals#Bin] and
@@ -155,42 +155,42 @@ define a datatype of bitstrings representing natural numbers.</p>
 </pre>
 <p>And ask you to define the following functions:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>to : ℕ → Bin
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>to : ℕ → Bin
 from : Bin → ℕ
 </code></pre></div></div>
 
 <p>which satisfy the following property:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from (to n) ≡ n
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from (to n) ≡ n
 </code></pre></div></div>
 
-<p>Using the above, establish that there is an embedding of <code class="highlighter-rouge">ℕ</code> into <code class="highlighter-rouge">Bin</code>.
+<p>Using the above, establish that there is an embedding of <code class="language-plaintext highlighter-rouge">ℕ</code> into <code class="language-plaintext highlighter-rouge">Bin</code>.
 Why is there not an isomorphism?</p>
 
 <h2 id="connectives">Connectives</h2>
 
-<h4 id="exercise--recommended">Exercise <code class="highlighter-rouge">⇔≃×</code> (recommended)</h4>
+<h4 id="exercise--recommended">Exercise <code class="language-plaintext highlighter-rouge">⇔≃×</code> (recommended)</h4>
 
-<p>Show that <code class="highlighter-rouge">A ⇔ B</code> as defined [earlier][plfa.Isomorphism#iff]
-is isomorphic to <code class="highlighter-rouge">(A → B) × (B → A)</code>.</p>
+<p>Show that <code class="language-plaintext highlighter-rouge">A ⇔ B</code> as defined [earlier][plfa.Isomorphism#iff]
+is isomorphic to <code class="language-plaintext highlighter-rouge">(A → B) × (B → A)</code>.</p>
 
-<h4 id="exercise--comm-recommended">Exercise <code class="highlighter-rouge">⊎-comm</code> (recommended)</h4>
+<h4 id="exercise--comm-recommended">Exercise <code class="language-plaintext highlighter-rouge">⊎-comm</code> (recommended)</h4>
 
 <p>Show sum is commutative up to isomorphism.</p>
 
-<h4 id="exercise--assoc">Exercise <code class="highlighter-rouge">⊎-assoc</code></h4>
+<h4 id="exercise--assoc">Exercise <code class="language-plaintext highlighter-rouge">⊎-assoc</code></h4>
 
 <p>Show sum is associative up to ismorphism.</p>
 
-<h4 id="exercise--identityˡ-recommended">Exercise <code class="highlighter-rouge">⊥-identityˡ</code> (recommended)</h4>
+<h4 id="exercise--identityˡ-recommended">Exercise <code class="language-plaintext highlighter-rouge">⊥-identityˡ</code> (recommended)</h4>
 
 <p>Show zero is the left identity of addition.</p>
 
-<h4 id="exercise--identityʳ">Exercise <code class="highlighter-rouge">⊥-identityʳ</code></h4>
+<h4 id="exercise--identityʳ">Exercise <code class="language-plaintext highlighter-rouge">⊥-identityʳ</code></h4>
 
 <p>Show zero is the right identity of addition.</p>
 
-<h4 id="exercise--weak--recommended">Exercise <code class="highlighter-rouge">⊎-weak-×</code> (recommended)</h4>
+<h4 id="exercise--weak--recommended">Exercise <code class="language-plaintext highlighter-rouge">⊎-weak-×</code> (recommended)</h4>
 
 <p>Show that the following property holds.</p>
 <pre class="Agda"><a id="3869" class="Keyword">postulate</a>
@@ -199,7 +199,7 @@ is isomorphic to <code class="highlighter-rouge">(A → B) × (B → A)</code>.<
 <p>This is called a <em>weak distributive law</em>. Give the corresponding
 distributive law, and explain how it relates to the weak version.</p>
 
-<h4 id="exercise--implies--1">Exercise <code class="highlighter-rouge">⊎×-implies-×⊎</code></h4>
+<h4 id="exercise--implies--1">Exercise <code class="language-plaintext highlighter-rouge">⊎×-implies-×⊎</code></h4>
 
 <p>Show that a disjunct of conjuncts implies a conjunct of disjuncts.</p>
 <pre class="Agda"><a id="4174" class="Keyword">postulate</a>
@@ -209,59 +209,59 @@ distributive law, and explain how it relates to the weak version.</p>
 
 <h2 id="negation">Negation</h2>
 
-<h4 id="exercise--irreflexive-recommended">Exercise <code class="highlighter-rouge">&lt;-irreflexive</code> (recommended)</h4>
+<h4 id="exercise--irreflexive-recommended">Exercise <code class="language-plaintext highlighter-rouge">&lt;-irreflexive</code> (recommended)</h4>
 
 <p>Using negation, show that
 [strict inequality][plfa.Relations#strict-inequality]
-is irreflexive, that is, <code class="highlighter-rouge">n &lt; n</code> holds for no <code class="highlighter-rouge">n</code>.</p>
+is irreflexive, that is, <code class="language-plaintext highlighter-rouge">n &lt; n</code> holds for no <code class="language-plaintext highlighter-rouge">n</code>.</p>
 
-<h4 id="exercise-trichotomy">Exercise <code class="highlighter-rouge">trichotomy</code></h4>
+<h4 id="exercise-trichotomy">Exercise <code class="language-plaintext highlighter-rouge">trichotomy</code></h4>
 
 <p>Show that strict inequality satisfies
 [trichotomy][plfa.Relations#trichotomy],
-that is, for any naturals <code class="highlighter-rouge">m</code> and <code class="highlighter-rouge">n</code> exactly one of the following holds:</p>
+that is, for any naturals <code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code> exactly one of the following holds:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">m &lt; n</code></li>
-  <li><code class="highlighter-rouge">m ≡ n</code></li>
-  <li><code class="highlighter-rouge">m &gt; n</code></li>
+  <li><code class="language-plaintext highlighter-rouge">m &lt; n</code></li>
+  <li><code class="language-plaintext highlighter-rouge">m ≡ n</code></li>
+  <li><code class="language-plaintext highlighter-rouge">m &gt; n</code></li>
 </ul>
 
 <p>Here “exactly one” means that one of the three must hold, and each implies the
 negation of the other two.</p>
 
-<h4 id="exercise--dual--recommended">Exercise <code class="highlighter-rouge">⊎-dual-×</code> (recommended)</h4>
+<h4 id="exercise--dual--recommended">Exercise <code class="language-plaintext highlighter-rouge">⊎-dual-×</code> (recommended)</h4>
 
 <p>Show that conjunction, disjunction, and negation are related by a
 version of De Morgan’s Law.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>¬ (A ⊎ B) ≃ (¬ A) × (¬ B)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>¬ (A ⊎ B) ≃ (¬ A) × (¬ B)
 </code></pre></div></div>
 
 <p>This result is an easy consequence of something we’ve proved previously.</p>
 
 <p>Do we also have the following?</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>¬ (A × B) ≃ (¬ A) ⊎ (¬ B)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>¬ (A × B) ≃ (¬ A) ⊎ (¬ B)
 </code></pre></div></div>
 
 <p>If so, prove; if not, give a variant that does hold.</p>
 
-<h4 id="exercise-classical-stretch">Exercise <code class="highlighter-rouge">Classical</code> (stretch)</h4>
+<h4 id="exercise-classical-stretch">Exercise <code class="language-plaintext highlighter-rouge">Classical</code> (stretch)</h4>
 
 <p>Consider the following principles.</p>
 
 <ul>
-  <li>Excluded Middle: <code class="highlighter-rouge">A ⊎ ¬ A</code>, for all <code class="highlighter-rouge">A</code></li>
-  <li>Double Negation Elimination: <code class="highlighter-rouge">¬ ¬ A → A</code>, for all <code class="highlighter-rouge">A</code></li>
-  <li>Peirce’s Law: <code class="highlighter-rouge">((A → B) → A) → A</code>, for all <code class="highlighter-rouge">A</code> and <code class="highlighter-rouge">B</code>.</li>
-  <li>Implication as disjunction: <code class="highlighter-rouge">(A → B) → ¬ A ⊎ B</code>, for all <code class="highlighter-rouge">A</code> and <code class="highlighter-rouge">B</code>.</li>
-  <li>De Morgan: <code class="highlighter-rouge">¬ (¬ A × ¬ B) → A ⊎ B</code>, for all <code class="highlighter-rouge">A</code> and <code class="highlighter-rouge">B</code>.</li>
+  <li>Excluded Middle: <code class="language-plaintext highlighter-rouge">A ⊎ ¬ A</code>, for all <code class="language-plaintext highlighter-rouge">A</code></li>
+  <li>Double Negation Elimination: <code class="language-plaintext highlighter-rouge">¬ ¬ A → A</code>, for all <code class="language-plaintext highlighter-rouge">A</code></li>
+  <li>Peirce’s Law: <code class="language-plaintext highlighter-rouge">((A → B) → A) → A</code>, for all <code class="language-plaintext highlighter-rouge">A</code> and <code class="language-plaintext highlighter-rouge">B</code>.</li>
+  <li>Implication as disjunction: <code class="language-plaintext highlighter-rouge">(A → B) → ¬ A ⊎ B</code>, for all <code class="language-plaintext highlighter-rouge">A</code> and <code class="language-plaintext highlighter-rouge">B</code>.</li>
+  <li>De Morgan: <code class="language-plaintext highlighter-rouge">¬ (¬ A × ¬ B) → A ⊎ B</code>, for all <code class="language-plaintext highlighter-rouge">A</code> and <code class="language-plaintext highlighter-rouge">B</code>.</li>
 </ul>
 
 <p>Show that each of these implies all the others.</p>
 
-<h4 id="exercise-stable-stretch">Exercise <code class="highlighter-rouge">Stable</code> (stretch)</h4>
+<h4 id="exercise-stable-stretch">Exercise <code class="language-plaintext highlighter-rouge">Stable</code> (stretch)</h4>
 
 <p>Say that a formula is <em>stable</em> if double negation elimination holds for it.</p>
 <pre class="Agda"><a id="Stable"></a><a id="5740" href="/TSPL/2018/Assignment2/#5740" class="Function">Stable</a> <a id="5747" class="Symbol">:</a> <a id="5749" class="PrimitiveType">Set</a> <a id="5753" class="Symbol">→</a> <a id="5755" class="PrimitiveType">Set</a>
@@ -272,17 +272,17 @@ of two stable formulas is stable.</p>
 
 <h2 id="quantifiers">Quantifiers</h2>
 
-<h4 id="exercise--distrib--recommended">Exercise <code class="highlighter-rouge">∀-distrib-×</code> (recommended)</h4>
+<h4 id="exercise--distrib--recommended">Exercise <code class="language-plaintext highlighter-rouge">∀-distrib-×</code> (recommended)</h4>
 
 <p>Show that universals distribute over conjunction.</p>
 <pre class="Agda"><a id="5999" class="Keyword">postulate</a>
   <a id="∀-distrib-×"></a><a id="6011" href="/TSPL/2018/Assignment2/#6011" class="Postulate">∀-distrib-×</a> <a id="6023" class="Symbol">:</a> <a id="6025" class="Symbol">∀</a> <a id="6027" class="Symbol">{</a><a id="6028" href="Assignment2.html#6028" class="Bound">A</a> <a id="6030" class="Symbol">:</a> <a id="6032" class="PrimitiveType">Set</a><a id="6035" class="Symbol">}</a> <a id="6037" class="Symbol">{</a><a id="6038" href="Assignment2.html#6038" class="Bound">B</a> <a id="6040" href="Assignment2.html#6040" class="Bound">C</a> <a id="6042" class="Symbol">:</a> <a id="6044" href="Assignment2.html#6028" class="Bound">A</a> <a id="6046" class="Symbol">→</a> <a id="6048" class="PrimitiveType">Set</a><a id="6051" class="Symbol">}</a> <a id="6053" class="Symbol">→</a>
     <a id="6059" class="Symbol">(∀</a> <a id="6062" class="Symbol">(</a><a id="6063" href="/TSPL/2018/Assignment2/#6063" class="Bound">x</a> <a id="6065" class="Symbol">:</a> <a id="6067" href="Assignment2.html#6028" class="Bound">A</a><a id="6068" class="Symbol">)</a> <a id="6070" class="Symbol">→</a> <a id="6072" href="Assignment2.html#6038" class="Bound">B</a> <a id="6074" href="Assignment2.html#6063" class="Bound">x</a> <a id="6076" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1162" class="Function Operator">×</a> <a id="6078" href="Assignment2.html#6040" class="Bound">C</a> <a id="6080" href="Assignment2.html#6063" class="Bound">x</a><a id="6081" class="Symbol">)</a> <a id="6083" href="/Isomorphism/#4365" class="Record Operator">≃</a> <a id="6085" class="Symbol">(∀</a> <a id="6088" class="Symbol">(</a><a id="6089" href="Assignment2.html#6089" class="Bound">x</a> <a id="6091" class="Symbol">:</a> <a id="6093" href="Assignment2.html#6028" class="Bound">A</a><a id="6094" class="Symbol">)</a> <a id="6096" class="Symbol">→</a> <a id="6098" href="Assignment2.html#6038" class="Bound">B</a> <a id="6100" href="Assignment2.html#6089" class="Bound">x</a><a id="6101" class="Symbol">)</a> <a id="6103" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1162" class="Function Operator">×</a> <a id="6105" class="Symbol">(∀</a> <a id="6108" class="Symbol">(</a><a id="6109" href="Assignment2.html#6109" class="Bound">x</a> <a id="6111" class="Symbol">:</a> <a id="6113" href="Assignment2.html#6028" class="Bound">A</a><a id="6114" class="Symbol">)</a> <a id="6116" class="Symbol">→</a> <a id="6118" href="Assignment2.html#6040" class="Bound">C</a> <a id="6120" href="Assignment2.html#6109" class="Bound">x</a><a id="6121" class="Symbol">)</a>
 </pre>
-<p>Compare this with the result (<code class="highlighter-rouge">→-distrib-×</code>) in
+<p>Compare this with the result (<code class="language-plaintext highlighter-rouge">→-distrib-×</code>) in
 Chapter [Connectives][plfa.Connectives].</p>
 
-<h4 id="exercise--implies--2">Exercise <code class="highlighter-rouge">⊎∀-implies-∀⊎</code></h4>
+<h4 id="exercise--implies--2">Exercise <code class="language-plaintext highlighter-rouge">⊎∀-implies-∀⊎</code></h4>
 
 <p>Show that a disjunction of universals implies a universal of disjunctions.</p>
 <pre class="Agda"><a id="6327" class="Keyword">postulate</a>
@@ -291,14 +291,14 @@ Chapter [Connectives][plfa.Connectives].</p>
 </pre>
 <p>Does the converse hold? If so, prove; if not, explain why.</p>
 
-<h4 id="exercise--distrib--recommended-1">Exercise <code class="highlighter-rouge">∃-distrib-⊎</code> (recommended)</h4>
+<h4 id="exercise--distrib--recommended-1">Exercise <code class="language-plaintext highlighter-rouge">∃-distrib-⊎</code> (recommended)</h4>
 
 <p>Show that existentials distribute over disjunction.</p>
 <pre class="Agda"><a id="6618" class="Keyword">postulate</a>
   <a id="∃-distrib-⊎"></a><a id="6630" href="/TSPL/2018/Assignment2/#6630" class="Postulate">∃-distrib-⊎</a> <a id="6642" class="Symbol">:</a> <a id="6644" class="Symbol">∀</a> <a id="6646" class="Symbol">{</a><a id="6647" href="Assignment2.html#6647" class="Bound">A</a> <a id="6649" class="Symbol">:</a> <a id="6651" class="PrimitiveType">Set</a><a id="6654" class="Symbol">}</a> <a id="6656" class="Symbol">{</a><a id="6657" href="Assignment2.html#6657" class="Bound">B</a> <a id="6659" href="Assignment2.html#6659" class="Bound">C</a> <a id="6661" class="Symbol">:</a> <a id="6663" href="Assignment2.html#6647" class="Bound">A</a> <a id="6665" class="Symbol">→</a> <a id="6667" class="PrimitiveType">Set</a><a id="6670" class="Symbol">}</a> <a id="6672" class="Symbol">→</a>
     <a id="6678" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1783" class="Function">∃[</a> <a id="6681" href="/TSPL/2018/Assignment2/#6681" class="Bound">x</a> <a id="6683" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1783" class="Function">]</a> <a id="6685" class="Symbol">(</a><a id="6686" href="Assignment2.html#6657" class="Bound">B</a> <a id="6688" href="Assignment2.html#6681" class="Bound">x</a> <a id="6690" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#612" class="Datatype Operator">⊎</a> <a id="6692" href="Assignment2.html#6659" class="Bound">C</a> <a id="6694" href="Assignment2.html#6681" class="Bound">x</a><a id="6695" class="Symbol">)</a> <a id="6697" href="/Isomorphism/#4365" class="Record Operator">≃</a> <a id="6699" class="Symbol">(</a><a id="6700" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1783" class="Function">∃[</a> <a id="6703" href="Assignment2.html#6703" class="Bound">x</a> <a id="6705" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1783" class="Function">]</a> <a id="6707" href="Assignment2.html#6657" class="Bound">B</a> <a id="6709" href="Assignment2.html#6703" class="Bound">x</a><a id="6710" class="Symbol">)</a> <a id="6712" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#612" class="Datatype Operator">⊎</a> <a id="6714" class="Symbol">(</a><a id="6715" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1783" class="Function">∃[</a> <a id="6718" href="Assignment2.html#6718" class="Bound">x</a> <a id="6720" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1783" class="Function">]</a> <a id="6722" href="Assignment2.html#6659" class="Bound">C</a> <a id="6724" href="Assignment2.html#6718" class="Bound">x</a><a id="6725" class="Symbol">)</a>
 </pre>
-<h4 id="exercise--implies--3">Exercise <code class="highlighter-rouge">∃×-implies-×∃</code></h4>
+<h4 id="exercise--implies--3">Exercise <code class="language-plaintext highlighter-rouge">∃×-implies-×∃</code></h4>
 
 <p>Show that an existential of conjunctions implies a conjunction of existentials.</p>
 <pre class="Agda"><a id="6847" class="Keyword">postulate</a>
@@ -307,18 +307,18 @@ Chapter [Connectives][plfa.Connectives].</p>
 </pre>
 <p>Does the converse hold? If so, prove; if not, explain why.</p>
 
-<h4 id="exercise--even-odd">Exercise <code class="highlighter-rouge">∃-even-odd</code></h4>
+<h4 id="exercise--even-odd">Exercise <code class="language-plaintext highlighter-rouge">∃-even-odd</code></h4>
 
-<p>How do the proofs become more difficult if we replace <code class="highlighter-rouge">m * 2</code> and <code class="highlighter-rouge">1 + m * 2</code>
-by <code class="highlighter-rouge">2 * m</code> and <code class="highlighter-rouge">2 * m + 1</code>?  Rewrite the proofs of <code class="highlighter-rouge">∃-even</code> and <code class="highlighter-rouge">∃-odd</code> when
+<p>How do the proofs become more difficult if we replace <code class="language-plaintext highlighter-rouge">m * 2</code> and <code class="language-plaintext highlighter-rouge">1 + m * 2</code>
+by <code class="language-plaintext highlighter-rouge">2 * m</code> and <code class="language-plaintext highlighter-rouge">2 * m + 1</code>?  Rewrite the proofs of <code class="language-plaintext highlighter-rouge">∃-even</code> and <code class="language-plaintext highlighter-rouge">∃-odd</code> when
 restated in this way.</p>
 
-<h4 id="exercise---">Exercise <code class="highlighter-rouge">∃-+-≤</code></h4>
+<h4 id="exercise---">Exercise <code class="language-plaintext highlighter-rouge">∃-+-≤</code></h4>
 
-<p>Show that <code class="highlighter-rouge">y ≤ z</code> holds if and only if there exists a <code class="highlighter-rouge">x</code> such that
-<code class="highlighter-rouge">x + y ≡ z</code>.</p>
+<p>Show that <code class="language-plaintext highlighter-rouge">y ≤ z</code> holds if and only if there exists a <code class="language-plaintext highlighter-rouge">x</code> such that
+<code class="language-plaintext highlighter-rouge">x + y ≡ z</code>.</p>
 
-<h4 id="exercise--implies--recommended">Exercise <code class="highlighter-rouge">∃¬-implies-¬∀</code> (recommended)</h4>
+<h4 id="exercise--implies--recommended">Exercise <code class="language-plaintext highlighter-rouge">∃¬-implies-¬∀</code> (recommended)</h4>
 
 <p>Show that existential of a negation implies negation of a universal.</p>
 <pre class="Agda"><a id="7453" class="Keyword">postulate</a>
@@ -329,7 +329,7 @@ restated in this way.</p>
 </pre>
 <p>Does the converse hold? If so, prove; if not, explain why.</p>
 
-<h4 id="Bin-isomorphism">Exercise <code class="highlighter-rouge">Bin-isomorphism</code> (stretch)</h4>
+<h4 id="Bin-isomorphism">Exercise <code class="language-plaintext highlighter-rouge">Bin-isomorphism</code> (stretch)</h4>
 
 <p>Recall that Exercises
 [Bin][plfa.Naturals#Bin],
@@ -337,7 +337,7 @@ restated in this way.</p>
 [Bin-predicates][plfa.Relations#Bin-predicates]
 define a datatype of bitstrings representing natural numbers.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data Bin : Set where
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data Bin : Set where
   nil : Bin
   x0_ : Bin → Bin
   x1_ : Bin → Bin
@@ -345,14 +345,14 @@ define a datatype of bitstrings representing natural numbers.</p>
 
 <p>And ask you to define the following functions and predicates.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>to   : ℕ → Bin
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>to   : ℕ → Bin
 from : Bin → ℕ
 Can  : Bin → Set
 </code></pre></div></div>
 
 <p>And to establish the following properties.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from (to n) ≡ n
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from (to n) ≡ n
 
 ----------
 Can (to n)
@@ -362,25 +362,25 @@ Can x
 to (from x) ≡ x
 </code></pre></div></div>
 
-<p>Using the above, establish that there is an isomorphism between <code class="highlighter-rouge">ℕ</code> and
-<code class="highlighter-rouge">∃[ x ](Can x)</code>.</p>
+<p>Using the above, establish that there is an isomorphism between <code class="language-plaintext highlighter-rouge">ℕ</code> and
+<code class="language-plaintext highlighter-rouge">∃[ x ](Can x)</code>.</p>
 
 <h2 id="decidable">Decidable</h2>
 
-<h4 id="exercise-__-recommended">Exercise <code class="highlighter-rouge">_&lt;?_</code> (recommended)</h4>
+<h4 id="exercise-__-recommended">Exercise <code class="language-plaintext highlighter-rouge">_&lt;?_</code> (recommended)</h4>
 
 <p>Analogous to the function above, define a function to decide strict inequality.</p>
 <pre class="Agda"><a id="8477" class="Keyword">postulate</a>
   <a id="_&lt;?_"></a><a id="8489" href="/TSPL/2018/Assignment2/#8489" class="Postulate Operator">_&lt;?_</a> <a id="8494" class="Symbol">:</a> <a id="8496" class="Symbol">∀</a> <a id="8498" class="Symbol">(</a><a id="8499" href="Assignment2.html#8499" class="Bound">m</a> <a id="8501" href="Assignment2.html#8501" class="Bound">n</a> <a id="8503" class="Symbol">:</a> <a id="8505" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a><a id="8506" class="Symbol">)</a> <a id="8508" class="Symbol">→</a> <a id="8510" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.html#605" class="Datatype">Dec</a> <a id="8514" class="Symbol">(</a><a id="8515" href="Assignment2.html#8499" class="Bound">m</a> <a id="8517" href="/Relations/#18383" class="Datatype Operator">&lt;</a> <a id="8519" href="Assignment2.html#8501" class="Bound">n</a><a id="8520" class="Symbol">)</a>
 </pre>
-<h4 id="exercise-_ℕ_">Exercise <code class="highlighter-rouge">_≡ℕ?_</code></h4>
+<h4 id="exercise-_ℕ_">Exercise <code class="language-plaintext highlighter-rouge">_≡ℕ?_</code></h4>
 
 <p>Define a function to decide whether two naturals are equal.</p>
 <pre class="Agda"><a id="8614" class="Keyword">postulate</a>
   <a id="_≡ℕ?_"></a><a id="8626" href="/TSPL/2018/Assignment2/#8626" class="Postulate Operator">_≡ℕ?_</a> <a id="8632" class="Symbol">:</a> <a id="8634" class="Symbol">∀</a> <a id="8636" class="Symbol">(</a><a id="8637" href="Assignment2.html#8637" class="Bound">m</a> <a id="8639" href="Assignment2.html#8639" class="Bound">n</a> <a id="8641" class="Symbol">:</a> <a id="8643" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a><a id="8644" class="Symbol">)</a> <a id="8646" class="Symbol">→</a> <a id="8648" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.html#605" class="Datatype">Dec</a> <a id="8652" class="Symbol">(</a><a id="8653" href="Assignment2.html#8637" class="Bound">m</a> <a id="8655" href="Agda.Builtin.Equality.html#125" class="Datatype Operator">≡</a> <a id="8657" href="Assignment2.html#8639" class="Bound">n</a><a id="8658" class="Symbol">)</a>
 </pre>
 
-<h4 id="exercise-erasure">Exercise <code class="highlighter-rouge">erasure</code></h4>
+<h4 id="exercise-erasure">Exercise <code class="language-plaintext highlighter-rouge">erasure</code></h4>
 
 <p>Show that erasure relates corresponding boolean and decidable operations.</p>
 <pre class="Agda"><a id="8769" class="Keyword">postulate</a>
@@ -388,9 +388,9 @@ to (from x) ≡ x
   <a id="∨-×"></a><a id="8859" href="/TSPL/2018/Assignment2/#8859" class="Postulate">∨-×</a> <a id="8863" class="Symbol">:</a> <a id="8865" class="Symbol">∀</a> <a id="8867" class="Symbol">{</a><a id="8868" href="Assignment2.html#8868" class="Bound">A</a> <a id="8870" href="Assignment2.html#8870" class="Bound">B</a> <a id="8872" class="Symbol">:</a> <a id="8874" class="PrimitiveType">Set</a><a id="8877" class="Symbol">}</a> <a id="8879" class="Symbol">(</a><a id="8880" href="Assignment2.html#8880" class="Bound">x</a> <a id="8882" class="Symbol">:</a> <a id="8884" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.html#605" class="Datatype">Dec</a> <a id="8888" href="Assignment2.html#8868" class="Bound">A</a><a id="8889" class="Symbol">)</a> <a id="8891" class="Symbol">(</a><a id="8892" href="Assignment2.html#8892" class="Bound">y</a> <a id="8894" class="Symbol">:</a> <a id="8896" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.html#605" class="Datatype">Dec</a> <a id="8900" href="Assignment2.html#8870" class="Bound">B</a><a id="8901" class="Symbol">)</a> <a id="8903" class="Symbol">→</a> <a id="8905" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.Decidable.Core.html#753" class="Function Operator">⌊</a> <a id="8907" href="Assignment2.html#8880" class="Bound">x</a> <a id="8909" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.Decidable.Core.html#753" class="Function Operator">⌋</a> <a id="8911" href="https://agda.github.io/agda-stdlib/v1.1/Data.Bool.Base.html#1073" class="Function Operator">∨</a> <a id="8913" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.Decidable.Core.html#753" class="Function Operator">⌊</a> <a id="8915" href="Assignment2.html#8892" class="Bound">y</a> <a id="8917" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.Decidable.Core.html#753" class="Function Operator">⌋</a> <a id="8919" href="Agda.Builtin.Equality.html#125" class="Datatype Operator">≡</a> <a id="8921" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.Decidable.Core.html#753" class="Function Operator">⌊</a> <a id="8923" href="Assignment2.html#8880" class="Bound">x</a> <a id="8925" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.Sum.html#668" class="Function Operator">⊎-dec</a> <a id="8931" href="Assignment2.html#8892" class="Bound">y</a> <a id="8933" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.Decidable.Core.html#753" class="Function Operator">⌋</a>
   <a id="not-¬"></a><a id="8937" href="/TSPL/2018/Assignment2/#8937" class="Postulate">not-¬</a> <a id="8943" class="Symbol">:</a> <a id="8945" class="Symbol">∀</a> <a id="8947" class="Symbol">{</a><a id="8948" href="Assignment2.html#8948" class="Bound">A</a> <a id="8950" class="Symbol">:</a> <a id="8952" class="PrimitiveType">Set</a><a id="8955" class="Symbol">}</a> <a id="8957" class="Symbol">(</a><a id="8958" href="Assignment2.html#8958" class="Bound">x</a> <a id="8960" class="Symbol">:</a> <a id="8962" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.html#605" class="Datatype">Dec</a> <a id="8966" href="Assignment2.html#8948" class="Bound">A</a><a id="8967" class="Symbol">)</a> <a id="8969" class="Symbol">→</a> <a id="8971" href="https://agda.github.io/agda-stdlib/v1.1/Data.Bool.Base.html#961" class="Function">not</a> <a id="8975" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.Decidable.Core.html#753" class="Function Operator">⌊</a> <a id="8977" href="Assignment2.html#8958" class="Bound">x</a> <a id="8979" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.Decidable.Core.html#753" class="Function Operator">⌋</a> <a id="8981" href="Agda.Builtin.Equality.html#125" class="Datatype Operator">≡</a> <a id="8983" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.Decidable.Core.html#753" class="Function Operator">⌊</a> <a id="8985" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.Negation.html#1115" class="Function">¬?</a> <a id="8988" href="Assignment2.html#8958" class="Bound">x</a> <a id="8990" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.Decidable.Core.html#753" class="Function Operator">⌋</a>
 </pre>
-<h4 id="exercise-iff-erasure-recommended">Exercise <code class="highlighter-rouge">iff-erasure</code> (recommended)</h4>
+<h4 id="exercise-iff-erasure-recommended">Exercise <code class="language-plaintext highlighter-rouge">iff-erasure</code> (recommended)</h4>
 
-<p>Give analogues of the <code class="highlighter-rouge">_⇔_</code> operation from
+<p>Give analogues of the <code class="language-plaintext highlighter-rouge">_⇔_</code> operation from
 Chapter [Isomorphism][plfa.Isomorphism#iff],
 operation on booleans and decidables, and also show the corresponding erasure.</p>
 <pre class="Agda"><a id="9211" class="Keyword">postulate</a>

@@ -140,9 +140,9 @@ open import Relation.Binary using (Setoid)
 
 <h2 id="values">Values</h2>
 
-<p>The <code class="highlighter-rouge">Value</code> data type represents a finite portion of a function.  We
+<p>The <code class="language-plaintext highlighter-rouge">Value</code> data type represents a finite portion of a function.  We
 think of a value as a finite set of pairs that represent input-output
-mappings. The <code class="highlighter-rouge">Value</code> data type represents the set as a binary tree
+mappings. The <code class="language-plaintext highlighter-rouge">Value</code> data type represents the set as a binary tree
 whose internal nodes are the union operator and whose leaves represent
 either a single mapping or the empty set.</p>
 
@@ -151,12 +151,12 @@ either a single mapping or the empty set.</p>
     <p>The ⊥ value provides no information about the computation.</p>
   </li>
   <li>
-    <p>A value of the form <code class="highlighter-rouge">v ↦ w</code> is a single input-output mapping, from
-input <code class="highlighter-rouge">v</code> to output <code class="highlighter-rouge">w</code>.</p>
+    <p>A value of the form <code class="language-plaintext highlighter-rouge">v ↦ w</code> is a single input-output mapping, from
+input <code class="language-plaintext highlighter-rouge">v</code> to output <code class="language-plaintext highlighter-rouge">w</code>.</p>
   </li>
   <li>
-    <p>A value of the form <code class="highlighter-rouge">v ⊔ w</code> is a function that maps inputs to
-outputs according to both <code class="highlighter-rouge">v</code> and <code class="highlighter-rouge">w</code>.  Think of it as taking the
+    <p>A value of the form <code class="language-plaintext highlighter-rouge">v ⊔ w</code> is a function that maps inputs to
+outputs according to both <code class="language-plaintext highlighter-rouge">v</code> and <code class="language-plaintext highlighter-rouge">w</code>.  Think of it as taking the
 union of the two sets.</p>
   </li>
 </ul>
@@ -169,9 +169,9 @@ union of the two sets.</p>
   <a id="Value._↦_"></a><a id="4102" href="/Denotational/#4102" class="InductiveConstructor Operator">_↦_</a> <a id="4106" class="Symbol">:</a> <a id="4108" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a> <a id="4114" class="Symbol">→</a> <a id="4116" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a> <a id="4122" class="Symbol">→</a> <a id="4124" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a>
   <a id="Value._⊔_"></a><a id="4132" href="/Denotational/#4132" class="InductiveConstructor Operator">_⊔_</a> <a id="4136" class="Symbol">:</a> <a id="4138" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a> <a id="4144" class="Symbol">→</a> <a id="4146" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a> <a id="4152" class="Symbol">→</a> <a id="4154" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a>
 </pre>
-<p>The <code class="highlighter-rouge">⊑</code> relation adapts the familiar notion of subset to the Value data
+<p>The <code class="language-plaintext highlighter-rouge">⊑</code> relation adapts the familiar notion of subset to the Value data
 type. This relation plays the key role in enabling self-application.
-There are two rules that are specific to functions, <code class="highlighter-rouge">⊑-fun</code> and <code class="highlighter-rouge">⊑-dist</code>,
+There are two rules that are specific to functions, <code class="language-plaintext highlighter-rouge">⊑-fun</code> and <code class="language-plaintext highlighter-rouge">⊑-dist</code>,
 which we discuss below.</p>
 
 <pre class="Agda"><a id="4409" class="Keyword">infix</a> <a id="4415" class="Number">4</a> <a id="4417" href="/Denotational/#4427" class="Datatype Operator">_⊑_</a>
@@ -214,23 +214,23 @@ which we discuss below.</p>
 </pre>
 
 <p>The first five rules are straightforward.
-The rule <code class="highlighter-rouge">⊑-fun</code> captures when it is OK to match a higher-order argument
-<code class="highlighter-rouge">v′ ↦ w′</code> to a table entry whose input is <code class="highlighter-rouge">v ↦ w</code>.  Considering a
+The rule <code class="language-plaintext highlighter-rouge">⊑-fun</code> captures when it is OK to match a higher-order argument
+<code class="language-plaintext highlighter-rouge">v′ ↦ w′</code> to a table entry whose input is <code class="language-plaintext highlighter-rouge">v ↦ w</code>.  Considering a
 call to the higher-order argument. It is OK to pass a larger argument
-than expected, so <code class="highlighter-rouge">v</code> can be larger than <code class="highlighter-rouge">v′</code>. Also, it is OK to
-disregard some of the output, so <code class="highlighter-rouge">w</code> can be smaller than <code class="highlighter-rouge">w′</code>.
-The rule <code class="highlighter-rouge">⊑-dist</code> says that if you have two entries for the same input,
+than expected, so <code class="language-plaintext highlighter-rouge">v</code> can be larger than <code class="language-plaintext highlighter-rouge">v′</code>. Also, it is OK to
+disregard some of the output, so <code class="language-plaintext highlighter-rouge">w</code> can be smaller than <code class="language-plaintext highlighter-rouge">w′</code>.
+The rule <code class="language-plaintext highlighter-rouge">⊑-dist</code> says that if you have two entries for the same input,
 then you can combine them into a single entry and joins the two
 outputs.</p>
 
-<p>The <code class="highlighter-rouge">⊑</code> relation is reflexive.</p>
+<p>The <code class="language-plaintext highlighter-rouge">⊑</code> relation is reflexive.</p>
 
 <pre class="Agda"><a id="⊑-refl"></a><a id="5557" href="/Denotational/#5557" class="Function">⊑-refl</a> <a id="5564" class="Symbol">:</a> <a id="5566" class="Symbol">∀</a> <a id="5568" class="Symbol">{</a><a id="5569" href="plfa.part3.Denotational.html#5569" class="Bound">v</a><a id="5570" class="Symbol">}</a> <a id="5572" class="Symbol">→</a> <a id="5574" href="plfa.part3.Denotational.html#5569" class="Bound">v</a> <a id="5576" href="plfa.part3.Denotational.html#4427" class="Datatype Operator">⊑</a> <a id="5578" href="plfa.part3.Denotational.html#5569" class="Bound">v</a>
 <a id="5580" href="/Denotational/#5557" class="Function">⊑-refl</a> <a id="5587" class="Symbol">{</a><a id="5588" href="plfa.part3.Denotational.html#4090" class="InductiveConstructor">⊥</a><a id="5589" class="Symbol">}</a> <a id="5591" class="Symbol">=</a> <a id="5593" href="plfa.part3.Denotational.html#4462" class="InductiveConstructor">⊑-bot</a>
 <a id="5599" href="/Denotational/#5557" class="Function">⊑-refl</a> <a id="5606" class="Symbol">{</a><a id="5607" href="plfa.part3.Denotational.html#5607" class="Bound">v</a> <a id="5609" href="plfa.part3.Denotational.html#4102" class="InductiveConstructor Operator">↦</a> <a id="5611" href="plfa.part3.Denotational.html#5611" class="Bound">v′</a><a id="5613" class="Symbol">}</a> <a id="5615" class="Symbol">=</a> <a id="5617" href="plfa.part3.Denotational.html#4788" class="InductiveConstructor">⊑-fun</a> <a id="5623" href="plfa.part3.Denotational.html#5557" class="Function">⊑-refl</a> <a id="5630" href="plfa.part3.Denotational.html#5557" class="Function">⊑-refl</a>
 <a id="5637" href="/Denotational/#5557" class="Function">⊑-refl</a> <a id="5644" class="Symbol">{</a><a id="5645" href="plfa.part3.Denotational.html#5645" class="Bound">v₁</a> <a id="5648" href="plfa.part3.Denotational.html#4132" class="InductiveConstructor Operator">⊔</a> <a id="5650" href="plfa.part3.Denotational.html#5650" class="Bound">v₂</a><a id="5652" class="Symbol">}</a> <a id="5654" class="Symbol">=</a> <a id="5656" href="plfa.part3.Denotational.html#4487" class="InductiveConstructor">⊑-conj-L</a> <a id="5665" class="Symbol">(</a><a id="5666" href="plfa.part3.Denotational.html#4571" class="InductiveConstructor">⊑-conj-R1</a> <a id="5676" href="plfa.part3.Denotational.html#5557" class="Function">⊑-refl</a><a id="5682" class="Symbol">)</a> <a id="5684" class="Symbol">(</a><a id="5685" href="plfa.part3.Denotational.html#4644" class="InductiveConstructor">⊑-conj-R2</a> <a id="5695" href="plfa.part3.Denotational.html#5557" class="Function">⊑-refl</a><a id="5701" class="Symbol">)</a>
 </pre>
-<p>The <code class="highlighter-rouge">⊔</code> operation is monotonic with respect to <code class="highlighter-rouge">⊑</code>, that is, given two
+<p>The <code class="language-plaintext highlighter-rouge">⊔</code> operation is monotonic with respect to <code class="language-plaintext highlighter-rouge">⊑</code>, that is, given two
 larger values it produces a larger value.</p>
 
 <pre class="Agda"><a id="⊔⊑⊔"></a><a id="5826" href="/Denotational/#5826" class="Function">⊔⊑⊔</a> <a id="5830" class="Symbol">:</a> <a id="5832" class="Symbol">∀</a> <a id="5834" class="Symbol">{</a><a id="5835" href="plfa.part3.Denotational.html#5835" class="Bound">v</a> <a id="5837" href="plfa.part3.Denotational.html#5837" class="Bound">w</a> <a id="5839" href="plfa.part3.Denotational.html#5839" class="Bound">v′</a> <a id="5842" href="plfa.part3.Denotational.html#5842" class="Bound">w′</a><a id="5844" class="Symbol">}</a>
@@ -239,9 +239,9 @@ larger values it produces a larger value.</p>
   <a id="5898" class="Symbol">→</a> <a id="5900" class="Symbol">(</a><a id="5901" href="/Denotational/#5835" class="Bound">v</a> <a id="5903" href="plfa.part3.Denotational.html#4132" class="InductiveConstructor Operator">⊔</a> <a id="5905" href="plfa.part3.Denotational.html#5837" class="Bound">w</a><a id="5906" class="Symbol">)</a> <a id="5908" href="plfa.part3.Denotational.html#4427" class="Datatype Operator">⊑</a> <a id="5910" class="Symbol">(</a><a id="5911" href="plfa.part3.Denotational.html#5839" class="Bound">v′</a> <a id="5914" href="plfa.part3.Denotational.html#4132" class="InductiveConstructor Operator">⊔</a> <a id="5916" href="plfa.part3.Denotational.html#5842" class="Bound">w′</a><a id="5918" class="Symbol">)</a>
 <a id="5920" href="/Denotational/#5826" class="Function">⊔⊑⊔</a> <a id="5924" href="plfa.part3.Denotational.html#5924" class="Bound">d₁</a> <a id="5927" href="plfa.part3.Denotational.html#5927" class="Bound">d₂</a> <a id="5930" class="Symbol">=</a> <a id="5932" href="plfa.part3.Denotational.html#4487" class="InductiveConstructor">⊑-conj-L</a> <a id="5941" class="Symbol">(</a><a id="5942" href="plfa.part3.Denotational.html#4571" class="InductiveConstructor">⊑-conj-R1</a> <a id="5952" href="plfa.part3.Denotational.html#5924" class="Bound">d₁</a><a id="5954" class="Symbol">)</a> <a id="5956" class="Symbol">(</a><a id="5957" href="plfa.part3.Denotational.html#4644" class="InductiveConstructor">⊑-conj-R2</a> <a id="5967" href="plfa.part3.Denotational.html#5927" class="Bound">d₂</a><a id="5969" class="Symbol">)</a>
 </pre>
-<p>The <code class="highlighter-rouge">⊑-dist</code> rule can be used to combine two entries even when the
+<p>The <code class="language-plaintext highlighter-rouge">⊑-dist</code> rule can be used to combine two entries even when the
 input values are not identical. One can first combine the two inputs
-using ⊔ and then apply the <code class="highlighter-rouge">⊑-dist</code> rule to obtain the following
+using ⊔ and then apply the <code class="language-plaintext highlighter-rouge">⊑-dist</code> rule to obtain the following
 property.</p>
 
 <pre class="Agda"><a id="⊔↦⊔-dist"></a><a id="6192" href="/Denotational/#6192" class="Function">⊔↦⊔-dist</a> <a id="6201" class="Symbol">:</a> <a id="6203" class="Symbol">∀{</a><a id="6205" href="plfa.part3.Denotational.html#6205" class="Bound">v</a> <a id="6207" href="plfa.part3.Denotational.html#6207" class="Bound">v′</a> <a id="6210" href="plfa.part3.Denotational.html#6210" class="Bound">w</a> <a id="6212" href="plfa.part3.Denotational.html#6212" class="Bound">w′</a> <a id="6215" class="Symbol">:</a> <a id="6217" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a><a id="6222" class="Symbol">}</a>
@@ -253,8 +253,8 @@ property.</p>
  [PLW: above might read more nicely if we introduce inequational reasoning.]
  -->
 
-<p>If the join <code class="highlighter-rouge">u ⊔ v</code> is less than another value <code class="highlighter-rouge">w</code>,
-then both <code class="highlighter-rouge">u</code> and <code class="highlighter-rouge">v</code> are less than <code class="highlighter-rouge">w</code>.</p>
+<p>If the join <code class="language-plaintext highlighter-rouge">u ⊔ v</code> is less than another value <code class="language-plaintext highlighter-rouge">w</code>,
+then both <code class="language-plaintext highlighter-rouge">u</code> and <code class="language-plaintext highlighter-rouge">v</code> are less than <code class="language-plaintext highlighter-rouge">w</code>.</p>
 
 <pre class="Agda"><a id="⊔⊑-invL"></a><a id="6589" href="/Denotational/#6589" class="Function">⊔⊑-invL</a> <a id="6597" class="Symbol">:</a> <a id="6599" class="Symbol">∀{</a><a id="6601" href="plfa.part3.Denotational.html#6601" class="Bound">u</a> <a id="6603" href="plfa.part3.Denotational.html#6603" class="Bound">v</a> <a id="6605" href="plfa.part3.Denotational.html#6605" class="Bound">w</a> <a id="6607" class="Symbol">:</a> <a id="6609" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a><a id="6614" class="Symbol">}</a>
   <a id="6618" class="Symbol">→</a> <a id="6620" href="/Denotational/#6601" class="Bound">u</a> <a id="6622" href="plfa.part3.Denotational.html#4132" class="InductiveConstructor Operator">⊔</a> <a id="6624" href="plfa.part3.Denotational.html#6603" class="Bound">v</a> <a id="6626" href="plfa.part3.Denotational.html#4427" class="Datatype Operator">⊑</a> <a id="6628" href="plfa.part3.Denotational.html#6605" class="Bound">w</a>
@@ -313,7 +313,7 @@ value in the environment.</p>
 <pre class="Agda"><a id="nth"></a><a id="8033" href="/Denotational/#8033" class="Function">nth</a> <a id="8037" class="Symbol">:</a> <a id="8039" class="Symbol">∀{</a><a id="8041" href="plfa.part3.Denotational.html#8041" class="Bound">Γ</a><a id="8042" class="Symbol">}</a> <a id="8044" class="Symbol">→</a> <a id="8046" class="Symbol">(</a><a id="8047" href="plfa.part3.Denotational.html#8041" class="Bound">Γ</a> <a id="8049" href="/Untyped/#3521" class="Datatype Operator">∋</a> <a id="8051" href="plfa.part2.Untyped.html#2888" class="InductiveConstructor">★</a><a id="8052" class="Symbol">)</a> <a id="8054" class="Symbol">→</a> <a id="8056" href="plfa.part3.Denotational.html#7207" class="Function">Env</a> <a id="8060" href="plfa.part3.Denotational.html#8041" class="Bound">Γ</a> <a id="8062" class="Symbol">→</a> <a id="8064" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a>
 <a id="8070" href="/Denotational/#8033" class="Function">nth</a> <a id="8074" href="plfa.part3.Denotational.html#8074" class="Bound">x</a> <a id="8076" href="plfa.part3.Denotational.html#8076" class="Bound">ρ</a> <a id="8078" class="Symbol">=</a> <a id="8080" href="plfa.part3.Denotational.html#8076" class="Bound">ρ</a> <a id="8082" href="plfa.part3.Denotational.html#8074" class="Bound">x</a>
 </pre>
-<p>We extend the <code class="highlighter-rouge">⊑</code> relation point-wise to environments with the
+<p>We extend the <code class="language-plaintext highlighter-rouge">⊑</code> relation point-wise to environments with the
 following definition.</p>
 
 <pre class="Agda"><a id="_`⊑_"></a><a id="8179" href="/Denotational/#8179" class="Function Operator">_`⊑_</a> <a id="8184" class="Symbol">:</a> <a id="8186" class="Symbol">∀</a> <a id="8188" class="Symbol">{</a><a id="8189" href="plfa.part3.Denotational.html#8189" class="Bound">Γ</a><a id="8190" class="Symbol">}</a> <a id="8192" class="Symbol">→</a> <a id="8194" href="plfa.part3.Denotational.html#7207" class="Function">Env</a> <a id="8198" href="plfa.part3.Denotational.html#8189" class="Bound">Γ</a> <a id="8200" class="Symbol">→</a> <a id="8202" href="plfa.part3.Denotational.html#7207" class="Function">Env</a> <a id="8206" href="plfa.part3.Denotational.html#8189" class="Bound">Γ</a> <a id="8208" class="Symbol">→</a> <a id="8210" class="PrimitiveType">Set</a>
@@ -328,9 +328,9 @@ which takes the point-wise join of their values.</p>
 <a id="_`⊔_"></a><a id="8411" href="/Denotational/#8411" class="Function Operator">_`⊔_</a> <a id="8416" class="Symbol">:</a> <a id="8418" class="Symbol">∀</a> <a id="8420" class="Symbol">{</a><a id="8421" href="plfa.part3.Denotational.html#8421" class="Bound">Γ</a><a id="8422" class="Symbol">}</a> <a id="8424" class="Symbol">→</a> <a id="8426" href="plfa.part3.Denotational.html#7207" class="Function">Env</a> <a id="8430" href="plfa.part3.Denotational.html#8421" class="Bound">Γ</a> <a id="8432" class="Symbol">→</a> <a id="8434" href="plfa.part3.Denotational.html#7207" class="Function">Env</a> <a id="8438" href="plfa.part3.Denotational.html#8421" class="Bound">Γ</a> <a id="8440" class="Symbol">→</a> <a id="8442" href="plfa.part3.Denotational.html#7207" class="Function">Env</a> <a id="8446" href="plfa.part3.Denotational.html#8421" class="Bound">Γ</a>
 <a id="8448" class="Symbol">(</a><a id="8449" href="/Denotational/#8449" class="Bound">γ</a> <a id="8451" href="plfa.part3.Denotational.html#8411" class="Function Operator">`⊔</a> <a id="8454" href="plfa.part3.Denotational.html#8454" class="Bound">δ</a><a id="8455" class="Symbol">)</a> <a id="8457" href="plfa.part3.Denotational.html#8457" class="Bound">x</a> <a id="8459" class="Symbol">=</a> <a id="8461" href="plfa.part3.Denotational.html#8449" class="Bound">γ</a> <a id="8463" href="plfa.part3.Denotational.html#8457" class="Bound">x</a> <a id="8465" href="plfa.part3.Denotational.html#4132" class="InductiveConstructor Operator">⊔</a> <a id="8467" href="plfa.part3.Denotational.html#8454" class="Bound">δ</a> <a id="8469" href="plfa.part3.Denotational.html#8457" class="Bound">x</a>
 </pre>
-<p>The <code class="highlighter-rouge">⊑-refl</code>, <code class="highlighter-rouge">⊑-conj-R1</code>, and <code class="highlighter-rouge">⊑-conj-R2</code> rules lift to environments.  So
-the join of two environments <code class="highlighter-rouge">γ</code> and <code class="highlighter-rouge">δ</code> is greater than the first
-environment <code class="highlighter-rouge">γ</code> or the second environment <code class="highlighter-rouge">δ</code>.</p>
+<p>The <code class="language-plaintext highlighter-rouge">⊑-refl</code>, <code class="language-plaintext highlighter-rouge">⊑-conj-R1</code>, and <code class="language-plaintext highlighter-rouge">⊑-conj-R2</code> rules lift to environments.  So
+the join of two environments <code class="language-plaintext highlighter-rouge">γ</code> and <code class="language-plaintext highlighter-rouge">δ</code> is greater than the first
+environment <code class="language-plaintext highlighter-rouge">γ</code> or the second environment <code class="language-plaintext highlighter-rouge">δ</code>.</p>
 
 <pre class="Agda"><a id="`⊑-refl"></a><a id="8670" href="/Denotational/#8670" class="Function">`⊑-refl</a> <a id="8678" class="Symbol">:</a> <a id="8680" class="Symbol">∀</a> <a id="8682" class="Symbol">{</a><a id="8683" href="plfa.part3.Denotational.html#8683" class="Bound">Γ</a><a id="8684" class="Symbol">}</a> <a id="8686" class="Symbol">{</a><a id="8687" href="plfa.part3.Denotational.html#8687" class="Bound">γ</a> <a id="8689" class="Symbol">:</a> <a id="8691" href="plfa.part3.Denotational.html#7207" class="Function">Env</a> <a id="8695" href="plfa.part3.Denotational.html#8683" class="Bound">Γ</a><a id="8696" class="Symbol">}</a> <a id="8698" class="Symbol">→</a> <a id="8700" href="plfa.part3.Denotational.html#8687" class="Bound">γ</a> <a id="8702" href="plfa.part3.Denotational.html#8179" class="Function Operator">`⊑</a> <a id="8705" href="plfa.part3.Denotational.html#8687" class="Bound">γ</a>
 <a id="8707" href="/Denotational/#8670" class="Function">`⊑-refl</a> <a id="8715" class="Symbol">{</a><a id="8716" href="plfa.part3.Denotational.html#8716" class="Bound">Γ</a><a id="8717" class="Symbol">}</a> <a id="8719" class="Symbol">{</a><a id="8720" href="plfa.part3.Denotational.html#8720" class="Bound">γ</a><a id="8721" class="Symbol">}</a> <a id="8723" href="plfa.part3.Denotational.html#8723" class="Bound">x</a> <a id="8725" class="Symbol">=</a> <a id="8727" href="plfa.part3.Denotational.html#5557" class="Function">⊑-refl</a> <a id="8734" class="Symbol">{</a><a id="8735" href="plfa.part3.Denotational.html#8720" class="Bound">γ</a> <a id="8737" href="plfa.part3.Denotational.html#8723" class="Bound">x</a><a id="8738" class="Symbol">}</a>
@@ -343,8 +343,8 @@ environment <code class="highlighter-rouge">γ</code> or the second environment 
 </pre>
 <h2 id="denotational-semantics">Denotational Semantics</h2>
 
-<p>We define the semantics with a judgment of the form <code class="highlighter-rouge">ρ ⊢ M ↓ v</code>,
-where <code class="highlighter-rouge">ρ</code> is the environment, <code class="highlighter-rouge">M</code> the program, and <code class="highlighter-rouge">v</code> is a result value.
+<p>We define the semantics with a judgment of the form <code class="language-plaintext highlighter-rouge">ρ ⊢ M ↓ v</code>,
+where <code class="language-plaintext highlighter-rouge">ρ</code> is the environment, <code class="language-plaintext highlighter-rouge">M</code> the program, and <code class="language-plaintext highlighter-rouge">v</code> is a result value.
 For readers familiar with big-step semantics, this notation will feel
 quite natural, but don’t let the similarity fool you.  There are
 subtle but important differences! So here is the definition of the
@@ -385,12 +385,12 @@ semantics, which we discuss in detail in the following paragraphs.</p>
       <a id="10028" class="Comment">---------</a>
     <a id="10042" class="Symbol">→</a> <a id="10044" href="/Denotational/#9975" class="Bound">γ</a> <a id="10046" href="plfa.part3.Denotational.html#9417" class="Datatype Operator">⊢</a> <a id="10048" href="plfa.part3.Denotational.html#9987" class="Bound">M</a> <a id="10050" href="plfa.part3.Denotational.html#9417" class="Datatype Operator">↓</a> <a id="10052" href="plfa.part3.Denotational.html#9991" class="Bound">w</a>
 </pre>
-<p>Consider the rule for lambda abstractions, <code class="highlighter-rouge">↦-intro</code>.  It says that a
+<p>Consider the rule for lambda abstractions, <code class="language-plaintext highlighter-rouge">↦-intro</code>.  It says that a
 lambda abstraction results in a single-entry table that maps the input
-<code class="highlighter-rouge">v</code> to the output <code class="highlighter-rouge">w</code>, provided that evaluating the body in an
-environment with <code class="highlighter-rouge">v</code> bound to its parameter produces the output <code class="highlighter-rouge">w</code>.
+<code class="language-plaintext highlighter-rouge">v</code> to the output <code class="language-plaintext highlighter-rouge">w</code>, provided that evaluating the body in an
+environment with <code class="language-plaintext highlighter-rouge">v</code> bound to its parameter produces the output <code class="language-plaintext highlighter-rouge">w</code>.
 As a simple example of this rule, we can see that the identity function
-maps <code class="highlighter-rouge">⊥</code> to <code class="highlighter-rouge">⊥</code>.</p>
+maps <code class="language-plaintext highlighter-rouge">⊥</code> to <code class="language-plaintext highlighter-rouge">⊥</code>.</p>
 
 <pre class="Agda"><a id="id"></a><a id="10426" href="/Denotational/#10426" class="Function">id</a> <a id="10429" class="Symbol">:</a> <a id="10431" href="/Untyped/#3175" class="InductiveConstructor">∅</a> <a id="10433" href="plfa.part2.Untyped.html#4294" class="Datatype Operator">⊢</a> <a id="10435" href="plfa.part2.Untyped.html#2888" class="InductiveConstructor">★</a>
 <a id="10437" href="/Denotational/#10426" class="Function">id</a> <a id="10440" class="Symbol">=</a> <a id="10442" href="/Untyped/#4382" class="InductiveConstructor Operator">ƛ</a> <a id="10444" href="plfa.part2.Untyped.html#5111" class="Function Operator">#</a> <a id="10446" class="Number">0</a>
@@ -402,55 +402,55 @@ maps <code class="highlighter-rouge">⊥</code> to <code class="highlighter-roug
 <a id="10571" href="/Denotational/#10517" class="Function">denot-id-two</a> <a id="10584" class="Symbol">=</a> <a id="10586" href="plfa.part3.Denotational.html#9847" class="InductiveConstructor">⊔-intro</a> <a id="10594" href="plfa.part3.Denotational.html#10457" class="Function">denot-id</a> <a id="10603" href="plfa.part3.Denotational.html#10457" class="Function">denot-id</a>
 </pre>
 <p>Of course, we will need tables with many rows to capture the meaning
-of lambda abstractions. These can be constructed using the <code class="highlighter-rouge">⊔-intro</code>
+of lambda abstractions. These can be constructed using the <code class="language-plaintext highlighter-rouge">⊔-intro</code>
 rule.  If term M (typically a lambda abstraction) can produce both
-tables <code class="highlighter-rouge">v</code> and <code class="highlighter-rouge">w</code>, then it produces the combined table <code class="highlighter-rouge">v ⊔ w</code>. One
-can take an operational view of the rules <code class="highlighter-rouge">↦-intro</code> and <code class="highlighter-rouge">⊔-intro</code> by
+tables <code class="language-plaintext highlighter-rouge">v</code> and <code class="language-plaintext highlighter-rouge">w</code>, then it produces the combined table <code class="language-plaintext highlighter-rouge">v ⊔ w</code>. One
+can take an operational view of the rules <code class="language-plaintext highlighter-rouge">↦-intro</code> and <code class="language-plaintext highlighter-rouge">⊔-intro</code> by
 imagining that when an interpreter first comes to a lambda
 abstraction, it pre-evaluates the function on a bunch of randomly
-chosen arguments, using many instances of the rule <code class="highlighter-rouge">↦-intro</code>, and then
-joins them into a big table using many instances of the rule <code class="highlighter-rouge">⊔-intro</code>.
+chosen arguments, using many instances of the rule <code class="language-plaintext highlighter-rouge">↦-intro</code>, and then
+joins them into a big table using many instances of the rule <code class="language-plaintext highlighter-rouge">⊔-intro</code>.
 In the following we show that the identity function produces a table
-containing both of the previous results, <code class="highlighter-rouge">⊥ ↦ ⊥</code> and <code class="highlighter-rouge">(⊥ ↦ ⊥) ↦ (⊥ ↦
+containing both of the previous results, <code class="language-plaintext highlighter-rouge">⊥ ↦ ⊥</code> and <code class="language-plaintext highlighter-rouge">(⊥ ↦ ⊥) ↦ (⊥ ↦
 ⊥)</code>.</p>
 
 <pre class="Agda"><a id="denot-id3"></a><a id="11376" href="/Denotational/#11376" class="Function">denot-id3</a> <a id="11386" class="Symbol">:</a> <a id="11388" href="plfa.part3.Denotational.html#7331" class="Function">`∅</a> <a id="11391" href="plfa.part3.Denotational.html#9417" class="Datatype Operator">⊢</a> <a id="11393" href="plfa.part3.Denotational.html#10426" class="Function">id</a> <a id="11396" href="plfa.part3.Denotational.html#9417" class="Datatype Operator">↓</a> <a id="11398" class="Symbol">(</a><a id="11399" href="plfa.part3.Denotational.html#4090" class="InductiveConstructor">⊥</a> <a id="11401" href="plfa.part3.Denotational.html#4102" class="InductiveConstructor Operator">↦</a> <a id="11403" href="plfa.part3.Denotational.html#4090" class="InductiveConstructor">⊥</a><a id="11404" class="Symbol">)</a> <a id="11406" href="plfa.part3.Denotational.html#4132" class="InductiveConstructor Operator">⊔</a> <a id="11408" class="Symbol">(</a><a id="11409" href="plfa.part3.Denotational.html#4090" class="InductiveConstructor">⊥</a> <a id="11411" href="plfa.part3.Denotational.html#4102" class="InductiveConstructor Operator">↦</a> <a id="11413" href="plfa.part3.Denotational.html#4090" class="InductiveConstructor">⊥</a><a id="11414" class="Symbol">)</a> <a id="11416" href="plfa.part3.Denotational.html#4102" class="InductiveConstructor Operator">↦</a> <a id="11418" class="Symbol">(</a><a id="11419" href="plfa.part3.Denotational.html#4090" class="InductiveConstructor">⊥</a> <a id="11421" href="plfa.part3.Denotational.html#4102" class="InductiveConstructor Operator">↦</a> <a id="11423" href="plfa.part3.Denotational.html#4090" class="InductiveConstructor">⊥</a><a id="11424" class="Symbol">)</a>
 <a id="11426" href="/Denotational/#11376" class="Function">denot-id3</a> <a id="11436" class="Symbol">=</a> <a id="11438" href="plfa.part3.Denotational.html#10517" class="Function">denot-id-two</a>
 </pre>
-<p>We most often think of the judgment <code class="highlighter-rouge">γ ⊢ M ↓ v</code> as taking the
-environment <code class="highlighter-rouge">γ</code> and term <code class="highlighter-rouge">M</code> as input, producing the result <code class="highlighter-rouge">v</code>.  However,
+<p>We most often think of the judgment <code class="language-plaintext highlighter-rouge">γ ⊢ M ↓ v</code> as taking the
+environment <code class="language-plaintext highlighter-rouge">γ</code> and term <code class="language-plaintext highlighter-rouge">M</code> as input, producing the result <code class="language-plaintext highlighter-rouge">v</code>.  However,
 it is worth emphasizing that the semantics is a <em>relation</em>.  The above
 results for the identity function show that the same environment and
 term can be mapped to different results. However, the results for a
-given <code class="highlighter-rouge">γ</code> and <code class="highlighter-rouge">M</code> are not <em>too</em> different, they are all finite
+given <code class="language-plaintext highlighter-rouge">γ</code> and <code class="language-plaintext highlighter-rouge">M</code> are not <em>too</em> different, they are all finite
 approximations of the same function. Perhaps a better way of thinking
-about the judgment <code class="highlighter-rouge">γ ⊢ M ↓ v</code> is that the <code class="highlighter-rouge">γ</code>, <code class="highlighter-rouge">M</code>, and <code class="highlighter-rouge">v</code> are all inputs
-and the semantics either confirms or denies whether <code class="highlighter-rouge">v</code> is an accurate
-partial description of the result of <code class="highlighter-rouge">M</code> in environment <code class="highlighter-rouge">γ</code>.</p>
+about the judgment <code class="language-plaintext highlighter-rouge">γ ⊢ M ↓ v</code> is that the <code class="language-plaintext highlighter-rouge">γ</code>, <code class="language-plaintext highlighter-rouge">M</code>, and <code class="language-plaintext highlighter-rouge">v</code> are all inputs
+and the semantics either confirms or denies whether <code class="language-plaintext highlighter-rouge">v</code> is an accurate
+partial description of the result of <code class="language-plaintext highlighter-rouge">M</code> in environment <code class="language-plaintext highlighter-rouge">γ</code>.</p>
 
 <p>Next we consider the meaning of function application as given by the
-<code class="highlighter-rouge">↦-elim</code> rule. In the premise of the rule we have that <code class="highlighter-rouge">L</code> maps <code class="highlighter-rouge">v</code> to
-<code class="highlighter-rouge">w</code>. So if <code class="highlighter-rouge">M</code> produces <code class="highlighter-rouge">v</code>, then the application of <code class="highlighter-rouge">L</code> to <code class="highlighter-rouge">M</code>
-produces <code class="highlighter-rouge">w</code>.</p>
+<code class="language-plaintext highlighter-rouge">↦-elim</code> rule. In the premise of the rule we have that <code class="language-plaintext highlighter-rouge">L</code> maps <code class="language-plaintext highlighter-rouge">v</code> to
+<code class="language-plaintext highlighter-rouge">w</code>. So if <code class="language-plaintext highlighter-rouge">M</code> produces <code class="language-plaintext highlighter-rouge">v</code>, then the application of <code class="language-plaintext highlighter-rouge">L</code> to <code class="language-plaintext highlighter-rouge">M</code>
+produces <code class="language-plaintext highlighter-rouge">w</code>.</p>
 
-<p>As an example of function application and the <code class="highlighter-rouge">↦-elim</code> rule, we apply
+<p>As an example of function application and the <code class="language-plaintext highlighter-rouge">↦-elim</code> rule, we apply
 the identity function to itself.  Indeed, we have both that
-<code class="highlighter-rouge">∅ ⊢ id ↓ (u ↦ u) ↦ (u ↦ u)</code> and also <code class="highlighter-rouge">∅ ⊢ id ↓ (u ↦ u)</code>, so we can
-apply the rule <code class="highlighter-rouge">↦-elim</code>.</p>
+<code class="language-plaintext highlighter-rouge">∅ ⊢ id ↓ (u ↦ u) ↦ (u ↦ u)</code> and also <code class="language-plaintext highlighter-rouge">∅ ⊢ id ↓ (u ↦ u)</code>, so we can
+apply the rule <code class="language-plaintext highlighter-rouge">↦-elim</code>.</p>
 
 <pre class="Agda"><a id="id-app-id"></a><a id="12590" href="/Denotational/#12590" class="Function">id-app-id</a> <a id="12600" class="Symbol">:</a> <a id="12602" class="Symbol">∀</a> <a id="12604" class="Symbol">{</a><a id="12605" href="plfa.part3.Denotational.html#12605" class="Bound">u</a> <a id="12607" class="Symbol">:</a> <a id="12609" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a><a id="12614" class="Symbol">}</a> <a id="12616" class="Symbol">→</a> <a id="12618" href="plfa.part3.Denotational.html#7331" class="Function">`∅</a> <a id="12621" href="plfa.part3.Denotational.html#9417" class="Datatype Operator">⊢</a> <a id="12623" href="plfa.part3.Denotational.html#10426" class="Function">id</a> <a id="12626" href="/Untyped/#4442" class="InductiveConstructor Operator">·</a> <a id="12628" href="plfa.part3.Denotational.html#10426" class="Function">id</a> <a id="12631" href="plfa.part3.Denotational.html#9417" class="Datatype Operator">↓</a> <a id="12633" class="Symbol">(</a><a id="12634" href="plfa.part3.Denotational.html#12605" class="Bound">u</a> <a id="12636" href="plfa.part3.Denotational.html#4102" class="InductiveConstructor Operator">↦</a> <a id="12638" href="plfa.part3.Denotational.html#12605" class="Bound">u</a><a id="12639" class="Symbol">)</a>
 <a id="12641" href="/Denotational/#12590" class="Function">id-app-id</a> <a id="12651" class="Symbol">{</a><a id="12652" href="plfa.part3.Denotational.html#12652" class="Bound">u</a><a id="12653" class="Symbol">}</a> <a id="12655" class="Symbol">=</a> <a id="12657" href="plfa.part3.Denotational.html#9546" class="InductiveConstructor">↦-elim</a> <a id="12664" class="Symbol">(</a><a id="12665" href="plfa.part3.Denotational.html#9668" class="InductiveConstructor">↦-intro</a> <a id="12673" href="plfa.part3.Denotational.html#9471" class="InductiveConstructor">var</a><a id="12676" class="Symbol">)</a> <a id="12678" class="Symbol">(</a><a id="12679" href="plfa.part3.Denotational.html#9668" class="InductiveConstructor">↦-intro</a> <a id="12687" href="plfa.part3.Denotational.html#9471" class="InductiveConstructor">var</a><a id="12690" class="Symbol">)</a>
 </pre>
 <p>Next we revisit the Church numeral two.  This function has two
-parameters: a function and an arbitrary value <code class="highlighter-rouge">u</code>, and it applies the
-function twice. So the function must map <code class="highlighter-rouge">u</code> to some value, which
-we’ll name <code class="highlighter-rouge">v</code>. Then for the second application, it must map <code class="highlighter-rouge">v</code> to
-some value. Let’s name it <code class="highlighter-rouge">w</code>. So the parameter’s table must contain
-two entries, both <code class="highlighter-rouge">u ↦ v</code> and <code class="highlighter-rouge">v ↦ w</code>. For each application of the
-table, we extract the appropriate entry from it using the <code class="highlighter-rouge">sub</code> rule.
-In particular, we use the ⊑-conj-R1 and ⊑-conj-R2 to select <code class="highlighter-rouge">u ↦ v</code> and <code class="highlighter-rouge">v
-↦ w</code>, respectively, from the table <code class="highlighter-rouge">u ↦ v ⊔ v ↦ w</code>. So the meaning of
-twoᶜ is that it takes this table and parameter <code class="highlighter-rouge">u</code>, and it returns <code class="highlighter-rouge">w</code>.
+parameters: a function and an arbitrary value <code class="language-plaintext highlighter-rouge">u</code>, and it applies the
+function twice. So the function must map <code class="language-plaintext highlighter-rouge">u</code> to some value, which
+we’ll name <code class="language-plaintext highlighter-rouge">v</code>. Then for the second application, it must map <code class="language-plaintext highlighter-rouge">v</code> to
+some value. Let’s name it <code class="language-plaintext highlighter-rouge">w</code>. So the parameter’s table must contain
+two entries, both <code class="language-plaintext highlighter-rouge">u ↦ v</code> and <code class="language-plaintext highlighter-rouge">v ↦ w</code>. For each application of the
+table, we extract the appropriate entry from it using the <code class="language-plaintext highlighter-rouge">sub</code> rule.
+In particular, we use the ⊑-conj-R1 and ⊑-conj-R2 to select <code class="language-plaintext highlighter-rouge">u ↦ v</code> and <code class="language-plaintext highlighter-rouge">v
+↦ w</code>, respectively, from the table <code class="language-plaintext highlighter-rouge">u ↦ v ⊔ v ↦ w</code>. So the meaning of
+twoᶜ is that it takes this table and parameter <code class="language-plaintext highlighter-rouge">u</code>, and it returns <code class="language-plaintext highlighter-rouge">w</code>.
 Indeed we derive this as follows.</p>
 
 <pre class="Agda"><a id="denot-twoᶜ"></a><a id="13426" href="/Denotational/#13426" class="Function">denot-twoᶜ</a> <a id="13437" class="Symbol">:</a> <a id="13439" class="Symbol">∀{</a><a id="13441" href="plfa.part3.Denotational.html#13441" class="Bound">u</a> <a id="13443" href="plfa.part3.Denotational.html#13443" class="Bound">v</a> <a id="13445" href="plfa.part3.Denotational.html#13445" class="Bound">w</a> <a id="13447" class="Symbol">:</a> <a id="13449" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a><a id="13454" class="Symbol">}</a> <a id="13456" class="Symbol">→</a> <a id="13458" href="plfa.part3.Denotational.html#7331" class="Function">`∅</a> <a id="13461" href="plfa.part3.Denotational.html#9417" class="Datatype Operator">⊢</a> <a id="13463" href="/Untyped/#5242" class="Function">twoᶜ</a> <a id="13468" href="plfa.part3.Denotational.html#9417" class="Datatype Operator">↓</a> <a id="13470" class="Symbol">((</a><a id="13472" href="plfa.part3.Denotational.html#13441" class="Bound">u</a> <a id="13474" href="plfa.part3.Denotational.html#4102" class="InductiveConstructor Operator">↦</a> <a id="13476" href="plfa.part3.Denotational.html#13443" class="Bound">v</a> <a id="13478" href="plfa.part3.Denotational.html#4132" class="InductiveConstructor Operator">⊔</a> <a id="13480" href="plfa.part3.Denotational.html#13443" class="Bound">v</a> <a id="13482" href="plfa.part3.Denotational.html#4102" class="InductiveConstructor Operator">↦</a> <a id="13484" href="plfa.part3.Denotational.html#13445" class="Bound">w</a><a id="13485" class="Symbol">)</a> <a id="13487" href="plfa.part3.Denotational.html#4102" class="InductiveConstructor Operator">↦</a> <a id="13489" class="Symbol">(</a><a id="13490" href="plfa.part3.Denotational.html#13441" class="Bound">u</a> <a id="13492" href="plfa.part3.Denotational.html#4102" class="InductiveConstructor Operator">↦</a> <a id="13494" href="plfa.part3.Denotational.html#13445" class="Bound">w</a><a id="13495" class="Symbol">))</a>
@@ -463,13 +463,13 @@ Indeed we derive this as follows.</p>
         <a id="13718" href="/Denotational/#13682" class="Function">lt2</a> <a id="13722" class="Symbol">=</a> <a id="13724" class="Symbol">(</a><a id="13725" href="plfa.part3.Denotational.html#4571" class="InductiveConstructor">⊑-conj-R1</a> <a id="13735" class="Symbol">(</a><a id="13736" href="plfa.part3.Denotational.html#4788" class="InductiveConstructor">⊑-fun</a> <a id="13742" href="plfa.part3.Denotational.html#5557" class="Function">⊑-refl</a> <a id="13749" href="plfa.part3.Denotational.html#5557" class="Function">⊑-refl</a><a id="13755" class="Symbol">))</a>
 </pre>
 
-<p>Next we have a classic example of self application: <code class="highlighter-rouge">Δ = λx. (x x)</code>.
-The input value for <code class="highlighter-rouge">x</code> needs to be a table, and it needs to have an
-entry that maps a smaller version of itself, call it <code class="highlighter-rouge">v</code>, to some value
-<code class="highlighter-rouge">w</code>. So the input value looks like <code class="highlighter-rouge">v ↦ w ⊔ v</code>. Of course, then the
-output of <code class="highlighter-rouge">Δ</code> is <code class="highlighter-rouge">w</code>. The derivation is given below.  The first occurrences
-of <code class="highlighter-rouge">x</code> evaluates to <code class="highlighter-rouge">v ↦ w</code>, the second occurrence of <code class="highlighter-rouge">x</code> evaluates to <code class="highlighter-rouge">v</code>,
-and then the result of the application is <code class="highlighter-rouge">w</code>.</p>
+<p>Next we have a classic example of self application: <code class="language-plaintext highlighter-rouge">Δ = λx. (x x)</code>.
+The input value for <code class="language-plaintext highlighter-rouge">x</code> needs to be a table, and it needs to have an
+entry that maps a smaller version of itself, call it <code class="language-plaintext highlighter-rouge">v</code>, to some value
+<code class="language-plaintext highlighter-rouge">w</code>. So the input value looks like <code class="language-plaintext highlighter-rouge">v ↦ w ⊔ v</code>. Of course, then the
+output of <code class="language-plaintext highlighter-rouge">Δ</code> is <code class="language-plaintext highlighter-rouge">w</code>. The derivation is given below.  The first occurrences
+of <code class="language-plaintext highlighter-rouge">x</code> evaluates to <code class="language-plaintext highlighter-rouge">v ↦ w</code>, the second occurrence of <code class="language-plaintext highlighter-rouge">x</code> evaluates to <code class="language-plaintext highlighter-rouge">v</code>,
+and then the result of the application is <code class="language-plaintext highlighter-rouge">w</code>.</p>
 
 <pre class="Agda"><a id="Δ"></a><a id="14246" href="/Denotational/#14246" class="Function">Δ</a> <a id="14248" class="Symbol">:</a> <a id="14250" href="/Untyped/#3175" class="InductiveConstructor">∅</a> <a id="14252" href="plfa.part2.Untyped.html#4294" class="Datatype Operator">⊢</a> <a id="14254" href="plfa.part2.Untyped.html#2888" class="InductiveConstructor">★</a>
 <a id="14256" href="/Denotational/#14246" class="Function">Δ</a> <a id="14258" class="Symbol">=</a> <a id="14260" class="Symbol">(</a><a id="14261" href="/Untyped/#4382" class="InductiveConstructor Operator">ƛ</a> <a id="14263" class="Symbol">(</a><a id="14264" href="plfa.part2.Untyped.html#5111" class="Function Operator">#</a> <a id="14266" class="Number">0</a><a id="14267" class="Symbol">)</a> <a id="14269" href="plfa.part2.Untyped.html#4442" class="InductiveConstructor Operator">·</a> <a id="14271" class="Symbol">(</a><a id="14272" href="plfa.part2.Untyped.html#5111" class="Function Operator">#</a> <a id="14274" class="Number">0</a><a id="14275" class="Symbol">))</a>
@@ -479,19 +479,19 @@ and then the result of the application is <code class="highlighter-rouge">w</cod
                           <a id="14407" class="Symbol">(</a><a id="14408" href="/Denotational/#9962" class="InductiveConstructor">sub</a> <a id="14412" href="plfa.part3.Denotational.html#9471" class="InductiveConstructor">var</a> <a id="14416" class="Symbol">(</a><a id="14417" href="plfa.part3.Denotational.html#4644" class="InductiveConstructor">⊑-conj-R2</a> <a id="14427" href="plfa.part3.Denotational.html#5557" class="Function">⊑-refl</a><a id="14433" class="Symbol">)))</a>
 </pre>
 <p>One might worry whether this semantics can deal with diverging
-programs.  The <code class="highlighter-rouge">⊥</code> value and the <code class="highlighter-rouge">⊥-intro</code> rule provide a way to handle
-them. (The <code class="highlighter-rouge">⊥-intro</code> rule is also what enables β reduction on
-non-terminating arguments.)  The classic <code class="highlighter-rouge">Ω</code> program is a particularly
-simple program that diverges. It applies <code class="highlighter-rouge">Δ</code> to itself. The semantics
-assigns to <code class="highlighter-rouge">Ω</code> the meaning <code class="highlighter-rouge">⊥</code>. There are several ways to derive this, we
-shall start with one that makes use of the <code class="highlighter-rouge">⊔-intro</code> rule.  First,
-<code class="highlighter-rouge">denot-Δ</code> tells us that <code class="highlighter-rouge">Δ</code> evaluates to <code class="highlighter-rouge">((⊥ ↦ ⊥) ⊔ ⊥) ↦ ⊥</code>
-(choose <code class="highlighter-rouge">v₁ = v₂ = ⊥</code>).  Next, <code class="highlighter-rouge">Δ</code> also evaluates to <code class="highlighter-rouge">⊥ ↦ ⊥</code> by use of
-<code class="highlighter-rouge">↦-intro</code> and <code class="highlighter-rouge">⊥-intro</code> and to <code class="highlighter-rouge">⊥</code> by <code class="highlighter-rouge">⊥-intro</code>. As we saw previously,
+programs.  The <code class="language-plaintext highlighter-rouge">⊥</code> value and the <code class="language-plaintext highlighter-rouge">⊥-intro</code> rule provide a way to handle
+them. (The <code class="language-plaintext highlighter-rouge">⊥-intro</code> rule is also what enables β reduction on
+non-terminating arguments.)  The classic <code class="language-plaintext highlighter-rouge">Ω</code> program is a particularly
+simple program that diverges. It applies <code class="language-plaintext highlighter-rouge">Δ</code> to itself. The semantics
+assigns to <code class="language-plaintext highlighter-rouge">Ω</code> the meaning <code class="language-plaintext highlighter-rouge">⊥</code>. There are several ways to derive this, we
+shall start with one that makes use of the <code class="language-plaintext highlighter-rouge">⊔-intro</code> rule.  First,
+<code class="language-plaintext highlighter-rouge">denot-Δ</code> tells us that <code class="language-plaintext highlighter-rouge">Δ</code> evaluates to <code class="language-plaintext highlighter-rouge">((⊥ ↦ ⊥) ⊔ ⊥) ↦ ⊥</code>
+(choose <code class="language-plaintext highlighter-rouge">v₁ = v₂ = ⊥</code>).  Next, <code class="language-plaintext highlighter-rouge">Δ</code> also evaluates to <code class="language-plaintext highlighter-rouge">⊥ ↦ ⊥</code> by use of
+<code class="language-plaintext highlighter-rouge">↦-intro</code> and <code class="language-plaintext highlighter-rouge">⊥-intro</code> and to <code class="language-plaintext highlighter-rouge">⊥</code> by <code class="language-plaintext highlighter-rouge">⊥-intro</code>. As we saw previously,
 whenever we can show that a program evaluates to two values, we can apply
-<code class="highlighter-rouge">⊔-intro</code> to join them together, so <code class="highlighter-rouge">Δ</code> evaluates to <code class="highlighter-rouge">(⊥ ↦ ⊥) ⊔ ⊥</code>. This
-matches the input of the first occurrence of <code class="highlighter-rouge">Δ</code>, so we can conclude that
-the result of the application is <code class="highlighter-rouge">⊥</code>.</p>
+<code class="language-plaintext highlighter-rouge">⊔-intro</code> to join them together, so <code class="language-plaintext highlighter-rouge">Δ</code> evaluates to <code class="language-plaintext highlighter-rouge">(⊥ ↦ ⊥) ⊔ ⊥</code>. This
+matches the input of the first occurrence of <code class="language-plaintext highlighter-rouge">Δ</code>, so we can conclude that
+the result of the application is <code class="language-plaintext highlighter-rouge">⊥</code>.</p>
 
 <pre class="Agda"><a id="Ω"></a><a id="15388" href="/Denotational/#15388" class="Function">Ω</a> <a id="15390" class="Symbol">:</a> <a id="15392" href="/Untyped/#3175" class="InductiveConstructor">∅</a> <a id="15394" href="plfa.part2.Untyped.html#4294" class="Datatype Operator">⊢</a> <a id="15396" href="plfa.part2.Untyped.html#2888" class="InductiveConstructor">★</a>
 <a id="15398" href="/Denotational/#15388" class="Function">Ω</a> <a id="15400" class="Symbol">=</a> <a id="15402" href="plfa.part3.Denotational.html#14246" class="Function">Δ</a> <a id="15404" href="/Untyped/#4442" class="InductiveConstructor Operator">·</a> <a id="15406" href="plfa.part3.Denotational.html#14246" class="Function">Δ</a>
@@ -500,23 +500,23 @@ the result of the application is <code class="highlighter-rouge">⊥</code>.</p>
 <a id="15430" href="/Denotational/#15409" class="Function">denot-Ω</a> <a id="15438" class="Symbol">=</a> <a id="15440" href="plfa.part3.Denotational.html#9546" class="InductiveConstructor">↦-elim</a> <a id="15447" href="plfa.part3.Denotational.html#14279" class="Function">denot-Δ</a> <a id="15455" class="Symbol">(</a><a id="15456" href="plfa.part3.Denotational.html#9847" class="InductiveConstructor">⊔-intro</a> <a id="15464" class="Symbol">(</a><a id="15465" href="plfa.part3.Denotational.html#9668" class="InductiveConstructor">↦-intro</a> <a id="15473" href="plfa.part3.Denotational.html#9780" class="InductiveConstructor">⊥-intro</a><a id="15480" class="Symbol">)</a> <a id="15482" href="plfa.part3.Denotational.html#9780" class="InductiveConstructor">⊥-intro</a><a id="15489" class="Symbol">)</a>
 </pre>
 <p>A shorter derivation of the same result is by just one use of the
-<code class="highlighter-rouge">⊥-intro</code> rule.</p>
+<code class="language-plaintext highlighter-rouge">⊥-intro</code> rule.</p>
 
 <pre class="Agda"><a id="denot-Ω&#39;"></a><a id="15583" href="/Denotational/#15583" class="Function">denot-Ω&#39;</a> <a id="15592" class="Symbol">:</a> <a id="15594" href="plfa.part3.Denotational.html#7331" class="Function">`∅</a> <a id="15597" href="plfa.part3.Denotational.html#9417" class="Datatype Operator">⊢</a> <a id="15599" href="plfa.part3.Denotational.html#15388" class="Function">Ω</a> <a id="15601" href="plfa.part3.Denotational.html#9417" class="Datatype Operator">↓</a> <a id="15603" href="plfa.part3.Denotational.html#4090" class="InductiveConstructor">⊥</a>
 <a id="15605" href="/Denotational/#15583" class="Function">denot-Ω&#39;</a> <a id="15614" class="Symbol">=</a> <a id="15616" href="plfa.part3.Denotational.html#9780" class="InductiveConstructor">⊥-intro</a>
 </pre>
-<p>Just because one can derive <code class="highlighter-rouge">∅ ⊢ M ↓ ⊥</code> for some closed term <code class="highlighter-rouge">M</code> doesn’t mean
-that <code class="highlighter-rouge">M</code> necessarily diverges. There may be other derivations that
-conclude with <code class="highlighter-rouge">M</code> producing some more informative value.  However, if
-the only thing that a term evaluates to is <code class="highlighter-rouge">⊥</code>, then it indeed diverges.</p>
+<p>Just because one can derive <code class="language-plaintext highlighter-rouge">∅ ⊢ M ↓ ⊥</code> for some closed term <code class="language-plaintext highlighter-rouge">M</code> doesn’t mean
+that <code class="language-plaintext highlighter-rouge">M</code> necessarily diverges. There may be other derivations that
+conclude with <code class="language-plaintext highlighter-rouge">M</code> producing some more informative value.  However, if
+the only thing that a term evaluates to is <code class="language-plaintext highlighter-rouge">⊥</code>, then it indeed diverges.</p>
 
 <p>An attentive reader may have noticed a disconnect earlier in the way
 we planned to solve the self-application problem and the actual
-<code class="highlighter-rouge">↦-elim</code> rule for application. We said at the beginning that we would
+<code class="language-plaintext highlighter-rouge">↦-elim</code> rule for application. We said at the beginning that we would
 relax the notion of table lookup, allowing an argument to match an
 input entry if the argument is equal or greater than the input entry.
-Instead, the <code class="highlighter-rouge">↦-elim</code> rule seems to require an exact match.  However,
-because of the <code class="highlighter-rouge">sub</code> rule, application really does allow larger
+Instead, the <code class="language-plaintext highlighter-rouge">↦-elim</code> rule seems to require an exact match.  However,
+because of the <code class="language-plaintext highlighter-rouge">sub</code> rule, application really does allow larger
 arguments.</p>
 
 <pre class="Agda"><a id="↦-elim2"></a><a id="16408" href="/Denotational/#16408" class="Function">↦-elim2</a> <a id="16416" class="Symbol">:</a> <a id="16418" class="Symbol">∀</a> <a id="16420" class="Symbol">{</a><a id="16421" href="plfa.part3.Denotational.html#16421" class="Bound">Γ</a><a id="16422" class="Symbol">}</a> <a id="16424" class="Symbol">{</a><a id="16425" href="plfa.part3.Denotational.html#16425" class="Bound">γ</a> <a id="16427" class="Symbol">:</a> <a id="16429" href="plfa.part3.Denotational.html#7207" class="Function">Env</a> <a id="16433" href="plfa.part3.Denotational.html#16421" class="Bound">Γ</a><a id="16434" class="Symbol">}</a> <a id="16436" class="Symbol">{</a><a id="16437" href="plfa.part3.Denotational.html#16437" class="Bound">M₁</a> <a id="16440" href="plfa.part3.Denotational.html#16440" class="Bound">M₂</a> <a id="16443" href="plfa.part3.Denotational.html#16443" class="Bound">v₁</a> <a id="16446" href="plfa.part3.Denotational.html#16446" class="Bound">v₂</a> <a id="16449" href="plfa.part3.Denotational.html#16449" class="Bound">v₃</a><a id="16451" class="Symbol">}</a>
@@ -527,11 +527,11 @@ arguments.</p>
   <a id="16529" class="Symbol">→</a> <a id="16531" href="/Denotational/#16425" class="Bound">γ</a> <a id="16533" href="plfa.part3.Denotational.html#9417" class="Datatype Operator">⊢</a> <a id="16535" class="Symbol">(</a><a id="16536" href="plfa.part3.Denotational.html#16437" class="Bound">M₁</a> <a id="16539" href="/Untyped/#4442" class="InductiveConstructor Operator">·</a> <a id="16541" href="plfa.part3.Denotational.html#16440" class="Bound">M₂</a><a id="16543" class="Symbol">)</a> <a id="16545" href="plfa.part3.Denotational.html#9417" class="Datatype Operator">↓</a> <a id="16547" href="plfa.part3.Denotational.html#16449" class="Bound">v₃</a>
 <a id="16550" href="/Denotational/#16408" class="Function">↦-elim2</a> <a id="16558" href="plfa.part3.Denotational.html#16558" class="Bound">d₁</a> <a id="16561" href="plfa.part3.Denotational.html#16561" class="Bound">d₂</a> <a id="16564" href="plfa.part3.Denotational.html#16564" class="Bound">lt</a> <a id="16567" class="Symbol">=</a> <a id="16569" href="plfa.part3.Denotational.html#9546" class="InductiveConstructor">↦-elim</a> <a id="16576" href="plfa.part3.Denotational.html#16558" class="Bound">d₁</a> <a id="16579" class="Symbol">(</a><a id="16580" href="plfa.part3.Denotational.html#9962" class="InductiveConstructor">sub</a> <a id="16584" href="plfa.part3.Denotational.html#16561" class="Bound">d₂</a> <a id="16587" href="plfa.part3.Denotational.html#16564" class="Bound">lt</a><a id="16589" class="Symbol">)</a>
 </pre>
-<h4 id="exercise-denot-plusᶜ-practice">Exercise <code class="highlighter-rouge">denot-plusᶜ</code> (practice)</h4>
+<h4 id="exercise-denot-plusᶜ-practice">Exercise <code class="language-plaintext highlighter-rouge">denot-plusᶜ</code> (practice)</h4>
 
-<p>What is a denotation for <code class="highlighter-rouge">plusᶜ</code>? That is, find a value <code class="highlighter-rouge">v</code> (other than <code class="highlighter-rouge">⊥</code>)
-such that <code class="highlighter-rouge">∅ ⊢ plusᶜ ↓ v</code>. Also, give the proof of <code class="highlighter-rouge">∅ ⊢ plusᶜ ↓ v</code>
-for your choice of <code class="highlighter-rouge">v</code>.</p>
+<p>What is a denotation for <code class="language-plaintext highlighter-rouge">plusᶜ</code>? That is, find a value <code class="language-plaintext highlighter-rouge">v</code> (other than <code class="language-plaintext highlighter-rouge">⊥</code>)
+such that <code class="language-plaintext highlighter-rouge">∅ ⊢ plusᶜ ↓ v</code>. Also, give the proof of <code class="language-plaintext highlighter-rouge">∅ ⊢ plusᶜ ↓ v</code>
+for your choice of <code class="language-plaintext highlighter-rouge">v</code>.</p>
 
 <pre class="Agda"><a id="16809" class="Comment">-- Your code goes here</a>
 </pre>
@@ -585,10 +585,10 @@ values in the same environment.</p>
 <a id="18205" href="/Denotational/#18103" class="Function">≃-trans</a> <a id="18213" href="plfa.part3.Denotational.html#18213" class="Bound">eq1</a> <a id="18217" href="plfa.part3.Denotational.html#18217" class="Bound">eq2</a> <a id="18221" href="plfa.part3.Denotational.html#18221" class="Bound">γ</a> <a id="18223" href="plfa.part3.Denotational.html#18223" class="Bound">v</a> <a id="18225" class="Symbol">=</a> <a id="18227" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">⟨</a> <a id="18229" class="Symbol">(λ</a> <a id="18232" href="plfa.part3.Denotational.html#18232" class="Bound">z</a> <a id="18234" class="Symbol">→</a> <a id="18236" href="Agda.Builtin.Sigma.html#225" class="Field">proj₁</a> <a id="18242" class="Symbol">(</a><a id="18243" href="plfa.part3.Denotational.html#18217" class="Bound">eq2</a> <a id="18247" href="plfa.part3.Denotational.html#18221" class="Bound">γ</a> <a id="18249" href="plfa.part3.Denotational.html#18223" class="Bound">v</a><a id="18250" class="Symbol">)</a> <a id="18252" class="Symbol">(</a><a id="18253" href="Agda.Builtin.Sigma.html#225" class="Field">proj₁</a> <a id="18259" class="Symbol">(</a><a id="18260" href="plfa.part3.Denotational.html#18213" class="Bound">eq1</a> <a id="18264" href="plfa.part3.Denotational.html#18221" class="Bound">γ</a> <a id="18266" href="plfa.part3.Denotational.html#18223" class="Bound">v</a><a id="18267" class="Symbol">)</a> <a id="18269" href="plfa.part3.Denotational.html#18232" class="Bound">z</a><a id="18270" class="Symbol">))</a> <a id="18273" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">,</a>
                         <a id="18299" class="Symbol">(λ</a> <a id="18302" href="/Denotational/#18302" class="Bound">z</a> <a id="18304" class="Symbol">→</a> <a id="18306" href="Agda.Builtin.Sigma.html#237" class="Field">proj₂</a> <a id="18312" class="Symbol">(</a><a id="18313" href="plfa.part3.Denotational.html#18213" class="Bound">eq1</a> <a id="18317" href="plfa.part3.Denotational.html#18221" class="Bound">γ</a> <a id="18319" href="plfa.part3.Denotational.html#18223" class="Bound">v</a><a id="18320" class="Symbol">)</a> <a id="18322" class="Symbol">(</a><a id="18323" href="Agda.Builtin.Sigma.html#237" class="Field">proj₂</a> <a id="18329" class="Symbol">(</a><a id="18330" href="plfa.part3.Denotational.html#18217" class="Bound">eq2</a> <a id="18334" href="plfa.part3.Denotational.html#18221" class="Bound">γ</a> <a id="18336" href="plfa.part3.Denotational.html#18223" class="Bound">v</a><a id="18337" class="Symbol">)</a> <a id="18339" href="plfa.part3.Denotational.html#18302" class="Bound">z</a><a id="18340" class="Symbol">))</a> <a id="18343" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">⟩</a>
 </pre>
-<p>Two terms <code class="highlighter-rouge">M</code> and <code class="highlighter-rouge">N</code> are denotational equal when their denotations are
-equal, that is, <code class="highlighter-rouge">ℰ M ≃ ℰ N</code>.</p>
+<p>Two terms <code class="language-plaintext highlighter-rouge">M</code> and <code class="language-plaintext highlighter-rouge">N</code> are denotational equal when their denotations are
+equal, that is, <code class="language-plaintext highlighter-rouge">ℰ M ≃ ℰ N</code>.</p>
 
-<p>The following submodule introduces equational reasoning for the <code class="highlighter-rouge">≃</code>
+<p>The following submodule introduces equational reasoning for the <code class="language-plaintext highlighter-rouge">≃</code>
 relation.</p>
 
 <!--
@@ -647,14 +647,14 @@ compositional, i.e., that the denotation of a term is a function of
 the denotations of its subterms. To do this we shall prove equations
 of the following shape.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ℰ (` x) ≃ ...
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ℰ (` x) ≃ ...
 ℰ (ƛ M) ≃ ... ℰ M ...
 ℰ (M · N) ≃ ... ℰ M ... ℰ N ...
 </code></pre></div></div>
 
 <p>The compositionality property is not trivial because the semantics we
 have defined includes three rules that are not syntax directed:
-<code class="highlighter-rouge">⊥-intro</code>, <code class="highlighter-rouge">⊔-intro</code>, and <code class="highlighter-rouge">sub</code>. The above equations suggest that the
+<code class="language-plaintext highlighter-rouge">⊥-intro</code>, <code class="language-plaintext highlighter-rouge">⊔-intro</code>, and <code class="language-plaintext highlighter-rouge">sub</code>. The above equations suggest that the
 dentoational semantics can be defined as a recursive function, and
 indeed, we give such a definition and prove that it is equivalent to
 ℰ.</p>
@@ -662,39 +662,39 @@ indeed, we give such a definition and prove that it is equivalent to
 <p>Next we investigate whether the denotational semantics and the
 reduction semantics are equivalent. Recall that the job of a language
 semantics is to describe the observable behavior of a given program
-<code class="highlighter-rouge">M</code>. For the lambda calculus there are several choices that one can
+<code class="language-plaintext highlighter-rouge">M</code>. For the lambda calculus there are several choices that one can
 make, but they usually boil down to a single bit of information:</p>
 
 <ul>
-  <li>divergence: the program <code class="highlighter-rouge">M</code> executes forever.</li>
-  <li>termination: the program <code class="highlighter-rouge">M</code> halts.</li>
+  <li>divergence: the program <code class="language-plaintext highlighter-rouge">M</code> executes forever.</li>
+  <li>termination: the program <code class="language-plaintext highlighter-rouge">M</code> halts.</li>
 </ul>
 
 <p>We can characterize divergence and termination in terms of reduction.</p>
 
 <ul>
-  <li>divergence: <code class="highlighter-rouge">¬ (M —↠ ƛ N)</code> for any term <code class="highlighter-rouge">N</code>.</li>
-  <li>termination: <code class="highlighter-rouge">M —↠ ƛ N</code> for some term <code class="highlighter-rouge">N</code>.</li>
+  <li>divergence: <code class="language-plaintext highlighter-rouge">¬ (M —↠ ƛ N)</code> for any term <code class="language-plaintext highlighter-rouge">N</code>.</li>
+  <li>termination: <code class="language-plaintext highlighter-rouge">M —↠ ƛ N</code> for some term <code class="language-plaintext highlighter-rouge">N</code>.</li>
 </ul>
 
 <p>We can also characterize divergence and termination using denotations.</p>
 
 <ul>
-  <li>divergence: <code class="highlighter-rouge">¬ (∅ ⊢ M ↓ v ↦ w)</code> for any <code class="highlighter-rouge">v</code> and <code class="highlighter-rouge">w</code>.</li>
-  <li>termination: <code class="highlighter-rouge">∅ ⊢ M ↓ v ↦ w</code> for some <code class="highlighter-rouge">v</code> and <code class="highlighter-rouge">w</code>.</li>
+  <li>divergence: <code class="language-plaintext highlighter-rouge">¬ (∅ ⊢ M ↓ v ↦ w)</code> for any <code class="language-plaintext highlighter-rouge">v</code> and <code class="language-plaintext highlighter-rouge">w</code>.</li>
+  <li>termination: <code class="language-plaintext highlighter-rouge">∅ ⊢ M ↓ v ↦ w</code> for some <code class="language-plaintext highlighter-rouge">v</code> and <code class="language-plaintext highlighter-rouge">w</code>.</li>
 </ul>
 
-<p>Alternatively, we can use the denotation function <code class="highlighter-rouge">ℰ</code>.</p>
+<p>Alternatively, we can use the denotation function <code class="language-plaintext highlighter-rouge">ℰ</code>.</p>
 
 <ul>
-  <li>divergence: <code class="highlighter-rouge">¬ (ℰ M ≃ ℰ (ƛ N))</code> for any term <code class="highlighter-rouge">N</code>.</li>
-  <li>termination: <code class="highlighter-rouge">ℰ M ≃ ℰ (ƛ N)</code> for some term <code class="highlighter-rouge">N</code>.</li>
+  <li>divergence: <code class="language-plaintext highlighter-rouge">¬ (ℰ M ≃ ℰ (ƛ N))</code> for any term <code class="language-plaintext highlighter-rouge">N</code>.</li>
+  <li>termination: <code class="language-plaintext highlighter-rouge">ℰ M ≃ ℰ (ƛ N)</code> for some term <code class="language-plaintext highlighter-rouge">N</code>.</li>
 </ul>
 
 <p>So the question is whether the reduction semantics and denotational
 semantics are equivalent.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(∃ N. M —↠ ƛ N)  iff  (∃ N. ℰ M ≃ ℰ (ƛ N))
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(∃ N. M —↠ ƛ N)  iff  (∃ N. ℰ M ≃ ℰ (ƛ N))
 </code></pre></div></div>
 
 <p>We address each direction of the equivalence in the second and third
@@ -703,14 +703,14 @@ abstraction implies denotational equality to a lambda
 abstraction. This property is called the <em>soundness</em> in the
 literature.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M —↠ ƛ N  implies  ℰ M ≃ ℰ (ƛ N)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M —↠ ƛ N  implies  ℰ M ≃ ℰ (ƛ N)
 </code></pre></div></div>
 
 <p>In the third chapter we prove that denotational equality to a lambda
 abstraction implies reduction to a lambda abstraction. This property
 is called <em>adequacy</em> in the literature.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ℰ M ≃ ℰ (ƛ N)  implies M —↠ ƛ N′ for some N′
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ℰ M ≃ ℰ (ƛ N)  implies M —↠ ƛ N′ for some N′
 </code></pre></div></div>
 
 <p>The fourth chapter applies the results of the three preceeding
@@ -737,10 +737,10 @@ in proving that reduction implies denotational equality.</p>
 
 <p>As before, we need an extension lemma to handle the case where we
 proceed underneath a lambda abstraction. Here, the nth function
-performs lookup in the environment, analogous to <code class="highlighter-rouge">Γ ∋ A</code>.  Now suppose
-that <code class="highlighter-rouge">ρ</code> is a renaming that maps variables in <code class="highlighter-rouge">γ</code> into variables with
-equal or larger values in <code class="highlighter-rouge">δ</code>. This lemmas says that extending the
-renaming producing a renaming <code class="highlighter-rouge">ext r</code> that maps <code class="highlighter-rouge">γ , v</code> to <code class="highlighter-rouge">δ , v</code>.</p>
+performs lookup in the environment, analogous to <code class="language-plaintext highlighter-rouge">Γ ∋ A</code>.  Now suppose
+that <code class="language-plaintext highlighter-rouge">ρ</code> is a renaming that maps variables in <code class="language-plaintext highlighter-rouge">γ</code> into variables with
+equal or larger values in <code class="language-plaintext highlighter-rouge">δ</code>. This lemmas says that extending the
+renaming producing a renaming <code class="language-plaintext highlighter-rouge">ext r</code> that maps <code class="language-plaintext highlighter-rouge">γ , v</code> to <code class="language-plaintext highlighter-rouge">δ , v</code>.</p>
 
 <pre class="Agda"><a id="ext-nth"></a><a id="23520" href="/Denotational/#23520" class="Function">ext-nth</a> <a id="23528" class="Symbol">:</a> <a id="23530" class="Symbol">∀</a> <a id="23532" class="Symbol">{</a><a id="23533" href="plfa.part3.Denotational.html#23533" class="Bound">Γ</a> <a id="23535" href="plfa.part3.Denotational.html#23535" class="Bound">Δ</a> <a id="23537" href="plfa.part3.Denotational.html#23537" class="Bound">v</a><a id="23538" class="Symbol">}</a> <a id="23540" class="Symbol">{</a><a id="23541" href="plfa.part3.Denotational.html#23541" class="Bound">γ</a> <a id="23543" class="Symbol">:</a> <a id="23545" href="plfa.part3.Denotational.html#7207" class="Function">Env</a> <a id="23549" href="plfa.part3.Denotational.html#23533" class="Bound">Γ</a><a id="23550" class="Symbol">}</a> <a id="23552" class="Symbol">{</a><a id="23553" href="plfa.part3.Denotational.html#23553" class="Bound">δ</a> <a id="23555" class="Symbol">:</a> <a id="23557" href="plfa.part3.Denotational.html#7207" class="Function">Env</a> <a id="23561" href="plfa.part3.Denotational.html#23535" class="Bound">Δ</a><a id="23562" class="Symbol">}</a>
   <a id="23566" class="Symbol">→</a> <a id="23568" class="Symbol">(</a><a id="23569" href="/Denotational/#23569" class="Bound">ρ</a> <a id="23571" class="Symbol">:</a> <a id="23573" href="/Substitution/#2192" class="Function">Rename</a> <a id="23580" href="plfa.part3.Denotational.html#23533" class="Bound">Γ</a> <a id="23582" href="plfa.part3.Denotational.html#23535" class="Bound">Δ</a><a id="23583" class="Symbol">)</a>
@@ -750,23 +750,23 @@ renaming producing a renaming <code class="highlighter-rouge">ext r</code> that 
 <a id="23672" href="/Denotational/#23520" class="Function">ext-nth</a> <a id="23680" href="plfa.part3.Denotational.html#23680" class="Bound">ρ</a> <a id="23682" href="plfa.part3.Denotational.html#23682" class="Bound">lt</a> <a id="23685" href="/Untyped/#3557" class="InductiveConstructor">Z</a> <a id="23687" class="Symbol">=</a> <a id="23689" href="plfa.part3.Denotational.html#5557" class="Function">⊑-refl</a>
 <a id="23696" href="/Denotational/#23520" class="Function">ext-nth</a> <a id="23704" href="plfa.part3.Denotational.html#23704" class="Bound">ρ</a> <a id="23706" href="plfa.part3.Denotational.html#23706" class="Bound">lt</a> <a id="23709" class="Symbol">(</a><a id="23710" href="/Untyped/#3602" class="InductiveConstructor Operator">S</a> <a id="23712" href="plfa.part3.Denotational.html#23712" class="Bound">n′</a><a id="23714" class="Symbol">)</a> <a id="23716" class="Symbol">=</a> <a id="23718" href="plfa.part3.Denotational.html#23706" class="Bound">lt</a> <a id="23721" href="plfa.part3.Denotational.html#23712" class="Bound">n′</a>
 </pre>
-<p>We proceed by cases on the de Bruijn index <code class="highlighter-rouge">n</code>.</p>
+<p>We proceed by cases on the de Bruijn index <code class="language-plaintext highlighter-rouge">n</code>.</p>
 
 <ul>
   <li>
-    <p>If it is <code class="highlighter-rouge">Z</code>, then we just need to show that <code class="highlighter-rouge">v ≡ v</code>, which we have by <code class="highlighter-rouge">refl</code>.</p>
+    <p>If it is <code class="language-plaintext highlighter-rouge">Z</code>, then we just need to show that <code class="language-plaintext highlighter-rouge">v ≡ v</code>, which we have by <code class="language-plaintext highlighter-rouge">refl</code>.</p>
   </li>
   <li>
-    <p>If it is <code class="highlighter-rouge">S n′</code>, then the goal simplifies to <code class="highlighter-rouge">nth n′ γ ≡ nth (ρ n′) δ</code>,
+    <p>If it is <code class="language-plaintext highlighter-rouge">S n′</code>, then the goal simplifies to <code class="language-plaintext highlighter-rouge">nth n′ γ ≡ nth (ρ n′) δ</code>,
 which is an instance of the premise.</p>
   </li>
 </ul>
 
 <p>Now for the renaming lemma. Suppose we have a renaming that maps
-variables in <code class="highlighter-rouge">γ</code> into variables with the same values in <code class="highlighter-rouge">δ</code>.  If <code class="highlighter-rouge">M</code>
-results in <code class="highlighter-rouge">v</code> when evaluated in environment <code class="highlighter-rouge">γ</code>, then applying the
-renaming to <code class="highlighter-rouge">M</code> produces a program that results in the same value <code class="highlighter-rouge">v</code> when
-evaluated in <code class="highlighter-rouge">δ</code>.</p>
+variables in <code class="language-plaintext highlighter-rouge">γ</code> into variables with the same values in <code class="language-plaintext highlighter-rouge">δ</code>.  If <code class="language-plaintext highlighter-rouge">M</code>
+results in <code class="language-plaintext highlighter-rouge">v</code> when evaluated in environment <code class="language-plaintext highlighter-rouge">γ</code>, then applying the
+renaming to <code class="language-plaintext highlighter-rouge">M</code> produces a program that results in the same value <code class="language-plaintext highlighter-rouge">v</code> when
+evaluated in <code class="language-plaintext highlighter-rouge">δ</code>.</p>
 
 <pre class="Agda"><a id="rename-pres"></a><a id="24274" href="/Denotational/#24274" class="Function">rename-pres</a> <a id="24286" class="Symbol">:</a> <a id="24288" class="Symbol">∀</a> <a id="24290" class="Symbol">{</a><a id="24291" href="plfa.part3.Denotational.html#24291" class="Bound">Γ</a> <a id="24293" href="plfa.part3.Denotational.html#24293" class="Bound">Δ</a> <a id="24295" href="plfa.part3.Denotational.html#24295" class="Bound">v</a><a id="24296" class="Symbol">}</a> <a id="24298" class="Symbol">{</a><a id="24299" href="plfa.part3.Denotational.html#24299" class="Bound">γ</a> <a id="24301" class="Symbol">:</a> <a id="24303" href="plfa.part3.Denotational.html#7207" class="Function">Env</a> <a id="24307" href="plfa.part3.Denotational.html#24291" class="Bound">Γ</a><a id="24308" class="Symbol">}</a> <a id="24310" class="Symbol">{</a><a id="24311" href="plfa.part3.Denotational.html#24311" class="Bound">δ</a> <a id="24313" class="Symbol">:</a> <a id="24315" href="plfa.part3.Denotational.html#7207" class="Function">Env</a> <a id="24319" href="plfa.part3.Denotational.html#24293" class="Bound">Δ</a><a id="24320" class="Symbol">}</a> <a id="24322" class="Symbol">{</a><a id="24323" href="plfa.part3.Denotational.html#24323" class="Bound">M</a> <a id="24325" class="Symbol">:</a> <a id="24327" href="plfa.part3.Denotational.html#24291" class="Bound">Γ</a> <a id="24329" href="/Untyped/#4294" class="Datatype Operator">⊢</a> <a id="24331" href="plfa.part2.Untyped.html#2888" class="InductiveConstructor">★</a><a id="24332" class="Symbol">}</a>
   <a id="24336" class="Symbol">→</a> <a id="24338" class="Symbol">(</a><a id="24339" href="/Denotational/#24339" class="Bound">ρ</a> <a id="24341" class="Symbol">:</a> <a id="24343" href="/Substitution/#2192" class="Function">Rename</a> <a id="24350" href="plfa.part3.Denotational.html#24291" class="Bound">Γ</a> <a id="24352" href="plfa.part3.Denotational.html#24293" class="Bound">Δ</a><a id="24353" class="Symbol">)</a>
@@ -785,17 +785,17 @@ evaluated in <code class="highlighter-rouge">δ</code>.</p>
 <a id="24775" href="/Denotational/#24274" class="Function">rename-pres</a> <a id="24787" href="plfa.part3.Denotational.html#24787" class="Bound">ρ</a> <a id="24789" href="plfa.part3.Denotational.html#24789" class="Bound">lt</a> <a id="24792" class="Symbol">(</a><a id="24793" href="plfa.part3.Denotational.html#9962" class="InductiveConstructor">sub</a> <a id="24797" href="plfa.part3.Denotational.html#24797" class="Bound">d</a> <a id="24799" href="plfa.part3.Denotational.html#24799" class="Bound">lt′</a><a id="24802" class="Symbol">)</a> <a id="24804" class="Symbol">=</a>
    <a id="24809" href="/Denotational/#9962" class="InductiveConstructor">sub</a> <a id="24813" class="Symbol">(</a><a id="24814" href="plfa.part3.Denotational.html#24274" class="Function">rename-pres</a> <a id="24826" href="plfa.part3.Denotational.html#24787" class="Bound">ρ</a> <a id="24828" href="plfa.part3.Denotational.html#24789" class="Bound">lt</a> <a id="24831" href="plfa.part3.Denotational.html#24797" class="Bound">d</a><a id="24832" class="Symbol">)</a> <a id="24834" href="plfa.part3.Denotational.html#24799" class="Bound">lt′</a>
 </pre>
-<p>The proof is by induction on the semantics of <code class="highlighter-rouge">M</code>.  As you can see, all
+<p>The proof is by induction on the semantics of <code class="language-plaintext highlighter-rouge">M</code>.  As you can see, all
 of the cases are trivial except the cases for variables and lambda.</p>
 
 <ul>
   <li>
-    <p>For a variable <code class="highlighter-rouge">x</code>, we make use of the premise to
-show that <code class="highlighter-rouge">nth x γ ≡ nth (ρ x) δ</code>.</p>
+    <p>For a variable <code class="language-plaintext highlighter-rouge">x</code>, we make use of the premise to
+show that <code class="language-plaintext highlighter-rouge">nth x γ ≡ nth (ρ x) δ</code>.</p>
   </li>
   <li>
     <p>For a lambda abstraction, the induction hypothesis requires us to
-extend the renaming. We do so, and use the <code class="highlighter-rouge">ext-nth</code> lemma to show
+extend the renaming. We do so, and use the <code class="language-plaintext highlighter-rouge">ext-nth</code> lemma to show
 that the extended renaming maps variables to ones with equivalent
 values.</p>
   </li>
@@ -803,14 +803,14 @@ values.</p>
 
 <h2 id="identity-renamings-and-environment-strengthening">Identity renamings and environment strengthening</h2>
 
-<p>We shall need a corollary of the renaming lemma that says that if <code class="highlighter-rouge">M</code>
-results in <code class="highlighter-rouge">v</code>, then we can replace a value in the environment with a
-larger one (a stronger one), and <code class="highlighter-rouge">M</code> still results in <code class="highlighter-rouge">v</code>. In
-particular, if <code class="highlighter-rouge">γ ⊢ M ↓ v</code> and <code class="highlighter-rouge">γ ⊑ δ</code>, then <code class="highlighter-rouge">δ ⊢ M ↓ v</code>.  What does
+<p>We shall need a corollary of the renaming lemma that says that if <code class="language-plaintext highlighter-rouge">M</code>
+results in <code class="language-plaintext highlighter-rouge">v</code>, then we can replace a value in the environment with a
+larger one (a stronger one), and <code class="language-plaintext highlighter-rouge">M</code> still results in <code class="language-plaintext highlighter-rouge">v</code>. In
+particular, if <code class="language-plaintext highlighter-rouge">γ ⊢ M ↓ v</code> and <code class="language-plaintext highlighter-rouge">γ ⊑ δ</code>, then <code class="language-plaintext highlighter-rouge">δ ⊢ M ↓ v</code>.  What does
 this have to do with renaming?  It’s renaming with the identity
 function.  So we apply the renaming lemma with the identity renaming,
-which gives us <code class="highlighter-rouge">δ ⊢ rename (λ {A} x → x) M ↓ v</code>, and then we apply the
-<code class="highlighter-rouge">rename-id</code> lemma to obtain <code class="highlighter-rouge">δ ⊢ M ↓ v</code>.</p>
+which gives us <code class="language-plaintext highlighter-rouge">δ ⊢ rename (λ {A} x → x) M ↓ v</code>, and then we apply the
+<code class="language-plaintext highlighter-rouge">rename-id</code> lemma to obtain <code class="language-plaintext highlighter-rouge">δ ⊢ M ↓ v</code>.</p>
 
 <pre class="Agda"><a id="⊑-env"></a><a id="25866" href="/Denotational/#25866" class="Function">⊑-env</a> <a id="25872" class="Symbol">:</a> <a id="25874" class="Symbol">∀</a> <a id="25876" class="Symbol">{</a><a id="25877" href="plfa.part3.Denotational.html#25877" class="Bound">Γ</a><a id="25878" class="Symbol">}</a> <a id="25880" class="Symbol">{</a><a id="25881" href="plfa.part3.Denotational.html#25881" class="Bound">γ</a> <a id="25883" class="Symbol">:</a> <a id="25885" href="plfa.part3.Denotational.html#7207" class="Function">Env</a> <a id="25889" href="plfa.part3.Denotational.html#25877" class="Bound">Γ</a><a id="25890" class="Symbol">}</a> <a id="25892" class="Symbol">{</a><a id="25893" href="plfa.part3.Denotational.html#25893" class="Bound">δ</a> <a id="25895" class="Symbol">:</a> <a id="25897" href="plfa.part3.Denotational.html#7207" class="Function">Env</a> <a id="25901" href="plfa.part3.Denotational.html#25877" class="Bound">Γ</a><a id="25902" class="Symbol">}</a> <a id="25904" class="Symbol">{</a><a id="25905" href="plfa.part3.Denotational.html#25905" class="Bound">M</a> <a id="25907" href="plfa.part3.Denotational.html#25907" class="Bound">v</a><a id="25908" class="Symbol">}</a>
   <a id="25912" class="Symbol">→</a> <a id="25914" href="/Denotational/#25881" class="Bound">γ</a> <a id="25916" href="plfa.part3.Denotational.html#9417" class="Datatype Operator">⊢</a> <a id="25918" href="plfa.part3.Denotational.html#25905" class="Bound">M</a> <a id="25920" href="plfa.part3.Denotational.html#9417" class="Datatype Operator">↓</a> <a id="25922" href="plfa.part3.Denotational.html#25907" class="Bound">v</a>
@@ -823,7 +823,7 @@ which gives us <code class="highlighter-rouge">δ ⊢ rename (λ {A} x → x) M 
       <a id="26095" href="/Denotational/#26056" class="Bound">d′</a>
 </pre>
 <p>In the proof that substitution reflects denotations, in the case for
-lambda abstraction, we use a minor variation of <code class="highlighter-rouge">⊑-env</code>, in which just
+lambda abstraction, we use a minor variation of <code class="language-plaintext highlighter-rouge">⊑-env</code>, in which just
 the last element of the environment gets larger.</p>
 
 <pre class="Agda"><a id="up-env"></a><a id="26297" href="/Denotational/#26297" class="Function">up-env</a> <a id="26304" class="Symbol">:</a> <a id="26306" class="Symbol">∀</a> <a id="26308" class="Symbol">{</a><a id="26309" href="plfa.part3.Denotational.html#26309" class="Bound">Γ</a><a id="26310" class="Symbol">}</a> <a id="26312" class="Symbol">{</a><a id="26313" href="plfa.part3.Denotational.html#26313" class="Bound">γ</a> <a id="26315" class="Symbol">:</a> <a id="26317" href="plfa.part3.Denotational.html#7207" class="Function">Env</a> <a id="26321" href="plfa.part3.Denotational.html#26309" class="Bound">Γ</a><a id="26322" class="Symbol">}</a> <a id="26324" class="Symbol">{</a><a id="26325" href="plfa.part3.Denotational.html#26325" class="Bound">M</a> <a id="26327" href="plfa.part3.Denotational.html#26327" class="Bound">v</a> <a id="26329" href="plfa.part3.Denotational.html#26329" class="Bound">u₁</a> <a id="26332" href="plfa.part3.Denotational.html#26332" class="Bound">u₂</a><a id="26334" class="Symbol">}</a>
@@ -840,17 +840,17 @@ the last element of the environment gets larger.</p>
 
 <h2 id="inversion-of-the-less-than-relation-for-functions">Inversion of the less-than relation for functions</h2>
 
-<p>What can we deduce from knowing that a function <code class="highlighter-rouge">v ↦ w</code> is less than
-some value <code class="highlighter-rouge">u</code>?  What can we deduce about <code class="highlighter-rouge">u</code>? The answer to this
+<p>What can we deduce from knowing that a function <code class="language-plaintext highlighter-rouge">v ↦ w</code> is less than
+some value <code class="language-plaintext highlighter-rouge">u</code>?  What can we deduce about <code class="language-plaintext highlighter-rouge">u</code>? The answer to this
 question is called the inversion property of less-than for functions.
-This question is not easy to answer because of the <code class="highlighter-rouge">⊑-dist</code> rule, which
+This question is not easy to answer because of the <code class="language-plaintext highlighter-rouge">⊑-dist</code> rule, which
 relates a function on the left to a pair of functions on the right.
-So <code class="highlighter-rouge">u</code> may include several functions that, as a group, relate to
-<code class="highlighter-rouge">v ↦ w</code>. Furthermore, because of the rules <code class="highlighter-rouge">⊑-conj-R1</code> and <code class="highlighter-rouge">⊑-conj-R2</code>,
-there may be other values inside <code class="highlighter-rouge">u</code>, such as <code class="highlighter-rouge">⊥</code>, that have nothing
-to do with <code class="highlighter-rouge">v ↦ w</code>. But in general, we can deduce that <code class="highlighter-rouge">u</code> includes
+So <code class="language-plaintext highlighter-rouge">u</code> may include several functions that, as a group, relate to
+<code class="language-plaintext highlighter-rouge">v ↦ w</code>. Furthermore, because of the rules <code class="language-plaintext highlighter-rouge">⊑-conj-R1</code> and <code class="language-plaintext highlighter-rouge">⊑-conj-R2</code>,
+there may be other values inside <code class="language-plaintext highlighter-rouge">u</code>, such as <code class="language-plaintext highlighter-rouge">⊥</code>, that have nothing
+to do with <code class="language-plaintext highlighter-rouge">v ↦ w</code>. But in general, we can deduce that <code class="language-plaintext highlighter-rouge">u</code> includes
 a collection of functions where the join of their domains is less
-than <code class="highlighter-rouge">v</code> and the join of their codomains is greater than <code class="highlighter-rouge">w</code>.</p>
+than <code class="language-plaintext highlighter-rouge">v</code> and the join of their codomains is greater than <code class="language-plaintext highlighter-rouge">w</code>.</p>
 
 <p>To precisely state and prove this inversion property, we need to
 define what it means for a value to <em>include</em> a collection of values.
@@ -860,11 +860,11 @@ codomains.</p>
 <h3 id="value-membership-and-inclusion">Value membership and inclusion</h3>
 
 <p>Recall that we think of a value as a set of entries with the join
-operator <code class="highlighter-rouge">v ⊔ w</code> acting like set union. The function value <code class="highlighter-rouge">v ↦ w</code> and
-bottom value <code class="highlighter-rouge">⊥</code> constitute the two kinds of elements of the set.  (In
-other contexts one can instead think of <code class="highlighter-rouge">⊥</code> as the empty set, but here
-we must think of it as an element.)  We write <code class="highlighter-rouge">u ∈ v</code> to say that <code class="highlighter-rouge">u</code> is
-an element of <code class="highlighter-rouge">v</code>, as defined below.</p>
+operator <code class="language-plaintext highlighter-rouge">v ⊔ w</code> acting like set union. The function value <code class="language-plaintext highlighter-rouge">v ↦ w</code> and
+bottom value <code class="language-plaintext highlighter-rouge">⊥</code> constitute the two kinds of elements of the set.  (In
+other contexts one can instead think of <code class="language-plaintext highlighter-rouge">⊥</code> as the empty set, but here
+we must think of it as an element.)  We write <code class="language-plaintext highlighter-rouge">u ∈ v</code> to say that <code class="language-plaintext highlighter-rouge">u</code> is
+an element of <code class="language-plaintext highlighter-rouge">v</code>, as defined below.</p>
 
 <pre class="Agda"><a id="28014" class="Keyword">infix</a> <a id="28020" class="Number">5</a> <a id="28022" href="/Denotational/#28027" class="Function Operator">_∈_</a>
 
@@ -874,7 +874,7 @@ an element of <code class="highlighter-rouge">v</code>, as defined below.</p>
 <a id="28089" href="/Denotational/#28089" class="Bound">u</a> <a id="28091" href="plfa.part3.Denotational.html#28027" class="Function Operator">∈</a> <a id="28093" class="Symbol">(</a><a id="28094" href="plfa.part3.Denotational.html#28094" class="Bound">v</a> <a id="28096" href="plfa.part3.Denotational.html#4132" class="InductiveConstructor Operator">⊔</a> <a id="28098" href="plfa.part3.Denotational.html#28098" class="Bound">w</a><a id="28099" class="Symbol">)</a> <a id="28101" class="Symbol">=</a> <a id="28103" href="plfa.part3.Denotational.html#28089" class="Bound">u</a> <a id="28105" href="plfa.part3.Denotational.html#28027" class="Function Operator">∈</a> <a id="28107" href="plfa.part3.Denotational.html#28094" class="Bound">v</a> <a id="28109" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#612" class="Datatype Operator">⊎</a> <a id="28111" href="plfa.part3.Denotational.html#28089" class="Bound">u</a> <a id="28113" href="plfa.part3.Denotational.html#28027" class="Function Operator">∈</a> <a id="28115" href="plfa.part3.Denotational.html#28098" class="Bound">w</a>
 </pre>
 <p>So we can represent a collection of values simply as a value.  We
-write <code class="highlighter-rouge">v ⊆ w</code> to say that all the elements of <code class="highlighter-rouge">v</code> are also in <code class="highlighter-rouge">w</code>.</p>
+write <code class="language-plaintext highlighter-rouge">v ⊆ w</code> to say that all the elements of <code class="language-plaintext highlighter-rouge">v</code> are also in <code class="language-plaintext highlighter-rouge">w</code>.</p>
 
 <pre class="Agda"><a id="28260" class="Keyword">infix</a> <a id="28266" class="Number">5</a> <a id="28268" href="/Denotational/#28273" class="Function Operator">_⊆_</a>
 
@@ -905,8 +905,8 @@ imply the less-than relation but not the other way around.</p>
 <a id="28895" href="/Denotational/#28744" class="Function">⊆→⊑</a> <a id="28899" class="Symbol">{</a><a id="28900" href="plfa.part3.Denotational.html#28900" class="Bound">u</a> <a id="28902" href="plfa.part3.Denotational.html#4132" class="InductiveConstructor Operator">⊔</a> <a id="28904" href="plfa.part3.Denotational.html#28904" class="Bound">u′</a><a id="28906" class="Symbol">}</a> <a id="28908" href="plfa.part3.Denotational.html#28908" class="Bound">s</a> <a id="28910" class="Symbol">=</a> <a id="28912" href="plfa.part3.Denotational.html#4487" class="InductiveConstructor">⊑-conj-L</a> <a id="28921" class="Symbol">(</a><a id="28922" href="plfa.part3.Denotational.html#28744" class="Function">⊆→⊑</a> <a id="28926" class="Symbol">(λ</a> <a id="28929" href="plfa.part3.Denotational.html#28929" class="Bound">z</a> <a id="28931" class="Symbol">→</a> <a id="28933" href="plfa.part3.Denotational.html#28908" class="Bound">s</a> <a id="28935" class="Symbol">(</a><a id="28936" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#662" class="InductiveConstructor">inj₁</a> <a id="28941" href="plfa.part3.Denotational.html#28929" class="Bound">z</a><a id="28942" class="Symbol">)))</a> <a id="28946" class="Symbol">(</a><a id="28947" href="plfa.part3.Denotational.html#28744" class="Function">⊆→⊑</a> <a id="28951" class="Symbol">(λ</a> <a id="28954" href="plfa.part3.Denotational.html#28954" class="Bound">z</a> <a id="28956" class="Symbol">→</a> <a id="28958" href="plfa.part3.Denotational.html#28908" class="Bound">s</a> <a id="28960" class="Symbol">(</a><a id="28961" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#687" class="InductiveConstructor">inj₂</a> <a id="28966" href="plfa.part3.Denotational.html#28954" class="Bound">z</a><a id="28967" class="Symbol">)))</a>
 </pre>
 <p>We shall also need some inversion principles for value inclusion.  If
-the union of <code class="highlighter-rouge">u</code> and <code class="highlighter-rouge">v</code> is included in <code class="highlighter-rouge">w</code>, then of course both <code class="highlighter-rouge">u</code> and
-<code class="highlighter-rouge">v</code> are each included in <code class="highlighter-rouge">w</code>.</p>
+the union of <code class="language-plaintext highlighter-rouge">u</code> and <code class="language-plaintext highlighter-rouge">v</code> is included in <code class="language-plaintext highlighter-rouge">w</code>, then of course both <code class="language-plaintext highlighter-rouge">u</code> and
+<code class="language-plaintext highlighter-rouge">v</code> are each included in <code class="language-plaintext highlighter-rouge">w</code>.</p>
 
 <pre class="Agda"><a id="⊔⊆-inv"></a><a id="29154" href="/Denotational/#29154" class="Function">⊔⊆-inv</a> <a id="29161" class="Symbol">:</a> <a id="29163" class="Symbol">∀{</a><a id="29165" href="plfa.part3.Denotational.html#29165" class="Bound">u</a> <a id="29167" href="plfa.part3.Denotational.html#29167" class="Bound">v</a> <a id="29169" href="plfa.part3.Denotational.html#29169" class="Bound">w</a> <a id="29171" class="Symbol">:</a> <a id="29173" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a><a id="29178" class="Symbol">}</a>
        <a id="29187" class="Symbol">→</a> <a id="29189" class="Symbol">(</a><a id="29190" href="/Denotational/#29165" class="Bound">u</a> <a id="29192" href="plfa.part3.Denotational.html#4132" class="InductiveConstructor Operator">⊔</a> <a id="29194" href="plfa.part3.Denotational.html#29167" class="Bound">v</a><a id="29195" class="Symbol">)</a> <a id="29197" href="plfa.part3.Denotational.html#28273" class="Function Operator">⊆</a> <a id="29199" href="plfa.part3.Denotational.html#29169" class="Bound">w</a>
@@ -914,9 +914,9 @@ the union of <code class="highlighter-rouge">u</code> and <code class="highlight
        <a id="29233" class="Symbol">→</a> <a id="29235" href="/Denotational/#29165" class="Bound">u</a> <a id="29237" href="plfa.part3.Denotational.html#28273" class="Function Operator">⊆</a> <a id="29239" href="plfa.part3.Denotational.html#29169" class="Bound">w</a>  <a id="29242" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1162" class="Function Operator">×</a>  <a id="29245" href="plfa.part3.Denotational.html#29167" class="Bound">v</a> <a id="29247" href="plfa.part3.Denotational.html#28273" class="Function Operator">⊆</a> <a id="29249" href="plfa.part3.Denotational.html#29169" class="Bound">w</a>
 <a id="29251" href="/Denotational/#29154" class="Function">⊔⊆-inv</a> <a id="29258" href="plfa.part3.Denotational.html#29258" class="Bound">uvw</a> <a id="29262" class="Symbol">=</a> <a id="29264" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">⟨</a> <a id="29266" class="Symbol">(λ</a> <a id="29269" href="plfa.part3.Denotational.html#29269" class="Bound">x</a> <a id="29271" class="Symbol">→</a> <a id="29273" href="plfa.part3.Denotational.html#29258" class="Bound">uvw</a> <a id="29277" class="Symbol">(</a><a id="29278" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#662" class="InductiveConstructor">inj₁</a> <a id="29283" href="plfa.part3.Denotational.html#29269" class="Bound">x</a><a id="29284" class="Symbol">))</a> <a id="29287" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">,</a> <a id="29289" class="Symbol">(λ</a> <a id="29292" href="plfa.part3.Denotational.html#29292" class="Bound">x</a> <a id="29294" class="Symbol">→</a> <a id="29296" href="plfa.part3.Denotational.html#29258" class="Bound">uvw</a> <a id="29300" class="Symbol">(</a><a id="29301" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#687" class="InductiveConstructor">inj₂</a> <a id="29306" href="plfa.part3.Denotational.html#29292" class="Bound">x</a><a id="29307" class="Symbol">))</a> <a id="29310" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">⟩</a>
 </pre>
-<p>In our value representation, the function value <code class="highlighter-rouge">v ↦ w</code> is both an
-element and also a singleton set. So if <code class="highlighter-rouge">v ↦ w</code> is a subset of <code class="highlighter-rouge">u</code>,
-then <code class="highlighter-rouge">v ↦ w</code> must be a member of <code class="highlighter-rouge">u</code>.</p>
+<p>In our value representation, the function value <code class="language-plaintext highlighter-rouge">v ↦ w</code> is both an
+element and also a singleton set. So if <code class="language-plaintext highlighter-rouge">v ↦ w</code> is a subset of <code class="language-plaintext highlighter-rouge">u</code>,
+then <code class="language-plaintext highlighter-rouge">v ↦ w</code> must be a member of <code class="language-plaintext highlighter-rouge">u</code>.</p>
 
 <pre class="Agda"><a id="↦⊆→∈"></a><a id="29495" href="/Denotational/#29495" class="Function">↦⊆→∈</a> <a id="29500" class="Symbol">:</a> <a id="29502" class="Symbol">∀{</a><a id="29504" href="plfa.part3.Denotational.html#29504" class="Bound">v</a> <a id="29506" href="plfa.part3.Denotational.html#29506" class="Bound">w</a> <a id="29508" href="plfa.part3.Denotational.html#29508" class="Bound">u</a> <a id="29510" class="Symbol">:</a> <a id="29512" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a><a id="29517" class="Symbol">}</a>
      <a id="29524" class="Symbol">→</a> <a id="29526" href="/Denotational/#29504" class="Bound">v</a> <a id="29528" href="plfa.part3.Denotational.html#4102" class="InductiveConstructor Operator">↦</a> <a id="29530" href="plfa.part3.Denotational.html#29506" class="Bound">w</a> <a id="29532" href="plfa.part3.Denotational.html#28273" class="Function Operator">⊆</a> <a id="29534" href="plfa.part3.Denotational.html#29508" class="Bound">u</a>
@@ -928,9 +928,9 @@ then <code class="highlighter-rouge">v ↦ w</code> must be a member of <code cl
 <h3 id="function-values">Function values</h3>
 
 <p>To identify collections of functions, we define the following two
-predicates. We write <code class="highlighter-rouge">Fun u</code> if <code class="highlighter-rouge">u</code> is a function value, that is, if
-<code class="highlighter-rouge">u ≡ v ↦ w</code> for some values <code class="highlighter-rouge">v</code> and <code class="highlighter-rouge">w</code>. We write <code class="highlighter-rouge">all-funs v</code> if all the elements
-of <code class="highlighter-rouge">v</code> are functions.</p>
+predicates. We write <code class="language-plaintext highlighter-rouge">Fun u</code> if <code class="language-plaintext highlighter-rouge">u</code> is a function value, that is, if
+<code class="language-plaintext highlighter-rouge">u ≡ v ↦ w</code> for some values <code class="language-plaintext highlighter-rouge">v</code> and <code class="language-plaintext highlighter-rouge">w</code>. We write <code class="language-plaintext highlighter-rouge">all-funs v</code> if all the elements
+of <code class="language-plaintext highlighter-rouge">v</code> are functions.</p>
 
 <pre class="Agda"><a id="29864" class="Keyword">data</a> <a id="Fun"></a><a id="29869" href="/Denotational/#29869" class="Datatype">Fun</a> <a id="29873" class="Symbol">:</a> <a id="29875" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a> <a id="29881" class="Symbol">→</a> <a id="29883" class="PrimitiveType">Set</a> <a id="29887" class="Keyword">where</a>
   <a id="Fun.fun"></a><a id="29895" href="/Denotational/#29895" class="InductiveConstructor">fun</a> <a id="29899" class="Symbol">:</a> <a id="29901" class="Symbol">∀{</a><a id="29903" href="plfa.part3.Denotational.html#29903" class="Bound">u</a> <a id="29905" href="plfa.part3.Denotational.html#29905" class="Bound">v</a> <a id="29907" href="plfa.part3.Denotational.html#29907" class="Bound">w</a><a id="29908" class="Symbol">}</a> <a id="29910" class="Symbol">→</a> <a id="29912" href="plfa.part3.Denotational.html#29903" class="Bound">u</a> <a id="29914" href="Agda.Builtin.Equality.html#125" class="Datatype Operator">≡</a> <a id="29916" class="Symbol">(</a><a id="29917" href="plfa.part3.Denotational.html#29905" class="Bound">v</a> <a id="29919" href="plfa.part3.Denotational.html#4102" class="InductiveConstructor Operator">↦</a> <a id="29921" href="plfa.part3.Denotational.html#29907" class="Bound">w</a><a id="29922" class="Symbol">)</a> <a id="29924" class="Symbol">→</a> <a id="29926" href="plfa.part3.Denotational.html#29869" class="Datatype">Fun</a> <a id="29930" href="plfa.part3.Denotational.html#29903" class="Bound">u</a>
@@ -938,7 +938,7 @@ of <code class="highlighter-rouge">v</code> are functions.</p>
 <a id="all-funs"></a><a id="29933" href="/Denotational/#29933" class="Function">all-funs</a> <a id="29942" class="Symbol">:</a> <a id="29944" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a> <a id="29950" class="Symbol">→</a> <a id="29952" class="PrimitiveType">Set</a>
 <a id="29956" href="/Denotational/#29933" class="Function">all-funs</a> <a id="29965" href="plfa.part3.Denotational.html#29965" class="Bound">v</a> <a id="29967" class="Symbol">=</a> <a id="29969" class="Symbol">∀{</a><a id="29971" href="plfa.part3.Denotational.html#29971" class="Bound">u</a><a id="29972" class="Symbol">}</a> <a id="29974" class="Symbol">→</a> <a id="29976" href="plfa.part3.Denotational.html#29971" class="Bound">u</a> <a id="29978" href="plfa.part3.Denotational.html#28027" class="Function Operator">∈</a> <a id="29980" href="plfa.part3.Denotational.html#29965" class="Bound">v</a> <a id="29982" class="Symbol">→</a> <a id="29984" href="plfa.part3.Denotational.html#29869" class="Datatype">Fun</a> <a id="29988" href="plfa.part3.Denotational.html#29971" class="Bound">u</a>
 </pre>
-<p>The value <code class="highlighter-rouge">⊥</code> is not a function.</p>
+<p>The value <code class="language-plaintext highlighter-rouge">⊥</code> is not a function.</p>
 
 <pre class="Agda"><a id="¬Fun⊥"></a><a id="30033" href="/Denotational/#30033" class="Function">¬Fun⊥</a> <a id="30039" class="Symbol">:</a> <a id="30041" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.html#535" class="Function Operator">¬</a> <a id="30043" class="Symbol">(</a><a id="30044" href="plfa.part3.Denotational.html#29869" class="Datatype">Fun</a> <a id="30048" href="plfa.part3.Denotational.html#4090" class="InductiveConstructor">⊥</a><a id="30049" class="Symbol">)</a>
 <a id="30051" href="/Denotational/#30033" class="Function">¬Fun⊥</a> <a id="30057" class="Symbol">(</a><a id="30058" href="plfa.part3.Denotational.html#29895" class="InductiveConstructor">fun</a> <a id="30062" class="Symbol">())</a>
@@ -961,13 +961,13 @@ least one that is a function.</p>
 <h3 id="domains-and-codomains">Domains and codomains</h3>
 
 <p>Returning to our goal, the inversion principle for less-than a
-function, we want to show that <code class="highlighter-rouge">v ↦ w ⊑ u</code> implies that <code class="highlighter-rouge">u</code> includes
+function, we want to show that <code class="language-plaintext highlighter-rouge">v ↦ w ⊑ u</code> implies that <code class="language-plaintext highlighter-rouge">u</code> includes
 a set of function values such that the join of their domains is less
-than <code class="highlighter-rouge">v</code> and the join of their codomains is greater than <code class="highlighter-rouge">w</code>.</p>
+than <code class="language-plaintext highlighter-rouge">v</code> and the join of their codomains is greater than <code class="language-plaintext highlighter-rouge">w</code>.</p>
 
 <p>To this end we define the following dom and cod functions.  Given some
-value <code class="highlighter-rouge">u</code> (that represents a set of entries), <code class="highlighter-rouge">dom u</code> returns the join of
-their domains and <code class="highlighter-rouge">cod u</code> returns the join of their codomains.</p>
+value <code class="language-plaintext highlighter-rouge">u</code> (that represents a set of entries), <code class="language-plaintext highlighter-rouge">dom u</code> returns the join of
+their domains and <code class="language-plaintext highlighter-rouge">cod u</code> returns the join of their codomains.</p>
 
 <pre class="Agda"><a id="dom"></a><a id="31033" href="/Denotational/#31033" class="Function">dom</a> <a id="31037" class="Symbol">:</a> <a id="31039" class="Symbol">(</a><a id="31040" href="plfa.part3.Denotational.html#31040" class="Bound">u</a> <a id="31042" class="Symbol">:</a> <a id="31044" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a><a id="31049" class="Symbol">)</a> <a id="31051" class="Symbol">→</a> <a id="31053" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a>
 <a id="31059" href="/Denotational/#31033" class="Function">dom</a> <a id="31063" href="plfa.part3.Denotational.html#4090" class="InductiveConstructor">⊥</a>  <a id="31066" class="Symbol">=</a> <a id="31068" href="plfa.part3.Denotational.html#4090" class="InductiveConstructor">⊥</a>
@@ -979,9 +979,9 @@ their domains and <code class="highlighter-rouge">cod u</code> returns the join 
 <a id="31154" href="/Denotational/#31117" class="Function">cod</a> <a id="31158" class="Symbol">(</a><a id="31159" href="plfa.part3.Denotational.html#31159" class="Bound">v</a> <a id="31161" href="plfa.part3.Denotational.html#4102" class="InductiveConstructor Operator">↦</a> <a id="31163" href="plfa.part3.Denotational.html#31163" class="Bound">w</a><a id="31164" class="Symbol">)</a> <a id="31166" class="Symbol">=</a> <a id="31168" href="plfa.part3.Denotational.html#31163" class="Bound">w</a>
 <a id="31170" href="/Denotational/#31117" class="Function">cod</a> <a id="31174" class="Symbol">(</a><a id="31175" href="plfa.part3.Denotational.html#31175" class="Bound">u</a> <a id="31177" href="plfa.part3.Denotational.html#4132" class="InductiveConstructor Operator">⊔</a> <a id="31179" href="plfa.part3.Denotational.html#31179" class="Bound">u′</a><a id="31181" class="Symbol">)</a> <a id="31183" class="Symbol">=</a> <a id="31185" href="plfa.part3.Denotational.html#31117" class="Function">cod</a> <a id="31189" href="plfa.part3.Denotational.html#31175" class="Bound">u</a> <a id="31191" href="plfa.part3.Denotational.html#4132" class="InductiveConstructor Operator">⊔</a> <a id="31193" href="plfa.part3.Denotational.html#31117" class="Function">cod</a> <a id="31197" href="plfa.part3.Denotational.html#31179" class="Bound">u′</a>
 </pre>
-<p>We need just one property each for <code class="highlighter-rouge">dom</code> and <code class="highlighter-rouge">cod</code>.  Given a collection of
-functions represented by value <code class="highlighter-rouge">u</code>, and an entry <code class="highlighter-rouge">v ↦ w ∈ u</code>, we know
-that <code class="highlighter-rouge">v</code> is included in the domain of <code class="highlighter-rouge">v</code>.</p>
+<p>We need just one property each for <code class="language-plaintext highlighter-rouge">dom</code> and <code class="language-plaintext highlighter-rouge">cod</code>.  Given a collection of
+functions represented by value <code class="language-plaintext highlighter-rouge">u</code>, and an entry <code class="language-plaintext highlighter-rouge">v ↦ w ∈ u</code>, we know
+that <code class="language-plaintext highlighter-rouge">v</code> is included in the domain of <code class="language-plaintext highlighter-rouge">v</code>.</p>
 
 <pre class="Agda"><a id="↦∈→⊆dom"></a><a id="31398" href="/Denotational/#31398" class="Function">↦∈→⊆dom</a> <a id="31406" class="Symbol">:</a> <a id="31408" class="Symbol">∀{</a><a id="31410" href="plfa.part3.Denotational.html#31410" class="Bound">u</a> <a id="31412" href="plfa.part3.Denotational.html#31412" class="Bound">v</a> <a id="31414" href="plfa.part3.Denotational.html#31414" class="Bound">w</a> <a id="31416" class="Symbol">:</a> <a id="31418" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a><a id="31423" class="Symbol">}</a>
           <a id="31435" class="Symbol">→</a> <a id="31437" href="/Denotational/#29933" class="Function">all-funs</a> <a id="31446" href="plfa.part3.Denotational.html#31410" class="Bound">u</a>  <a id="31449" class="Symbol">→</a>  <a id="31452" class="Symbol">(</a><a id="31453" href="plfa.part3.Denotational.html#31412" class="Bound">v</a> <a id="31455" href="plfa.part3.Denotational.html#4102" class="InductiveConstructor Operator">↦</a> <a id="31457" href="plfa.part3.Denotational.html#31414" class="Bound">w</a><a id="31458" class="Symbol">)</a> <a id="31460" href="plfa.part3.Denotational.html#28027" class="Function Operator">∈</a> <a id="31462" href="plfa.part3.Denotational.html#31410" class="Bound">u</a>
@@ -996,9 +996,9 @@ that <code class="highlighter-rouge">v</code> is included in the domain of <code
    <a id="31725" class="Keyword">let</a> <a id="31729" href="/Denotational/#31729" class="Bound">ih</a> <a id="31732" class="Symbol">=</a> <a id="31734" href="plfa.part3.Denotational.html#31398" class="Function">↦∈→⊆dom</a> <a id="31742" class="Symbol">(λ</a> <a id="31745" href="plfa.part3.Denotational.html#31745" class="Bound">z</a> <a id="31747" class="Symbol">→</a> <a id="31749" href="plfa.part3.Denotational.html#31699" class="Bound">fg</a> <a id="31752" class="Symbol">(</a><a id="31753" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#687" class="InductiveConstructor">inj₂</a> <a id="31758" href="plfa.part3.Denotational.html#31745" class="Bound">z</a><a id="31759" class="Symbol">))</a> <a id="31762" href="plfa.part3.Denotational.html#31708" class="Bound">v↦w∈u′</a> <a id="31769" class="Keyword">in</a>
    <a id="31775" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#687" class="InductiveConstructor">inj₂</a> <a id="31780" class="Symbol">(</a><a id="31781" href="/Denotational/#31729" class="Bound">ih</a> <a id="31784" href="plfa.part3.Denotational.html#31716" class="Bound">u∈v</a><a id="31787" class="Symbol">)</a>
 </pre>
-<p>Regarding <code class="highlighter-rouge">cod</code>, suppose we have a collection of functions represented
-by <code class="highlighter-rouge">u</code>, but all of them are just copies of <code class="highlighter-rouge">v ↦ w</code>.  Then the <code class="highlighter-rouge">cod u</code> is
-included in <code class="highlighter-rouge">w</code>.</p>
+<p>Regarding <code class="language-plaintext highlighter-rouge">cod</code>, suppose we have a collection of functions represented
+by <code class="language-plaintext highlighter-rouge">u</code>, but all of them are just copies of <code class="language-plaintext highlighter-rouge">v ↦ w</code>.  Then the <code class="language-plaintext highlighter-rouge">cod u</code> is
+included in <code class="language-plaintext highlighter-rouge">w</code>.</p>
 
 <pre class="Agda"><a id="⊆↦→cod⊆"></a><a id="31960" href="/Denotational/#31960" class="Function">⊆↦→cod⊆</a> <a id="31968" class="Symbol">:</a> <a id="31970" class="Symbol">∀{</a><a id="31972" href="plfa.part3.Denotational.html#31972" class="Bound">u</a> <a id="31974" href="plfa.part3.Denotational.html#31974" class="Bound">v</a> <a id="31976" href="plfa.part3.Denotational.html#31976" class="Bound">w</a> <a id="31978" class="Symbol">:</a> <a id="31980" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a><a id="31985" class="Symbol">}</a>
         <a id="31995" class="Symbol">→</a> <a id="31997" href="/Denotational/#31972" class="Bound">u</a> <a id="31999" href="plfa.part3.Denotational.html#28273" class="Function Operator">⊆</a> <a id="32001" href="plfa.part3.Denotational.html#31974" class="Bound">v</a> <a id="32003" href="plfa.part3.Denotational.html#4102" class="InductiveConstructor Operator">↦</a> <a id="32005" href="plfa.part3.Denotational.html#31976" class="Bound">w</a>
@@ -1011,39 +1011,39 @@ included in <code class="highlighter-rouge">w</code>.</p>
 <a id="32148" href="/Denotational/#31960" class="Function">⊆↦→cod⊆</a> <a id="32156" class="Symbol">{</a><a id="32157" href="plfa.part3.Denotational.html#32157" class="Bound">u</a> <a id="32159" href="plfa.part3.Denotational.html#4132" class="InductiveConstructor Operator">⊔</a> <a id="32161" href="plfa.part3.Denotational.html#32161" class="Bound">u′</a><a id="32163" class="Symbol">}</a> <a id="32165" href="plfa.part3.Denotational.html#32165" class="Bound">s</a> <a id="32167" class="Symbol">(</a><a id="32168" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#662" class="InductiveConstructor">inj₁</a> <a id="32173" href="plfa.part3.Denotational.html#32173" class="Bound">x</a><a id="32174" class="Symbol">)</a> <a id="32176" class="Symbol">=</a> <a id="32178" href="plfa.part3.Denotational.html#31960" class="Function">⊆↦→cod⊆</a> <a id="32186" class="Symbol">(λ</a> <a id="32189" class="Symbol">{</a><a id="32190" href="plfa.part3.Denotational.html#32190" class="Bound">C</a><a id="32191" class="Symbol">}</a> <a id="32193" href="plfa.part3.Denotational.html#32193" class="Bound">z</a> <a id="32195" class="Symbol">→</a> <a id="32197" href="plfa.part3.Denotational.html#32165" class="Bound">s</a> <a id="32199" class="Symbol">(</a><a id="32200" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#662" class="InductiveConstructor">inj₁</a> <a id="32205" href="plfa.part3.Denotational.html#32193" class="Bound">z</a><a id="32206" class="Symbol">))</a> <a id="32209" href="plfa.part3.Denotational.html#32173" class="Bound">x</a>
 <a id="32211" href="/Denotational/#31960" class="Function">⊆↦→cod⊆</a> <a id="32219" class="Symbol">{</a><a id="32220" href="plfa.part3.Denotational.html#32220" class="Bound">u</a> <a id="32222" href="plfa.part3.Denotational.html#4132" class="InductiveConstructor Operator">⊔</a> <a id="32224" href="plfa.part3.Denotational.html#32224" class="Bound">u′</a><a id="32226" class="Symbol">}</a> <a id="32228" href="plfa.part3.Denotational.html#32228" class="Bound">s</a> <a id="32230" class="Symbol">(</a><a id="32231" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#687" class="InductiveConstructor">inj₂</a> <a id="32236" href="plfa.part3.Denotational.html#32236" class="Bound">y</a><a id="32237" class="Symbol">)</a> <a id="32239" class="Symbol">=</a> <a id="32241" href="plfa.part3.Denotational.html#31960" class="Function">⊆↦→cod⊆</a> <a id="32249" class="Symbol">(λ</a> <a id="32252" class="Symbol">{</a><a id="32253" href="plfa.part3.Denotational.html#32253" class="Bound">C</a><a id="32254" class="Symbol">}</a> <a id="32256" href="plfa.part3.Denotational.html#32256" class="Bound">z</a> <a id="32258" class="Symbol">→</a> <a id="32260" href="plfa.part3.Denotational.html#32228" class="Bound">s</a> <a id="32262" class="Symbol">(</a><a id="32263" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#687" class="InductiveConstructor">inj₂</a> <a id="32268" href="plfa.part3.Denotational.html#32256" class="Bound">z</a><a id="32269" class="Symbol">))</a> <a id="32272" href="plfa.part3.Denotational.html#32236" class="Bound">y</a>
 </pre>
-<p>With the <code class="highlighter-rouge">dom</code> and <code class="highlighter-rouge">cod</code> functions in hand, we can make precise the
+<p>With the <code class="language-plaintext highlighter-rouge">dom</code> and <code class="language-plaintext highlighter-rouge">cod</code> functions in hand, we can make precise the
 conclusion of the inversion principle for functions, which we package
-into the following predicate named <code class="highlighter-rouge">factor</code>. We say that <code class="highlighter-rouge">v ↦ w</code>
-<em>factors</em> <code class="highlighter-rouge">u</code> into <code class="highlighter-rouge">u′</code> if <code class="highlighter-rouge">u′</code> is a included in <code class="highlighter-rouge">u</code>, if <code class="highlighter-rouge">u′</code> contains only
-functions, its domain is less than <code class="highlighter-rouge">v</code>, and its codomain is greater
-than <code class="highlighter-rouge">w</code>.</p>
+into the following predicate named <code class="language-plaintext highlighter-rouge">factor</code>. We say that <code class="language-plaintext highlighter-rouge">v ↦ w</code>
+<em>factors</em> <code class="language-plaintext highlighter-rouge">u</code> into <code class="language-plaintext highlighter-rouge">u′</code> if <code class="language-plaintext highlighter-rouge">u′</code> is a included in <code class="language-plaintext highlighter-rouge">u</code>, if <code class="language-plaintext highlighter-rouge">u′</code> contains only
+functions, its domain is less than <code class="language-plaintext highlighter-rouge">v</code>, and its codomain is greater
+than <code class="language-plaintext highlighter-rouge">w</code>.</p>
 
 <pre class="Agda"><a id="factor"></a><a id="32641" href="/Denotational/#32641" class="Function">factor</a> <a id="32648" class="Symbol">:</a> <a id="32650" class="Symbol">(</a><a id="32651" href="plfa.part3.Denotational.html#32651" class="Bound">u</a> <a id="32653" class="Symbol">:</a> <a id="32655" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a><a id="32660" class="Symbol">)</a> <a id="32662" class="Symbol">→</a> <a id="32664" class="Symbol">(</a><a id="32665" href="plfa.part3.Denotational.html#32665" class="Bound">u′</a> <a id="32668" class="Symbol">:</a> <a id="32670" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a><a id="32675" class="Symbol">)</a> <a id="32677" class="Symbol">→</a> <a id="32679" class="Symbol">(</a><a id="32680" href="plfa.part3.Denotational.html#32680" class="Bound">v</a> <a id="32682" class="Symbol">:</a> <a id="32684" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a><a id="32689" class="Symbol">)</a> <a id="32691" class="Symbol">→</a> <a id="32693" class="Symbol">(</a><a id="32694" href="plfa.part3.Denotational.html#32694" class="Bound">w</a> <a id="32696" class="Symbol">:</a> <a id="32698" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a><a id="32703" class="Symbol">)</a> <a id="32705" class="Symbol">→</a> <a id="32707" class="PrimitiveType">Set</a>
 <a id="32711" href="/Denotational/#32641" class="Function">factor</a> <a id="32718" href="plfa.part3.Denotational.html#32718" class="Bound">u</a> <a id="32720" href="plfa.part3.Denotational.html#32720" class="Bound">u′</a> <a id="32723" href="plfa.part3.Denotational.html#32723" class="Bound">v</a> <a id="32725" href="plfa.part3.Denotational.html#32725" class="Bound">w</a> <a id="32727" class="Symbol">=</a> <a id="32729" href="plfa.part3.Denotational.html#29933" class="Function">all-funs</a> <a id="32738" href="plfa.part3.Denotational.html#32720" class="Bound">u′</a> <a id="32741" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1162" class="Function Operator">×</a> <a id="32743" href="plfa.part3.Denotational.html#32720" class="Bound">u′</a> <a id="32746" href="plfa.part3.Denotational.html#28273" class="Function Operator">⊆</a> <a id="32748" href="plfa.part3.Denotational.html#32718" class="Bound">u</a> <a id="32750" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1162" class="Function Operator">×</a> <a id="32752" href="plfa.part3.Denotational.html#31033" class="Function">dom</a> <a id="32756" href="plfa.part3.Denotational.html#32720" class="Bound">u′</a> <a id="32759" href="plfa.part3.Denotational.html#4427" class="Datatype Operator">⊑</a> <a id="32761" href="plfa.part3.Denotational.html#32723" class="Bound">v</a> <a id="32763" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1162" class="Function Operator">×</a> <a id="32765" href="plfa.part3.Denotational.html#32725" class="Bound">w</a> <a id="32767" href="plfa.part3.Denotational.html#4427" class="Datatype Operator">⊑</a> <a id="32769" href="plfa.part3.Denotational.html#31117" class="Function">cod</a> <a id="32773" href="plfa.part3.Denotational.html#32720" class="Bound">u′</a>
 </pre>
 <p>We prove the inversion principle for functions by induction on the
 derivation of the less-than relation. To make the induction hypothesis
-stronger, we broaden the premise to <code class="highlighter-rouge">u₁ ⊑ u₂</code> (instead of <code class="highlighter-rouge">v ↦ w ⊑
+stronger, we broaden the premise to <code class="language-plaintext highlighter-rouge">u₁ ⊑ u₂</code> (instead of <code class="language-plaintext highlighter-rouge">v ↦ w ⊑
 u</code>), and strengthen the conclusion to say that for <em>every</em> function
-value <code class="highlighter-rouge">v ↦ w ∈ u₁</code>, we have that <code class="highlighter-rouge">v ↦ w</code> factors <code class="highlighter-rouge">u₂</code> into some
-value <code class="highlighter-rouge">u₃</code>.</p>
+value <code class="language-plaintext highlighter-rouge">v ↦ w ∈ u₁</code>, we have that <code class="language-plaintext highlighter-rouge">v ↦ w</code> factors <code class="language-plaintext highlighter-rouge">u₂</code> into some
+value <code class="language-plaintext highlighter-rouge">u₃</code>.</p>
 
 <h3 id="inversion-of-less-than-for-functions-the-case-for--trans">Inversion of less-than for functions, the case for ⊑-trans</h3>
 
-<p>The crux of the proof is the case for <code class="highlighter-rouge">⊑-trans</code>.</p>
+<p>The crux of the proof is the case for <code class="language-plaintext highlighter-rouge">⊑-trans</code>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>u₁ ⊑ u   u ⊑ u₂
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>u₁ ⊑ u   u ⊑ u₂
 --------------- (⊑-trans)
     u₁ ⊑ u₂
 </code></pre></div></div>
 
-<p>By the induction hypothesis for <code class="highlighter-rouge">u₁ ⊑ u</code>, we know
-that <code class="highlighter-rouge">v ↦ w factors u into u′</code>, for some value <code class="highlighter-rouge">u′</code>,
-so we have <code class="highlighter-rouge">all-funs u′</code> and <code class="highlighter-rouge">u′ ⊆ u</code>.
-By the induction hypothesis for <code class="highlighter-rouge">u ⊑ u₂</code>, we know
-that for any <code class="highlighter-rouge">v′ ↦ w′ ∈ u</code>, <code class="highlighter-rouge">v′ ↦ w′</code> factors <code class="highlighter-rouge">u₂</code> into <code class="highlighter-rouge">u₃</code>.
-With these facts in hand, we proceed by induction on <code class="highlighter-rouge">u′</code>
-to prove that <code class="highlighter-rouge">(dom u′) ↦ (cod u′)</code> factors <code class="highlighter-rouge">u₂</code> into <code class="highlighter-rouge">u₃</code>.
+<p>By the induction hypothesis for <code class="language-plaintext highlighter-rouge">u₁ ⊑ u</code>, we know
+that <code class="language-plaintext highlighter-rouge">v ↦ w factors u into u′</code>, for some value <code class="language-plaintext highlighter-rouge">u′</code>,
+so we have <code class="language-plaintext highlighter-rouge">all-funs u′</code> and <code class="language-plaintext highlighter-rouge">u′ ⊆ u</code>.
+By the induction hypothesis for <code class="language-plaintext highlighter-rouge">u ⊑ u₂</code>, we know
+that for any <code class="language-plaintext highlighter-rouge">v′ ↦ w′ ∈ u</code>, <code class="language-plaintext highlighter-rouge">v′ ↦ w′</code> factors <code class="language-plaintext highlighter-rouge">u₂</code> into <code class="language-plaintext highlighter-rouge">u₃</code>.
+With these facts in hand, we proceed by induction on <code class="language-plaintext highlighter-rouge">u′</code>
+to prove that <code class="language-plaintext highlighter-rouge">(dom u′) ↦ (cod u′)</code> factors <code class="language-plaintext highlighter-rouge">u₂</code> into <code class="language-plaintext highlighter-rouge">u₃</code>.
 We discuss each case of the proof in the text below.</p>
 
 <pre class="Agda"><a id="sub-inv-trans"></a><a id="33742" href="/Denotational/#33742" class="Function">sub-inv-trans</a> <a id="33756" class="Symbol">:</a> <a id="33758" class="Symbol">∀{</a><a id="33760" href="plfa.part3.Denotational.html#33760" class="Bound">u′</a> <a id="33763" href="plfa.part3.Denotational.html#33763" class="Bound">u₂</a> <a id="33766" href="plfa.part3.Denotational.html#33766" class="Bound">u</a> <a id="33768" class="Symbol">:</a> <a id="33770" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a><a id="33775" class="Symbol">}</a>
@@ -1073,39 +1073,39 @@ We discuss each case of the proof in the text below.</p>
 </pre>
 <ul>
   <li>
-    <p>Suppose <code class="highlighter-rouge">u′ ≡ ⊥</code>. Then we have a contradiction because
-it is not the case that <code class="highlighter-rouge">Fun ⊥</code>.</p>
+    <p>Suppose <code class="language-plaintext highlighter-rouge">u′ ≡ ⊥</code>. Then we have a contradiction because
+it is not the case that <code class="language-plaintext highlighter-rouge">Fun ⊥</code>.</p>
   </li>
   <li>
-    <p>Suppose <code class="highlighter-rouge">u′ ≡ u₁′ ↦ u₂′</code>. Then <code class="highlighter-rouge">u₁′ ↦ u₂′ ∈ u</code> and we can apply the
-premise (the induction hypothesis from <code class="highlighter-rouge">u ⊑ u₂</code>) to obtain that
-<code class="highlighter-rouge">u₁′ ↦ u₂′</code> factors of <code class="highlighter-rouge">u₂ into u₂′</code>. This case is complete because
-<code class="highlighter-rouge">dom u′ ≡ u₁′</code> and <code class="highlighter-rouge">cod u′ ≡ u₂′</code>.</p>
+    <p>Suppose <code class="language-plaintext highlighter-rouge">u′ ≡ u₁′ ↦ u₂′</code>. Then <code class="language-plaintext highlighter-rouge">u₁′ ↦ u₂′ ∈ u</code> and we can apply the
+premise (the induction hypothesis from <code class="language-plaintext highlighter-rouge">u ⊑ u₂</code>) to obtain that
+<code class="language-plaintext highlighter-rouge">u₁′ ↦ u₂′</code> factors of <code class="language-plaintext highlighter-rouge">u₂ into u₂′</code>. This case is complete because
+<code class="language-plaintext highlighter-rouge">dom u′ ≡ u₁′</code> and <code class="language-plaintext highlighter-rouge">cod u′ ≡ u₂′</code>.</p>
   </li>
   <li>
-    <p>Suppose <code class="highlighter-rouge">u′ ≡ u₁′ ⊔ u₂′</code>. Then we have <code class="highlighter-rouge">u₁′ ⊆ u</code> and <code class="highlighter-rouge">u₂′ ⊆ u</code>. We also
-have <code class="highlighter-rouge">all-funs u₁′</code> and <code class="highlighter-rouge">all-funs u₂′</code>, so we can apply the induction hypothesis
-for both <code class="highlighter-rouge">u₁′</code> and <code class="highlighter-rouge">u₂′</code>. So there exists values <code class="highlighter-rouge">u₃₁</code> and <code class="highlighter-rouge">u₃₂</code> such that
-<code class="highlighter-rouge">(dom u₁′) ↦ (cod u₁′)</code> factors <code class="highlighter-rouge">u</code> into <code class="highlighter-rouge">u₃₁</code> and
-<code class="highlighter-rouge">(dom u₂′) ↦ (cod u₂′)</code> factors <code class="highlighter-rouge">u</code> into <code class="highlighter-rouge">u₃₂</code>.
-We will show that <code class="highlighter-rouge">(dom u) ↦ (cod u)</code> factors <code class="highlighter-rouge">u</code> into <code class="highlighter-rouge">u₃₁ ⊔ u₃₂</code>.
+    <p>Suppose <code class="language-plaintext highlighter-rouge">u′ ≡ u₁′ ⊔ u₂′</code>. Then we have <code class="language-plaintext highlighter-rouge">u₁′ ⊆ u</code> and <code class="language-plaintext highlighter-rouge">u₂′ ⊆ u</code>. We also
+have <code class="language-plaintext highlighter-rouge">all-funs u₁′</code> and <code class="language-plaintext highlighter-rouge">all-funs u₂′</code>, so we can apply the induction hypothesis
+for both <code class="language-plaintext highlighter-rouge">u₁′</code> and <code class="language-plaintext highlighter-rouge">u₂′</code>. So there exists values <code class="language-plaintext highlighter-rouge">u₃₁</code> and <code class="language-plaintext highlighter-rouge">u₃₂</code> such that
+<code class="language-plaintext highlighter-rouge">(dom u₁′) ↦ (cod u₁′)</code> factors <code class="language-plaintext highlighter-rouge">u</code> into <code class="language-plaintext highlighter-rouge">u₃₁</code> and
+<code class="language-plaintext highlighter-rouge">(dom u₂′) ↦ (cod u₂′)</code> factors <code class="language-plaintext highlighter-rouge">u</code> into <code class="language-plaintext highlighter-rouge">u₃₂</code>.
+We will show that <code class="language-plaintext highlighter-rouge">(dom u) ↦ (cod u)</code> factors <code class="language-plaintext highlighter-rouge">u</code> into <code class="language-plaintext highlighter-rouge">u₃₁ ⊔ u₃₂</code>.
 So we need to show that</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  dom (u₃₁ ⊔ u₃₂) ⊑ dom (u₁′ ⊔ u₂′)
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  dom (u₃₁ ⊔ u₃₂) ⊑ dom (u₁′ ⊔ u₂′)
   cod (u₁′ ⊔ u₂′) ⊑ cod (u₃₁ ⊔ u₃₂)
 </code></pre></div>    </div>
 
     <p>But those both follow directly from the factoring of
-<code class="highlighter-rouge">u</code> into <code class="highlighter-rouge">u₃₁</code> and <code class="highlighter-rouge">u₃₂</code>, using the monotonicity of <code class="highlighter-rouge">⊔</code> with respect to <code class="highlighter-rouge">⊑</code>.</p>
+<code class="language-plaintext highlighter-rouge">u</code> into <code class="language-plaintext highlighter-rouge">u₃₁</code> and <code class="language-plaintext highlighter-rouge">u₃₂</code>, using the monotonicity of <code class="language-plaintext highlighter-rouge">⊔</code> with respect to <code class="language-plaintext highlighter-rouge">⊑</code>.</p>
   </li>
 </ul>
 
 <h3 id="inversion-of-less-than-for-functions">Inversion of less-than for functions</h3>
 
 <p>We come to the proof of the main lemma concerning the inversion of
-less-than for functions. We show that if <code class="highlighter-rouge">u₁ ⊑ u₂</code>, then for any
-<code class="highlighter-rouge">v ↦ w ∈ u₁</code>, we can factor <code class="highlighter-rouge">u₂</code> into <code class="highlighter-rouge">u₃</code> according to <code class="highlighter-rouge">v ↦ w</code>. We proceed
-by induction on the derivation of <code class="highlighter-rouge">u₁ ⊑ u₂</code>, and describe each case in
+less-than for functions. We show that if <code class="language-plaintext highlighter-rouge">u₁ ⊑ u₂</code>, then for any
+<code class="language-plaintext highlighter-rouge">v ↦ w ∈ u₁</code>, we can factor <code class="language-plaintext highlighter-rouge">u₂</code> into <code class="language-plaintext highlighter-rouge">u₃</code> according to <code class="language-plaintext highlighter-rouge">v ↦ w</code>. We proceed
+by induction on the derivation of <code class="language-plaintext highlighter-rouge">u₁ ⊑ u₂</code>, and describe each case in
 the text after the Agda proof.</p>
 
 <pre class="Agda"><a id="sub-inv"></a><a id="36266" href="/Denotational/#36266" class="Function">sub-inv</a> <a id="36274" class="Symbol">:</a> <a id="36276" class="Symbol">∀{</a><a id="36278" href="plfa.part3.Denotational.html#36278" class="Bound">u₁</a> <a id="36281" href="plfa.part3.Denotational.html#36281" class="Bound">u₂</a> <a id="36284" class="Symbol">:</a> <a id="36286" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a><a id="36291" class="Symbol">}</a>
@@ -1145,104 +1145,104 @@ the text after the Agda proof.</p>
         <a id="38017" href="/Denotational/#37955" class="Function">g</a> <a id="38019" class="Symbol">(</a><a id="38020" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#662" class="InductiveConstructor">inj₁</a> <a id="38025" href="plfa.part3.Denotational.html#38025" class="Bound">x</a><a id="38026" class="Symbol">)</a> <a id="38028" class="Symbol">=</a> <a id="38030" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#662" class="InductiveConstructor">inj₁</a> <a id="38035" href="plfa.part3.Denotational.html#38025" class="Bound">x</a>
         <a id="38045" href="/Denotational/#37955" class="Function">g</a> <a id="38047" class="Symbol">(</a><a id="38048" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#687" class="InductiveConstructor">inj₂</a> <a id="38053" href="plfa.part3.Denotational.html#38053" class="Bound">y</a><a id="38054" class="Symbol">)</a> <a id="38056" class="Symbol">=</a> <a id="38058" href="https://agda.github.io/agda-stdlib/v1.1/Data.Sum.Base.html#687" class="InductiveConstructor">inj₂</a> <a id="38063" href="plfa.part3.Denotational.html#38053" class="Bound">y</a>
 </pre>
-<p>Let <code class="highlighter-rouge">v</code> and <code class="highlighter-rouge">w</code> be arbitrary values.</p>
+<p>Let <code class="language-plaintext highlighter-rouge">v</code> and <code class="language-plaintext highlighter-rouge">w</code> be arbitrary values.</p>
 
 <ul>
   <li>
-    <p>Case <code class="highlighter-rouge">⊑-bot</code>. So <code class="highlighter-rouge">u₁ ≡ ⊥</code>. We have <code class="highlighter-rouge">v ↦ w ∈ ⊥</code>, but that is impossible.</p>
+    <p>Case <code class="language-plaintext highlighter-rouge">⊑-bot</code>. So <code class="language-plaintext highlighter-rouge">u₁ ≡ ⊥</code>. We have <code class="language-plaintext highlighter-rouge">v ↦ w ∈ ⊥</code>, but that is impossible.</p>
   </li>
   <li>
-    <p>Case <code class="highlighter-rouge">⊑-conj-L</code>.</p>
+    <p>Case <code class="language-plaintext highlighter-rouge">⊑-conj-L</code>.</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  u₁₁ ⊑ u₂   u₁₂ ⊑ u₂
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  u₁₁ ⊑ u₂   u₁₂ ⊑ u₂
   -------------------
   u₁₁ ⊔ u₁₂ ⊑ u₂
 </code></pre></div>    </div>
 
-    <p>Given that <code class="highlighter-rouge">v ↦ w ∈ u₁₁ ⊔ u₁₂</code>, there are two subcases to consider.</p>
+    <p>Given that <code class="language-plaintext highlighter-rouge">v ↦ w ∈ u₁₁ ⊔ u₁₂</code>, there are two subcases to consider.</p>
 
     <ul>
       <li>
-        <p>Subcase <code class="highlighter-rouge">v ↦ w ∈ u₁₁</code>. We conclude by the induction
-hypothesis for <code class="highlighter-rouge">u₁₁ ⊑ u₂</code>.</p>
+        <p>Subcase <code class="language-plaintext highlighter-rouge">v ↦ w ∈ u₁₁</code>. We conclude by the induction
+hypothesis for <code class="language-plaintext highlighter-rouge">u₁₁ ⊑ u₂</code>.</p>
       </li>
       <li>
-        <p>Subcase <code class="highlighter-rouge">v ↦ w ∈ u₁₂</code>. We conclude by the induction hypothesis
-for <code class="highlighter-rouge">u₁₂ ⊑ u₂</code>.</p>
+        <p>Subcase <code class="language-plaintext highlighter-rouge">v ↦ w ∈ u₁₂</code>. We conclude by the induction hypothesis
+for <code class="language-plaintext highlighter-rouge">u₁₂ ⊑ u₂</code>.</p>
       </li>
     </ul>
   </li>
   <li>
-    <p>Case <code class="highlighter-rouge">⊑-conj-R1</code>.</p>
+    <p>Case <code class="language-plaintext highlighter-rouge">⊑-conj-R1</code>.</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  u₁ ⊑ u₂₁
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  u₁ ⊑ u₂₁
   --------------
   u₁ ⊑ u₂₁ ⊔ u₂₂
 </code></pre></div>    </div>
 
-    <p>Given that <code class="highlighter-rouge">v ↦ w ∈ u₁</code>, the induction hypothesis for <code class="highlighter-rouge">u₁ ⊑ u₂₁</code>
-gives us that <code class="highlighter-rouge">v ↦ w</code> factors <code class="highlighter-rouge">u₂₁</code> into <code class="highlighter-rouge">u₃₁</code> for some <code class="highlighter-rouge">u₃₁</code>.
-To show that <code class="highlighter-rouge">v ↦ w</code> also factors <code class="highlighter-rouge">u₂₁ ⊔ u₂₂</code> into <code class="highlighter-rouge">u₃₁</code>,
-we just need to show that <code class="highlighter-rouge">u₃₁ ⊆ u₂₁ ⊔ u₂₂</code>, but that follows
-directly from <code class="highlighter-rouge">u₃₁ ⊆ u₂₁</code>.</p>
+    <p>Given that <code class="language-plaintext highlighter-rouge">v ↦ w ∈ u₁</code>, the induction hypothesis for <code class="language-plaintext highlighter-rouge">u₁ ⊑ u₂₁</code>
+gives us that <code class="language-plaintext highlighter-rouge">v ↦ w</code> factors <code class="language-plaintext highlighter-rouge">u₂₁</code> into <code class="language-plaintext highlighter-rouge">u₃₁</code> for some <code class="language-plaintext highlighter-rouge">u₃₁</code>.
+To show that <code class="language-plaintext highlighter-rouge">v ↦ w</code> also factors <code class="language-plaintext highlighter-rouge">u₂₁ ⊔ u₂₂</code> into <code class="language-plaintext highlighter-rouge">u₃₁</code>,
+we just need to show that <code class="language-plaintext highlighter-rouge">u₃₁ ⊆ u₂₁ ⊔ u₂₂</code>, but that follows
+directly from <code class="language-plaintext highlighter-rouge">u₃₁ ⊆ u₂₁</code>.</p>
   </li>
   <li>
-    <p>Case <code class="highlighter-rouge">⊑-conj-R2</code>. This case follows by reasoning similar to
-the case for <code class="highlighter-rouge">⊑-conj-R1</code>.</p>
+    <p>Case <code class="language-plaintext highlighter-rouge">⊑-conj-R2</code>. This case follows by reasoning similar to
+the case for <code class="language-plaintext highlighter-rouge">⊑-conj-R1</code>.</p>
   </li>
   <li>
-    <p>Case <code class="highlighter-rouge">⊑-trans</code>.</p>
+    <p>Case <code class="language-plaintext highlighter-rouge">⊑-trans</code>.</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  u₁ ⊑ u   u ⊑ u₂
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  u₁ ⊑ u   u ⊑ u₂
   ---------------
       u₁ ⊑ u₂
 </code></pre></div>    </div>
 
-    <p>By the induction hypothesis for <code class="highlighter-rouge">u₁ ⊑ u</code>, we know
-that <code class="highlighter-rouge">v ↦ w</code> factors <code class="highlighter-rouge">u</code> into <code class="highlighter-rouge">u′</code>, for some value <code class="highlighter-rouge">u′</code>,
-so we have <code class="highlighter-rouge">all-funs u′</code> and <code class="highlighter-rouge">u′ ⊆ u</code>.
-By the induction hypothesis for <code class="highlighter-rouge">u ⊑ u₂</code>, we know
-that for any <code class="highlighter-rouge">v′ ↦ w′ ∈ u</code>, <code class="highlighter-rouge">v′ ↦ w′</code> factors <code class="highlighter-rouge">u₂</code>.
+    <p>By the induction hypothesis for <code class="language-plaintext highlighter-rouge">u₁ ⊑ u</code>, we know
+that <code class="language-plaintext highlighter-rouge">v ↦ w</code> factors <code class="language-plaintext highlighter-rouge">u</code> into <code class="language-plaintext highlighter-rouge">u′</code>, for some value <code class="language-plaintext highlighter-rouge">u′</code>,
+so we have <code class="language-plaintext highlighter-rouge">all-funs u′</code> and <code class="language-plaintext highlighter-rouge">u′ ⊆ u</code>.
+By the induction hypothesis for <code class="language-plaintext highlighter-rouge">u ⊑ u₂</code>, we know
+that for any <code class="language-plaintext highlighter-rouge">v′ ↦ w′ ∈ u</code>, <code class="language-plaintext highlighter-rouge">v′ ↦ w′</code> factors <code class="language-plaintext highlighter-rouge">u₂</code>.
 Now we apply the lemma sub-inv-trans, which gives us
-some <code class="highlighter-rouge">u₃</code> such that <code class="highlighter-rouge">(dom u′) ↦ (cod u′)</code> factors <code class="highlighter-rouge">u₂</code> into <code class="highlighter-rouge">u₃</code>.
-We show that <code class="highlighter-rouge">v ↦ w</code> also factors <code class="highlighter-rouge">u₂</code> into <code class="highlighter-rouge">u₃</code>.
-From <code class="highlighter-rouge">dom u₃ ⊑ dom u′</code> and <code class="highlighter-rouge">dom u′ ⊑ v</code>, we have <code class="highlighter-rouge">dom u₃ ⊑ v</code>.
-From <code class="highlighter-rouge">w ⊑ cod u′</code> and <code class="highlighter-rouge">cod u′ ⊑ cod u₃</code>, we have <code class="highlighter-rouge">w ⊑ cod u₃</code>,
+some <code class="language-plaintext highlighter-rouge">u₃</code> such that <code class="language-plaintext highlighter-rouge">(dom u′) ↦ (cod u′)</code> factors <code class="language-plaintext highlighter-rouge">u₂</code> into <code class="language-plaintext highlighter-rouge">u₃</code>.
+We show that <code class="language-plaintext highlighter-rouge">v ↦ w</code> also factors <code class="language-plaintext highlighter-rouge">u₂</code> into <code class="language-plaintext highlighter-rouge">u₃</code>.
+From <code class="language-plaintext highlighter-rouge">dom u₃ ⊑ dom u′</code> and <code class="language-plaintext highlighter-rouge">dom u′ ⊑ v</code>, we have <code class="language-plaintext highlighter-rouge">dom u₃ ⊑ v</code>.
+From <code class="language-plaintext highlighter-rouge">w ⊑ cod u′</code> and <code class="language-plaintext highlighter-rouge">cod u′ ⊑ cod u₃</code>, we have <code class="language-plaintext highlighter-rouge">w ⊑ cod u₃</code>,
 and this case is complete.</p>
   </li>
   <li>
-    <p>Case <code class="highlighter-rouge">⊑-fun</code>.</p>
+    <p>Case <code class="language-plaintext highlighter-rouge">⊑-fun</code>.</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  u₂₁ ⊑ u₁₁  u₁₂ ⊑ u₂₂
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  u₂₁ ⊑ u₁₁  u₁₂ ⊑ u₂₂
   ---------------------
   u₁₁ ↦ u₁₂ ⊑ u₂₁ ↦ u₂₂
 </code></pre></div>    </div>
 
-    <p>Given that <code class="highlighter-rouge">v ↦ w ∈ u₁₁ ↦ u₁₂</code>, we have <code class="highlighter-rouge">v ≡ u₁₁</code> and <code class="highlighter-rouge">w ≡ u₁₂</code>.
-We show that <code class="highlighter-rouge">u₁₁ ↦ u₁₂</code> factors <code class="highlighter-rouge">u₂₁ ↦ u₂₂</code> into itself.
-We need to show that <code class="highlighter-rouge">dom (u₂₁ ↦ u₂₂) ⊑ u₁₁</code> and <code class="highlighter-rouge">u₁₂ ⊑ cod (u₂₁ ↦ u₂₂)</code>,
-but that is equivalent to our premises <code class="highlighter-rouge">u₂₁ ⊑ u₁₁</code> and <code class="highlighter-rouge">u₁₂ ⊑ u₂₂</code>.</p>
+    <p>Given that <code class="language-plaintext highlighter-rouge">v ↦ w ∈ u₁₁ ↦ u₁₂</code>, we have <code class="language-plaintext highlighter-rouge">v ≡ u₁₁</code> and <code class="language-plaintext highlighter-rouge">w ≡ u₁₂</code>.
+We show that <code class="language-plaintext highlighter-rouge">u₁₁ ↦ u₁₂</code> factors <code class="language-plaintext highlighter-rouge">u₂₁ ↦ u₂₂</code> into itself.
+We need to show that <code class="language-plaintext highlighter-rouge">dom (u₂₁ ↦ u₂₂) ⊑ u₁₁</code> and <code class="language-plaintext highlighter-rouge">u₁₂ ⊑ cod (u₂₁ ↦ u₂₂)</code>,
+but that is equivalent to our premises <code class="language-plaintext highlighter-rouge">u₂₁ ⊑ u₁₁</code> and <code class="language-plaintext highlighter-rouge">u₁₂ ⊑ u₂₂</code>.</p>
   </li>
   <li>
-    <p>Case <code class="highlighter-rouge">⊑-dist</code>.</p>
+    <p>Case <code class="language-plaintext highlighter-rouge">⊑-dist</code>.</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ---------------------------------------------
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ---------------------------------------------
   u₂₁ ↦ (u₂₂ ⊔ u₂₃) ⊑ (u₂₁ ↦ u₂₂) ⊔ (u₂₁ ↦ u₂₃)
 </code></pre></div>    </div>
 
-    <p>Given that <code class="highlighter-rouge">v ↦ w ∈ u₂₁ ↦ (u₂₂ ⊔ u₂₃)</code>, we have <code class="highlighter-rouge">v ≡ u₂₁</code>
-and <code class="highlighter-rouge">w ≡ u₂₂ ⊔ u₂₃</code>.
-We show that <code class="highlighter-rouge">u₂₁ ↦ (u₂₂ ⊔ u₂₃)</code> factors <code class="highlighter-rouge">(u₂₁ ↦ u₂₂) ⊔ (u₂₁ ↦ u₂₃)</code>
-into itself. We have <code class="highlighter-rouge">u₂₁ ⊔ u₂₁ ⊑ u₂₁</code>, and also
-<code class="highlighter-rouge">u₂₂ ⊔ u₂₃ ⊑ u₂₂ ⊔ u₂₃</code>, so the proof is complete.</p>
+    <p>Given that <code class="language-plaintext highlighter-rouge">v ↦ w ∈ u₂₁ ↦ (u₂₂ ⊔ u₂₃)</code>, we have <code class="language-plaintext highlighter-rouge">v ≡ u₂₁</code>
+and <code class="language-plaintext highlighter-rouge">w ≡ u₂₂ ⊔ u₂₃</code>.
+We show that <code class="language-plaintext highlighter-rouge">u₂₁ ↦ (u₂₂ ⊔ u₂₃)</code> factors <code class="language-plaintext highlighter-rouge">(u₂₁ ↦ u₂₂) ⊔ (u₂₁ ↦ u₂₃)</code>
+into itself. We have <code class="language-plaintext highlighter-rouge">u₂₁ ⊔ u₂₁ ⊑ u₂₁</code>, and also
+<code class="language-plaintext highlighter-rouge">u₂₂ ⊔ u₂₃ ⊑ u₂₂ ⊔ u₂₃</code>, so the proof is complete.</p>
   </li>
 </ul>
 
 <p>We conclude this section with two corollaries of the sub-inv lemma.
 First, we have the following property that is convenient to use in
-later proofs. We specialize the premise to just <code class="highlighter-rouge">v ↦ w ⊑ u₁</code>
+later proofs. We specialize the premise to just <code class="language-plaintext highlighter-rouge">v ↦ w ⊑ u₁</code>
 and we modify the conclusion to say that for every
-<code class="highlighter-rouge">v′ ↦ w′ ∈ u₂</code>, we have <code class="highlighter-rouge">v′ ⊑ v</code>.</p>
+<code class="language-plaintext highlighter-rouge">v′ ↦ w′ ∈ u₂</code>, we have <code class="language-plaintext highlighter-rouge">v′ ⊑ v</code>.</p>
 
 <pre class="Agda"><a id="sub-inv-fun"></a><a id="40727" href="/Denotational/#40727" class="Function">sub-inv-fun</a> <a id="40739" class="Symbol">:</a> <a id="40741" class="Symbol">∀{</a><a id="40743" href="plfa.part3.Denotational.html#40743" class="Bound">v</a> <a id="40745" href="plfa.part3.Denotational.html#40745" class="Bound">w</a> <a id="40747" href="plfa.part3.Denotational.html#40747" class="Bound">u₁</a> <a id="40750" class="Symbol">:</a> <a id="40752" href="plfa.part3.Denotational.html#4070" class="Datatype">Value</a><a id="40757" class="Symbol">}</a>
     <a id="40763" class="Symbol">→</a> <a id="40765" class="Symbol">(</a><a id="40766" href="/Denotational/#40743" class="Bound">v</a> <a id="40768" href="plfa.part3.Denotational.html#4102" class="InductiveConstructor Operator">↦</a> <a id="40770" href="plfa.part3.Denotational.html#40745" class="Bound">w</a><a id="40771" class="Symbol">)</a> <a id="40773" href="plfa.part3.Denotational.html#4427" class="Datatype Operator">⊑</a> <a id="40775" href="plfa.part3.Denotational.html#40747" class="Bound">u₁</a>
@@ -1281,11 +1281,11 @@ a <em>filter model</em> (Barendregt, Coppo, Dezani-Ciancaglini, 1983). Filter
 models use type systems with intersection types to precisely
 characterize runtime behavior (Coppo, Dezani-Ciancaglini, and Salle,
 1979). The notation that we use in this chapter is not that of type
-systems and intersection types, but the <code class="highlighter-rouge">Value</code> data type is isomorphic
-to types (<code class="highlighter-rouge">↦</code> is <code class="highlighter-rouge">→</code>, <code class="highlighter-rouge">⊔</code> is <code class="highlighter-rouge">∧</code>, <code class="highlighter-rouge">⊥</code> is <code class="highlighter-rouge">⊤</code>), the <code class="highlighter-rouge">⊑</code> relation is the
-inverse of subtyping <code class="highlighter-rouge">&lt;:</code>, and the evaluation relation <code class="highlighter-rouge">ρ ⊢ M ↓ v</code> is
-isomorphic to a type system. Write <code class="highlighter-rouge">Γ</code> instead of <code class="highlighter-rouge">ρ</code>, <code class="highlighter-rouge">A</code> instead of <code class="highlighter-rouge">v</code>, and
-replace <code class="highlighter-rouge">↓</code> with <code class="highlighter-rouge">:</code> and one has a typing judgement <code class="highlighter-rouge">Γ ⊢ M : A</code>.
+systems and intersection types, but the <code class="language-plaintext highlighter-rouge">Value</code> data type is isomorphic
+to types (<code class="language-plaintext highlighter-rouge">↦</code> is <code class="language-plaintext highlighter-rouge">→</code>, <code class="language-plaintext highlighter-rouge">⊔</code> is <code class="language-plaintext highlighter-rouge">∧</code>, <code class="language-plaintext highlighter-rouge">⊥</code> is <code class="language-plaintext highlighter-rouge">⊤</code>), the <code class="language-plaintext highlighter-rouge">⊑</code> relation is the
+inverse of subtyping <code class="language-plaintext highlighter-rouge">&lt;:</code>, and the evaluation relation <code class="language-plaintext highlighter-rouge">ρ ⊢ M ↓ v</code> is
+isomorphic to a type system. Write <code class="language-plaintext highlighter-rouge">Γ</code> instead of <code class="language-plaintext highlighter-rouge">ρ</code>, <code class="language-plaintext highlighter-rouge">A</code> instead of <code class="language-plaintext highlighter-rouge">v</code>, and
+replace <code class="language-plaintext highlighter-rouge">↓</code> with <code class="language-plaintext highlighter-rouge">:</code> and one has a typing judgement <code class="language-plaintext highlighter-rouge">Γ ⊢ M : A</code>.
 By varying the definition of subtyping and using different choices of
 type atoms, intersection type systems provide semantics for many different
 untyped λ calculi, from full beta to the lazy and call-by-value calculi
@@ -1301,18 +1301,18 @@ this chapter, but for the entire family of intersection type systems
 relaxing table lookup to enable self application first appeared in a
 technical report by Gordon Plotkin (1972) and are later described in
 an article in Theoretical Computer Science (Plotkin 1993).  In that
-work, the inductive definition of <code class="highlighter-rouge">Value</code> is a bit different than the
+work, the inductive definition of <code class="language-plaintext highlighter-rouge">Value</code> is a bit different than the
 one we use:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Value = C + ℘f(Value) × ℘f(Value)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Value = C + ℘f(Value) × ℘f(Value)
 </code></pre></div></div>
 
-<p>where <code class="highlighter-rouge">C</code> is a set of constants and <code class="highlighter-rouge">℘f</code> means finite powerset.  The
-pairs in <code class="highlighter-rouge">℘f(Value) × ℘f(Value)</code> represent input-output mappings, just
+<p>where <code class="language-plaintext highlighter-rouge">C</code> is a set of constants and <code class="language-plaintext highlighter-rouge">℘f</code> means finite powerset.  The
+pairs in <code class="language-plaintext highlighter-rouge">℘f(Value) × ℘f(Value)</code> represent input-output mappings, just
 as in this chapter. The finite powersets are used to enable a function
 table to appear in the input and in the output. These differences
 amount to changing where the recursion appears in the definition of
-<code class="highlighter-rouge">Value</code>.  Plotkin’s model is an example of a <em>graph model</em> of the
+<code class="language-plaintext highlighter-rouge">Value</code>.  Plotkin’s model is an example of a <em>graph model</em> of the
 untyped lambda calculus (Barendregt, 1984). In a graph model, the
 semantics is presented as a function from programs and environments to
 (possibly infinite) sets of values. The semantics in this chapter is
@@ -1323,15 +1323,15 @@ version.</p>
 
 <p>Dana Scott’s ℘(ω) (1976) and Engeler’s B(A) (1981) are two more
 examples of graph models. Both use the following inductive definition
-of <code class="highlighter-rouge">Value</code>.</p>
+of <code class="language-plaintext highlighter-rouge">Value</code>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Value = C + ℘f(Value) × Value
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Value = C + ℘f(Value) × Value
 </code></pre></div></div>
 
-<p>The use of <code class="highlighter-rouge">Value</code> instead of <code class="highlighter-rouge">℘f(Value)</code> in the output does not restrict
+<p>The use of <code class="language-plaintext highlighter-rouge">Value</code> instead of <code class="language-plaintext highlighter-rouge">℘f(Value)</code> in the output does not restrict
 expressiveness compared to Plotkin’s model because the semantics use
-sets of values and a pair of sets <code class="highlighter-rouge">(V, V′)</code> can be represented as a set
-of pairs <code class="highlighter-rouge">{ (V, v′) | v′ ∈ V′ }</code>.  In Scott’s ℘(ω), the above values are
+sets of values and a pair of sets <code class="language-plaintext highlighter-rouge">(V, V′)</code> can be represented as a set
+of pairs <code class="language-plaintext highlighter-rouge">{ (V, v′) | v′ ∈ V′ }</code>.  In Scott’s ℘(ω), the above values are
 mapped to and from the natural numbers using a kind of Godel encoding.</p>
 
 <h2 id="references">References</h2>
@@ -1388,7 +1388,7 @@ vol. 5, pages 522-587, 1976.</p>
 
 <p>This chapter uses the following unicode:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⊥  U+22A5  UP TACK (\bot)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⊥  U+22A5  UP TACK (\bot)
 ↦  U+21A6  RIGHTWARDS ARROW FROM BAR (\mapsto)
 ⊔  U+2294  SQUARE CUP (\lub)
 ⊑  U+2291  SQUARE IMAGE OF OR EQUAL TO (\sqsubseteq)

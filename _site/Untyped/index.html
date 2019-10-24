@@ -139,7 +139,7 @@ the range of different lambda calculi one may encounter.</p>
 
 <p>Our development will be close to that in
 Chapter <a href="/DeBruijn/">DeBruijn</a>,
-save that every term will have exactly the same type, written <code class="highlighter-rouge">★</code>
+save that every term will have exactly the same type, written <code class="language-plaintext highlighter-rouge">★</code>
 and pronounced “any”.
 This matches a slogan introduced by Dana Scott
 and echoed by Robert Harper: “Untyped is Uni-typed”.
@@ -165,9 +165,9 @@ can now be defined in the language itself.</p>
 <pre class="Agda"><a id="2864" class="Keyword">data</a> <a id="Type"></a><a id="2869" href="/Untyped/#2869" class="Datatype">Type</a> <a id="2874" class="Symbol">:</a> <a id="2876" class="PrimitiveType">Set</a> <a id="2880" class="Keyword">where</a>
   <a id="Type.★"></a><a id="2888" href="/Untyped/#2888" class="InductiveConstructor">★</a> <a id="2890" class="Symbol">:</a> <a id="2892" href="plfa.part2.Untyped.html#2869" class="Datatype">Type</a>
 </pre>
-<h4 id="exercise-type-practice">Exercise (<code class="highlighter-rouge">Type≃⊤</code>) (practice)</h4>
+<h4 id="exercise-type-practice">Exercise (<code class="language-plaintext highlighter-rouge">Type≃⊤</code>) (practice)</h4>
 
-<p>Show that <code class="highlighter-rouge">Type</code> is isomorphic to <code class="highlighter-rouge">⊤</code>, the unit type.</p>
+<p>Show that <code class="language-plaintext highlighter-rouge">Type</code> is isomorphic to <code class="language-plaintext highlighter-rouge">⊤</code>, the unit type.</p>
 
 <pre class="Agda"><a id="2998" class="Comment">-- Your code goes here</a>
 </pre>
@@ -179,11 +179,11 @@ most recently bound variable on the right:</p>
   <a id="Context.∅"></a><a id="3175" href="/Untyped/#3175" class="InductiveConstructor">∅</a>   <a id="3179" class="Symbol">:</a> <a id="3181" href="plfa.part2.Untyped.html#3153" class="Datatype">Context</a>
   <a id="Context._,_"></a><a id="3191" href="/Untyped/#3191" class="InductiveConstructor Operator">_,_</a> <a id="3195" class="Symbol">:</a> <a id="3197" href="plfa.part2.Untyped.html#3153" class="Datatype">Context</a> <a id="3205" class="Symbol">→</a> <a id="3207" href="plfa.part2.Untyped.html#2869" class="Datatype">Type</a> <a id="3212" class="Symbol">→</a> <a id="3214" href="plfa.part2.Untyped.html#3153" class="Datatype">Context</a>
 </pre>
-<p>We let <code class="highlighter-rouge">Γ</code> and <code class="highlighter-rouge">Δ</code> range over contexts.</p>
+<p>We let <code class="language-plaintext highlighter-rouge">Γ</code> and <code class="language-plaintext highlighter-rouge">Δ</code> range over contexts.</p>
 
-<h4 id="exercise-contextℕ-practice">Exercise (<code class="highlighter-rouge">Context≃ℕ</code>) (practice)</h4>
+<h4 id="exercise-contextℕ-practice">Exercise (<code class="language-plaintext highlighter-rouge">Context≃ℕ</code>) (practice)</h4>
 
-<p>Show that <code class="highlighter-rouge">Context</code> is isomorphic to <code class="highlighter-rouge">ℕ</code>.</p>
+<p>Show that <code class="language-plaintext highlighter-rouge">Context</code> is isomorphic to <code class="language-plaintext highlighter-rouge">ℕ</code>.</p>
 
 <pre class="Agda"><a id="3354" class="Comment">-- Your code goes here</a>
 </pre>
@@ -202,18 +202,18 @@ rules are as before:</p>
       <a id="3635" class="Comment">---------</a>
     <a id="3649" class="Symbol">→</a> <a id="3651" href="/Untyped/#3610" class="Bound">Γ</a> <a id="3653" href="plfa.part2.Untyped.html#3191" class="InductiveConstructor Operator">,</a> <a id="3655" href="plfa.part2.Untyped.html#3614" class="Bound">B</a> <a id="3657" href="plfa.part2.Untyped.html#3521" class="Datatype Operator">∋</a> <a id="3659" href="plfa.part2.Untyped.html#3612" class="Bound">A</a>
 </pre>
-<p>We could write the rules with all instances of <code class="highlighter-rouge">A</code> and <code class="highlighter-rouge">B</code>
-replaced by <code class="highlighter-rouge">★</code>, but arguably it is clearer not to do so.</p>
+<p>We could write the rules with all instances of <code class="language-plaintext highlighter-rouge">A</code> and <code class="language-plaintext highlighter-rouge">B</code>
+replaced by <code class="language-plaintext highlighter-rouge">★</code>, but arguably it is clearer not to do so.</p>
 
-<p>Because <code class="highlighter-rouge">★</code> is the only type, the judgment doesn’t guarantee anything
+<p>Because <code class="language-plaintext highlighter-rouge">★</code> is the only type, the judgment doesn’t guarantee anything
 useful about types.  But it does ensure that all variables are in
-scope.  For instance, we cannot use <code class="highlighter-rouge">S S Z</code> in a context that only
+scope.  For instance, we cannot use <code class="language-plaintext highlighter-rouge">S S Z</code> in a context that only
 binds two variables.</p>
 
 <h2 id="terms-and-the-scoping-judgment">Terms and the scoping judgment</h2>
 
 <p>Intrinsically-scoped terms correspond to the typing judgment, but with
-<code class="highlighter-rouge">★</code> as the only type.  The result is that we check that terms are
+<code class="language-plaintext highlighter-rouge">★</code> as the only type.  The result is that we check that terms are
 well scoped — that is, that all variables they mention are in scope —
 but not that they are well typed:</p>
 <pre class="Agda"><a id="4289" class="Keyword">data</a> <a id="_⊢_"></a><a id="4294" href="/Untyped/#4294" class="Datatype Operator">_⊢_</a> <a id="4298" class="Symbol">:</a> <a id="4300" href="plfa.part2.Untyped.html#3153" class="Datatype">Context</a> <a id="4308" class="Symbol">→</a> <a id="4310" href="plfa.part2.Untyped.html#2869" class="Datatype">Type</a> <a id="4315" class="Symbol">→</a> <a id="4317" class="PrimitiveType">Set</a> <a id="4321" class="Keyword">where</a>
@@ -269,7 +269,7 @@ every variable has the same type:</p>
 <a id="5450" href="/Untyped/#5437" class="Function">2+2ᶜ</a> <a id="5455" class="Symbol">=</a> <a id="5457" href="plfa.part2.Untyped.html#5366" class="Function">plusᶜ</a> <a id="5463" href="plfa.part2.Untyped.html#4442" class="InductiveConstructor Operator">·</a> <a id="5465" href="plfa.part2.Untyped.html#5242" class="Function">twoᶜ</a> <a id="5470" href="plfa.part2.Untyped.html#4442" class="InductiveConstructor Operator">·</a> <a id="5472" href="plfa.part2.Untyped.html#5242" class="Function">twoᶜ</a>
 </pre>
 <p>Before, reduction stopped when we reached a lambda term, so we had to
-compute <code class="highlighter-rouge">plusᶜ · twoᶜ · twoᶜ · sucᶜ · `zero</code> to ensure we reduced
+compute <code class="language-plaintext highlighter-rouge">plusᶜ · twoᶜ · twoᶜ · sucᶜ · `zero</code> to ensure we reduced
 to a representation of the natural four.  Now, reduction continues
 under lambda, so we don’t need the extra arguments.  It is convenient
 to define a term to represent four as a Church numeral, as well as
@@ -284,7 +284,7 @@ two.</p>
 <a id="6043" href="/Untyped/#5925" class="Function">ext</a> <a id="6047" href="plfa.part2.Untyped.html#6047" class="Bound">ρ</a> <a id="6049" href="plfa.part2.Untyped.html#3557" class="InductiveConstructor">Z</a>      <a id="6056" class="Symbol">=</a>  <a id="6059" href="plfa.part2.Untyped.html#3557" class="InductiveConstructor">Z</a>
 <a id="6061" href="/Untyped/#5925" class="Function">ext</a> <a id="6065" href="plfa.part2.Untyped.html#6065" class="Bound">ρ</a> <a id="6067" class="Symbol">(</a><a id="6068" href="plfa.part2.Untyped.html#3602" class="InductiveConstructor Operator">S</a> <a id="6070" href="plfa.part2.Untyped.html#6070" class="Bound">x</a><a id="6071" class="Symbol">)</a>  <a id="6074" class="Symbol">=</a>  <a id="6077" href="plfa.part2.Untyped.html#3602" class="InductiveConstructor Operator">S</a> <a id="6079" class="Symbol">(</a><a id="6080" href="plfa.part2.Untyped.html#6065" class="Bound">ρ</a> <a id="6082" href="plfa.part2.Untyped.html#6070" class="Bound">x</a><a id="6083" class="Symbol">)</a>
 </pre>
-<p>We could replace all instances of <code class="highlighter-rouge">A</code> and <code class="highlighter-rouge">B</code> by <code class="highlighter-rouge">★</code>, but arguably it is
+<p>We could replace all instances of <code class="language-plaintext highlighter-rouge">A</code> and <code class="language-plaintext highlighter-rouge">B</code> by <code class="language-plaintext highlighter-rouge">★</code>, but arguably it is
 clearer not to do so.</p>
 
 <p>Now it is straightforward to define renaming:</p>
@@ -308,7 +308,7 @@ First we need an extension lemma:</p>
 <a id="6789" href="/Untyped/#6671" class="Function">exts</a> <a id="6794" href="plfa.part2.Untyped.html#6794" class="Bound">σ</a> <a id="6796" href="plfa.part2.Untyped.html#3557" class="InductiveConstructor">Z</a>      <a id="6803" class="Symbol">=</a>  <a id="6806" href="plfa.part2.Untyped.html#4330" class="InductiveConstructor Operator">`</a> <a id="6808" href="plfa.part2.Untyped.html#3557" class="InductiveConstructor">Z</a>
 <a id="6810" href="/Untyped/#6671" class="Function">exts</a> <a id="6815" href="plfa.part2.Untyped.html#6815" class="Bound">σ</a> <a id="6817" class="Symbol">(</a><a id="6818" href="plfa.part2.Untyped.html#3602" class="InductiveConstructor Operator">S</a> <a id="6820" href="plfa.part2.Untyped.html#6820" class="Bound">x</a><a id="6821" class="Symbol">)</a>  <a id="6824" class="Symbol">=</a>  <a id="6827" href="plfa.part2.Untyped.html#6235" class="Function">rename</a> <a id="6834" href="plfa.part2.Untyped.html#3602" class="InductiveConstructor Operator">S_</a> <a id="6837" class="Symbol">(</a><a id="6838" href="plfa.part2.Untyped.html#6815" class="Bound">σ</a> <a id="6840" href="plfa.part2.Untyped.html#6820" class="Bound">x</a><a id="6841" class="Symbol">)</a>
 </pre>
-<p>Again, we could replace all instances of <code class="highlighter-rouge">A</code> and <code class="highlighter-rouge">B</code> by <code class="highlighter-rouge">★</code>.</p>
+<p>Again, we could replace all instances of <code class="language-plaintext highlighter-rouge">A</code> and <code class="language-plaintext highlighter-rouge">B</code> by <code class="language-plaintext highlighter-rouge">★</code>.</p>
 
 <p>Now it is straightforward to define substitution:</p>
 <pre class="Agda"><a id="subst"></a><a id="6963" href="/Untyped/#6963" class="Function">subst</a> <a id="6969" class="Symbol">:</a> <a id="6971" class="Symbol">∀</a> <a id="6973" class="Symbol">{</a><a id="6974" href="plfa.part2.Untyped.html#6974" class="Bound">Γ</a> <a id="6976" href="plfa.part2.Untyped.html#6976" class="Bound">Δ</a><a id="6977" class="Symbol">}</a>
@@ -359,8 +359,8 @@ variable or a neutral term applied to a normal term:</p>
     <a id="8322" class="Symbol">→</a> <a id="8324" href="/Untyped/#7884" class="Datatype">Neutral</a> <a id="8332" class="Symbol">(</a><a id="8333" href="plfa.part2.Untyped.html#8252" class="Bound">L</a> <a id="8335" href="plfa.part2.Untyped.html#4442" class="InductiveConstructor Operator">·</a> <a id="8337" href="plfa.part2.Untyped.html#8254" class="Bound">M</a><a id="8338" class="Symbol">)</a>
 </pre>
 <p>A term is a normal form if it is neutral or an abstraction where the
-body is a normal form. We use <code class="highlighter-rouge">′_</code> to label neutral terms.
-Like <code class="highlighter-rouge">`_</code>, it is unobtrusive:</p>
+body is a normal form. We use <code class="language-plaintext highlighter-rouge">′_</code> to label neutral terms.
+Like <code class="language-plaintext highlighter-rouge">`_</code>, it is unobtrusive:</p>
 <pre class="Agda"><a id="8510" class="Keyword">data</a> <a id="8515" href="/Untyped/#7921" class="Datatype">Normal</a> <a id="8522" class="Keyword">where</a>
 
   <a id="Normal.′_"></a><a id="8531" href="/Untyped/#8531" class="InductiveConstructor Operator">′_</a> <a id="8534" class="Symbol">:</a> <a id="8536" class="Symbol">∀</a> <a id="8538" class="Symbol">{</a><a id="8539" href="plfa.part2.Untyped.html#8539" class="Bound">Γ</a> <a id="8541" href="plfa.part2.Untyped.html#8541" class="Bound">A</a><a id="8542" class="Symbol">}</a> <a id="8544" class="Symbol">{</a><a id="8545" href="plfa.part2.Untyped.html#8545" class="Bound">M</a> <a id="8547" class="Symbol">:</a> <a id="8549" href="plfa.part2.Untyped.html#8539" class="Bound">Γ</a> <a id="8551" href="plfa.part2.Untyped.html#4294" class="Datatype Operator">⊢</a> <a id="8553" href="plfa.part2.Untyped.html#8541" class="Bound">A</a><a id="8554" class="Symbol">}</a>
@@ -384,7 +384,7 @@ normal form:</p>
 </pre>
 <p>The evidence that a term is in normal form is almost identical to
 the term itself, decorated with some additional primes to indicate
-neutral terms, and using <code class="highlighter-rouge">#′</code> in place of <code class="highlighter-rouge">#</code></p>
+neutral terms, and using <code class="language-plaintext highlighter-rouge">#′</code> in place of <code class="language-plaintext highlighter-rouge">#</code></p>
 
 <p>We will also need to characterise terms that are applications:</p>
 <pre class="Agda"><a id="9237" class="Keyword">data</a> <a id="Application"></a><a id="9242" href="/Untyped/#9242" class="Datatype">Application</a> <a id="9254" class="Symbol">:</a> <a id="9256" class="Symbol">∀</a> <a id="9258" class="Symbol">{</a><a id="9259" href="plfa.part2.Untyped.html#9259" class="Bound">Γ</a> <a id="9261" href="plfa.part2.Untyped.html#9261" class="Bound">A</a><a id="9262" class="Symbol">}</a> <a id="9264" class="Symbol">→</a> <a id="9266" href="plfa.part2.Untyped.html#9259" class="Bound">Γ</a> <a id="9268" href="plfa.part2.Untyped.html#4294" class="Datatype Operator">⊢</a> <a id="9270" href="plfa.part2.Untyped.html#9261" class="Bound">A</a> <a id="9272" class="Symbol">→</a> <a id="9274" class="PrimitiveType">Set</a> <a id="9278" class="Keyword">where</a>
@@ -401,23 +401,23 @@ call-by-name and to enable full normalisation:</p>
 
 <ul>
   <li>
-    <p>The rule <code class="highlighter-rouge">ξ₁</code> remains the same as it was for the simply-typed
+    <p>The rule <code class="language-plaintext highlighter-rouge">ξ₁</code> remains the same as it was for the simply-typed
 lambda calculus.</p>
   </li>
   <li>
-    <p>In rule <code class="highlighter-rouge">ξ₂</code>, the requirement that the term <code class="highlighter-rouge">L</code> is a value
-is dropped. So this rule can overlap with <code class="highlighter-rouge">ξ₁</code> and
+    <p>In rule <code class="language-plaintext highlighter-rouge">ξ₂</code>, the requirement that the term <code class="language-plaintext highlighter-rouge">L</code> is a value
+is dropped. So this rule can overlap with <code class="language-plaintext highlighter-rouge">ξ₁</code> and
 reduction is <em>non-deterministic</em>. One can choose to reduce
-a term inside either <code class="highlighter-rouge">L</code> or <code class="highlighter-rouge">M</code>.</p>
+a term inside either <code class="language-plaintext highlighter-rouge">L</code> or <code class="language-plaintext highlighter-rouge">M</code>.</p>
   </li>
   <li>
-    <p>In rule <code class="highlighter-rouge">β</code>, the requirement that the argument is a value
+    <p>In rule <code class="language-plaintext highlighter-rouge">β</code>, the requirement that the argument is a value
 is dropped, corresponding to call-by-name evaluation.
-This introduces further non-determinism, as <code class="highlighter-rouge">β</code> overlaps
-with <code class="highlighter-rouge">ξ₂</code> when there are redexes in the argument.</p>
+This introduces further non-determinism, as <code class="language-plaintext highlighter-rouge">β</code> overlaps
+with <code class="language-plaintext highlighter-rouge">ξ₂</code> when there are redexes in the argument.</p>
   </li>
   <li>
-    <p>A new rule <code class="highlighter-rouge">ζ</code> is added, to enable reduction underneath a lambda.</p>
+    <p>A new rule <code class="language-plaintext highlighter-rouge">ζ</code> is added, to enable reduction underneath a lambda.</p>
   </li>
 </ul>
 
@@ -445,20 +445,20 @@ with <code class="highlighter-rouge">ξ₂</code> when there are redexes in the 
       <a id="10534" class="Comment">-----------</a>
     <a id="10550" class="Symbol">→</a> <a id="10552" href="/Untyped/#4382" class="InductiveConstructor Operator">ƛ</a> <a id="10554" href="plfa.part2.Untyped.html#10496" class="Bound">N</a> <a id="10556" href="plfa.part2.Untyped.html#10147" class="Datatype Operator">—→</a> <a id="10559" href="plfa.part2.Untyped.html#4382" class="InductiveConstructor Operator">ƛ</a> <a id="10561" href="plfa.part2.Untyped.html#10498" class="Bound">N′</a>
 </pre>
-<h4 id="exercise-variant-1-practice">Exercise (<code class="highlighter-rouge">variant-1</code>) (practice)</h4>
+<h4 id="exercise-variant-1-practice">Exercise (<code class="language-plaintext highlighter-rouge">variant-1</code>) (practice)</h4>
 
 <p>How would the rules change if we want call-by-value where terms
-normalise completely?  Assume that <code class="highlighter-rouge">β</code> should not permit reduction
+normalise completely?  Assume that <code class="language-plaintext highlighter-rouge">β</code> should not permit reduction
 unless both terms are in normal form.</p>
 
 <pre class="Agda"><a id="10783" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-variant-2-practice">Exercise (<code class="highlighter-rouge">variant-2</code>) (practice)</h4>
+<h4 id="exercise-variant-2-practice">Exercise (<code class="language-plaintext highlighter-rouge">variant-2</code>) (practice)</h4>
 
 <p>How would the rules change if we want call-by-value where terms
-do not reduce underneath lambda?  Assume that <code class="highlighter-rouge">β</code>
+do not reduce underneath lambda?  Assume that <code class="language-plaintext highlighter-rouge">β</code>
 permits reduction when both terms are values (that is, lambda
-abstractions).  What would <code class="highlighter-rouge">2+2ᶜ</code> reduce to in this case?</p>
+abstractions).  What would <code class="language-plaintext highlighter-rouge">2+2ᶜ</code> reduce to in this case?</p>
 
 <pre class="Agda"><a id="11090" class="Comment">-- Your code goes here</a>
 </pre>
@@ -512,7 +512,7 @@ abstractions).  What would <code class="highlighter-rouge">2+2ᶜ</code> reduce 
   <a id="12103" href="/Untyped/#11317" class="InductiveConstructor Operator">∎</a>
 </pre>
 <p>After just two steps the top-level term is an abstraction,
-and <code class="highlighter-rouge">ζ</code> rules drive the rest of the normalisation.</p>
+and <code class="language-plaintext highlighter-rouge">ζ</code> rules drive the rest of the normalisation.</p>
 
 <h2 id="progress">Progress</h2>
 
@@ -522,7 +522,7 @@ form or takes a reduction step.</p>
 
 <p>Previously, progress only applied to closed, well-typed terms.  We had
 to rule out terms where we apply something other than a function (such
-as <code class="highlighter-rouge">`zero</code>) or terms with a free variable.  Now we can demonstrate
+as <code class="language-plaintext highlighter-rouge">`zero</code>) or terms with a free variable.  Now we can demonstrate
 it for open, well-scoped terms.  The definition of normal form permits
 free variables, and we have no terms that are not functions.</p>
 
@@ -565,7 +565,7 @@ ruled out by the restriction to closed terms.)</li>
 (This contrast with previous proofs, where an abstraction is
 immediately a value.):
     <ul>
-      <li>If it steps, then the whole term steps via <code class="highlighter-rouge">ζ</code>.</li>
+      <li>If it steps, then the whole term steps via <code class="language-plaintext highlighter-rouge">ζ</code>.</li>
       <li>If it is in normal form, then so is the whole term.</li>
     </ul>
   </li>
@@ -573,17 +573,17 @@ immediately a value.):
     <ul>
       <li>If it is a variable, recursively invoke progress on the argument:
         <ul>
-          <li>If it steps, then the whole term steps via <code class="highlighter-rouge">ξ₂</code>;</li>
+          <li>If it steps, then the whole term steps via <code class="language-plaintext highlighter-rouge">ξ₂</code>;</li>
           <li>If it is normal, then so is the whole term.</li>
         </ul>
       </li>
-      <li>If it is an abstraction, then the whole term steps via <code class="highlighter-rouge">β</code>.</li>
+      <li>If it is an abstraction, then the whole term steps via <code class="language-plaintext highlighter-rouge">β</code>.</li>
       <li>If it is an application, recursively apply progress to the function subterm:
         <ul>
-          <li>If it steps, then the whole term steps via <code class="highlighter-rouge">ξ₁</code>.</li>
+          <li>If it steps, then the whole term steps via <code class="language-plaintext highlighter-rouge">ξ₁</code>.</li>
           <li>If it is normal, recursively apply progress to the argument subterm:
             <ul>
-              <li>If it steps, then the whole term steps via <code class="highlighter-rouge">ξ₂</code>.</li>
+              <li>If it steps, then the whole term steps via <code class="language-plaintext highlighter-rouge">ξ₂</code>.</li>
               <li>If it is normal, then so is the whole term.</li>
             </ul>
           </li>
@@ -593,10 +593,10 @@ immediately a value.):
   </li>
 </ul>
 
-<p>The final equation for progress uses an <em>at pattern</em> of the form <code class="highlighter-rouge">P@Q</code>,
-which matches only if both pattern <code class="highlighter-rouge">P</code> and pattern <code class="highlighter-rouge">Q</code> match.  Character
-<code class="highlighter-rouge">@</code> is one of the few that Agda doesn’t allow in names, so spaces are not
-required around it.  In this case, the pattern ensures that <code class="highlighter-rouge">L</code> is an
+<p>The final equation for progress uses an <em>at pattern</em> of the form <code class="language-plaintext highlighter-rouge">P@Q</code>,
+which matches only if both pattern <code class="language-plaintext highlighter-rouge">P</code> and pattern <code class="language-plaintext highlighter-rouge">Q</code> match.  Character
+<code class="language-plaintext highlighter-rouge">@</code> is one of the few that Agda doesn’t allow in names, so spaces are not
+required around it.  In this case, the pattern ensures that <code class="language-plaintext highlighter-rouge">L</code> is an
 application.</p>
 
 <h2 id="evaluation">Evaluation</h2>
@@ -607,8 +607,8 @@ application.</p>
 <pre class="Agda"><a id="15391" class="Keyword">data</a> <a id="Gas"></a><a id="15396" href="/Untyped/#15396" class="Datatype">Gas</a> <a id="15400" class="Symbol">:</a> <a id="15402" class="PrimitiveType">Set</a> <a id="15406" class="Keyword">where</a>
   <a id="Gas.gas"></a><a id="15414" href="/Untyped/#15414" class="InductiveConstructor">gas</a> <a id="15418" class="Symbol">:</a> <a id="15420" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a> <a id="15422" class="Symbol">→</a> <a id="15424" href="plfa.part2.Untyped.html#15396" class="Datatype">Gas</a>
 </pre>
-<p>When our evaluator returns a term <code class="highlighter-rouge">N</code>, it will either give evidence that
-<code class="highlighter-rouge">N</code> is normal or indicate that it ran out of gas:</p>
+<p>When our evaluator returns a term <code class="language-plaintext highlighter-rouge">N</code>, it will either give evidence that
+<code class="language-plaintext highlighter-rouge">N</code> is normal or indicate that it ran out of gas:</p>
 <pre class="Agda"><a id="15559" class="Keyword">data</a> <a id="Finished"></a><a id="15564" href="/Untyped/#15564" class="Datatype">Finished</a> <a id="15573" class="Symbol">{</a><a id="15574" href="plfa.part2.Untyped.html#15574" class="Bound">Γ</a> <a id="15576" href="plfa.part2.Untyped.html#15576" class="Bound">A</a><a id="15577" class="Symbol">}</a> <a id="15579" class="Symbol">(</a><a id="15580" href="plfa.part2.Untyped.html#15580" class="Bound">N</a> <a id="15582" class="Symbol">:</a> <a id="15584" href="plfa.part2.Untyped.html#15574" class="Bound">Γ</a> <a id="15586" href="plfa.part2.Untyped.html#4294" class="Datatype Operator">⊢</a> <a id="15588" href="plfa.part2.Untyped.html#15576" class="Bound">A</a><a id="15589" class="Symbol">)</a> <a id="15591" class="Symbol">:</a> <a id="15593" class="PrimitiveType">Set</a> <a id="15597" class="Keyword">where</a>
 
    <a id="Finished.done"></a><a id="15607" href="/Untyped/#15607" class="InductiveConstructor">done</a> <a id="15612" class="Symbol">:</a>
@@ -620,8 +620,8 @@ application.</p>
        <a id="15690" class="Comment">----------</a>
        <a id="15708" href="/Untyped/#15564" class="Datatype">Finished</a> <a id="15717" href="plfa.part2.Untyped.html#15580" class="Bound">N</a>
 </pre>
-<p>Given a term <code class="highlighter-rouge">L</code> of type <code class="highlighter-rouge">A</code>, the evaluator will, for some <code class="highlighter-rouge">N</code>, return
-a reduction sequence from <code class="highlighter-rouge">L</code> to <code class="highlighter-rouge">N</code> and an indication of whether
+<p>Given a term <code class="language-plaintext highlighter-rouge">L</code> of type <code class="language-plaintext highlighter-rouge">A</code>, the evaluator will, for some <code class="language-plaintext highlighter-rouge">N</code>, return
+a reduction sequence from <code class="language-plaintext highlighter-rouge">L</code> to <code class="language-plaintext highlighter-rouge">N</code> and an indication of whether
 reduction finished:</p>
 <pre class="Agda"><a id="15884" class="Keyword">data</a> <a id="Steps"></a><a id="15889" href="/Untyped/#15889" class="Datatype">Steps</a> <a id="15895" class="Symbol">:</a> <a id="15897" class="Symbol">∀</a> <a id="15899" class="Symbol">{</a><a id="15900" href="plfa.part2.Untyped.html#15900" class="Bound">Γ</a> <a id="15902" href="plfa.part2.Untyped.html#15902" class="Bound">A</a><a id="15903" class="Symbol">}</a> <a id="15905" class="Symbol">→</a> <a id="15907" href="plfa.part2.Untyped.html#15900" class="Bound">Γ</a> <a id="15909" href="plfa.part2.Untyped.html#4294" class="Datatype Operator">⊢</a> <a id="15911" href="plfa.part2.Untyped.html#15902" class="Bound">A</a> <a id="15913" class="Symbol">→</a> <a id="15915" class="PrimitiveType">Set</a> <a id="15919" class="Keyword">where</a>
 
@@ -643,8 +643,8 @@ reduction finished:</p>
 <a id="16338" class="Symbol">...</a> <a id="16342" class="Symbol">|</a> <a id="16344" href="/Untyped/#12875" class="InductiveConstructor">step</a> <a id="16349" class="Symbol">{</a><a id="16350" href="plfa.part2.Untyped.html#16350" class="Bound">M</a><a id="16351" class="Symbol">}</a> <a id="16353" href="plfa.part2.Untyped.html#16353" class="Bound">L—→M</a> <a id="16358" class="Keyword">with</a> <a id="16363" href="plfa.part2.Untyped.html#16099" class="Function">eval</a> <a id="16368" class="Symbol">(</a><a id="16369" href="plfa.part2.Untyped.html#15414" class="InductiveConstructor">gas</a> <a id="16373" class="Bound">m</a><a id="16374" class="Symbol">)</a> <a id="16376" href="plfa.part2.Untyped.html#16350" class="Bound">M</a>
 <a id="16378" class="Symbol">...</a>    <a id="16385" class="Symbol">|</a> <a id="16387" href="/Untyped/#15928" class="InductiveConstructor">steps</a> <a id="16393" href="plfa.part2.Untyped.html#16393" class="Bound">M—↠N</a> <a id="16398" href="plfa.part2.Untyped.html#16398" class="Bound">fin</a>                  <a id="16419" class="Symbol">=</a>  <a id="16422" href="plfa.part2.Untyped.html#15928" class="InductiveConstructor">steps</a> <a id="16428" class="Symbol">(</a><a id="16429" class="Bound">L</a> <a id="16431" href="plfa.part2.Untyped.html#11373" class="InductiveConstructor Operator">—→⟨</a> <a id="16435" class="Bound">L—→M</a> <a id="16440" href="plfa.part2.Untyped.html#11373" class="InductiveConstructor Operator">⟩</a> <a id="16442" href="plfa.part2.Untyped.html#16393" class="Bound">M—↠N</a><a id="16446" class="Symbol">)</a> <a id="16448" href="plfa.part2.Untyped.html#16398" class="Bound">fin</a>
 </pre>
-<p>The definition is as before, save that the empty context <code class="highlighter-rouge">∅</code>
-generalises to an arbitrary context <code class="highlighter-rouge">Γ</code>.</p>
+<p>The definition is as before, save that the empty context <code class="language-plaintext highlighter-rouge">∅</code>
+generalises to an arbitrary context <code class="language-plaintext highlighter-rouge">Γ</code>.</p>
 
 <h2 id="example">Example</h2>
 
@@ -710,7 +710,7 @@ defined by the expression that corresponds to its own case statement.</p>
 corresponding number of times.  Using named terms, we represent the
 first three Church numerals as follows:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zero  =  ƛ s ⇒ ƛ z ⇒ z
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zero  =  ƛ s ⇒ ƛ z ⇒ z
 one   =  ƛ s ⇒ ƛ z ⇒ s · z
 two   =  ƛ s ⇒ ƛ z ⇒ s · (s · z)
 </code></pre></div></div>
@@ -718,7 +718,7 @@ two   =  ƛ s ⇒ ƛ z ⇒ s · (s · z)
 <p>In contrast, for Scott numerals, we represent the first three naturals
 as follows:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zero = ƛ s ⇒ ƛ z ⇒ z
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zero = ƛ s ⇒ ƛ z ⇒ z
 one  = ƛ s ⇒ ƛ z ⇒ s · zero
 two  = ƛ s ⇒ ƛ z ⇒ s · one
 </code></pre></div></div>
@@ -746,12 +746,12 @@ ordinary term using lambda abstraction.</p>
 
 <p>We can also define fixpoint.  Using named terms, we define:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>μ f = (ƛ x ⇒ f · (x · x)) · (ƛ x ⇒ f · (x · x))
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>μ f = (ƛ x ⇒ f · (x · x)) · (ƛ x ⇒ f · (x · x))
 </code></pre></div></div>
 
 <p>This works because:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  μ f
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  μ f
 ≡
   (ƛ x ⇒ f · (x · x)) · (ƛ x ⇒ f · (x · x))
 —→
@@ -778,18 +778,18 @@ ordinary term using lambda abstraction.</p>
 <a id="plus"></a><a id="20195" href="/Untyped/#20195" class="Function">plus</a> <a id="20200" class="Symbol">:</a> <a id="20202" class="Symbol">∀</a> <a id="20204" class="Symbol">{</a><a id="20205" href="plfa.part2.Untyped.html#20205" class="Bound">Γ</a><a id="20206" class="Symbol">}</a> <a id="20208" class="Symbol">→</a> <a id="20210" href="plfa.part2.Untyped.html#20205" class="Bound">Γ</a> <a id="20212" href="plfa.part2.Untyped.html#4294" class="Datatype Operator">⊢</a> <a id="20214" href="plfa.part2.Untyped.html#2888" class="InductiveConstructor">★</a>
 <a id="20216" href="/Untyped/#20195" class="Function">plus</a> <a id="20221" class="Symbol">=</a> <a id="20223" href="plfa.part2.Untyped.html#19840" class="Function Operator">μ</a> <a id="20225" href="plfa.part2.Untyped.html#4382" class="InductiveConstructor Operator">ƛ</a> <a id="20227" href="plfa.part2.Untyped.html#4382" class="InductiveConstructor Operator">ƛ</a> <a id="20229" class="Symbol">(</a><a id="20230" href="plfa.part2.Untyped.html#19175" class="Function">case</a> <a id="20235" class="Symbol">(</a><a id="20236" href="plfa.part2.Untyped.html#5111" class="Function Operator">#</a> <a id="20238" class="Number">1</a><a id="20239" class="Symbol">)</a> <a id="20241" class="Symbol">(</a><a id="20242" href="plfa.part2.Untyped.html#5111" class="Function Operator">#</a> <a id="20244" class="Number">0</a><a id="20245" class="Symbol">)</a> <a id="20247" class="Symbol">(</a><a id="20248" href="plfa.part2.Untyped.html#19105" class="Function Operator">`suc</a> <a id="20253" class="Symbol">(</a><a id="20254" href="plfa.part2.Untyped.html#5111" class="Function Operator">#</a> <a id="20256" class="Number">3</a> <a id="20258" href="plfa.part2.Untyped.html#4442" class="InductiveConstructor Operator">·</a> <a id="20260" href="plfa.part2.Untyped.html#5111" class="Function Operator">#</a> <a id="20262" class="Number">0</a> <a id="20264" href="plfa.part2.Untyped.html#4442" class="InductiveConstructor Operator">·</a> <a id="20266" href="plfa.part2.Untyped.html#5111" class="Function Operator">#</a> <a id="20268" class="Number">1</a><a id="20269" class="Symbol">)))</a>
 </pre>
-<p>Because <code class="highlighter-rouge">`suc</code> is now a defined term rather than primitive,
-it is no longer the case that <code class="highlighter-rouge">plus · two · two</code> reduces to <code class="highlighter-rouge">four</code>,
+<p>Because <code class="language-plaintext highlighter-rouge">`suc</code> is now a defined term rather than primitive,
+it is no longer the case that <code class="language-plaintext highlighter-rouge">plus · two · two</code> reduces to <code class="language-plaintext highlighter-rouge">four</code>,
 but they do both reduce to the same normal term.</p>
 
-<h4 id="exercise-plus-eval-practice">Exercise <code class="highlighter-rouge">plus-eval</code> (practice)</h4>
+<h4 id="exercise-plus-eval-practice">Exercise <code class="language-plaintext highlighter-rouge">plus-eval</code> (practice)</h4>
 
-<p>Use the evaluator to confirm that <code class="highlighter-rouge">plus · two · two</code> and <code class="highlighter-rouge">four</code>
+<p>Use the evaluator to confirm that <code class="language-plaintext highlighter-rouge">plus · two · two</code> and <code class="language-plaintext highlighter-rouge">four</code>
 normalise to the same term.</p>
 
 <pre class="Agda"><a id="20594" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-multiplication-untyped-recommended">Exercise <code class="highlighter-rouge">multiplication-untyped</code> (recommended)</h4>
+<h4 id="exercise-multiplication-untyped-recommended">Exercise <code class="language-plaintext highlighter-rouge">multiplication-untyped</code> (recommended)</h4>
 
 <p>Use the encodings above to translate your definition of
 multiplication from previous chapters with the Scott
@@ -798,7 +798,7 @@ Confirm that two times two is four.</p>
 
 <pre class="Agda"><a id="20884" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="exercise-encode-more-stretch">Exercise <code class="highlighter-rouge">encode-more</code> (stretch)</h4>
+<h4 id="exercise-encode-more-stretch">Exercise <code class="language-plaintext highlighter-rouge">encode-more</code> (stretch)</h4>
 
 <p>Along the lines above, encode all of the constructs of
 Chapter <a href="/More/">More</a>,
@@ -810,12 +810,12 @@ save for primitive numbers, in the untyped lambda calculus.</p>
 <h2 id="multi-step-reduction-is-transitive">Multi-step reduction is transitive</h2>
 
 <p>In our formulation of the reflexive transitive closure of reduction,
-i.e., the <code class="highlighter-rouge">—↠</code> relation, there is not an explicit rule for
+i.e., the <code class="language-plaintext highlighter-rouge">—↠</code> relation, there is not an explicit rule for
 transitivity. Instead the relation mimics the structure of lists by
 providing a case for an empty reduction sequence and a case for adding
 one reduction to the front of a reduction sequence.  The following is
 the proof of transitivity, which has the same structure as the append
-function <code class="highlighter-rouge">_++_</code> on lists.</p>
+function <code class="language-plaintext highlighter-rouge">_++_</code> on lists.</p>
 
 <pre class="Agda"><a id="—↠-trans"></a><a id="21619" href="/Untyped/#21619" class="Function">—↠-trans</a> <a id="21628" class="Symbol">:</a> <a id="21630" class="Symbol">∀{</a><a id="21632" href="plfa.part2.Untyped.html#21632" class="Bound">Γ</a><a id="21633" class="Symbol">}{</a><a id="21635" href="plfa.part2.Untyped.html#21635" class="Bound">A</a><a id="21636" class="Symbol">}{</a><a id="21638" href="plfa.part2.Untyped.html#21638" class="Bound">L</a> <a id="21640" href="plfa.part2.Untyped.html#21640" class="Bound">M</a> <a id="21642" href="plfa.part2.Untyped.html#21642" class="Bound">N</a> <a id="21644" class="Symbol">:</a> <a id="21646" href="plfa.part2.Untyped.html#21632" class="Bound">Γ</a> <a id="21648" href="plfa.part2.Untyped.html#4294" class="Datatype Operator">⊢</a> <a id="21650" href="plfa.part2.Untyped.html#21635" class="Bound">A</a><a id="21651" class="Symbol">}</a>
          <a id="21662" class="Symbol">→</a> <a id="21664" href="/Untyped/#21638" class="Bound">L</a> <a id="21666" href="plfa.part2.Untyped.html#11267" class="Datatype Operator">—↠</a> <a id="21669" href="plfa.part2.Untyped.html#21640" class="Bound">M</a>
@@ -825,7 +825,7 @@ function <code class="highlighter-rouge">_++_</code> on lists.</p>
 <a id="21730" href="/Untyped/#21619" class="Function">—↠-trans</a> <a id="21739" class="Symbol">(</a><a id="21740" href="plfa.part2.Untyped.html#21740" class="Bound">L</a> <a id="21742" href="plfa.part2.Untyped.html#11373" class="InductiveConstructor Operator">—→⟨</a> <a id="21746" href="plfa.part2.Untyped.html#21746" class="Bound">r</a> <a id="21748" href="plfa.part2.Untyped.html#11373" class="InductiveConstructor Operator">⟩</a> <a id="21750" href="plfa.part2.Untyped.html#21750" class="Bound">lm</a><a id="21752" class="Symbol">)</a> <a id="21754" href="plfa.part2.Untyped.html#21754" class="Bound">mn</a> <a id="21757" class="Symbol">=</a> <a id="21759" href="plfa.part2.Untyped.html#21740" class="Bound">L</a> <a id="21761" href="plfa.part2.Untyped.html#11373" class="InductiveConstructor Operator">—→⟨</a> <a id="21765" href="plfa.part2.Untyped.html#21746" class="Bound">r</a> <a id="21767" href="plfa.part2.Untyped.html#11373" class="InductiveConstructor Operator">⟩</a> <a id="21769" class="Symbol">(</a><a id="21770" href="plfa.part2.Untyped.html#21619" class="Function">—↠-trans</a> <a id="21779" href="plfa.part2.Untyped.html#21750" class="Bound">lm</a> <a id="21782" href="plfa.part2.Untyped.html#21754" class="Bound">mn</a><a id="21784" class="Symbol">)</a>
 </pre>
 <p>The following notation makes it convenient to employ
-transitivity of <code class="highlighter-rouge">—↠</code>.</p>
+transitivity of <code class="language-plaintext highlighter-rouge">—↠</code>.</p>
 
 <pre class="Agda"><a id="21871" class="Keyword">infixr</a> <a id="21878" class="Number">2</a> <a id="21880" href="/Untyped/#21889" class="Function Operator">_—↠⟨_⟩_</a>
 
@@ -839,17 +839,17 @@ transitivity of <code class="highlighter-rouge">—↠</code>.</p>
 <h2 id="multi-step-reduction-is-a-congruence">Multi-step reduction is a congruence</h2>
 
 <p>Recall from Chapter <a href="/Induction/">Induction</a> that a
-relation <code class="highlighter-rouge">R</code> is a <em>congruence</em> for a given function <code class="highlighter-rouge">f</code> if it is
-preserved by that function, i.e., if <code class="highlighter-rouge">R x y</code> then <code class="highlighter-rouge">R (f x) (f y)</code>.
-The term constructors <code class="highlighter-rouge">ƛ_</code> and <code class="highlighter-rouge">_·_</code> are functions, and so
+relation <code class="language-plaintext highlighter-rouge">R</code> is a <em>congruence</em> for a given function <code class="language-plaintext highlighter-rouge">f</code> if it is
+preserved by that function, i.e., if <code class="language-plaintext highlighter-rouge">R x y</code> then <code class="language-plaintext highlighter-rouge">R (f x) (f y)</code>.
+The term constructors <code class="language-plaintext highlighter-rouge">ƛ_</code> and <code class="language-plaintext highlighter-rouge">_·_</code> are functions, and so
 the notion of congruence applies to them as well. Furthermore, when a
 relation is a congruence for all of the term constructors, we
 say that the relation is a congruence for the language in question, in
 this case the untyped lambda calculus.</p>
 
-<p>The rules <code class="highlighter-rouge">ξ₁</code>, <code class="highlighter-rouge">ξ₂</code>, and <code class="highlighter-rouge">ζ</code> ensure that the reduction relation is a
+<p>The rules <code class="language-plaintext highlighter-rouge">ξ₁</code>, <code class="language-plaintext highlighter-rouge">ξ₂</code>, and <code class="language-plaintext highlighter-rouge">ζ</code> ensure that the reduction relation is a
 congruence for the untyped lambda calculus. The multi-step reduction
-relation <code class="highlighter-rouge">—↠</code> is also a congruence, which we prove in the following
+relation <code class="language-plaintext highlighter-rouge">—↠</code> is also a congruence, which we prove in the following
 three lemmas.</p>
 
 <pre class="Agda"><a id="appL-cong"></a><a id="22803" href="/Untyped/#22803" class="Function">appL-cong</a> <a id="22813" class="Symbol">:</a> <a id="22815" class="Symbol">∀</a> <a id="22817" class="Symbol">{</a><a id="22818" href="plfa.part2.Untyped.html#22818" class="Bound">Γ</a><a id="22819" class="Symbol">}</a> <a id="22821" class="Symbol">{</a><a id="22822" href="plfa.part2.Untyped.html#22822" class="Bound">L</a> <a id="22824" href="plfa.part2.Untyped.html#22824" class="Bound">L&#39;</a> <a id="22827" href="plfa.part2.Untyped.html#22827" class="Bound">M</a> <a id="22829" class="Symbol">:</a> <a id="22831" href="plfa.part2.Untyped.html#22818" class="Bound">Γ</a> <a id="22833" href="plfa.part2.Untyped.html#4294" class="Datatype Operator">⊢</a> <a id="22835" href="plfa.part2.Untyped.html#2888" class="InductiveConstructor">★</a><a id="22836" class="Symbol">}</a>
@@ -859,20 +859,20 @@ three lemmas.</p>
 <a id="22911" href="/Untyped/#22803" class="Function">appL-cong</a> <a id="22921" class="Symbol">{</a><a id="22922" href="plfa.part2.Untyped.html#22922" class="Bound">Γ</a><a id="22923" class="Symbol">}{</a><a id="22925" href="plfa.part2.Untyped.html#22925" class="Bound">L</a><a id="22926" class="Symbol">}{</a><a id="22928" href="plfa.part2.Untyped.html#22928" class="Bound">L&#39;</a><a id="22930" class="Symbol">}{</a><a id="22932" href="plfa.part2.Untyped.html#22932" class="Bound">M</a><a id="22933" class="Symbol">}</a> <a id="22935" class="Symbol">(</a><a id="22936" href="plfa.part2.Untyped.html#22925" class="Bound">L</a> <a id="22938" href="plfa.part2.Untyped.html#11317" class="InductiveConstructor Operator">∎</a><a id="22939" class="Symbol">)</a> <a id="22941" class="Symbol">=</a> <a id="22943" href="plfa.part2.Untyped.html#22925" class="Bound">L</a> <a id="22945" href="plfa.part2.Untyped.html#4442" class="InductiveConstructor Operator">·</a> <a id="22947" href="plfa.part2.Untyped.html#22932" class="Bound">M</a> <a id="22949" href="plfa.part2.Untyped.html#11317" class="InductiveConstructor Operator">∎</a>
 <a id="22951" href="/Untyped/#22803" class="Function">appL-cong</a> <a id="22961" class="Symbol">{</a><a id="22962" href="plfa.part2.Untyped.html#22962" class="Bound">Γ</a><a id="22963" class="Symbol">}{</a><a id="22965" href="plfa.part2.Untyped.html#22965" class="Bound">L</a><a id="22966" class="Symbol">}{</a><a id="22968" href="plfa.part2.Untyped.html#22968" class="Bound">L&#39;</a><a id="22970" class="Symbol">}{</a><a id="22972" href="plfa.part2.Untyped.html#22972" class="Bound">M</a><a id="22973" class="Symbol">}</a> <a id="22975" class="Symbol">(</a><a id="22976" href="plfa.part2.Untyped.html#22965" class="Bound">L</a> <a id="22978" href="plfa.part2.Untyped.html#11373" class="InductiveConstructor Operator">—→⟨</a> <a id="22982" href="plfa.part2.Untyped.html#22982" class="Bound">r</a> <a id="22984" href="plfa.part2.Untyped.html#11373" class="InductiveConstructor Operator">⟩</a> <a id="22986" href="plfa.part2.Untyped.html#22986" class="Bound">rs</a><a id="22988" class="Symbol">)</a> <a id="22990" class="Symbol">=</a> <a id="22992" href="plfa.part2.Untyped.html#22965" class="Bound">L</a> <a id="22994" href="plfa.part2.Untyped.html#4442" class="InductiveConstructor Operator">·</a> <a id="22996" href="plfa.part2.Untyped.html#22972" class="Bound">M</a> <a id="22998" href="plfa.part2.Untyped.html#11373" class="InductiveConstructor Operator">—→⟨</a> <a id="23002" href="plfa.part2.Untyped.html#10197" class="InductiveConstructor">ξ₁</a> <a id="23005" href="plfa.part2.Untyped.html#22982" class="Bound">r</a> <a id="23007" href="plfa.part2.Untyped.html#11373" class="InductiveConstructor Operator">⟩</a> <a id="23009" href="plfa.part2.Untyped.html#22803" class="Function">appL-cong</a> <a id="23019" href="plfa.part2.Untyped.html#22986" class="Bound">rs</a>
 </pre>
-<p>The proof of <code class="highlighter-rouge">appL-cong</code> is by induction on the reduction sequence <code class="highlighter-rouge">L —↠ L'</code>.</p>
+<p>The proof of <code class="language-plaintext highlighter-rouge">appL-cong</code> is by induction on the reduction sequence <code class="language-plaintext highlighter-rouge">L —↠ L'</code>.</p>
 <ul>
-  <li>Suppose <code class="highlighter-rouge">L —↠ L</code> by <code class="highlighter-rouge">L ∎</code>. Then we have
-<code class="highlighter-rouge">L · M —↠ L · M</code> by <code class="highlighter-rouge">L · M ∎</code>.</li>
-  <li>Suppose <code class="highlighter-rouge">L —↠ L''</code> by <code class="highlighter-rouge">L —→⟨ r ⟩ rs</code>, so
-<code class="highlighter-rouge">L —→ L'</code> by <code class="highlighter-rouge">r</code> and <code class="highlighter-rouge">L' —↠ L''</code> by <code class="highlighter-rouge">rs</code>.
-We have <code class="highlighter-rouge">L · M —→ L' · M</code> by <code class="highlighter-rouge">ξ₁ r</code> and
-<code class="highlighter-rouge">L' · M —↠ L'' · M</code> by the induction hypothesis applied to <code class="highlighter-rouge">rs</code>.
-We conclude that <code class="highlighter-rouge">L · M —↠ L'' · M</code> by putting these two
-facts together using <code class="highlighter-rouge">_—→⟨_⟩_</code>.</li>
+  <li>Suppose <code class="language-plaintext highlighter-rouge">L —↠ L</code> by <code class="language-plaintext highlighter-rouge">L ∎</code>. Then we have
+<code class="language-plaintext highlighter-rouge">L · M —↠ L · M</code> by <code class="language-plaintext highlighter-rouge">L · M ∎</code>.</li>
+  <li>Suppose <code class="language-plaintext highlighter-rouge">L —↠ L''</code> by <code class="language-plaintext highlighter-rouge">L —→⟨ r ⟩ rs</code>, so
+<code class="language-plaintext highlighter-rouge">L —→ L'</code> by <code class="language-plaintext highlighter-rouge">r</code> and <code class="language-plaintext highlighter-rouge">L' —↠ L''</code> by <code class="language-plaintext highlighter-rouge">rs</code>.
+We have <code class="language-plaintext highlighter-rouge">L · M —→ L' · M</code> by <code class="language-plaintext highlighter-rouge">ξ₁ r</code> and
+<code class="language-plaintext highlighter-rouge">L' · M —↠ L'' · M</code> by the induction hypothesis applied to <code class="language-plaintext highlighter-rouge">rs</code>.
+We conclude that <code class="language-plaintext highlighter-rouge">L · M —↠ L'' · M</code> by putting these two
+facts together using <code class="language-plaintext highlighter-rouge">_—→⟨_⟩_</code>.</li>
 </ul>
 
-<p>The proofs of <code class="highlighter-rouge">appR-cong</code> and <code class="highlighter-rouge">abs-cong</code> follow the same pattern as
-the proof for <code class="highlighter-rouge">appL-cong</code>.</p>
+<p>The proofs of <code class="language-plaintext highlighter-rouge">appR-cong</code> and <code class="language-plaintext highlighter-rouge">abs-cong</code> follow the same pattern as
+the proof for <code class="language-plaintext highlighter-rouge">appL-cong</code>.</p>
 
 <pre class="Agda"><a id="appR-cong"></a><a id="23572" href="/Untyped/#23572" class="Function">appR-cong</a> <a id="23582" class="Symbol">:</a> <a id="23584" class="Symbol">∀</a> <a id="23586" class="Symbol">{</a><a id="23587" href="plfa.part2.Untyped.html#23587" class="Bound">Γ</a><a id="23588" class="Symbol">}</a> <a id="23590" class="Symbol">{</a><a id="23591" href="plfa.part2.Untyped.html#23591" class="Bound">L</a> <a id="23593" href="plfa.part2.Untyped.html#23593" class="Bound">M</a> <a id="23595" href="plfa.part2.Untyped.html#23595" class="Bound">M&#39;</a> <a id="23598" class="Symbol">:</a> <a id="23600" href="plfa.part2.Untyped.html#23587" class="Bound">Γ</a> <a id="23602" href="plfa.part2.Untyped.html#4294" class="Datatype Operator">⊢</a> <a id="23604" href="plfa.part2.Untyped.html#2888" class="InductiveConstructor">★</a><a id="23605" class="Symbol">}</a>
          <a id="23616" class="Symbol">→</a> <a id="23618" href="/Untyped/#23593" class="Bound">M</a> <a id="23620" href="plfa.part2.Untyped.html#11267" class="Datatype Operator">—↠</a> <a id="23623" href="plfa.part2.Untyped.html#23595" class="Bound">M&#39;</a>
@@ -892,10 +892,10 @@ the proof for <code class="highlighter-rouge">appL-cong</code>.</p>
 
 <p>This chapter uses the following unicode:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>★  U+2605  BLACK STAR (\st)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>★  U+2605  BLACK STAR (\st)
 </code></pre></div></div>
 
-<p>The <code class="highlighter-rouge">\st</code> command permits navigation among many different stars;
+<p>The <code class="language-plaintext highlighter-rouge">\st</code> command permits navigation among many different stars;
 the one we use is number 7.</p>
 
   </div>

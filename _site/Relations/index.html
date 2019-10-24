@@ -91,7 +91,7 @@ the next step is to define relations, such as <em>less than or equal</em>.</p>
 <p>The relation <em>less than or equal</em> has an infinite number of
 instances.  Here are a few of them:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 ≤ 0     0 ≤ 1     0 ≤ 2     0 ≤ 3     ...
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 ≤ 0     0 ≤ 1     0 ≤ 2     0 ≤ 3     ...
           1 ≤ 1     1 ≤ 2     1 ≤ 3     ...
                     2 ≤ 2     2 ≤ 3     ...
                               3 ≤ 3     ...
@@ -102,7 +102,7 @@ instances.  Here are a few of them:</p>
 all of these instances in just a few lines.  Here is the
 definition as a pair of inference rules:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>z≤n --------
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>z≤n --------
     zero ≤ n
 
     m ≤ n
@@ -122,10 +122,10 @@ s≤s -------------
       <a id="1307" class="Comment">-------------</a>
     <a id="1325" class="Symbol">→</a> <a id="1327" href="Agda.Builtin.Nat.html#196" class="InductiveConstructor">suc</a> <a id="1331" href="/Relations/#1280" class="Bound">m</a> <a id="1333" href="plfa.part1.Relations.html#1195" class="Datatype Operator">≤</a> <a id="1335" href="Agda.Builtin.Nat.html#196" class="InductiveConstructor">suc</a> <a id="1339" href="plfa.part1.Relations.html#1282" class="Bound">n</a>
 </pre>
-<p>Here <code class="highlighter-rouge">z≤n</code> and <code class="highlighter-rouge">s≤s</code> (with no spaces) are constructor names, while
-<code class="highlighter-rouge">zero ≤ n</code>, and <code class="highlighter-rouge">m ≤ n</code> and <code class="highlighter-rouge">suc m ≤ suc n</code> (with spaces) are types.
-This is our first use of an <em>indexed</em> datatype, where the type <code class="highlighter-rouge">m ≤ n</code>
-is indexed by two naturals, <code class="highlighter-rouge">m</code> and <code class="highlighter-rouge">n</code>.  In Agda any line beginning
+<p>Here <code class="language-plaintext highlighter-rouge">z≤n</code> and <code class="language-plaintext highlighter-rouge">s≤s</code> (with no spaces) are constructor names, while
+<code class="language-plaintext highlighter-rouge">zero ≤ n</code>, and <code class="language-plaintext highlighter-rouge">m ≤ n</code> and <code class="language-plaintext highlighter-rouge">suc m ≤ suc n</code> (with spaces) are types.
+This is our first use of an <em>indexed</em> datatype, where the type <code class="language-plaintext highlighter-rouge">m ≤ n</code>
+is indexed by two naturals, <code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code>.  In Agda any line beginning
 with two or more dashes is a comment, and here we have exploited that
 convention to write our Agda code in a form that resembles the
 corresponding inference rules, a trick we will use often from now on.</p>
@@ -133,25 +133,25 @@ corresponding inference rules, a trick we will use often from now on.</p>
 <p>Both definitions above tell us the same two things:</p>
 
 <ul>
-  <li><em>Base case</em>: for all naturals <code class="highlighter-rouge">n</code>, the proposition <code class="highlighter-rouge">zero ≤ n</code> holds.</li>
-  <li><em>Inductive case</em>: for all naturals <code class="highlighter-rouge">m</code> and <code class="highlighter-rouge">n</code>, if the proposition
-<code class="highlighter-rouge">m ≤ n</code> holds, then the proposition <code class="highlighter-rouge">suc m ≤ suc n</code> holds.</li>
+  <li><em>Base case</em>: for all naturals <code class="language-plaintext highlighter-rouge">n</code>, the proposition <code class="language-plaintext highlighter-rouge">zero ≤ n</code> holds.</li>
+  <li><em>Inductive case</em>: for all naturals <code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code>, if the proposition
+<code class="language-plaintext highlighter-rouge">m ≤ n</code> holds, then the proposition <code class="language-plaintext highlighter-rouge">suc m ≤ suc n</code> holds.</li>
 </ul>
 
 <p>In fact, they each give us a bit more detail:</p>
 
 <ul>
-  <li><em>Base case</em>: for all naturals <code class="highlighter-rouge">n</code>, the constructor <code class="highlighter-rouge">z≤n</code>
-produces evidence that <code class="highlighter-rouge">zero ≤ n</code> holds.</li>
-  <li><em>Inductive case</em>: for all naturals <code class="highlighter-rouge">m</code> and <code class="highlighter-rouge">n</code>, the constructor
-<code class="highlighter-rouge">s≤s</code> takes evidence that <code class="highlighter-rouge">m ≤ n</code> holds into evidence that
-<code class="highlighter-rouge">suc m ≤ suc n</code> holds.</li>
+  <li><em>Base case</em>: for all naturals <code class="language-plaintext highlighter-rouge">n</code>, the constructor <code class="language-plaintext highlighter-rouge">z≤n</code>
+produces evidence that <code class="language-plaintext highlighter-rouge">zero ≤ n</code> holds.</li>
+  <li><em>Inductive case</em>: for all naturals <code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code>, the constructor
+<code class="language-plaintext highlighter-rouge">s≤s</code> takes evidence that <code class="language-plaintext highlighter-rouge">m ≤ n</code> holds into evidence that
+<code class="language-plaintext highlighter-rouge">suc m ≤ suc n</code> holds.</li>
 </ul>
 
 <p>For example, here in inference rule notation is the proof that
-<code class="highlighter-rouge">2 ≤ 4</code>:</p>
+<code class="language-plaintext highlighter-rouge">2 ≤ 4</code>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  z≤n -----
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  z≤n -----
       0 ≤ 2
  s≤s -------
       1 ≤ 3
@@ -167,24 +167,24 @@ s≤s ---------
 <h2 id="implicit-arguments">Implicit arguments</h2>
 
 <p>This is our first use of implicit arguments.  In the definition of
-inequality, the two lines defining the constructors use <code class="highlighter-rouge">∀</code>, very
-similar to our use of <code class="highlighter-rouge">∀</code> in propositions such as:</p>
+inequality, the two lines defining the constructors use <code class="language-plaintext highlighter-rouge">∀</code>, very
+similar to our use of <code class="language-plaintext highlighter-rouge">∀</code> in propositions such as:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+-comm : ∀ (m n : ℕ) → m + n ≡ n + m
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+-comm : ∀ (m n : ℕ) → m + n ≡ n + m
 </code></pre></div></div>
 
-<p>However, here the declarations are surrounded by curly braces <code class="highlighter-rouge">{ }</code>
-rather than parentheses <code class="highlighter-rouge">( )</code>.  This means that the arguments are
+<p>However, here the declarations are surrounded by curly braces <code class="language-plaintext highlighter-rouge">{ }</code>
+rather than parentheses <code class="language-plaintext highlighter-rouge">( )</code>.  This means that the arguments are
 <em>implicit</em> and need not be written explicitly; instead, they are
-<em>inferred</em> by Agda’s typechecker. Thus, we write <code class="highlighter-rouge">+-comm m n</code> for the
-proof that <code class="highlighter-rouge">m + n ≡ n + m</code>, but <code class="highlighter-rouge">z≤n</code> for the proof that <code class="highlighter-rouge">zero ≤ n</code>,
-leaving <code class="highlighter-rouge">n</code> implicit.  Similarly, if <code class="highlighter-rouge">m≤n</code> is evidence that <code class="highlighter-rouge">m ≤ n</code>,
-we write <code class="highlighter-rouge">s≤s m≤n</code> for evidence that <code class="highlighter-rouge">suc m ≤ suc n</code>, leaving both <code class="highlighter-rouge">m</code>
-and <code class="highlighter-rouge">n</code> implicit.</p>
+<em>inferred</em> by Agda’s typechecker. Thus, we write <code class="language-plaintext highlighter-rouge">+-comm m n</code> for the
+proof that <code class="language-plaintext highlighter-rouge">m + n ≡ n + m</code>, but <code class="language-plaintext highlighter-rouge">z≤n</code> for the proof that <code class="language-plaintext highlighter-rouge">zero ≤ n</code>,
+leaving <code class="language-plaintext highlighter-rouge">n</code> implicit.  Similarly, if <code class="language-plaintext highlighter-rouge">m≤n</code> is evidence that <code class="language-plaintext highlighter-rouge">m ≤ n</code>,
+we write <code class="language-plaintext highlighter-rouge">s≤s m≤n</code> for evidence that <code class="language-plaintext highlighter-rouge">suc m ≤ suc n</code>, leaving both <code class="language-plaintext highlighter-rouge">m</code>
+and <code class="language-plaintext highlighter-rouge">n</code> implicit.</p>
 
 <p>If we wish, it is possible to provide implicit arguments explicitly by
 writing the arguments inside curly braces.  For instance, here is the
-Agda proof that <code class="highlighter-rouge">2 ≤ 4</code> repeated, with the implicit arguments made
+Agda proof that <code class="language-plaintext highlighter-rouge">2 ≤ 4</code> repeated, with the implicit arguments made
 explicit:</p>
 <pre class="Agda"><a id="3606" href="/Relations/#3606" class="Function">_</a> <a id="3608" class="Symbol">:</a> <a id="3610" class="Number">2</a> <a id="3612" href="plfa.part1.Relations.html#1195" class="Datatype Operator">≤</a> <a id="3614" class="Number">4</a>
 <a id="3616" class="Symbol">_</a> <a id="3618" class="Symbol">=</a> <a id="3620" href="/Relations/#1271" class="InductiveConstructor">s≤s</a> <a id="3624" class="Symbol">{</a><a id="3625" class="Number">1</a><a id="3626" class="Symbol">}</a> <a id="3628" class="Symbol">{</a><a id="3629" class="Number">3</a><a id="3630" class="Symbol">}</a> <a id="3632" class="Symbol">(</a><a id="3633" href="plfa.part1.Relations.html#1271" class="InductiveConstructor">s≤s</a> <a id="3637" class="Symbol">{</a><a id="3638" class="Number">0</a><a id="3639" class="Symbol">}</a> <a id="3641" class="Symbol">{</a><a id="3642" class="Number">2</a><a id="3643" class="Symbol">}</a> <a id="3645" class="Symbol">(</a><a id="3646" href="plfa.part1.Relations.html#1222" class="InductiveConstructor">z≤n</a> <a id="3650" class="Symbol">{</a><a id="3651" class="Number">2</a><a id="3652" class="Symbol">}))</a>
@@ -204,11 +204,11 @@ explicit:</p>
 <p>We declare the precedence for comparison as follows:</p>
 <pre class="Agda"><a id="4046" class="Keyword">infix</a> <a id="4052" class="Number">4</a> <a id="4054" href="/Relations/#1195" class="Datatype Operator">_≤_</a>
 </pre>
-<p>We set the precedence of <code class="highlighter-rouge">_≤_</code> at level 4, so it binds less tightly
-than <code class="highlighter-rouge">_+_</code> at level 6 and hence <code class="highlighter-rouge">1 + 2 ≤ 3</code> parses as <code class="highlighter-rouge">(1 + 2) ≤ 3</code>.
-We write <code class="highlighter-rouge">infix</code> to indicate that the operator does not associate to
-either the left or right, as it makes no sense to parse <code class="highlighter-rouge">1 ≤ 2 ≤ 3</code> as
-either <code class="highlighter-rouge">(1 ≤ 2) ≤ 3</code> or <code class="highlighter-rouge">1 ≤ (2 ≤ 3)</code>.</p>
+<p>We set the precedence of <code class="language-plaintext highlighter-rouge">_≤_</code> at level 4, so it binds less tightly
+than <code class="language-plaintext highlighter-rouge">_+_</code> at level 6 and hence <code class="language-plaintext highlighter-rouge">1 + 2 ≤ 3</code> parses as <code class="language-plaintext highlighter-rouge">(1 + 2) ≤ 3</code>.
+We write <code class="language-plaintext highlighter-rouge">infix</code> to indicate that the operator does not associate to
+either the left or right, as it makes no sense to parse <code class="language-plaintext highlighter-rouge">1 ≤ 2 ≤ 3</code> as
+either <code class="language-plaintext highlighter-rouge">(1 ≤ 2) ≤ 3</code> or <code class="language-plaintext highlighter-rouge">1 ≤ (2 ≤ 3)</code>.</p>
 
 <h2 id="decidability">Decidability</h2>
 
@@ -220,26 +220,26 @@ Chapter <a href="/Decidable/">Decidable</a>.</p>
 <h2 id="inversion">Inversion</h2>
 
 <p>In our definitions, we go from smaller things to larger things.
-For instance, from <code class="highlighter-rouge">m ≤ n</code> we can conclude <code class="highlighter-rouge">suc m ≤ suc n</code>,
-where <code class="highlighter-rouge">suc m</code> is bigger than <code class="highlighter-rouge">m</code> (that is, the former contains
-the latter), and <code class="highlighter-rouge">suc n</code> is bigger than <code class="highlighter-rouge">n</code>. But sometimes we
+For instance, from <code class="language-plaintext highlighter-rouge">m ≤ n</code> we can conclude <code class="language-plaintext highlighter-rouge">suc m ≤ suc n</code>,
+where <code class="language-plaintext highlighter-rouge">suc m</code> is bigger than <code class="language-plaintext highlighter-rouge">m</code> (that is, the former contains
+the latter), and <code class="language-plaintext highlighter-rouge">suc n</code> is bigger than <code class="language-plaintext highlighter-rouge">n</code>. But sometimes we
 want to go from bigger things to smaller things.</p>
 
-<p>There is only one way to prove that <code class="highlighter-rouge">suc m ≤ suc n</code>, for any <code class="highlighter-rouge">m</code>
-and <code class="highlighter-rouge">n</code>.  This lets us invert our previous rule.</p>
+<p>There is only one way to prove that <code class="language-plaintext highlighter-rouge">suc m ≤ suc n</code>, for any <code class="language-plaintext highlighter-rouge">m</code>
+and <code class="language-plaintext highlighter-rouge">n</code>.  This lets us invert our previous rule.</p>
 <pre class="Agda"><a id="inv-s≤s"></a><a id="5072" href="/Relations/#5072" class="Function">inv-s≤s</a> <a id="5080" class="Symbol">:</a> <a id="5082" class="Symbol">∀</a> <a id="5084" class="Symbol">{</a><a id="5085" href="plfa.part1.Relations.html#5085" class="Bound">m</a> <a id="5087" href="plfa.part1.Relations.html#5087" class="Bound">n</a> <a id="5089" class="Symbol">:</a> <a id="5091" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a><a id="5092" class="Symbol">}</a>
   <a id="5096" class="Symbol">→</a> <a id="5098" href="Agda.Builtin.Nat.html#196" class="InductiveConstructor">suc</a> <a id="5102" href="/Relations/#5085" class="Bound">m</a> <a id="5104" href="plfa.part1.Relations.html#1195" class="Datatype Operator">≤</a> <a id="5106" href="Agda.Builtin.Nat.html#196" class="InductiveConstructor">suc</a> <a id="5110" href="plfa.part1.Relations.html#5087" class="Bound">n</a>
     <a id="5116" class="Comment">-------------</a>
   <a id="5132" class="Symbol">→</a> <a id="5134" href="/Relations/#5085" class="Bound">m</a> <a id="5136" href="plfa.part1.Relations.html#1195" class="Datatype Operator">≤</a> <a id="5138" href="plfa.part1.Relations.html#5087" class="Bound">n</a>
 <a id="5140" href="/Relations/#5072" class="Function">inv-s≤s</a> <a id="5148" class="Symbol">(</a><a id="5149" href="plfa.part1.Relations.html#1271" class="InductiveConstructor">s≤s</a> <a id="5153" href="plfa.part1.Relations.html#5153" class="Bound">m≤n</a><a id="5156" class="Symbol">)</a> <a id="5158" class="Symbol">=</a> <a id="5160" href="plfa.part1.Relations.html#5153" class="Bound">m≤n</a>
 </pre>
-<p>Here <code class="highlighter-rouge">m≤n</code> (with no spaces) is a variable name while
-<code class="highlighter-rouge">m ≤ n</code> (with spaces) is a type, and the latter
+<p>Here <code class="language-plaintext highlighter-rouge">m≤n</code> (with no spaces) is a variable name while
+<code class="language-plaintext highlighter-rouge">m ≤ n</code> (with spaces) is a type, and the latter
 is the type of the former.  It is a common convention
 in Agda to derive a variable name by removing
 spaces from its type.</p>
 
-<p>Not every rule is invertible; indeed, the rule for <code class="highlighter-rouge">z≤n</code> has
+<p>Not every rule is invertible; indeed, the rule for <code class="language-plaintext highlighter-rouge">z≤n</code> has
 no non-implicit hypotheses, so there is nothing to invert.
 But often inversions of this kind hold.</p>
 
@@ -257,16 +257,16 @@ only one way a number can be less than or equal to zero.</p>
 on names for some of the most common properties.</p>
 
 <ul>
-  <li><em>Reflexive</em>. For all <code class="highlighter-rouge">n</code>, the relation <code class="highlighter-rouge">n ≤ n</code> holds.</li>
-  <li><em>Transitive</em>. For all <code class="highlighter-rouge">m</code>, <code class="highlighter-rouge">n</code>, and <code class="highlighter-rouge">p</code>, if <code class="highlighter-rouge">m ≤ n</code> and
-<code class="highlighter-rouge">n ≤ p</code> hold, then <code class="highlighter-rouge">m ≤ p</code> holds.</li>
-  <li><em>Anti-symmetric</em>. For all <code class="highlighter-rouge">m</code> and <code class="highlighter-rouge">n</code>, if both <code class="highlighter-rouge">m ≤ n</code> and
-<code class="highlighter-rouge">n ≤ m</code> hold, then <code class="highlighter-rouge">m ≡ n</code> holds.</li>
-  <li><em>Total</em>. For all <code class="highlighter-rouge">m</code> and <code class="highlighter-rouge">n</code>, either <code class="highlighter-rouge">m ≤ n</code> or <code class="highlighter-rouge">n ≤ m</code>
+  <li><em>Reflexive</em>. For all <code class="language-plaintext highlighter-rouge">n</code>, the relation <code class="language-plaintext highlighter-rouge">n ≤ n</code> holds.</li>
+  <li><em>Transitive</em>. For all <code class="language-plaintext highlighter-rouge">m</code>, <code class="language-plaintext highlighter-rouge">n</code>, and <code class="language-plaintext highlighter-rouge">p</code>, if <code class="language-plaintext highlighter-rouge">m ≤ n</code> and
+<code class="language-plaintext highlighter-rouge">n ≤ p</code> hold, then <code class="language-plaintext highlighter-rouge">m ≤ p</code> holds.</li>
+  <li><em>Anti-symmetric</em>. For all <code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code>, if both <code class="language-plaintext highlighter-rouge">m ≤ n</code> and
+<code class="language-plaintext highlighter-rouge">n ≤ m</code> hold, then <code class="language-plaintext highlighter-rouge">m ≡ n</code> holds.</li>
+  <li><em>Total</em>. For all <code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code>, either <code class="language-plaintext highlighter-rouge">m ≤ n</code> or <code class="language-plaintext highlighter-rouge">n ≤ m</code>
 holds.</li>
 </ul>
 
-<p>The relation <code class="highlighter-rouge">_≤_</code> satisfies all four of these properties.</p>
+<p>The relation <code class="language-plaintext highlighter-rouge">_≤_</code> satisfies all four of these properties.</p>
 
 <p>There are also names for some combinations of these properties.</p>
 
@@ -288,7 +288,7 @@ careful author will often call out these properties—or their
 lack—for instance by saying that a newly introduced relation is a
 partial order but not a total order.</p>
 
-<h4 id="orderings">Exercise <code class="highlighter-rouge">orderings</code> (practice)</h4>
+<h4 id="orderings">Exercise <code class="language-plaintext highlighter-rouge">orderings</code> (practice)</h4>
 
 <p>Give an example of a preorder that is not a partial order.</p>
 
@@ -301,7 +301,7 @@ partial order but not a total order.</p>
 <h2 id="reflexivity">Reflexivity</h2>
 
 <p>The first property to prove about comparison is that it is reflexive:
-for any natural <code class="highlighter-rouge">n</code>, the relation <code class="highlighter-rouge">n ≤ n</code> holds.  We follow the
+for any natural <code class="language-plaintext highlighter-rouge">n</code>, the relation <code class="language-plaintext highlighter-rouge">n ≤ n</code> holds.  We follow the
 convention in the standard library and make the argument implicit,
 as that will make it easier to invoke reflexivity:</p>
 <pre class="Agda"><a id="≤-refl"></a><a id="7638" href="/Relations/#7638" class="Function">≤-refl</a> <a id="7645" class="Symbol">:</a> <a id="7647" class="Symbol">∀</a> <a id="7649" class="Symbol">{</a><a id="7650" href="plfa.part1.Relations.html#7650" class="Bound">n</a> <a id="7652" class="Symbol">:</a> <a id="7654" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a><a id="7655" class="Symbol">}</a>
@@ -310,19 +310,19 @@ as that will make it easier to invoke reflexivity:</p>
 <a id="7677" href="/Relations/#7638" class="Function">≤-refl</a> <a id="7684" class="Symbol">{</a><a id="7685" href="Agda.Builtin.Nat.html#183" class="InductiveConstructor">zero</a><a id="7689" class="Symbol">}</a> <a id="7691" class="Symbol">=</a> <a id="7693" href="plfa.part1.Relations.html#1222" class="InductiveConstructor">z≤n</a>
 <a id="7697" href="/Relations/#7638" class="Function">≤-refl</a> <a id="7704" class="Symbol">{</a><a id="7705" href="Agda.Builtin.Nat.html#196" class="InductiveConstructor">suc</a> <a id="7709" href="plfa.part1.Relations.html#7709" class="Bound">n</a><a id="7710" class="Symbol">}</a> <a id="7712" class="Symbol">=</a> <a id="7714" href="plfa.part1.Relations.html#1271" class="InductiveConstructor">s≤s</a> <a id="7718" href="plfa.part1.Relations.html#7638" class="Function">≤-refl</a>
 </pre>
-<p>The proof is a straightforward induction on the implicit argument <code class="highlighter-rouge">n</code>.
-In the base case, <code class="highlighter-rouge">zero ≤ zero</code> holds by <code class="highlighter-rouge">z≤n</code>.  In the inductive
-case, the inductive hypothesis <code class="highlighter-rouge">≤-refl {n}</code> gives us a proof of <code class="highlighter-rouge">n ≤
-n</code>, and applying <code class="highlighter-rouge">s≤s</code> to that yields a proof of <code class="highlighter-rouge">suc n ≤ suc n</code>.</p>
+<p>The proof is a straightforward induction on the implicit argument <code class="language-plaintext highlighter-rouge">n</code>.
+In the base case, <code class="language-plaintext highlighter-rouge">zero ≤ zero</code> holds by <code class="language-plaintext highlighter-rouge">z≤n</code>.  In the inductive
+case, the inductive hypothesis <code class="language-plaintext highlighter-rouge">≤-refl {n}</code> gives us a proof of <code class="language-plaintext highlighter-rouge">n ≤
+n</code>, and applying <code class="language-plaintext highlighter-rouge">s≤s</code> to that yields a proof of <code class="language-plaintext highlighter-rouge">suc n ≤ suc n</code>.</p>
 
 <p>It is a good exercise to prove reflexivity interactively in Emacs,
-using holes and the <code class="highlighter-rouge">C-c C-c</code>, <code class="highlighter-rouge">C-c C-,</code>, and <code class="highlighter-rouge">C-c C-r</code> commands.</p>
+using holes and the <code class="language-plaintext highlighter-rouge">C-c C-c</code>, <code class="language-plaintext highlighter-rouge">C-c C-,</code>, and <code class="language-plaintext highlighter-rouge">C-c C-r</code> commands.</p>
 
 <h2 id="transitivity">Transitivity</h2>
 
 <p>The second property to prove about comparison is that it is
-transitive: for any naturals <code class="highlighter-rouge">m</code>, <code class="highlighter-rouge">n</code>, and <code class="highlighter-rouge">p</code>, if <code class="highlighter-rouge">m ≤ n</code> and <code class="highlighter-rouge">n ≤ p</code>
-hold, then <code class="highlighter-rouge">m ≤ p</code> holds.  Again, <code class="highlighter-rouge">m</code>, <code class="highlighter-rouge">n</code>, and <code class="highlighter-rouge">p</code> are implicit:</p>
+transitive: for any naturals <code class="language-plaintext highlighter-rouge">m</code>, <code class="language-plaintext highlighter-rouge">n</code>, and <code class="language-plaintext highlighter-rouge">p</code>, if <code class="language-plaintext highlighter-rouge">m ≤ n</code> and <code class="language-plaintext highlighter-rouge">n ≤ p</code>
+hold, then <code class="language-plaintext highlighter-rouge">m ≤ p</code> holds.  Again, <code class="language-plaintext highlighter-rouge">m</code>, <code class="language-plaintext highlighter-rouge">n</code>, and <code class="language-plaintext highlighter-rouge">p</code> are implicit:</p>
 <pre class="Agda"><a id="≤-trans"></a><a id="8355" href="/Relations/#8355" class="Function">≤-trans</a> <a id="8363" class="Symbol">:</a> <a id="8365" class="Symbol">∀</a> <a id="8367" class="Symbol">{</a><a id="8368" href="plfa.part1.Relations.html#8368" class="Bound">m</a> <a id="8370" href="plfa.part1.Relations.html#8370" class="Bound">n</a> <a id="8372" href="plfa.part1.Relations.html#8372" class="Bound">p</a> <a id="8374" class="Symbol">:</a> <a id="8376" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a><a id="8377" class="Symbol">}</a>
   <a id="8381" class="Symbol">→</a> <a id="8383" href="/Relations/#8368" class="Bound">m</a> <a id="8385" href="plfa.part1.Relations.html#1195" class="Datatype Operator">≤</a> <a id="8387" href="plfa.part1.Relations.html#8370" class="Bound">n</a>
   <a id="8391" class="Symbol">→</a> <a id="8393" href="/Relations/#8370" class="Bound">n</a> <a id="8395" href="plfa.part1.Relations.html#1195" class="Datatype Operator">≤</a> <a id="8397" href="plfa.part1.Relations.html#8372" class="Bound">p</a>
@@ -331,21 +331,21 @@ hold, then <code class="highlighter-rouge">m ≤ p</code> holds.  Again, <code c
 <a id="8419" href="/Relations/#8355" class="Function">≤-trans</a> <a id="8427" href="plfa.part1.Relations.html#1222" class="InductiveConstructor">z≤n</a>       <a id="8437" class="Symbol">_</a>          <a id="8448" class="Symbol">=</a>  <a id="8451" href="plfa.part1.Relations.html#1222" class="InductiveConstructor">z≤n</a>
 <a id="8455" href="/Relations/#8355" class="Function">≤-trans</a> <a id="8463" class="Symbol">(</a><a id="8464" href="plfa.part1.Relations.html#1271" class="InductiveConstructor">s≤s</a> <a id="8468" href="plfa.part1.Relations.html#8468" class="Bound">m≤n</a><a id="8471" class="Symbol">)</a> <a id="8473" class="Symbol">(</a><a id="8474" href="plfa.part1.Relations.html#1271" class="InductiveConstructor">s≤s</a> <a id="8478" href="plfa.part1.Relations.html#8478" class="Bound">n≤p</a><a id="8481" class="Symbol">)</a>  <a id="8484" class="Symbol">=</a>  <a id="8487" href="plfa.part1.Relations.html#1271" class="InductiveConstructor">s≤s</a> <a id="8491" class="Symbol">(</a><a id="8492" href="plfa.part1.Relations.html#8355" class="Function">≤-trans</a> <a id="8500" href="plfa.part1.Relations.html#8468" class="Bound">m≤n</a> <a id="8504" href="plfa.part1.Relations.html#8478" class="Bound">n≤p</a><a id="8507" class="Symbol">)</a>
 </pre>
-<p>Here the proof is by induction on the <em>evidence</em> that <code class="highlighter-rouge">m ≤ n</code>.  In the
-base case, the first inequality holds by <code class="highlighter-rouge">z≤n</code> and must show <code class="highlighter-rouge">zero ≤
-p</code>, which follows immediately by <code class="highlighter-rouge">z≤n</code>.  In this case, the fact that
-<code class="highlighter-rouge">n ≤ p</code> is irrelevant, and we write <code class="highlighter-rouge">_</code> as the pattern to indicate
+<p>Here the proof is by induction on the <em>evidence</em> that <code class="language-plaintext highlighter-rouge">m ≤ n</code>.  In the
+base case, the first inequality holds by <code class="language-plaintext highlighter-rouge">z≤n</code> and must show <code class="language-plaintext highlighter-rouge">zero ≤
+p</code>, which follows immediately by <code class="language-plaintext highlighter-rouge">z≤n</code>.  In this case, the fact that
+<code class="language-plaintext highlighter-rouge">n ≤ p</code> is irrelevant, and we write <code class="language-plaintext highlighter-rouge">_</code> as the pattern to indicate
 that the corresponding evidence is unused.</p>
 
-<p>In the inductive case, the first inequality holds by <code class="highlighter-rouge">s≤s m≤n</code>
-and the second inequality by <code class="highlighter-rouge">s≤s n≤p</code>, and so we are given
-<code class="highlighter-rouge">suc m ≤ suc n</code> and <code class="highlighter-rouge">suc n ≤ suc p</code>, and must show <code class="highlighter-rouge">suc m ≤ suc p</code>.
-The inductive hypothesis <code class="highlighter-rouge">≤-trans m≤n n≤p</code> establishes
-that <code class="highlighter-rouge">m ≤ p</code>, and our goal follows by applying <code class="highlighter-rouge">s≤s</code>.</p>
+<p>In the inductive case, the first inequality holds by <code class="language-plaintext highlighter-rouge">s≤s m≤n</code>
+and the second inequality by <code class="language-plaintext highlighter-rouge">s≤s n≤p</code>, and so we are given
+<code class="language-plaintext highlighter-rouge">suc m ≤ suc n</code> and <code class="language-plaintext highlighter-rouge">suc n ≤ suc p</code>, and must show <code class="language-plaintext highlighter-rouge">suc m ≤ suc p</code>.
+The inductive hypothesis <code class="language-plaintext highlighter-rouge">≤-trans m≤n n≤p</code> establishes
+that <code class="language-plaintext highlighter-rouge">m ≤ p</code>, and our goal follows by applying <code class="language-plaintext highlighter-rouge">s≤s</code>.</p>
 
-<p>The case <code class="highlighter-rouge">≤-trans (s≤s m≤n) z≤n</code> cannot arise, since the first
-inequality implies the middle value is <code class="highlighter-rouge">suc n</code> while the second
-inequality implies that it is <code class="highlighter-rouge">zero</code>.  Agda can determine that such a
+<p>The case <code class="language-plaintext highlighter-rouge">≤-trans (s≤s m≤n) z≤n</code> cannot arise, since the first
+inequality implies the middle value is <code class="language-plaintext highlighter-rouge">suc n</code> while the second
+inequality implies that it is <code class="language-plaintext highlighter-rouge">zero</code>.  Agda can determine that such a
 case cannot arise, and does not require (or permit) it to be listed.</p>
 
 <p>Alternatively, we could make the implicit parameters explicit:</p>
@@ -362,18 +362,18 @@ length obscures the essence of the proof.  We will usually opt for
 shorter proofs.</p>
 
 <p>The technique of induction on evidence that a property holds (e.g.,
-inducting on evidence that <code class="highlighter-rouge">m ≤ n</code>)—rather than induction on
-values of which the property holds (e.g., inducting on <code class="highlighter-rouge">m</code>)—will turn
+inducting on evidence that <code class="language-plaintext highlighter-rouge">m ≤ n</code>)—rather than induction on
+values of which the property holds (e.g., inducting on <code class="language-plaintext highlighter-rouge">m</code>)—will turn
 out to be immensely valuable, and one that we use often.</p>
 
 <p>Again, it is a good exercise to prove transitivity interactively in Emacs,
-using holes and the <code class="highlighter-rouge">C-c C-c</code>, <code class="highlighter-rouge">C-c C-,</code>, and <code class="highlighter-rouge">C-c C-r</code> commands.</p>
+using holes and the <code class="language-plaintext highlighter-rouge">C-c C-c</code>, <code class="language-plaintext highlighter-rouge">C-c C-,</code>, and <code class="language-plaintext highlighter-rouge">C-c C-r</code> commands.</p>
 
 <h2 id="anti-symmetry">Anti-symmetry</h2>
 
 <p>The third property to prove about comparison is that it is
-antisymmetric: for all naturals <code class="highlighter-rouge">m</code> and <code class="highlighter-rouge">n</code>, if both <code class="highlighter-rouge">m ≤ n</code> and <code class="highlighter-rouge">n ≤
-m</code> hold, then <code class="highlighter-rouge">m ≡ n</code> holds:</p>
+antisymmetric: for all naturals <code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code>, if both <code class="language-plaintext highlighter-rouge">m ≤ n</code> and <code class="language-plaintext highlighter-rouge">n ≤
+m</code> hold, then <code class="language-plaintext highlighter-rouge">m ≡ n</code> holds:</p>
 <pre class="Agda"><a id="≤-antisym"></a><a id="10423" href="/Relations/#10423" class="Function">≤-antisym</a> <a id="10433" class="Symbol">:</a> <a id="10435" class="Symbol">∀</a> <a id="10437" class="Symbol">{</a><a id="10438" href="plfa.part1.Relations.html#10438" class="Bound">m</a> <a id="10440" href="plfa.part1.Relations.html#10440" class="Bound">n</a> <a id="10442" class="Symbol">:</a> <a id="10444" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a><a id="10445" class="Symbol">}</a>
   <a id="10449" class="Symbol">→</a> <a id="10451" href="/Relations/#10438" class="Bound">m</a> <a id="10453" href="plfa.part1.Relations.html#1195" class="Datatype Operator">≤</a> <a id="10455" href="plfa.part1.Relations.html#10440" class="Bound">n</a>
   <a id="10459" class="Symbol">→</a> <a id="10461" href="/Relations/#10440" class="Bound">n</a> <a id="10463" href="plfa.part1.Relations.html#1195" class="Datatype Operator">≤</a> <a id="10465" href="plfa.part1.Relations.html#10438" class="Bound">m</a>
@@ -382,24 +382,24 @@ m</code> hold, then <code class="highlighter-rouge">m ≡ n</code> holds:</p>
 <a id="10487" href="/Relations/#10423" class="Function">≤-antisym</a> <a id="10497" href="plfa.part1.Relations.html#1222" class="InductiveConstructor">z≤n</a>       <a id="10507" href="plfa.part1.Relations.html#1222" class="InductiveConstructor">z≤n</a>        <a id="10518" class="Symbol">=</a>  <a id="10521" href="Agda.Builtin.Equality.html#182" class="InductiveConstructor">refl</a>
 <a id="10526" href="/Relations/#10423" class="Function">≤-antisym</a> <a id="10536" class="Symbol">(</a><a id="10537" href="plfa.part1.Relations.html#1271" class="InductiveConstructor">s≤s</a> <a id="10541" href="plfa.part1.Relations.html#10541" class="Bound">m≤n</a><a id="10544" class="Symbol">)</a> <a id="10546" class="Symbol">(</a><a id="10547" href="plfa.part1.Relations.html#1271" class="InductiveConstructor">s≤s</a> <a id="10551" href="plfa.part1.Relations.html#10551" class="Bound">n≤m</a><a id="10554" class="Symbol">)</a>  <a id="10557" class="Symbol">=</a>  <a id="10560" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Binary.PropositionalEquality.Core.html#1090" class="Function">cong</a> <a id="10565" href="Agda.Builtin.Nat.html#196" class="InductiveConstructor">suc</a> <a id="10569" class="Symbol">(</a><a id="10570" href="plfa.part1.Relations.html#10423" class="Function">≤-antisym</a> <a id="10580" href="plfa.part1.Relations.html#10541" class="Bound">m≤n</a> <a id="10584" href="plfa.part1.Relations.html#10551" class="Bound">n≤m</a><a id="10587" class="Symbol">)</a>
 </pre>
-<p>Again, the proof is by induction over the evidence that <code class="highlighter-rouge">m ≤ n</code>
-and <code class="highlighter-rouge">n ≤ m</code> hold.</p>
+<p>Again, the proof is by induction over the evidence that <code class="language-plaintext highlighter-rouge">m ≤ n</code>
+and <code class="language-plaintext highlighter-rouge">n ≤ m</code> hold.</p>
 
-<p>In the base case, both inequalities hold by <code class="highlighter-rouge">z≤n</code>, and so we are given
-<code class="highlighter-rouge">zero ≤ zero</code> and <code class="highlighter-rouge">zero ≤ zero</code> and must show <code class="highlighter-rouge">zero ≡ zero</code>, which
+<p>In the base case, both inequalities hold by <code class="language-plaintext highlighter-rouge">z≤n</code>, and so we are given
+<code class="language-plaintext highlighter-rouge">zero ≤ zero</code> and <code class="language-plaintext highlighter-rouge">zero ≤ zero</code> and must show <code class="language-plaintext highlighter-rouge">zero ≡ zero</code>, which
 follows by reflexivity.  (Reflexivity of equality, that is, not
 reflexivity of inequality.)</p>
 
-<p>In the inductive case, the first inequality holds by <code class="highlighter-rouge">s≤s m≤n</code> and the
-second inequality holds by <code class="highlighter-rouge">s≤s n≤m</code>, and so we are given <code class="highlighter-rouge">suc m ≤ suc n</code>
-and <code class="highlighter-rouge">suc n ≤ suc m</code> and must show <code class="highlighter-rouge">suc m ≡ suc n</code>.  The inductive
-hypothesis <code class="highlighter-rouge">≤-antisym m≤n n≤m</code> establishes that <code class="highlighter-rouge">m ≡ n</code>, and our goal
+<p>In the inductive case, the first inequality holds by <code class="language-plaintext highlighter-rouge">s≤s m≤n</code> and the
+second inequality holds by <code class="language-plaintext highlighter-rouge">s≤s n≤m</code>, and so we are given <code class="language-plaintext highlighter-rouge">suc m ≤ suc n</code>
+and <code class="language-plaintext highlighter-rouge">suc n ≤ suc m</code> and must show <code class="language-plaintext highlighter-rouge">suc m ≡ suc n</code>.  The inductive
+hypothesis <code class="language-plaintext highlighter-rouge">≤-antisym m≤n n≤m</code> establishes that <code class="language-plaintext highlighter-rouge">m ≡ n</code>, and our goal
 follows by congruence.</p>
 
-<h4 id="leq-antisym-cases">Exercise <code class="highlighter-rouge">≤-antisym-cases</code> (practice)</h4>
+<h4 id="leq-antisym-cases">Exercise <code class="language-plaintext highlighter-rouge">≤-antisym-cases</code> (practice)</h4>
 
-<p>The above proof omits cases where one argument is <code class="highlighter-rouge">z≤n</code> and one
-argument is <code class="highlighter-rouge">s≤s</code>.  Why is it ok to omit them?</p>
+<p>The above proof omits cases where one argument is <code class="language-plaintext highlighter-rouge">z≤n</code> and one
+argument is <code class="language-plaintext highlighter-rouge">s≤s</code>.  Why is it ok to omit them?</p>
 
 <pre class="Agda"><a id="11393" class="Comment">-- Your code goes here</a>
 </pre>
@@ -407,8 +407,8 @@ argument is <code class="highlighter-rouge">s≤s</code>.  Why is it ok to omit 
 <h2 id="total">Total</h2>
 
 <p>The fourth property to prove about comparison is that it is total:
-for any naturals <code class="highlighter-rouge">m</code> and <code class="highlighter-rouge">n</code> either <code class="highlighter-rouge">m ≤ n</code> or <code class="highlighter-rouge">n ≤ m</code>, or both if
-<code class="highlighter-rouge">m</code> and <code class="highlighter-rouge">n</code> are equal.</p>
+for any naturals <code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code> either <code class="language-plaintext highlighter-rouge">m ≤ n</code> or <code class="language-plaintext highlighter-rouge">n ≤ m</code>, or both if
+<code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code> are equal.</p>
 
 <p>We specify what it means for inequality to be total:</p>
 <pre class="Agda"><a id="11647" class="Keyword">data</a> <a id="Total"></a><a id="11652" href="/Relations/#11652" class="Datatype">Total</a> <a id="11658" class="Symbol">(</a><a id="11659" href="plfa.part1.Relations.html#11659" class="Bound">m</a> <a id="11661" href="plfa.part1.Relations.html#11661" class="Bound">n</a> <a id="11663" class="Symbol">:</a> <a id="11665" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a><a id="11666" class="Symbol">)</a> <a id="11668" class="Symbol">:</a> <a id="11670" class="PrimitiveType">Set</a> <a id="11674" class="Keyword">where</a>
@@ -423,16 +423,16 @@ for any naturals <code class="highlighter-rouge">m</code> and <code class="highl
       <a id="11768" class="Comment">---------</a>
     <a id="11782" class="Symbol">→</a> <a id="11784" href="/Relations/#11652" class="Datatype">Total</a> <a id="11790" href="plfa.part1.Relations.html#11659" class="Bound">m</a> <a id="11792" href="plfa.part1.Relations.html#11661" class="Bound">n</a>
 </pre>
-<p>Evidence that <code class="highlighter-rouge">Total m n</code> holds is either of the form
-<code class="highlighter-rouge">forward m≤n</code> or <code class="highlighter-rouge">flipped n≤m</code>, where <code class="highlighter-rouge">m≤n</code> and <code class="highlighter-rouge">n≤m</code> are
-evidence of <code class="highlighter-rouge">m ≤ n</code> and <code class="highlighter-rouge">n ≤ m</code> respectively.</p>
+<p>Evidence that <code class="language-plaintext highlighter-rouge">Total m n</code> holds is either of the form
+<code class="language-plaintext highlighter-rouge">forward m≤n</code> or <code class="language-plaintext highlighter-rouge">flipped n≤m</code>, where <code class="language-plaintext highlighter-rouge">m≤n</code> and <code class="language-plaintext highlighter-rouge">n≤m</code> are
+evidence of <code class="language-plaintext highlighter-rouge">m ≤ n</code> and <code class="language-plaintext highlighter-rouge">n ≤ m</code> respectively.</p>
 
 <p>(For those familiar with logic, the above definition
 could also be written as a disjunction. Disjunctions will
 be introduced in Chapter <a href="/Connectives/">Connectives</a>.)</p>
 
 <p>This is our first use of a datatype with <em>parameters</em>,
-in this case <code class="highlighter-rouge">m</code> and <code class="highlighter-rouge">n</code>.  It is equivalent to the following
+in this case <code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code>.  It is equivalent to the following
 indexed datatype:</p>
 <pre class="Agda"><a id="12281" class="Keyword">data</a> <a id="Total′"></a><a id="12286" href="/Relations/#12286" class="Datatype">Total′</a> <a id="12293" class="Symbol">:</a> <a id="12295" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a> <a id="12297" class="Symbol">→</a> <a id="12299" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a> <a id="12301" class="Symbol">→</a> <a id="12303" class="PrimitiveType">Set</a> <a id="12307" class="Keyword">where</a>
 
@@ -448,8 +448,8 @@ indexed datatype:</p>
 </pre>
 <p>Each parameter of the type translates as an implicit parameter of each
 constructor.  Unlike an indexed datatype, where the indexes can vary
-(as in <code class="highlighter-rouge">zero ≤ n</code> and <code class="highlighter-rouge">suc m ≤ suc n</code>), in a parameterised datatype
-the parameters must always be the same (as in <code class="highlighter-rouge">Total m n</code>).
+(as in <code class="language-plaintext highlighter-rouge">zero ≤ n</code> and <code class="language-plaintext highlighter-rouge">suc m ≤ suc n</code>), in a parameterised datatype
+the parameters must always be the same (as in <code class="language-plaintext highlighter-rouge">Total m n</code>).
 Parameterised declarations are shorter, easier to read, and
 occasionally aid Agda’s termination checker, so we will use them in
 preference to indexed types when possible.</p>
@@ -467,42 +467,42 @@ and second arguments.  We perform a case analysis:</p>
 
 <ul>
   <li>
-    <p><em>First base case</em>: If the first argument is <code class="highlighter-rouge">zero</code> and the
-second argument is <code class="highlighter-rouge">n</code> then the forward case holds,
-with <code class="highlighter-rouge">z≤n</code> as evidence that <code class="highlighter-rouge">zero ≤ n</code>.</p>
+    <p><em>First base case</em>: If the first argument is <code class="language-plaintext highlighter-rouge">zero</code> and the
+second argument is <code class="language-plaintext highlighter-rouge">n</code> then the forward case holds,
+with <code class="language-plaintext highlighter-rouge">z≤n</code> as evidence that <code class="language-plaintext highlighter-rouge">zero ≤ n</code>.</p>
   </li>
   <li>
-    <p><em>Second base case</em>: If the first argument is <code class="highlighter-rouge">suc m</code> and the
-second argument is <code class="highlighter-rouge">zero</code> then the flipped case holds, with
-<code class="highlighter-rouge">z≤n</code> as evidence that <code class="highlighter-rouge">zero ≤ suc m</code>.</p>
+    <p><em>Second base case</em>: If the first argument is <code class="language-plaintext highlighter-rouge">suc m</code> and the
+second argument is <code class="language-plaintext highlighter-rouge">zero</code> then the flipped case holds, with
+<code class="language-plaintext highlighter-rouge">z≤n</code> as evidence that <code class="language-plaintext highlighter-rouge">zero ≤ suc m</code>.</p>
   </li>
   <li>
-    <p><em>Inductive case</em>: If the first argument is <code class="highlighter-rouge">suc m</code> and the
-second argument is <code class="highlighter-rouge">suc n</code>, then the inductive hypothesis
-<code class="highlighter-rouge">≤-total m n</code> establishes one of the following:</p>
+    <p><em>Inductive case</em>: If the first argument is <code class="language-plaintext highlighter-rouge">suc m</code> and the
+second argument is <code class="language-plaintext highlighter-rouge">suc n</code>, then the inductive hypothesis
+<code class="language-plaintext highlighter-rouge">≤-total m n</code> establishes one of the following:</p>
 
     <ul>
       <li>
-        <p>The forward case of the inductive hypothesis holds with <code class="highlighter-rouge">m≤n</code> as
-evidence that <code class="highlighter-rouge">m ≤ n</code>, from which it follows that the forward case of the
-proposition holds with <code class="highlighter-rouge">s≤s m≤n</code> as evidence that <code class="highlighter-rouge">suc m ≤ suc n</code>.</p>
+        <p>The forward case of the inductive hypothesis holds with <code class="language-plaintext highlighter-rouge">m≤n</code> as
+evidence that <code class="language-plaintext highlighter-rouge">m ≤ n</code>, from which it follows that the forward case of the
+proposition holds with <code class="language-plaintext highlighter-rouge">s≤s m≤n</code> as evidence that <code class="language-plaintext highlighter-rouge">suc m ≤ suc n</code>.</p>
       </li>
       <li>
-        <p>The flipped case of the inductive hypothesis holds with <code class="highlighter-rouge">n≤m</code> as
-evidence that <code class="highlighter-rouge">n ≤ m</code>, from which it follows that the flipped case of the
-proposition holds with <code class="highlighter-rouge">s≤s n≤m</code> as evidence that <code class="highlighter-rouge">suc n ≤ suc m</code>.</p>
+        <p>The flipped case of the inductive hypothesis holds with <code class="language-plaintext highlighter-rouge">n≤m</code> as
+evidence that <code class="language-plaintext highlighter-rouge">n ≤ m</code>, from which it follows that the flipped case of the
+proposition holds with <code class="language-plaintext highlighter-rouge">s≤s n≤m</code> as evidence that <code class="language-plaintext highlighter-rouge">suc n ≤ suc m</code>.</p>
       </li>
     </ul>
   </li>
 </ul>
 
-<p>This is our first use of the <code class="highlighter-rouge">with</code> clause in Agda.  The keyword
-<code class="highlighter-rouge">with</code> is followed by an expression and one or more subsequent lines.
-Each line begins with an ellipsis (<code class="highlighter-rouge">...</code>) and a vertical bar (<code class="highlighter-rouge">|</code>),
+<p>This is our first use of the <code class="language-plaintext highlighter-rouge">with</code> clause in Agda.  The keyword
+<code class="language-plaintext highlighter-rouge">with</code> is followed by an expression and one or more subsequent lines.
+Each line begins with an ellipsis (<code class="language-plaintext highlighter-rouge">...</code>) and a vertical bar (<code class="language-plaintext highlighter-rouge">|</code>),
 followed by a pattern to be matched against the expression
 and the right-hand side of the equation.</p>
 
-<p>Every use of <code class="highlighter-rouge">with</code> is equivalent to defining a helper function.  For
+<p>Every use of <code class="language-plaintext highlighter-rouge">with</code> is equivalent to defining a helper function.  For
 example, the definition above is equivalent to the following:</p>
 <pre class="Agda"><a id="≤-total′"></a><a id="14779" href="/Relations/#14779" class="Function">≤-total′</a> <a id="14788" class="Symbol">:</a> <a id="14790" class="Symbol">∀</a> <a id="14792" class="Symbol">(</a><a id="14793" href="plfa.part1.Relations.html#14793" class="Bound">m</a> <a id="14795" href="plfa.part1.Relations.html#14795" class="Bound">n</a> <a id="14797" class="Symbol">:</a> <a id="14799" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a><a id="14800" class="Symbol">)</a> <a id="14802" class="Symbol">→</a> <a id="14804" href="plfa.part1.Relations.html#11652" class="Datatype">Total</a> <a id="14810" href="plfa.part1.Relations.html#14793" class="Bound">m</a> <a id="14812" href="plfa.part1.Relations.html#14795" class="Bound">n</a>
 <a id="14814" href="/Relations/#14779" class="Function">≤-total′</a> <a id="14823" href="Agda.Builtin.Nat.html#183" class="InductiveConstructor">zero</a>    <a id="14831" href="plfa.part1.Relations.html#14831" class="Bound">n</a>        <a id="14840" class="Symbol">=</a>  <a id="14843" href="plfa.part1.Relations.html#11683" class="InductiveConstructor">forward</a> <a id="14851" href="plfa.part1.Relations.html#1222" class="InductiveConstructor">z≤n</a>
@@ -513,11 +513,11 @@ example, the definition above is equivalent to the following:</p>
   <a id="15002" href="/Relations/#14957" class="Function">helper</a> <a id="15009" class="Symbol">(</a><a id="15010" href="plfa.part1.Relations.html#11683" class="InductiveConstructor">forward</a> <a id="15018" href="plfa.part1.Relations.html#15018" class="Bound">m≤n</a><a id="15021" class="Symbol">)</a>  <a id="15024" class="Symbol">=</a>  <a id="15027" href="plfa.part1.Relations.html#11683" class="InductiveConstructor">forward</a> <a id="15035" class="Symbol">(</a><a id="15036" href="plfa.part1.Relations.html#1271" class="InductiveConstructor">s≤s</a> <a id="15040" href="plfa.part1.Relations.html#15018" class="Bound">m≤n</a><a id="15043" class="Symbol">)</a>
   <a id="15047" href="/Relations/#14957" class="Function">helper</a> <a id="15054" class="Symbol">(</a><a id="15055" href="plfa.part1.Relations.html#11740" class="InductiveConstructor">flipped</a> <a id="15063" href="plfa.part1.Relations.html#15063" class="Bound">n≤m</a><a id="15066" class="Symbol">)</a>  <a id="15069" class="Symbol">=</a>  <a id="15072" href="plfa.part1.Relations.html#11740" class="InductiveConstructor">flipped</a> <a id="15080" class="Symbol">(</a><a id="15081" href="plfa.part1.Relations.html#1271" class="InductiveConstructor">s≤s</a> <a id="15085" href="plfa.part1.Relations.html#15063" class="Bound">n≤m</a><a id="15088" class="Symbol">)</a>
 </pre>
-<p>This is also our first use of a <code class="highlighter-rouge">where</code> clause in Agda.  The keyword <code class="highlighter-rouge">where</code> is
+<p>This is also our first use of a <code class="language-plaintext highlighter-rouge">where</code> clause in Agda.  The keyword <code class="language-plaintext highlighter-rouge">where</code> is
 followed by one or more definitions, which must be indented.  Any variables
-bound on the left-hand side of the preceding equation (in this case, <code class="highlighter-rouge">m</code> and
-<code class="highlighter-rouge">n</code>) are in scope within the nested definition, and any identifiers bound in the
-nested definition (in this case, <code class="highlighter-rouge">helper</code>) are in scope in the right-hand side
+bound on the left-hand side of the preceding equation (in this case, <code class="language-plaintext highlighter-rouge">m</code> and
+<code class="language-plaintext highlighter-rouge">n</code>) are in scope within the nested definition, and any identifiers bound in the
+nested definition (in this case, <code class="language-plaintext highlighter-rouge">helper</code>) are in scope in the right-hand side
 of the preceding equation.</p>
 
 <p>If both arguments are equal, then both cases hold and we could return evidence
@@ -539,7 +539,7 @@ matches on the second argument before the first argument.</p>
 the operator is <em>monotonic</em> with regard to the ordering.  For example, addition
 is monotonic with regard to inequality, meaning:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>∀ {m n p q : ℕ} → m ≤ n → p ≤ q → m + p ≤ n + q
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>∀ {m n p q : ℕ} → m ≤ n → p ≤ q → m + p ≤ n + q
 </code></pre></div></div>
 
 <p>The proof is straightforward using the techniques we have learned, and is best
@@ -556,15 +556,15 @@ addition is monotonic on the right:</p>
 
 <ul>
   <li>
-    <p><em>Base case</em>: The first argument is <code class="highlighter-rouge">zero</code> in which case
-<code class="highlighter-rouge">zero + p ≤ zero + q</code> simplifies to <code class="highlighter-rouge">p ≤ q</code>, the evidence
-for which is given by the argument <code class="highlighter-rouge">p≤q</code>.</p>
+    <p><em>Base case</em>: The first argument is <code class="language-plaintext highlighter-rouge">zero</code> in which case
+<code class="language-plaintext highlighter-rouge">zero + p ≤ zero + q</code> simplifies to <code class="language-plaintext highlighter-rouge">p ≤ q</code>, the evidence
+for which is given by the argument <code class="language-plaintext highlighter-rouge">p≤q</code>.</p>
   </li>
   <li>
-    <p><em>Inductive case</em>: The first argument is <code class="highlighter-rouge">suc n</code>, in which case
-<code class="highlighter-rouge">suc n + p ≤ suc n + q</code> simplifies to <code class="highlighter-rouge">suc (n + p) ≤ suc (n + q)</code>.
-The inductive hypothesis <code class="highlighter-rouge">+-monoʳ-≤ n p q p≤q</code> establishes that
-<code class="highlighter-rouge">n + p ≤ n + q</code>, and our goal follows by applying <code class="highlighter-rouge">s≤s</code>.</p>
+    <p><em>Inductive case</em>: The first argument is <code class="language-plaintext highlighter-rouge">suc n</code>, in which case
+<code class="language-plaintext highlighter-rouge">suc n + p ≤ suc n + q</code> simplifies to <code class="language-plaintext highlighter-rouge">suc (n + p) ≤ suc (n + q)</code>.
+The inductive hypothesis <code class="language-plaintext highlighter-rouge">+-monoʳ-≤ n p q p≤q</code> establishes that
+<code class="language-plaintext highlighter-rouge">n + p ≤ n + q</code>, and our goal follows by applying <code class="language-plaintext highlighter-rouge">s≤s</code>.</p>
   </li>
 </ul>
 
@@ -577,8 +577,8 @@ result and the commutativity of addition:</p>
   <a id="17475" class="Symbol">→</a> <a id="17477" href="/Relations/#17434" class="Bound">m</a> <a id="17479" href="Agda.Builtin.Nat.html#298" class="Primitive Operator">+</a> <a id="17481" href="plfa.part1.Relations.html#17438" class="Bound">p</a> <a id="17483" href="plfa.part1.Relations.html#1195" class="Datatype Operator">≤</a> <a id="17485" href="plfa.part1.Relations.html#17436" class="Bound">n</a> <a id="17487" href="Agda.Builtin.Nat.html#298" class="Primitive Operator">+</a> <a id="17489" href="plfa.part1.Relations.html#17438" class="Bound">p</a>
 <a id="17491" href="/Relations/#17419" class="Function">+-monoˡ-≤</a> <a id="17501" href="plfa.part1.Relations.html#17501" class="Bound">m</a> <a id="17503" href="plfa.part1.Relations.html#17503" class="Bound">n</a> <a id="17505" href="plfa.part1.Relations.html#17505" class="Bound">p</a> <a id="17507" href="plfa.part1.Relations.html#17507" class="Bound">m≤n</a>  <a id="17512" class="Keyword">rewrite</a> <a id="17520" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html#11911" class="Function">+-comm</a> <a id="17527" href="plfa.part1.Relations.html#17501" class="Bound">m</a> <a id="17529" href="plfa.part1.Relations.html#17505" class="Bound">p</a> <a id="17531" class="Symbol">|</a> <a id="17533" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html#11911" class="Function">+-comm</a> <a id="17540" href="plfa.part1.Relations.html#17503" class="Bound">n</a> <a id="17542" href="plfa.part1.Relations.html#17505" class="Bound">p</a>  <a id="17545" class="Symbol">=</a> <a id="17547" href="plfa.part1.Relations.html#16619" class="Function">+-monoʳ-≤</a> <a id="17557" href="plfa.part1.Relations.html#17505" class="Bound">p</a> <a id="17559" href="plfa.part1.Relations.html#17501" class="Bound">m</a> <a id="17561" href="plfa.part1.Relations.html#17503" class="Bound">n</a> <a id="17563" href="plfa.part1.Relations.html#17507" class="Bound">m≤n</a>
 </pre>
-<p>Rewriting by <code class="highlighter-rouge">+-comm m p</code> and <code class="highlighter-rouge">+-comm n p</code> converts <code class="highlighter-rouge">m + p ≤ n + p</code> into
-<code class="highlighter-rouge">p + m ≤ p + n</code>, which is proved by invoking <code class="highlighter-rouge">+-monoʳ-≤ p m n m≤n</code>.</p>
+<p>Rewriting by <code class="language-plaintext highlighter-rouge">+-comm m p</code> and <code class="language-plaintext highlighter-rouge">+-comm n p</code> converts <code class="language-plaintext highlighter-rouge">m + p ≤ n + p</code> into
+<code class="language-plaintext highlighter-rouge">p + m ≤ p + n</code>, which is proved by invoking <code class="language-plaintext highlighter-rouge">+-monoʳ-≤ p m n m≤n</code>.</p>
 
 <p>Third, we combine the two previous results:</p>
 <pre class="Agda"><a id="+-mono-≤"></a><a id="17761" href="/Relations/#17761" class="Function">+-mono-≤</a> <a id="17770" class="Symbol">:</a> <a id="17772" class="Symbol">∀</a> <a id="17774" class="Symbol">(</a><a id="17775" href="plfa.part1.Relations.html#17775" class="Bound">m</a> <a id="17777" href="plfa.part1.Relations.html#17777" class="Bound">n</a> <a id="17779" href="plfa.part1.Relations.html#17779" class="Bound">p</a> <a id="17781" href="plfa.part1.Relations.html#17781" class="Bound">q</a> <a id="17783" class="Symbol">:</a> <a id="17785" href="Agda.Builtin.Nat.html#165" class="Datatype">ℕ</a><a id="17786" class="Symbol">)</a>
@@ -588,11 +588,11 @@ result and the commutativity of addition:</p>
   <a id="17828" class="Symbol">→</a> <a id="17830" href="/Relations/#17775" class="Bound">m</a> <a id="17832" href="Agda.Builtin.Nat.html#298" class="Primitive Operator">+</a> <a id="17834" href="plfa.part1.Relations.html#17779" class="Bound">p</a> <a id="17836" href="plfa.part1.Relations.html#1195" class="Datatype Operator">≤</a> <a id="17838" href="plfa.part1.Relations.html#17777" class="Bound">n</a> <a id="17840" href="Agda.Builtin.Nat.html#298" class="Primitive Operator">+</a> <a id="17842" href="plfa.part1.Relations.html#17781" class="Bound">q</a>
 <a id="17844" href="/Relations/#17761" class="Function">+-mono-≤</a> <a id="17853" href="plfa.part1.Relations.html#17853" class="Bound">m</a> <a id="17855" href="plfa.part1.Relations.html#17855" class="Bound">n</a> <a id="17857" href="plfa.part1.Relations.html#17857" class="Bound">p</a> <a id="17859" href="plfa.part1.Relations.html#17859" class="Bound">q</a> <a id="17861" href="plfa.part1.Relations.html#17861" class="Bound">m≤n</a> <a id="17865" href="plfa.part1.Relations.html#17865" class="Bound">p≤q</a>  <a id="17870" class="Symbol">=</a>  <a id="17873" href="plfa.part1.Relations.html#8355" class="Function">≤-trans</a> <a id="17881" class="Symbol">(</a><a id="17882" href="plfa.part1.Relations.html#17419" class="Function">+-monoˡ-≤</a> <a id="17892" href="plfa.part1.Relations.html#17853" class="Bound">m</a> <a id="17894" href="plfa.part1.Relations.html#17855" class="Bound">n</a> <a id="17896" href="plfa.part1.Relations.html#17857" class="Bound">p</a> <a id="17898" href="plfa.part1.Relations.html#17861" class="Bound">m≤n</a><a id="17901" class="Symbol">)</a> <a id="17903" class="Symbol">(</a><a id="17904" href="plfa.part1.Relations.html#16619" class="Function">+-monoʳ-≤</a> <a id="17914" href="plfa.part1.Relations.html#17855" class="Bound">n</a> <a id="17916" href="plfa.part1.Relations.html#17857" class="Bound">p</a> <a id="17918" href="plfa.part1.Relations.html#17859" class="Bound">q</a> <a id="17920" href="plfa.part1.Relations.html#17865" class="Bound">p≤q</a><a id="17923" class="Symbol">)</a>
 </pre>
-<p>Invoking <code class="highlighter-rouge">+-monoˡ-≤ m n p m≤n</code> proves <code class="highlighter-rouge">m + p ≤ n + p</code> and invoking
-<code class="highlighter-rouge">+-monoʳ-≤ n p q p≤q</code> proves <code class="highlighter-rouge">n + p ≤ n + q</code>, and combining these with
-transitivity proves <code class="highlighter-rouge">m + p ≤ n + q</code>, as was to be shown.</p>
+<p>Invoking <code class="language-plaintext highlighter-rouge">+-monoˡ-≤ m n p m≤n</code> proves <code class="language-plaintext highlighter-rouge">m + p ≤ n + p</code> and invoking
+<code class="language-plaintext highlighter-rouge">+-monoʳ-≤ n p q p≤q</code> proves <code class="language-plaintext highlighter-rouge">n + p ≤ n + q</code>, and combining these with
+transitivity proves <code class="language-plaintext highlighter-rouge">m + p ≤ n + q</code>, as was to be shown.</p>
 
-<h4 id="exercise--mono--stretch">Exercise <code class="highlighter-rouge">*-mono-≤</code> (stretch)</h4>
+<h4 id="exercise--mono--stretch">Exercise <code class="language-plaintext highlighter-rouge">*-mono-≤</code> (stretch)</h4>
 
 <p>Show that multiplication is monotonic with regard to inequality.</p>
 
@@ -619,11 +619,11 @@ transitivity proves <code class="highlighter-rouge">m + p ≤ n + q</code>, as w
 arbitrary number, but is not less than zero.</p>
 
 <p>Clearly, strict inequality is not reflexive. However it is
-<em>irreflexive</em> in that <code class="highlighter-rouge">n &lt; n</code> never holds for any value of <code class="highlighter-rouge">n</code>.
+<em>irreflexive</em> in that <code class="language-plaintext highlighter-rouge">n &lt; n</code> never holds for any value of <code class="language-plaintext highlighter-rouge">n</code>.
 Like inequality, strict inequality is transitive.
 Strict inequality is not total, but satisfies the closely related property of
-<em>trichotomy</em>: for any <code class="highlighter-rouge">m</code> and <code class="highlighter-rouge">n</code>, exactly one of <code class="highlighter-rouge">m &lt; n</code>, <code class="highlighter-rouge">m ≡ n</code>, or <code class="highlighter-rouge">m &gt; n</code>
-holds (where we define <code class="highlighter-rouge">m &gt; n</code> to hold exactly when <code class="highlighter-rouge">n &lt; m</code>).
+<em>trichotomy</em>: for any <code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code>, exactly one of <code class="language-plaintext highlighter-rouge">m &lt; n</code>, <code class="language-plaintext highlighter-rouge">m ≡ n</code>, or <code class="language-plaintext highlighter-rouge">m &gt; n</code>
+holds (where we define <code class="language-plaintext highlighter-rouge">m &gt; n</code> to hold exactly when <code class="language-plaintext highlighter-rouge">n &lt; m</code>).
 It is also monotonic with regards to addition and multiplication.</p>
 
 <p>Most of the above are considered in exercises below.  Irreflexivity
@@ -631,28 +631,28 @@ requires negation, as does the fact that the three cases in
 trichotomy are mutually exclusive, so those points are deferred to
 Chapter <a href="/Negation/">Negation</a>.</p>
 
-<p>It is straightforward to show that <code class="highlighter-rouge">suc m ≤ n</code> implies <code class="highlighter-rouge">m &lt; n</code>,
+<p>It is straightforward to show that <code class="language-plaintext highlighter-rouge">suc m ≤ n</code> implies <code class="language-plaintext highlighter-rouge">m &lt; n</code>,
 and conversely.  One can then give an alternative derivation of the
 properties of strict inequality, such as transitivity, by
 exploiting the corresponding properties of inequality.</p>
 
-<h4 id="less-trans">Exercise <code class="highlighter-rouge">&lt;-trans</code> (recommended)</h4>
+<h4 id="less-trans">Exercise <code class="language-plaintext highlighter-rouge">&lt;-trans</code> (recommended)</h4>
 
 <p>Show that strict inequality is transitive.</p>
 
 <pre class="Agda"><a id="19704" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="trichotomy">Exercise <code class="highlighter-rouge">trichotomy</code> (practice)</h4>
+<h4 id="trichotomy">Exercise <code class="language-plaintext highlighter-rouge">trichotomy</code> (practice)</h4>
 
 <p>Show that strict inequality satisfies a weak version of trichotomy, in
-the sense that for any <code class="highlighter-rouge">m</code> and <code class="highlighter-rouge">n</code> that one of the following holds:</p>
+the sense that for any <code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code> that one of the following holds:</p>
 <ul>
-  <li><code class="highlighter-rouge">m &lt; n</code>,</li>
-  <li><code class="highlighter-rouge">m ≡ n</code>, or</li>
-  <li><code class="highlighter-rouge">m &gt; n</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">m &lt; n</code>,</li>
+  <li><code class="language-plaintext highlighter-rouge">m ≡ n</code>, or</li>
+  <li><code class="language-plaintext highlighter-rouge">m &gt; n</code>.</li>
 </ul>
 
-<p>Define <code class="highlighter-rouge">m &gt; n</code> to be the same as <code class="highlighter-rouge">n &lt; m</code>.
+<p>Define <code class="language-plaintext highlighter-rouge">m &gt; n</code> to be the same as <code class="language-plaintext highlighter-rouge">n &lt; m</code>.
 You will need a suitable data declaration,
 similar to that used for totality.
 (We will show that the three cases are exclusive after we introduce
@@ -660,20 +660,20 @@ similar to that used for totality.
 
 <pre class="Agda"><a id="20203" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="plus-mono-less">Exercise <code class="highlighter-rouge">+-mono-&lt;</code> (practice)</h4>
+<h4 id="plus-mono-less">Exercise <code class="language-plaintext highlighter-rouge">+-mono-&lt;</code> (practice)</h4>
 
 <p>Show that addition is monotonic with respect to strict inequality.
 As with inequality, some additional definitions may be required.</p>
 
 <pre class="Agda"><a id="20423" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="leq-iff-less">Exercise <code class="highlighter-rouge">≤-iff-&lt;</code> (recommended)</h4>
+<h4 id="leq-iff-less">Exercise <code class="language-plaintext highlighter-rouge">≤-iff-&lt;</code> (recommended)</h4>
 
-<p>Show that <code class="highlighter-rouge">suc m ≤ n</code> implies <code class="highlighter-rouge">m &lt; n</code>, and conversely.</p>
+<p>Show that <code class="language-plaintext highlighter-rouge">suc m ≤ n</code> implies <code class="language-plaintext highlighter-rouge">m &lt; n</code>, and conversely.</p>
 
 <pre class="Agda"><a id="20566" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="less-trans-revisited">Exercise <code class="highlighter-rouge">&lt;-trans-revisited</code> (practice)</h4>
+<h4 id="less-trans-revisited">Exercise <code class="language-plaintext highlighter-rouge">&lt;-trans-revisited</code> (practice)</h4>
 
 <p>Give an alternative proof that strict inequality is transitive,
 using the relation between strict inequality and inequality and
@@ -713,16 +713,16 @@ and odd if it is the successor of an even number.</p>
 
 <p>This is our first use of a mutually recursive datatype declaration.
 Since each identifier must be defined before it is used, we first
-declare the indexed types <code class="highlighter-rouge">even</code> and <code class="highlighter-rouge">odd</code> (omitting the <code class="highlighter-rouge">where</code>
+declare the indexed types <code class="language-plaintext highlighter-rouge">even</code> and <code class="language-plaintext highlighter-rouge">odd</code> (omitting the <code class="language-plaintext highlighter-rouge">where</code>
 keyword and the declarations of the constructors) and then
-declare the constructors (omitting the signatures <code class="highlighter-rouge">ℕ → Set</code>
+declare the constructors (omitting the signatures <code class="language-plaintext highlighter-rouge">ℕ → Set</code>
 which were given earlier).</p>
 
 <p>This is also our first use of <em>overloaded</em> constructors,
 that is, using the same name for constructors of different types.
-Here <code class="highlighter-rouge">suc</code> means one of three constructors:</p>
+Here <code class="language-plaintext highlighter-rouge">suc</code> means one of three constructors:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>suc : ℕ → ℕ
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>suc : ℕ → ℕ
 
 suc : ∀ {n : ℕ}
   → odd n
@@ -735,7 +735,7 @@ suc : ∀ {n : ℕ}
   → odd (suc n)
 </code></pre></div></div>
 
-<p>Similarly, <code class="highlighter-rouge">zero</code> refers to one of two constructors. Due to how it
+<p>Similarly, <code class="language-plaintext highlighter-rouge">zero</code> refers to one of two constructors. Due to how it
 does type inference, Agda does not allow overloading of defined names,
 but does allow overloading of constructors.  It is recommended that
 one restrict overloading to related meanings, as we have done here,
@@ -779,27 +779,27 @@ evidence that the first number is odd. If it is because it is the
 successor of an even number, then the result is odd because it is the
 successor of the sum of two even numbers, which is even.</p>
 
-<h4 id="odd-plus-odd">Exercise <code class="highlighter-rouge">o+o≡e</code> (stretch)</h4>
+<h4 id="odd-plus-odd">Exercise <code class="language-plaintext highlighter-rouge">o+o≡e</code> (stretch)</h4>
 
 <p>Show that the sum of two odd numbers is even.</p>
 
 <pre class="Agda"><a id="23882" class="Comment">-- Your code goes here</a>
 </pre>
-<h4 id="Bin-predicates">Exercise <code class="highlighter-rouge">Bin-predicates</code> (stretch)</h4>
+<h4 id="Bin-predicates">Exercise <code class="language-plaintext highlighter-rouge">Bin-predicates</code> (stretch)</h4>
 
 <p>Recall that
 Exercise <a href="/Naturals/#Bin">Bin</a>
-defines a datatype <code class="highlighter-rouge">Bin</code> of bitstrings representing natural numbers.
+defines a datatype <code class="language-plaintext highlighter-rouge">Bin</code> of bitstrings representing natural numbers.
 Representations are not unique due to leading zeros.
 Hence, eleven may be represented by both of the following:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⟨⟩ I O I I
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⟨⟩ I O I I
 ⟨⟩ O O I O I I
 </code></pre></div></div>
 
 <p>Define a predicate</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Can : Bin → Set
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Can : Bin → Set
 </code></pre></div></div>
 
 <p>over all bitstrings that holds if the bitstring is canonical, meaning
@@ -807,7 +807,7 @@ it has no leading zeros; the first representation of eleven above is
 canonical, and the second is not.  To define it, you will need an
 auxiliary predicate</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>One : Bin → Set
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>One : Bin → Set
 </code></pre></div></div>
 
 <p>that holds only if the bistring has a leading one.  A bitstring is
@@ -816,7 +816,7 @@ if it consists of a single zero (representing zero).</p>
 
 <p>Show that increment preserves canonical bitstrings:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Can x
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Can x
 ------------
 Can (inc b)
 </code></pre></div></div>
@@ -824,20 +824,20 @@ Can (inc b)
 <p>Show that converting a natural to a bitstring always yields a
 canonical bitstring:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>----------
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>----------
 Can (to n)
 </code></pre></div></div>
 
 <p>Show that converting a canonical bitstring to a natural
 and back is the identity:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Can b
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Can b
 ---------------
 to (from b) ≡ b
 </code></pre></div></div>
 
 <p>(Hint: For each of these, you may first need to prove related
-properties of <code class="highlighter-rouge">One</code>.)</p>
+properties of <code class="language-plaintext highlighter-rouge">One</code>.)</p>
 
 <pre class="Agda"><a id="25162" class="Comment">-- Your code goes here</a>
 </pre>
@@ -848,24 +848,24 @@ properties of <code class="highlighter-rouge">One</code>.)</p>
 <a id="25336" class="Keyword">import</a> <a id="25343" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html" class="Module">Data.Nat.Properties</a> <a id="25363" class="Keyword">using</a> <a id="25369" class="Symbol">(</a><a id="25370" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html#3632" class="Function">≤-refl</a><a id="25376" class="Symbol">;</a> <a id="25378" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html#3815" class="Function">≤-trans</a><a id="25385" class="Symbol">;</a> <a id="25387" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html#3682" class="Function">≤-antisym</a><a id="25396" class="Symbol">;</a> <a id="25398" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html#3927" class="Function">≤-total</a><a id="25405" class="Symbol">;</a>
                                   <a id="25441" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html#15619" class="Function">+-monoʳ-≤</a><a id="25450" class="Symbol">;</a> <a id="25452" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html#15529" class="Function">+-monoˡ-≤</a><a id="25461" class="Symbol">;</a> <a id="25463" href="https://agda.github.io/agda-stdlib/v1.1/Data.Nat.Properties.html#15373" class="Function">+-mono-≤</a><a id="25471" class="Symbol">)</a>
 </pre>
-<p>In the standard library, <code class="highlighter-rouge">≤-total</code> is formalised in terms of
+<p>In the standard library, <code class="language-plaintext highlighter-rouge">≤-total</code> is formalised in terms of
 disjunction (which we define in
 Chapter <a href="/Connectives/">Connectives</a>),
-and <code class="highlighter-rouge">+-monoʳ-≤</code>, <code class="highlighter-rouge">+-monoˡ-≤</code>, <code class="highlighter-rouge">+-mono-≤</code> are proved differently than here,
+and <code class="language-plaintext highlighter-rouge">+-monoʳ-≤</code>, <code class="language-plaintext highlighter-rouge">+-monoˡ-≤</code>, <code class="language-plaintext highlighter-rouge">+-mono-≤</code> are proved differently than here,
 and more arguments are implicit.</p>
 
 <h2 id="unicode">Unicode</h2>
 
 <p>This chapter uses the following unicode:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>≤  U+2264  LESS-THAN OR EQUAL TO (\&lt;=, \le)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>≤  U+2264  LESS-THAN OR EQUAL TO (\&lt;=, \le)
 ≥  U+2265  GREATER-THAN OR EQUAL TO (\&gt;=, \ge)
 ˡ  U+02E1  MODIFIER LETTER SMALL L (\^l)
 ʳ  U+02B3  MODIFIER LETTER SMALL R (\^r)
 </code></pre></div></div>
 
-<p>The commands <code class="highlighter-rouge">\^l</code> and <code class="highlighter-rouge">\^r</code> give access to a variety of superscript
-leftward and rightward arrows in addition to superscript letters <code class="highlighter-rouge">l</code> and <code class="highlighter-rouge">r</code>.</p>
+<p>The commands <code class="language-plaintext highlighter-rouge">\^l</code> and <code class="language-plaintext highlighter-rouge">\^r</code> give access to a variety of superscript
+leftward and rightward arrows in addition to superscript letters <code class="language-plaintext highlighter-rouge">l</code> and <code class="language-plaintext highlighter-rouge">r</code>.</p>
 
   </div>
 

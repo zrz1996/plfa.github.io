@@ -107,12 +107,12 @@ some extra practice.</p>
 </pre>
 <h2 id="lambda">Lambda</h2>
 
-<h4 id="exercise-mul-recommended">Exercise <code class="highlighter-rouge">mul</code> (recommended)</h4>
+<h4 id="exercise-mul-recommended">Exercise <code class="language-plaintext highlighter-rouge">mul</code> (recommended)</h4>
 
 <p>Write out the definition of a lambda term that multiplies
 two natural numbers.</p>
 
-<h4 id="exercise-primed-stretch">Exercise <code class="highlighter-rouge">primed</code> (stretch)</h4>
+<h4 id="exercise-primed-stretch">Exercise <code class="language-plaintext highlighter-rouge">primed</code> (stretch)</h4>
 
 <p>We can make examples with lambda terms slightly easier to write
 by adding the following definitions.</p>
@@ -131,7 +131,7 @@ by adding the following definitions.</p>
 <a id="2420" href="/PUC/2019/Assignment3/#2368" class="CatchallClause Function Operator">μ′</a><a id="2422" class="CatchallClause"> </a><a id="2423" class="CatchallClause Symbol">_</a><a id="2424" class="CatchallClause"> </a><a id="2425" href="Assignment3.html#2368" class="CatchallClause Function Operator">⇒</a><a id="2426" class="CatchallClause"> </a><a id="2427" class="CatchallClause Symbol">_</a>      <a id="2434" class="Symbol">=</a>  <a id="2437" href="https://agda.github.io/agda-stdlib/v1.1/Data.Empty.html#294" class="Function">⊥-elim</a> <a id="2444" href="Assignment3.html#2473" class="Postulate">impossible</a>
   <a id="2457" class="Keyword">where</a> <a id="2463" class="Keyword">postulate</a> <a id="2473" href="/PUC/2019/Assignment3/#2473" class="Postulate">impossible</a> <a id="2484" class="Symbol">:</a> <a id="2486" href="https://agda.github.io/agda-stdlib/v1.1/Data.Empty.html#279" class="Datatype">⊥</a>
 </pre>
-<p>The definition of <code class="highlighter-rouge">plus</code> can now be written as follows.</p>
+<p>The definition of <code class="language-plaintext highlighter-rouge">plus</code> can now be written as follows.</p>
 <pre class="Agda"><a id="plus′"></a><a id="2552" href="/PUC/2019/Assignment3/#2552" class="Function">plus′</a> <a id="2558" class="Symbol">:</a> <a id="2560" href="/Lambda/#3796" class="Datatype">Term</a>
 <a id="2565" href="/PUC/2019/Assignment3/#2552" class="Function">plus′</a> <a id="2571" class="Symbol">=</a> <a id="2573" href="Assignment3.html#2368" class="Function Operator">μ′</a> <a id="2576" href="Assignment3.html#2683" class="Function">+</a> <a id="2578" href="Assignment3.html#2368" class="Function Operator">⇒</a> <a id="2580" href="Assignment3.html#2033" class="Function Operator">ƛ′</a> <a id="2583" href="Assignment3.html#2697" class="Function">m</a> <a id="2585" href="Assignment3.html#2033" class="Function Operator">⇒</a> <a id="2587" href="Assignment3.html#2033" class="Function Operator">ƛ′</a> <a id="2590" href="Assignment3.html#2711" class="Function">n</a> <a id="2592" href="Assignment3.html#2033" class="Function Operator">⇒</a>
           <a id="2604" href="/PUC/2019/Assignment3/#2154" class="Function Operator">case′</a> <a id="2610" href="Assignment3.html#2697" class="Function">m</a>
@@ -144,81 +144,81 @@ by adding the following definitions.</p>
 </pre>
 <p>Write out the definition of multiplication in the same style.</p>
 
-<h4 id="exercise-___-stretch">Exercise <code class="highlighter-rouge">_[_:=_]′</code> (stretch)</h4>
+<h4 id="exercise-___-stretch">Exercise <code class="language-plaintext highlighter-rouge">_[_:=_]′</code> (stretch)</h4>
 
-<p>The definition of substitution above has three clauses (<code class="highlighter-rouge">ƛ</code>, <code class="highlighter-rouge">case</code>,
-and <code class="highlighter-rouge">μ</code>) that invoke a with clause to deal with bound variables.
+<p>The definition of substitution above has three clauses (<code class="language-plaintext highlighter-rouge">ƛ</code>, <code class="language-plaintext highlighter-rouge">case</code>,
+and <code class="language-plaintext highlighter-rouge">μ</code>) that invoke a with clause to deal with bound variables.
 Rewrite the definition to factor the common part of these three
 clauses into a single function, defined by mutual recursion with
 substitution.</p>
 
-<h4 id="exercise-">Exercise <code class="highlighter-rouge">—↠≲—↠′</code></h4>
+<h4 id="exercise-">Exercise <code class="language-plaintext highlighter-rouge">—↠≲—↠′</code></h4>
 
 <p>Show that the first notion of reflexive and transitive closure
 above embeds into the second. Why are they not isomorphic?</p>
 
-<h4 id="exercise-plus-example">Exercise <code class="highlighter-rouge">plus-example</code></h4>
+<h4 id="exercise-plus-example">Exercise <code class="language-plaintext highlighter-rouge">plus-example</code></h4>
 
 <p>Write out the reduction sequence demonstrating that one plus one is two.</p>
 
-<h4 id="exercise-mul-type-recommended">Exercise <code class="highlighter-rouge">mul-type</code> (recommended)</h4>
+<h4 id="exercise-mul-type-recommended">Exercise <code class="language-plaintext highlighter-rouge">mul-type</code> (recommended)</h4>
 
-<p>Using the term <code class="highlighter-rouge">mul</code> you defined earlier, write out the derivation
+<p>Using the term <code class="language-plaintext highlighter-rouge">mul</code> you defined earlier, write out the derivation
 showing that it is well-typed.</p>
 
 <h2 id="properties">Properties</h2>
 
-<h4 id="exercise-progress-">Exercise <code class="highlighter-rouge">Progress-≃</code></h4>
+<h4 id="exercise-progress-">Exercise <code class="language-plaintext highlighter-rouge">Progress-≃</code></h4>
 
-<p>Show that <code class="highlighter-rouge">Progress M</code> is isomorphic to <code class="highlighter-rouge">Value M ⊎ ∃[ N ](M —→ N)</code>.</p>
+<p>Show that <code class="language-plaintext highlighter-rouge">Progress M</code> is isomorphic to <code class="language-plaintext highlighter-rouge">Value M ⊎ ∃[ N ](M —→ N)</code>.</p>
 
-<h4 id="exercise-progress">Exercise <code class="highlighter-rouge">progress′</code></h4>
+<h4 id="exercise-progress">Exercise <code class="language-plaintext highlighter-rouge">progress′</code></h4>
 
-<p>Write out the proof of <code class="highlighter-rouge">progress′</code> in full, and compare it to the
-proof of <code class="highlighter-rouge">progress</code> above.</p>
+<p>Write out the proof of <code class="language-plaintext highlighter-rouge">progress′</code> in full, and compare it to the
+proof of <code class="language-plaintext highlighter-rouge">progress</code> above.</p>
 
-<h4 id="exercise-value">Exercise <code class="highlighter-rouge">value?</code></h4>
+<h4 id="exercise-value">Exercise <code class="language-plaintext highlighter-rouge">value?</code></h4>
 
-<p>Combine <code class="highlighter-rouge">progress</code> and <code class="highlighter-rouge">—→¬V</code> to write a program that decides
+<p>Combine <code class="language-plaintext highlighter-rouge">progress</code> and <code class="language-plaintext highlighter-rouge">—→¬V</code> to write a program that decides
 whether a well-typed term is a value.</p>
 <pre class="Agda"><a id="3862" class="Keyword">postulate</a>
   <a id="value?"></a><a id="3874" href="/PUC/2019/Assignment3/#3874" class="Postulate">value?</a> <a id="3881" class="Symbol">:</a> <a id="3883" class="Symbol">∀</a> <a id="3885" class="Symbol">{</a><a id="3886" href="Assignment3.html#3886" class="Bound">A</a> <a id="3888" href="Assignment3.html#3888" class="Bound">M</a><a id="3889" class="Symbol">}</a> <a id="3891" class="Symbol">→</a> <a id="3893" href="/Lambda/#31710" class="InductiveConstructor">∅</a> <a id="3895" href="plfa.part2.Lambda.html#34086" class="Datatype Operator">⊢</a> <a id="3897" href="Assignment3.html#3888" class="Bound">M</a> <a id="3899" href="plfa.part2.Lambda.html#34086" class="Datatype Operator">⦂</a> <a id="3901" href="Assignment3.html#3886" class="Bound">A</a> <a id="3903" class="Symbol">→</a> <a id="3905" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.html#605" class="Datatype">Dec</a> <a id="3909" class="Symbol">(</a><a id="3910" href="plfa.part2.Lambda.html#12171" class="Datatype">Value</a> <a id="3916" href="Assignment3.html#3888" class="Bound">M</a><a id="3917" class="Symbol">)</a>
 </pre>
 
-<h4 id="exercise-subst-stretch">Exercise <code class="highlighter-rouge">subst′</code> (stretch)</h4>
+<h4 id="exercise-subst-stretch">Exercise <code class="language-plaintext highlighter-rouge">subst′</code> (stretch)</h4>
 
-<p>Rewrite <code class="highlighter-rouge">subst</code> to work with the modified definition <code class="highlighter-rouge">_[_:=_]′</code>
+<p>Rewrite <code class="language-plaintext highlighter-rouge">subst</code> to work with the modified definition <code class="language-plaintext highlighter-rouge">_[_:=_]′</code>
 from the exercise in the previous chapter.  As before, this
 should factor dealing with bound variables into a single function,
 defined by mutual recursion with the proof that substitution
 preserves types.</p>
 
-<h4 id="exercise-mul-example-recommended">Exercise <code class="highlighter-rouge">mul-example</code> (recommended)</h4>
+<h4 id="exercise-mul-example-recommended">Exercise <code class="language-plaintext highlighter-rouge">mul-example</code> (recommended)</h4>
 
 <p>Using the evaluator, confirm that two times two is four.</p>
 
-<h4 id="exercise-progress-preservation">Exercise: <code class="highlighter-rouge">progress-preservation</code></h4>
+<h4 id="exercise-progress-preservation">Exercise: <code class="language-plaintext highlighter-rouge">progress-preservation</code></h4>
 
 <p>Without peeking at their statements above, write down the progress
 and preservation theorems for the simply typed lambda-calculus.</p>
 
-<h4 id="exercise-subject-expansion">Exercise <code class="highlighter-rouge">subject-expansion</code></h4>
+<h4 id="exercise-subject-expansion">Exercise <code class="language-plaintext highlighter-rouge">subject-expansion</code></h4>
 
-<p>We say that <code class="highlighter-rouge">M</code> <em>reduces</em> to <code class="highlighter-rouge">N</code> if <code class="highlighter-rouge">M —→ N</code>,
-and conversely that <code class="highlighter-rouge">M</code> <em>expands</em> to <code class="highlighter-rouge">N</code> if <code class="highlighter-rouge">N —→ M</code>.
+<p>We say that <code class="language-plaintext highlighter-rouge">M</code> <em>reduces</em> to <code class="language-plaintext highlighter-rouge">N</code> if <code class="language-plaintext highlighter-rouge">M —→ N</code>,
+and conversely that <code class="language-plaintext highlighter-rouge">M</code> <em>expands</em> to <code class="language-plaintext highlighter-rouge">N</code> if <code class="language-plaintext highlighter-rouge">N —→ M</code>.
 The preservation property is sometimes called <em>subject reduction</em>.
 Its opposite is <em>subject expansion</em>, which holds if
-<code class="highlighter-rouge">M —→ N</code> and <code class="highlighter-rouge">∅ ⊢ N ⦂ A</code> imply <code class="highlighter-rouge">∅ ⊢ M ⦂ A</code>.
+<code class="language-plaintext highlighter-rouge">M —→ N</code> and <code class="language-plaintext highlighter-rouge">∅ ⊢ N ⦂ A</code> imply <code class="language-plaintext highlighter-rouge">∅ ⊢ M ⦂ A</code>.
 Find two counter-examples to subject expansion, one
 with case expressions and one not involving case expressions.</p>
 
-<h4 id="exercise-stuck">Exercise <code class="highlighter-rouge">stuck</code></h4>
+<h4 id="exercise-stuck">Exercise <code class="language-plaintext highlighter-rouge">stuck</code></h4>
 
 <p>Give an example of an ill-typed term that does get stuck.</p>
 
-<h4 id="exercise-unstuck-recommended">Exercise <code class="highlighter-rouge">unstuck</code> (recommended)</h4>
+<h4 id="exercise-unstuck-recommended">Exercise <code class="language-plaintext highlighter-rouge">unstuck</code> (recommended)</h4>
 
-<p>Provide proofs of the three postulates, <code class="highlighter-rouge">unstuck</code>, <code class="highlighter-rouge">preserves</code>, and <code class="highlighter-rouge">wttdgs</code> above.</p>
+<p>Provide proofs of the three postulates, <code class="language-plaintext highlighter-rouge">unstuck</code>, <code class="language-plaintext highlighter-rouge">preserves</code>, and <code class="language-plaintext highlighter-rouge">wttdgs</code> above.</p>
 
   </div>
 
