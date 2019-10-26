@@ -2,7 +2,7 @@
 src       : "courses/tspl/2019/Assignment4.lagda.md"
 title     : "Assignment4: TSPL Assignment 4"
 layout    : page
-permalink : /TSPL/2018/Assignment4/
+permalink : /TSPL/2019/Assignment4/
 ---
 
 {% raw %}<pre class="Agda"><a id="112" class="Keyword">module</a> <a id="119" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment4.md %}{% raw %}" class="Module">Assignment4</a> <a id="131" class="Keyword">where</a>
