@@ -704,7 +704,7 @@ if it consists of a single zero (representing zero).
 
 Show that increment preserves canonical bitstrings:
 
-    Can x
+    Can b
     ------------
     Can (inc b)
 
