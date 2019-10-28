@@ -189,17 +189,19 @@ replacement for `_×_`.  As a consequence, demonstrate an equivalence relating
 
 {% raw %}<pre class="Agda"><a id="5735" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
+
 #### Exercise `All-++-≃` (stretch)
 
 Show that the equivalence `All-++-⇔` can be extended to an isomorphism.
 
-{% raw %}<pre class="Agda"><a id="5876" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="5877" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
-#### Exercise `¬Any≃All¬` (recommended)
+
+#### Exercise `¬Any⇔All¬` (recommended)
 
 Show that `Any` and `All` satisfy a version of De Morgan's Law:
 
-    (¬_ ∘ Any P) xs ≃ All (¬_ ∘ P) xs
+    (¬_ ∘ Any P) xs ⇔ All (¬_ ∘ P) xs
 
 (Can you see why it is important that here `_∘_` is generalised
 to arbitrary levels, as described in the section on
@@ -207,23 +209,34 @@ to arbitrary levels, as described in the section on
 
 Do we also have the following?
 
-    (¬_ ∘ All P) xs ≃ Any (¬_ ∘ P) xs
+    (¬_ ∘ All P) xs ⇔ Any (¬_ ∘ P) xs
 
 If so, prove; if not, explain why.
 
+
+{% raw %}<pre class="Agda"><a id="6344" class="Comment">-- Your code goes here</a>
+</pre>{% endraw %}
+
+#### Exercise `¬Any≃All¬` (stretch)
+
+Show that the equivalence `¬Any⇔All¬` can be extended to an isomorphism.
+You will need to use extensionality.
+
+{% raw %}<pre class="Agda"><a id="6525" class="Comment">-- Your code goes here</a>
+</pre>{% endraw %}
 
 #### Exercise `All-∀` (practice)
 
 Show that `All P xs` is isomorphic to `∀ {x} → x ∈ xs → P x`.
 
-{% raw %}<pre class="Agda"><a id="6439" class="Comment">-- You code goes here</a>
+{% raw %}<pre class="Agda"><a id="6655" class="Comment">-- You code goes here</a>
 </pre>{% endraw %}
 
 #### Exercise `Any-∃` (practice)
 
 Show that `Any P xs` is isomorphic to `∃[ x ] (x ∈ xs × P x)`.
 
-{% raw %}<pre class="Agda"><a id="6569" class="Comment">-- You code goes here</a>
+{% raw %}<pre class="Agda"><a id="6785" class="Comment">-- You code goes here</a>
 </pre>{% endraw %}
 
 #### Exercise `any?` (stretch)
@@ -233,7 +246,7 @@ predicate holds for every element of a list, so does `Any` have
 analogues `any` and `Any?` which determine whether a predicate holds
 for some element of a list.  Give their definitions.
 
-{% raw %}<pre class="Agda"><a id="6891" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="7107" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 #### Exercise `filter?` (stretch)
@@ -241,9 +254,9 @@ for some element of a list.  Give their definitions.
 Define the following variant of the traditional `filter` function on lists,
 which given a decidable predicate and a list returns all elements of the
 list satisfying the predicate:
-{% raw %}<pre class="Agda"><a id="7139" class="Keyword">postulate</a>
-  <a id="filter?"></a><a id="7151" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#7151" class="Postulate">filter?</a> <a id="7159" class="Symbol">:</a> <a id="7161" class="Symbol">∀</a> <a id="7163" class="Symbol">{</a><a id="7164" href="Assignment3.html#7164" class="Bound">A</a> <a id="7166" class="Symbol">:</a> <a id="7168" class="PrimitiveType">Set</a><a id="7171" class="Symbol">}</a> <a id="7173" class="Symbol">{</a><a id="7174" href="Assignment3.html#7174" class="Bound">P</a> <a id="7176" class="Symbol">:</a> <a id="7178" href="Assignment3.html#7164" class="Bound">A</a> <a id="7180" class="Symbol">→</a> <a id="7182" class="PrimitiveType">Set</a><a id="7185" class="Symbol">}</a>
-    <a id="7191" class="Symbol">→</a> <a id="7193" class="Symbol">(</a><a id="7194" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#7194" class="Bound">P?</a> <a id="7197" class="Symbol">:</a> <a id="7199" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Unary.html#3474" class="Function">Decidable</a> <a id="7209" href="Assignment3.html#7174" class="Bound">P</a><a id="7210" class="Symbol">)</a> <a id="7212" class="Symbol">→</a> <a id="7214" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Lists.md %}{% raw %}#1067" class="Datatype">List</a> <a id="7219" href="Assignment3.html#7164" class="Bound">A</a> <a id="7221" class="Symbol">→</a> <a id="7223" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1783" class="Function">∃[</a> <a id="7226" href="Assignment3.html#7226" class="Bound">ys</a> <a id="7229" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1783" class="Function">]</a><a id="7230" class="Symbol">(</a> <a id="7232" href="plfa.part1.Lists.html#21536" class="Datatype">All</a> <a id="7236" href="Assignment3.html#7174" class="Bound">P</a> <a id="7238" href="Assignment3.html#7226" class="Bound">ys</a> <a id="7241" class="Symbol">)</a>
+{% raw %}<pre class="Agda"><a id="7355" class="Keyword">postulate</a>
+  <a id="filter?"></a><a id="7367" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#7367" class="Postulate">filter?</a> <a id="7375" class="Symbol">:</a> <a id="7377" class="Symbol">∀</a> <a id="7379" class="Symbol">{</a><a id="7380" href="Assignment3.html#7380" class="Bound">A</a> <a id="7382" class="Symbol">:</a> <a id="7384" class="PrimitiveType">Set</a><a id="7387" class="Symbol">}</a> <a id="7389" class="Symbol">{</a><a id="7390" href="Assignment3.html#7390" class="Bound">P</a> <a id="7392" class="Symbol">:</a> <a id="7394" href="Assignment3.html#7380" class="Bound">A</a> <a id="7396" class="Symbol">→</a> <a id="7398" class="PrimitiveType">Set</a><a id="7401" class="Symbol">}</a>
+    <a id="7407" class="Symbol">→</a> <a id="7409" class="Symbol">(</a><a id="7410" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#7410" class="Bound">P?</a> <a id="7413" class="Symbol">:</a> <a id="7415" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Unary.html#3474" class="Function">Decidable</a> <a id="7425" href="Assignment3.html#7390" class="Bound">P</a><a id="7426" class="Symbol">)</a> <a id="7428" class="Symbol">→</a> <a id="7430" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Lists.md %}{% raw %}#1067" class="Datatype">List</a> <a id="7435" href="Assignment3.html#7380" class="Bound">A</a> <a id="7437" class="Symbol">→</a> <a id="7439" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1783" class="Function">∃[</a> <a id="7442" href="Assignment3.html#7442" class="Bound">ys</a> <a id="7445" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1783" class="Function">]</a><a id="7446" class="Symbol">(</a> <a id="7448" href="plfa.part1.Lists.html#21536" class="Datatype">All</a> <a id="7452" href="Assignment3.html#7390" class="Bound">P</a> <a id="7454" href="Assignment3.html#7442" class="Bound">ys</a> <a id="7457" class="Symbol">)</a>
 </pre>{% endraw %}
 
 
@@ -255,7 +268,7 @@ Write out the definition of a lambda term that multiplies
 two natural numbers.  Your definition may use `plus` as
 defined earlier.
 
-{% raw %}<pre class="Agda"><a id="7432" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="7648" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 #### Exercise `mulᶜ` (practice)
@@ -265,7 +278,7 @@ two natural numbers represented as Church numerals. Your
 definition may use `plusᶜ` as defined earlier (or may not
 — there are nice definitions both ways).
 
-{% raw %}<pre class="Agda"><a id="7713" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="7929" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 #### Exercise `primed` (stretch) {#primed}
@@ -273,20 +286,20 @@ definition may use `plusᶜ` as defined earlier (or may not
 Some people find it annoying to write `` ` "x" `` instead of `x`.
 We can make examples with lambda terms slightly easier to write
 by adding the following definitions:
-{% raw %}<pre class="Agda"><a id="ƛ′_⇒_"></a><a id="7957" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#7957" class="Function Operator">ƛ′_⇒_</a> <a id="7963" class="Symbol">:</a> <a id="7965" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3796" class="Datatype">Term</a> <a id="7970" class="Symbol">→</a> <a id="7972" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a> <a id="7977" class="Symbol">→</a> <a id="7979" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a>
-<a id="7984" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#7957" class="Function Operator">ƛ′</a> <a id="7987" class="Symbol">(</a><a id="7988" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3815" class="InductiveConstructor Operator">`</a> <a id="7990" href="Assignment3.html#7990" class="Bound">x</a><a id="7991" class="Symbol">)</a> <a id="7993" href="Assignment3.html#7957" class="Function Operator">⇒</a> <a id="7995" href="Assignment3.html#7995" class="Bound">N</a>  <a id="7998" class="Symbol">=</a>  <a id="8001" href="plfa.part2.Lambda.html#3854" class="InductiveConstructor Operator">ƛ</a> <a id="8003" href="Assignment3.html#7990" class="Bound">x</a> <a id="8005" href="plfa.part2.Lambda.html#3854" class="InductiveConstructor Operator">⇒</a> <a id="8007" href="Assignment3.html#7995" class="Bound">N</a>
-<a id="8009" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#7957" class="CatchallClause Function Operator">ƛ′</a><a id="8011" class="CatchallClause"> </a><a id="8012" class="CatchallClause Symbol">_</a><a id="8013" class="CatchallClause"> </a><a id="8014" href="Assignment3.html#7957" class="CatchallClause Function Operator">⇒</a><a id="8015" class="CatchallClause"> </a><a id="8016" class="CatchallClause Symbol">_</a>      <a id="8023" class="Symbol">=</a>  <a id="8026" href="https://agda.github.io/agda-stdlib/v1.1/Data.Empty.html#294" class="Function">⊥-elim</a> <a id="8033" href="Assignment3.html#8062" class="Postulate">impossible</a>
-  <a id="8046" class="Keyword">where</a> <a id="8052" class="Keyword">postulate</a> <a id="8062" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8062" class="Postulate">impossible</a> <a id="8073" class="Symbol">:</a> <a id="8075" href="https://agda.github.io/agda-stdlib/v1.1/Data.Empty.html#279" class="Datatype">⊥</a>
+{% raw %}<pre class="Agda"><a id="ƛ′_⇒_"></a><a id="8173" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8173" class="Function Operator">ƛ′_⇒_</a> <a id="8179" class="Symbol">:</a> <a id="8181" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3796" class="Datatype">Term</a> <a id="8186" class="Symbol">→</a> <a id="8188" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a> <a id="8193" class="Symbol">→</a> <a id="8195" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a>
+<a id="8200" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8173" class="Function Operator">ƛ′</a> <a id="8203" class="Symbol">(</a><a id="8204" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3815" class="InductiveConstructor Operator">`</a> <a id="8206" href="Assignment3.html#8206" class="Bound">x</a><a id="8207" class="Symbol">)</a> <a id="8209" href="Assignment3.html#8173" class="Function Operator">⇒</a> <a id="8211" href="Assignment3.html#8211" class="Bound">N</a>  <a id="8214" class="Symbol">=</a>  <a id="8217" href="plfa.part2.Lambda.html#3854" class="InductiveConstructor Operator">ƛ</a> <a id="8219" href="Assignment3.html#8206" class="Bound">x</a> <a id="8221" href="plfa.part2.Lambda.html#3854" class="InductiveConstructor Operator">⇒</a> <a id="8223" href="Assignment3.html#8211" class="Bound">N</a>
+<a id="8225" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8173" class="CatchallClause Function Operator">ƛ′</a><a id="8227" class="CatchallClause"> </a><a id="8228" class="CatchallClause Symbol">_</a><a id="8229" class="CatchallClause"> </a><a id="8230" href="Assignment3.html#8173" class="CatchallClause Function Operator">⇒</a><a id="8231" class="CatchallClause"> </a><a id="8232" class="CatchallClause Symbol">_</a>      <a id="8239" class="Symbol">=</a>  <a id="8242" href="https://agda.github.io/agda-stdlib/v1.1/Data.Empty.html#294" class="Function">⊥-elim</a> <a id="8249" href="Assignment3.html#8278" class="Postulate">impossible</a>
+  <a id="8262" class="Keyword">where</a> <a id="8268" class="Keyword">postulate</a> <a id="8278" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8278" class="Postulate">impossible</a> <a id="8289" class="Symbol">:</a> <a id="8291" href="https://agda.github.io/agda-stdlib/v1.1/Data.Empty.html#279" class="Datatype">⊥</a>
 
-<a id="case′_[zero⇒_|suc_⇒_]"></a><a id="8078" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8078" class="Function Operator">case′_[zero⇒_|suc_⇒_]</a> <a id="8100" class="Symbol">:</a> <a id="8102" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3796" class="Datatype">Term</a> <a id="8107" class="Symbol">→</a> <a id="8109" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a> <a id="8114" class="Symbol">→</a> <a id="8116" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a> <a id="8121" class="Symbol">→</a> <a id="8123" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a> <a id="8128" class="Symbol">→</a> <a id="8130" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a>
-<a id="8135" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8078" class="Function Operator">case′</a> <a id="8141" href="Assignment3.html#8141" class="Bound">L</a> <a id="8143" href="Assignment3.html#8078" class="Function Operator">[zero⇒</a> <a id="8150" href="Assignment3.html#8150" class="Bound">M</a> <a id="8152" href="Assignment3.html#8078" class="Function Operator">|suc</a> <a id="8157" class="Symbol">(</a><a id="8158" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3815" class="InductiveConstructor Operator">`</a> <a id="8160" href="Assignment3.html#8160" class="Bound">x</a><a id="8161" class="Symbol">)</a> <a id="8163" href="Assignment3.html#8078" class="Function Operator">⇒</a> <a id="8165" href="Assignment3.html#8165" class="Bound">N</a> <a id="8167" href="Assignment3.html#8078" class="Function Operator">]</a>  <a id="8170" class="Symbol">=</a>  <a id="8173" href="plfa.part2.Lambda.html#4023" class="InductiveConstructor Operator">case</a> <a id="8178" href="Assignment3.html#8141" class="Bound">L</a> <a id="8180" href="plfa.part2.Lambda.html#4023" class="InductiveConstructor Operator">[zero⇒</a> <a id="8187" href="Assignment3.html#8150" class="Bound">M</a> <a id="8189" href="plfa.part2.Lambda.html#4023" class="InductiveConstructor Operator">|suc</a> <a id="8194" href="Assignment3.html#8160" class="Bound">x</a> <a id="8196" href="plfa.part2.Lambda.html#4023" class="InductiveConstructor Operator">⇒</a> <a id="8198" href="Assignment3.html#8165" class="Bound">N</a> <a id="8200" href="plfa.part2.Lambda.html#4023" class="InductiveConstructor Operator">]</a>
-<a id="8202" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8078" class="CatchallClause Function Operator">case′</a><a id="8207" class="CatchallClause"> </a><a id="8208" class="CatchallClause Symbol">_</a><a id="8209" class="CatchallClause"> </a><a id="8210" href="Assignment3.html#8078" class="CatchallClause Function Operator">[zero⇒</a><a id="8216" class="CatchallClause"> </a><a id="8217" class="CatchallClause Symbol">_</a><a id="8218" class="CatchallClause"> </a><a id="8219" href="Assignment3.html#8078" class="CatchallClause Function Operator">|suc</a><a id="8223" class="CatchallClause"> </a><a id="8224" class="CatchallClause Symbol">_</a><a id="8225" class="CatchallClause"> </a><a id="8226" href="Assignment3.html#8078" class="CatchallClause Function Operator">⇒</a><a id="8227" class="CatchallClause"> </a><a id="8228" class="CatchallClause Symbol">_</a><a id="8229" class="CatchallClause"> </a><a id="8230" href="Assignment3.html#8078" class="CatchallClause Function Operator">]</a>      <a id="8237" class="Symbol">=</a>  <a id="8240" href="https://agda.github.io/agda-stdlib/v1.1/Data.Empty.html#294" class="Function">⊥-elim</a> <a id="8247" href="Assignment3.html#8276" class="Postulate">impossible</a>
-  <a id="8260" class="Keyword">where</a> <a id="8266" class="Keyword">postulate</a> <a id="8276" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8276" class="Postulate">impossible</a> <a id="8287" class="Symbol">:</a> <a id="8289" href="https://agda.github.io/agda-stdlib/v1.1/Data.Empty.html#279" class="Datatype">⊥</a>
+<a id="case′_[zero⇒_|suc_⇒_]"></a><a id="8294" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8294" class="Function Operator">case′_[zero⇒_|suc_⇒_]</a> <a id="8316" class="Symbol">:</a> <a id="8318" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3796" class="Datatype">Term</a> <a id="8323" class="Symbol">→</a> <a id="8325" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a> <a id="8330" class="Symbol">→</a> <a id="8332" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a> <a id="8337" class="Symbol">→</a> <a id="8339" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a> <a id="8344" class="Symbol">→</a> <a id="8346" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a>
+<a id="8351" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8294" class="Function Operator">case′</a> <a id="8357" href="Assignment3.html#8357" class="Bound">L</a> <a id="8359" href="Assignment3.html#8294" class="Function Operator">[zero⇒</a> <a id="8366" href="Assignment3.html#8366" class="Bound">M</a> <a id="8368" href="Assignment3.html#8294" class="Function Operator">|suc</a> <a id="8373" class="Symbol">(</a><a id="8374" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3815" class="InductiveConstructor Operator">`</a> <a id="8376" href="Assignment3.html#8376" class="Bound">x</a><a id="8377" class="Symbol">)</a> <a id="8379" href="Assignment3.html#8294" class="Function Operator">⇒</a> <a id="8381" href="Assignment3.html#8381" class="Bound">N</a> <a id="8383" href="Assignment3.html#8294" class="Function Operator">]</a>  <a id="8386" class="Symbol">=</a>  <a id="8389" href="plfa.part2.Lambda.html#4023" class="InductiveConstructor Operator">case</a> <a id="8394" href="Assignment3.html#8357" class="Bound">L</a> <a id="8396" href="plfa.part2.Lambda.html#4023" class="InductiveConstructor Operator">[zero⇒</a> <a id="8403" href="Assignment3.html#8366" class="Bound">M</a> <a id="8405" href="plfa.part2.Lambda.html#4023" class="InductiveConstructor Operator">|suc</a> <a id="8410" href="Assignment3.html#8376" class="Bound">x</a> <a id="8412" href="plfa.part2.Lambda.html#4023" class="InductiveConstructor Operator">⇒</a> <a id="8414" href="Assignment3.html#8381" class="Bound">N</a> <a id="8416" href="plfa.part2.Lambda.html#4023" class="InductiveConstructor Operator">]</a>
+<a id="8418" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8294" class="CatchallClause Function Operator">case′</a><a id="8423" class="CatchallClause"> </a><a id="8424" class="CatchallClause Symbol">_</a><a id="8425" class="CatchallClause"> </a><a id="8426" href="Assignment3.html#8294" class="CatchallClause Function Operator">[zero⇒</a><a id="8432" class="CatchallClause"> </a><a id="8433" class="CatchallClause Symbol">_</a><a id="8434" class="CatchallClause"> </a><a id="8435" href="Assignment3.html#8294" class="CatchallClause Function Operator">|suc</a><a id="8439" class="CatchallClause"> </a><a id="8440" class="CatchallClause Symbol">_</a><a id="8441" class="CatchallClause"> </a><a id="8442" href="Assignment3.html#8294" class="CatchallClause Function Operator">⇒</a><a id="8443" class="CatchallClause"> </a><a id="8444" class="CatchallClause Symbol">_</a><a id="8445" class="CatchallClause"> </a><a id="8446" href="Assignment3.html#8294" class="CatchallClause Function Operator">]</a>      <a id="8453" class="Symbol">=</a>  <a id="8456" href="https://agda.github.io/agda-stdlib/v1.1/Data.Empty.html#294" class="Function">⊥-elim</a> <a id="8463" href="Assignment3.html#8492" class="Postulate">impossible</a>
+  <a id="8476" class="Keyword">where</a> <a id="8482" class="Keyword">postulate</a> <a id="8492" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8492" class="Postulate">impossible</a> <a id="8503" class="Symbol">:</a> <a id="8505" href="https://agda.github.io/agda-stdlib/v1.1/Data.Empty.html#279" class="Datatype">⊥</a>
 
-<a id="μ′_⇒_"></a><a id="8292" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8292" class="Function Operator">μ′_⇒_</a> <a id="8298" class="Symbol">:</a> <a id="8300" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3796" class="Datatype">Term</a> <a id="8305" class="Symbol">→</a> <a id="8307" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a> <a id="8312" class="Symbol">→</a> <a id="8314" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a>
-<a id="8319" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8292" class="Function Operator">μ′</a> <a id="8322" class="Symbol">(</a><a id="8323" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3815" class="InductiveConstructor Operator">`</a> <a id="8325" href="Assignment3.html#8325" class="Bound">x</a><a id="8326" class="Symbol">)</a> <a id="8328" href="Assignment3.html#8292" class="Function Operator">⇒</a> <a id="8330" href="Assignment3.html#8330" class="Bound">N</a>  <a id="8333" class="Symbol">=</a>  <a id="8336" href="plfa.part2.Lambda.html#4083" class="InductiveConstructor Operator">μ</a> <a id="8338" href="Assignment3.html#8325" class="Bound">x</a> <a id="8340" href="plfa.part2.Lambda.html#4083" class="InductiveConstructor Operator">⇒</a> <a id="8342" href="Assignment3.html#8330" class="Bound">N</a>
-<a id="8344" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8292" class="CatchallClause Function Operator">μ′</a><a id="8346" class="CatchallClause"> </a><a id="8347" class="CatchallClause Symbol">_</a><a id="8348" class="CatchallClause"> </a><a id="8349" href="Assignment3.html#8292" class="CatchallClause Function Operator">⇒</a><a id="8350" class="CatchallClause"> </a><a id="8351" class="CatchallClause Symbol">_</a>      <a id="8358" class="Symbol">=</a>  <a id="8361" href="https://agda.github.io/agda-stdlib/v1.1/Data.Empty.html#294" class="Function">⊥-elim</a> <a id="8368" href="Assignment3.html#8397" class="Postulate">impossible</a>
-  <a id="8381" class="Keyword">where</a> <a id="8387" class="Keyword">postulate</a> <a id="8397" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8397" class="Postulate">impossible</a> <a id="8408" class="Symbol">:</a> <a id="8410" href="https://agda.github.io/agda-stdlib/v1.1/Data.Empty.html#279" class="Datatype">⊥</a>
+<a id="μ′_⇒_"></a><a id="8508" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8508" class="Function Operator">μ′_⇒_</a> <a id="8514" class="Symbol">:</a> <a id="8516" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3796" class="Datatype">Term</a> <a id="8521" class="Symbol">→</a> <a id="8523" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a> <a id="8528" class="Symbol">→</a> <a id="8530" href="plfa.part2.Lambda.html#3796" class="Datatype">Term</a>
+<a id="8535" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8508" class="Function Operator">μ′</a> <a id="8538" class="Symbol">(</a><a id="8539" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3815" class="InductiveConstructor Operator">`</a> <a id="8541" href="Assignment3.html#8541" class="Bound">x</a><a id="8542" class="Symbol">)</a> <a id="8544" href="Assignment3.html#8508" class="Function Operator">⇒</a> <a id="8546" href="Assignment3.html#8546" class="Bound">N</a>  <a id="8549" class="Symbol">=</a>  <a id="8552" href="plfa.part2.Lambda.html#4083" class="InductiveConstructor Operator">μ</a> <a id="8554" href="Assignment3.html#8541" class="Bound">x</a> <a id="8556" href="plfa.part2.Lambda.html#4083" class="InductiveConstructor Operator">⇒</a> <a id="8558" href="Assignment3.html#8546" class="Bound">N</a>
+<a id="8560" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8508" class="CatchallClause Function Operator">μ′</a><a id="8562" class="CatchallClause"> </a><a id="8563" class="CatchallClause Symbol">_</a><a id="8564" class="CatchallClause"> </a><a id="8565" href="Assignment3.html#8508" class="CatchallClause Function Operator">⇒</a><a id="8566" class="CatchallClause"> </a><a id="8567" class="CatchallClause Symbol">_</a>      <a id="8574" class="Symbol">=</a>  <a id="8577" href="https://agda.github.io/agda-stdlib/v1.1/Data.Empty.html#294" class="Function">⊥-elim</a> <a id="8584" href="Assignment3.html#8613" class="Postulate">impossible</a>
+  <a id="8597" class="Keyword">where</a> <a id="8603" class="Keyword">postulate</a> <a id="8613" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8613" class="Postulate">impossible</a> <a id="8624" class="Symbol">:</a> <a id="8626" href="https://agda.github.io/agda-stdlib/v1.1/Data.Empty.html#279" class="Datatype">⊥</a>
 </pre>{% endraw %}We intend to apply the function only when the first term is a variable, which we
 indicate by postulating a term `impossible` of the empty type `⊥`.  If we use
 C-c C-n to normalise the term
@@ -302,15 +315,15 @@ used with care, since such postulation could allow us to provide
 evidence of _any_ proposition whatsoever, regardless of its truth.
 
 The definition of `plus` can now be written as follows:
-{% raw %}<pre class="Agda"><a id="plus′"></a><a id="9042" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#9042" class="Function">plus′</a> <a id="9048" class="Symbol">:</a> <a id="9050" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3796" class="Datatype">Term</a>
-<a id="9055" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#9042" class="Function">plus′</a> <a id="9061" class="Symbol">=</a> <a id="9063" href="Assignment3.html#8292" class="Function Operator">μ′</a> <a id="9066" href="Assignment3.html#9173" class="Function">+</a> <a id="9068" href="Assignment3.html#8292" class="Function Operator">⇒</a> <a id="9070" href="Assignment3.html#7957" class="Function Operator">ƛ′</a> <a id="9073" href="Assignment3.html#9187" class="Function">m</a> <a id="9075" href="Assignment3.html#7957" class="Function Operator">⇒</a> <a id="9077" href="Assignment3.html#7957" class="Function Operator">ƛ′</a> <a id="9080" href="Assignment3.html#9201" class="Function">n</a> <a id="9082" href="Assignment3.html#7957" class="Function Operator">⇒</a>
-          <a id="9094" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8078" class="Function Operator">case′</a> <a id="9100" href="Assignment3.html#9187" class="Function">m</a>
-            <a id="9114" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8078" class="Function Operator">[zero⇒</a> <a id="9121" href="Assignment3.html#9201" class="Function">n</a>
-            <a id="9135" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8078" class="Function Operator">|suc</a> <a id="9140" href="Assignment3.html#9187" class="Function">m</a> <a id="9142" href="Assignment3.html#8078" class="Function Operator">⇒</a> <a id="9144" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3982" class="InductiveConstructor Operator">`suc</a> <a id="9149" class="Symbol">(</a><a id="9150" href="Assignment3.html#9173" class="Function">+</a> <a id="9152" href="plfa.part2.Lambda.html#3900" class="InductiveConstructor Operator">·</a> <a id="9154" href="Assignment3.html#9187" class="Function">m</a> <a id="9156" href="plfa.part2.Lambda.html#3900" class="InductiveConstructor Operator">·</a> <a id="9158" href="Assignment3.html#9201" class="Function">n</a><a id="9159" class="Symbol">)</a> <a id="9161" href="Assignment3.html#8078" class="Function Operator">]</a>
-  <a id="9165" class="Keyword">where</a>
-  <a id="9173" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#9173" class="Function">+</a>  <a id="9176" class="Symbol">=</a>  <a id="9179" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3815" class="InductiveConstructor Operator">`</a> <a id="9181" class="String">&quot;+&quot;</a>
-  <a id="9187" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#9187" class="Function">m</a>  <a id="9190" class="Symbol">=</a>  <a id="9193" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3815" class="InductiveConstructor Operator">`</a> <a id="9195" class="String">&quot;m&quot;</a>
-  <a id="9201" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#9201" class="Function">n</a>  <a id="9204" class="Symbol">=</a>  <a id="9207" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3815" class="InductiveConstructor Operator">`</a> <a id="9209" class="String">&quot;n&quot;</a>
+{% raw %}<pre class="Agda"><a id="plus′"></a><a id="9258" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#9258" class="Function">plus′</a> <a id="9264" class="Symbol">:</a> <a id="9266" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3796" class="Datatype">Term</a>
+<a id="9271" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#9258" class="Function">plus′</a> <a id="9277" class="Symbol">=</a> <a id="9279" href="Assignment3.html#8508" class="Function Operator">μ′</a> <a id="9282" href="Assignment3.html#9389" class="Function">+</a> <a id="9284" href="Assignment3.html#8508" class="Function Operator">⇒</a> <a id="9286" href="Assignment3.html#8173" class="Function Operator">ƛ′</a> <a id="9289" href="Assignment3.html#9403" class="Function">m</a> <a id="9291" href="Assignment3.html#8173" class="Function Operator">⇒</a> <a id="9293" href="Assignment3.html#8173" class="Function Operator">ƛ′</a> <a id="9296" href="Assignment3.html#9417" class="Function">n</a> <a id="9298" href="Assignment3.html#8173" class="Function Operator">⇒</a>
+          <a id="9310" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8294" class="Function Operator">case′</a> <a id="9316" href="Assignment3.html#9403" class="Function">m</a>
+            <a id="9330" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8294" class="Function Operator">[zero⇒</a> <a id="9337" href="Assignment3.html#9417" class="Function">n</a>
+            <a id="9351" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#8294" class="Function Operator">|suc</a> <a id="9356" href="Assignment3.html#9403" class="Function">m</a> <a id="9358" href="Assignment3.html#8294" class="Function Operator">⇒</a> <a id="9360" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3982" class="InductiveConstructor Operator">`suc</a> <a id="9365" class="Symbol">(</a><a id="9366" href="Assignment3.html#9389" class="Function">+</a> <a id="9368" href="plfa.part2.Lambda.html#3900" class="InductiveConstructor Operator">·</a> <a id="9370" href="Assignment3.html#9403" class="Function">m</a> <a id="9372" href="plfa.part2.Lambda.html#3900" class="InductiveConstructor Operator">·</a> <a id="9374" href="Assignment3.html#9417" class="Function">n</a><a id="9375" class="Symbol">)</a> <a id="9377" href="Assignment3.html#8294" class="Function Operator">]</a>
+  <a id="9381" class="Keyword">where</a>
+  <a id="9389" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#9389" class="Function">+</a>  <a id="9392" class="Symbol">=</a>  <a id="9395" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3815" class="InductiveConstructor Operator">`</a> <a id="9397" class="String">&quot;+&quot;</a>
+  <a id="9403" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#9403" class="Function">m</a>  <a id="9406" class="Symbol">=</a>  <a id="9409" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3815" class="InductiveConstructor Operator">`</a> <a id="9411" class="String">&quot;m&quot;</a>
+  <a id="9417" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#9417" class="Function">n</a>  <a id="9420" class="Symbol">=</a>  <a id="9423" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#3815" class="InductiveConstructor Operator">`</a> <a id="9425" class="String">&quot;n&quot;</a>
 </pre>{% endraw %}Write out the definition of multiplication in the same style.
 
 
@@ -322,7 +335,7 @@ Rewrite the definition to factor the common part of these three
 clauses into a single function, defined by mutual recursion with
 substitution.
 
-{% raw %}<pre class="Agda"><a id="9601" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="9817" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 #### Exercise `—↠≲—↠′` (practice)
@@ -330,13 +343,13 @@ substitution.
 Show that the first notion of reflexive and transitive closure
 above embeds into the second. Why are they not isomorphic?
 
-{% raw %}<pre class="Agda"><a id="9792" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="10008" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 #### Exercise `plus-example` (practice)
 
 Write out the reduction sequence demonstrating that one plus one is two.
 
-{% raw %}<pre class="Agda"><a id="9939" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="10155" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 #### Exercise `Context-≃` (practice)
@@ -350,14 +363,14 @@ to the list
 
     [ ⟨ "z" , `ℕ ⟩ , ⟨ "s" , `ℕ ⇒ `ℕ ⟩ ]
 
-{% raw %}<pre class="Agda"><a id="10207" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="10423" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 #### Exercise `mul-type` (recommended)
 
 Using the term `mul` you defined earlier, write out the derivation
 showing that it is well typed.
 
-{% raw %}<pre class="Agda"><a id="10378" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="10594" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 #### Exercise `mulᶜ-type` (practice)
@@ -365,7 +378,7 @@ showing that it is well typed.
 Using the term `mulᶜ` you defined earlier, write out the derivation
 showing that it is well typed.
 
-{% raw %}<pre class="Agda"><a id="10549" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="10765" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 
@@ -375,21 +388,21 @@ showing that it is well typed.
 
 Show that `Progress M` is isomorphic to `Value M ⊎ ∃[ N ](M —→ N)`.
 
-{% raw %}<pre class="Agda"><a id="10706" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="10922" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 #### Exercise `progress′` (practice)
 
 Write out the proof of `progress′` in full, and compare it to the
 proof of `progress` above.
 
-{% raw %}<pre class="Agda"><a id="10870" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="11086" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 #### Exercise `value?` (practice)
 
 Combine `progress` and `—→¬V` to write a program that decides
 whether a well-typed term is a value:
-{% raw %}<pre class="Agda"><a id="11037" class="Keyword">postulate</a>
-  <a id="value?"></a><a id="11049" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#11049" class="Postulate">value?</a> <a id="11056" class="Symbol">:</a> <a id="11058" class="Symbol">∀</a> <a id="11060" class="Symbol">{</a><a id="11061" href="Assignment3.html#11061" class="Bound">A</a> <a id="11063" href="Assignment3.html#11063" class="Bound">M</a><a id="11064" class="Symbol">}</a> <a id="11066" class="Symbol">→</a> <a id="11068" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#31710" class="InductiveConstructor">∅</a> <a id="11070" href="plfa.part2.Lambda.html#34086" class="Datatype Operator">⊢</a> <a id="11072" href="Assignment3.html#11063" class="Bound">M</a> <a id="11074" href="plfa.part2.Lambda.html#34086" class="Datatype Operator">⦂</a> <a id="11076" href="Assignment3.html#11061" class="Bound">A</a> <a id="11078" class="Symbol">→</a> <a id="11080" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.html#605" class="Datatype">Dec</a> <a id="11084" class="Symbol">(</a><a id="11085" href="plfa.part2.Lambda.html#12171" class="Datatype">Value</a> <a id="11091" href="Assignment3.html#11063" class="Bound">M</a><a id="11092" class="Symbol">)</a>
+{% raw %}<pre class="Agda"><a id="11253" class="Keyword">postulate</a>
+  <a id="value?"></a><a id="11265" href="{% endraw %}{{ site.baseurl }}{% link out/tspl/2019/Assignment3.md %}{% raw %}#11265" class="Postulate">value?</a> <a id="11272" class="Symbol">:</a> <a id="11274" class="Symbol">∀</a> <a id="11276" class="Symbol">{</a><a id="11277" href="Assignment3.html#11277" class="Bound">A</a> <a id="11279" href="Assignment3.html#11279" class="Bound">M</a><a id="11280" class="Symbol">}</a> <a id="11282" class="Symbol">→</a> <a id="11284" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part2/Lambda.md %}{% raw %}#31710" class="InductiveConstructor">∅</a> <a id="11286" href="plfa.part2.Lambda.html#34086" class="Datatype Operator">⊢</a> <a id="11288" href="Assignment3.html#11279" class="Bound">M</a> <a id="11290" href="plfa.part2.Lambda.html#34086" class="Datatype Operator">⦂</a> <a id="11292" href="Assignment3.html#11277" class="Bound">A</a> <a id="11294" class="Symbol">→</a> <a id="11296" href="https://agda.github.io/agda-stdlib/v1.1/Relation.Nullary.html#605" class="Datatype">Dec</a> <a id="11300" class="Symbol">(</a><a id="11301" href="plfa.part2.Lambda.html#12171" class="Datatype">Value</a> <a id="11307" href="Assignment3.html#11279" class="Bound">M</a><a id="11308" class="Symbol">)</a>
 </pre>{% endraw %}
 #### Exercise `subst′` (stretch)
 
@@ -399,14 +412,14 @@ should factor dealing with bound variables into a single function,
 defined by mutual recursion with the proof that substitution
 preserves types.
 
-{% raw %}<pre class="Agda"><a id="11407" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="11623" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 #### Exercise `mul-eval` (recommended)
 
 Using the evaluator, confirm that two times two is four.
 
-{% raw %}<pre class="Agda"><a id="11538" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="11754" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 #### Exercise: `progress-preservation` (practice)
@@ -414,7 +427,7 @@ Using the evaluator, confirm that two times two is four.
 Without peeking at their statements above, write down the progress
 and preservation theorems for the simply typed lambda-calculus.
 
-{% raw %}<pre class="Agda"><a id="11754" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="11970" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 #### Exercise `subject_expansion` (practice)
@@ -428,18 +441,18 @@ Its opposite is _subject expansion_, which holds if
 Find two counter-examples to subject expansion, one
 with case expressions and one not involving case expressions.
 
-{% raw %}<pre class="Agda"><a id="12238" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="12454" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 #### Exercise `stuck` (practice)
 
 Give an example of an ill-typed term that does get stuck.
 
-{% raw %}<pre class="Agda"><a id="12364" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="12580" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 #### Exercise `unstuck` (recommended)
 
 Provide proofs of the three postulates, `unstuck`, `preserves`, and `wttdgs` above.
 
-{% raw %}<pre class="Agda"><a id="12520" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="12736" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
