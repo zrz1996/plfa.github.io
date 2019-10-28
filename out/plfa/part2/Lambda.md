@@ -1296,20 +1296,20 @@ or explain why there are no such types.
 2. `` ∅ , "x" ⦂ A , "y" ⦂ B ⊢ ƛ "z" ⇒ ` "x" · (` "y" · ` "z") ⦂ C ``
 
 
-#### Exercise `mul-type` (recommended)
+#### Exercise `⊢mul` (recommended)
 
 Using the term `mul` you defined earlier, write out the derivation
 showing that it is well typed.
 
-{% raw %}<pre class="Agda"><a id="42073" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="42069" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
-#### Exercise `mulᶜ-type` (practice)
+#### Exercise `⊢mulᶜ` (practice)
 
 Using the term `mulᶜ` you defined earlier, write out the derivation
 showing that it is well typed.
 
-{% raw %}<pre class="Agda"><a id="42244" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="42236" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 ## Unicode
