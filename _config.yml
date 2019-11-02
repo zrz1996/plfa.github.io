@@ -106,6 +106,8 @@ contributors:
   name: bruno cuconato
 - github_username: murilogiacometti
   name: Murilo Giacometti Rocha
+- github_username: qaisjp
+  name: Qais Patankar
 - github_username: gallais
   name: G. Allais
 - github_username: spwhitt
@@ -132,8 +134,6 @@ contributors:
   name: Phil de Joux
 - github_username: stepchowfun
   name: Stephan Boyer
-- github_username: qaisjp
-  name: Qais Patankar
 - github_username: zgrannan
   name: Zack Grannan
 - github_username: navaati
