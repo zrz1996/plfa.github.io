@@ -94,6 +94,8 @@ contributors:
   name: Jonathan Prieto
 - github_username: livecodealex
   name: Alexandru Brisan
+- github_username: pedrominicz
+  name: Pedro Minicz
 - github_username: michel-steuwer
   name: Michel Steuwer
 - github_username: caryoscelus
@@ -120,8 +122,6 @@ contributors:
   name: Mike He
 - github_username: trajafri
   name: Syed Turab Ali Jafri
-- github_username: pedrominicz
-  name: Pedro Minicz
 - github_username: Teggy
   name: Torsten Grust
 - github_username: zenzike
