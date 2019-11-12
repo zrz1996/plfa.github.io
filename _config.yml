@@ -96,6 +96,8 @@ contributors:
   name: Alexandru Brisan
 - github_username: pedrominicz
   name: Pedro Minicz
+- github_username: qaisjp
+  name: Qais Patankar
 - github_username: michel-steuwer
   name: Michel Steuwer
 - github_username: caryoscelus
@@ -108,8 +110,6 @@ contributors:
   name: bruno cuconato
 - github_username: murilogiacometti
   name: Murilo Giacometti Rocha
-- github_username: qaisjp
-  name: Qais Patankar
 - github_username: gallais
   name: G. Allais
 - github_username: spwhitt
