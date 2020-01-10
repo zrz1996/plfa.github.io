@@ -1039,15 +1039,35 @@ and the sequence to type into Emacs to generate the character (<code class="lang
 After typing <code class="language-plaintext highlighter-rouge">\r</code>, one can access the many available arrows by using
 the left, right, up, and down keys to navigate.  The command remembers
 where you navigated to the last time, and starts with the same
-character next time.  The command <code class="language-plaintext highlighter-rouge">\l</code> works similarly for left arrows.</p>
-
-<p>In place of left, right, up, and down keys, one may also use control characters:</p>
+character next time.  The command <code class="language-plaintext highlighter-rouge">\l</code> works similarly for left arrows.
+In place of left, right, up, and down keys, one may also use control
+characters:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C-b  left (backward one character)
 C-f  right (forward one character)
 C-p  up (to the previous line)
 C-n  down (to the next line)
 </code></pre></div></div>
+
+<p>We write <code class="language-plaintext highlighter-rouge">C-b</code> to stand for control-b, and similarly.  One can also navigate
+left and right by typing the digits that appear in the displayed list.</p>
+
+<p>For a full list of supported characters, use <code class="language-plaintext highlighter-rouge">agda-input-show-translations</code> with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M-x agda-input-show-translations
+</code></pre></div></div>
+
+<p>All the characters supported by <code class="language-plaintext highlighter-rouge">agda-mode</code> are shown. We write M-x to stand for
+typing <code class="language-plaintext highlighter-rouge">ESC</code> followed by <code class="language-plaintext highlighter-rouge">x</code>.</p>
+
+<p>If you want to know how you input a specific Unicode character in an agda file,
+move the cursor onto the character and use <code class="language-plaintext highlighter-rouge">quail-show-key</code> with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M-x quail-show-key
+</code></pre></div></div>
+
+<p>You’ll see a key sequence of the character in mini buffer.
+If you run <code class="language-plaintext highlighter-rouge">M-x qualy-show-key</code> on say <code class="language-plaintext highlighter-rouge">∸</code>, you will see <code class="language-plaintext highlighter-rouge">\.-</code> for the character.</p>
 
 <p>We write <code class="language-plaintext highlighter-rouge">C-b</code> to stand for control-b, and similarly.  One can also navigate
 left and right by typing the digits that appear in the displayed list.</p>
