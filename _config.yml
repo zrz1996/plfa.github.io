@@ -84,6 +84,8 @@ contributors:
   name: Mo Mirza
 - github_username: fangyi-zhou
   name: Fangyi Zhou
+- github_username: qaisjp
+  name: Qais Patankar
 - github_username: kenichi-asai
   name: Kenichi Asai
 - github_username: omelkonian
@@ -96,8 +98,6 @@ contributors:
   name: Alexandru Brisan
 - github_username: pedrominicz
   name: Pedro Minicz
-- github_username: qaisjp
-  name: Qais Patankar
 - github_username: michel-steuwer
   name: Michel Steuwer
 - github_username: caryoscelus
