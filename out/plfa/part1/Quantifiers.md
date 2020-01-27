@@ -424,7 +424,7 @@ And to establish the following properties:
 Using the above, establish that there is an isomorphism between `ℕ` and
 `∃[ b ](Can b)`.
 
-We recommend proving following lemmas which show that, for a given
+We recommend proving the following lemmas which show that, for a given
 binary number `b`, there is only one proof of `One b` and similarly
 for `Can b`.
 
@@ -442,13 +442,13 @@ You cannot immediately use `≡Can` to equate `canon-to (from b)` and
 respectively.  You must first get their types to be equal, which
 can be done by changing the type of `cb` using `rewrite`.
 
-{% raw %}<pre class="Agda"><a id="16289" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="16293" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 ## Standard library
 
 Definitions similar to those in this chapter can be found in the standard library:
-{% raw %}<pre class="Agda"><a id="16426" class="Keyword">import</a> <a id="16433" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html" class="Module">Data.Product</a> <a id="16446" class="Keyword">using</a> <a id="16452" class="Symbol">(</a><a id="16453" href="Agda.Builtin.Sigma.html#139" class="Record">Σ</a><a id="16454" class="Symbol">;</a> <a id="16456" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">_,_</a><a id="16459" class="Symbol">;</a> <a id="16461" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1364" class="Function">∃</a><a id="16462" class="Symbol">;</a> <a id="16464" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#911" class="Function">Σ-syntax</a><a id="16472" class="Symbol">;</a> <a id="16474" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1783" class="Function">∃-syntax</a><a id="16482" class="Symbol">)</a>
+{% raw %}<pre class="Agda"><a id="16430" class="Keyword">import</a> <a id="16437" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html" class="Module">Data.Product</a> <a id="16450" class="Keyword">using</a> <a id="16456" class="Symbol">(</a><a id="16457" href="Agda.Builtin.Sigma.html#139" class="Record">Σ</a><a id="16458" class="Symbol">;</a> <a id="16460" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">_,_</a><a id="16463" class="Symbol">;</a> <a id="16465" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1364" class="Function">∃</a><a id="16466" class="Symbol">;</a> <a id="16468" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#911" class="Function">Σ-syntax</a><a id="16476" class="Symbol">;</a> <a id="16478" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1783" class="Function">∃-syntax</a><a id="16486" class="Symbol">)</a>
 </pre>{% endraw %}
 
 ## Unicode
