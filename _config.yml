@@ -78,12 +78,12 @@ contributors:
   name: Yasu Watanabe
 - github_username: Cubesoup
   name: Chad Nester
+- github_username: fangyi-zhou
+  name: Fangyi Zhou
 - github_username: Fingerzam
   name: Juhana Laurinharju
 - github_username: momirza
   name: Mo Mirza
-- github_username: fangyi-zhou
-  name: Fangyi Zhou
 - github_username: qaisjp
   name: Qais Patankar
 - github_username: kenichi-asai
@@ -110,6 +110,8 @@ contributors:
   name: bc²
 - github_username: murilogiacometti
   name: Murilo Giacometti Rocha
+- github_username: zachrbrown
+  name: Zach Brown
 - github_username: gallais
   name: G. Allais
 - github_username: spwhitt
