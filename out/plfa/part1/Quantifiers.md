@@ -432,23 +432,19 @@ for `Can b`.
     
     ≡Can : ∀{b : Bin} (cb : Can b) (cb' : Can b) → cb ≡ cb'
 
-The proof of `to∘from` is tricky. We recommend proving the following lemma
+Many of the alternatives for proving `to∘from` turn out to be tricky.
+However, the proof can be straightforward if you use the following lemma,
+which is a corollary of `≡Can`.
 
-    to∘from-aux : ∀ (b : Bin) (cb : Can b) → to (from b) ≡ b
-                → _≡_ {_} {∃[ b ](Can b)} ⟨ to (from b) , canon-to (from b) ⟩ ⟨ b , cb ⟩
+    proj₁≡→Can≡ : {cb cb′ : ∃[ b ](Can b)} → proj₁ cb ≡ proj₁ cb′ → cb ≡ cb′
 
-You cannot immediately use `≡Can` to equate `canon-to (from b)` and
-`cb` because they have different types: `Can (to (from b))` and `Can b`
-respectively.  You must first get their types to be equal, which
-can be done by changing the type of `cb` using `rewrite`.
-
-{% raw %}<pre class="Agda"><a id="16293" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="16057" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 ## Standard library
 
 Definitions similar to those in this chapter can be found in the standard library:
-{% raw %}<pre class="Agda"><a id="16430" class="Keyword">import</a> <a id="16437" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html" class="Module">Data.Product</a> <a id="16450" class="Keyword">using</a> <a id="16456" class="Symbol">(</a><a id="16457" href="Agda.Builtin.Sigma.html#139" class="Record">Σ</a><a id="16458" class="Symbol">;</a> <a id="16460" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">_,_</a><a id="16463" class="Symbol">;</a> <a id="16465" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1364" class="Function">∃</a><a id="16466" class="Symbol">;</a> <a id="16468" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#911" class="Function">Σ-syntax</a><a id="16476" class="Symbol">;</a> <a id="16478" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1783" class="Function">∃-syntax</a><a id="16486" class="Symbol">)</a>
+{% raw %}<pre class="Agda"><a id="16194" class="Keyword">import</a> <a id="16201" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html" class="Module">Data.Product</a> <a id="16214" class="Keyword">using</a> <a id="16220" class="Symbol">(</a><a id="16221" href="Agda.Builtin.Sigma.html#139" class="Record">Σ</a><a id="16222" class="Symbol">;</a> <a id="16224" href="Agda.Builtin.Sigma.html#209" class="InductiveConstructor Operator">_,_</a><a id="16227" class="Symbol">;</a> <a id="16229" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1364" class="Function">∃</a><a id="16230" class="Symbol">;</a> <a id="16232" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#911" class="Function">Σ-syntax</a><a id="16240" class="Symbol">;</a> <a id="16242" href="https://agda.github.io/agda-stdlib/v1.1/Data.Product.html#1783" class="Function">∃-syntax</a><a id="16250" class="Symbol">)</a>
 </pre>{% endraw %}
 
 ## Unicode
