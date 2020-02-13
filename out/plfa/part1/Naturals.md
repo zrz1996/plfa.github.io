@@ -590,7 +590,7 @@ since the same idea was previously proposed by Moses Schönfinkel in
 the 1920's.  I was told a joke: "It should be called schönfinkeling,
 but currying is tastier". Only later did I learn that the explanation
 of the misattribution was itself a misattribution.  The idea actually
-appears in the _Begriffschrift_ of Gottlob Frege, published in 1879.
+appears in the _Begriffsschrift_ of Gottlob Frege, published in 1879.
 
 ## The story of creation, revisited
 
@@ -816,9 +816,9 @@ a program this simple, using `C-c C-c` to split cases can be helpful.
 ## More pragmas
 
 Including the lines
-{% raw %}<pre class="Agda"><a id="29132" class="Symbol">{-#</a> <a id="29136" class="Keyword">BUILTIN</a> <a id="29144" class="Pragma">NATPLUS</a> <a id="29152" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#11238" class="Primitive Operator">_+_</a> <a id="29156" class="Symbol">#-}</a>
-<a id="29160" class="Symbol">{-#</a> <a id="29164" class="Keyword">BUILTIN</a> <a id="29172" class="Pragma">NATTIMES</a> <a id="29181" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#16145" class="Primitive Operator">_*_</a> <a id="29185" class="Symbol">#-}</a>
-<a id="29189" class="Symbol">{-#</a> <a id="29193" class="Keyword">BUILTIN</a> <a id="29201" class="Pragma">NATMINUS</a> <a id="29210" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#18361" class="Primitive Operator">_∸_</a> <a id="29214" class="Symbol">#-}</a>
+{% raw %}<pre class="Agda"><a id="29133" class="Symbol">{-#</a> <a id="29137" class="Keyword">BUILTIN</a> <a id="29145" class="Pragma">NATPLUS</a> <a id="29153" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#11238" class="Primitive Operator">_+_</a> <a id="29157" class="Symbol">#-}</a>
+<a id="29161" class="Symbol">{-#</a> <a id="29165" class="Keyword">BUILTIN</a> <a id="29173" class="Pragma">NATTIMES</a> <a id="29182" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#16145" class="Primitive Operator">_*_</a> <a id="29186" class="Symbol">#-}</a>
+<a id="29190" class="Symbol">{-#</a> <a id="29194" class="Keyword">BUILTIN</a> <a id="29202" class="Pragma">NATMINUS</a> <a id="29211" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#18361" class="Primitive Operator">_∸_</a> <a id="29215" class="Symbol">#-}</a>
 </pre>{% endraw %}tells Agda that these three operators correspond to the usual ones,
 and enables it to perform these computations using the corresponding
 Haskell operators on the arbitrary-precision integer type.
@@ -836,10 +836,10 @@ _m_ and _n_.
 
 A more efficient representation of natural numbers uses a binary
 rather than a unary system.  We represent a number as a bitstring:
-{% raw %}<pre class="Agda"><a id="30083" class="Keyword">data</a> <a id="Bin"></a><a id="30088" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#30088" class="Datatype">Bin</a> <a id="30092" class="Symbol">:</a> <a id="30094" class="PrimitiveType">Set</a> <a id="30098" class="Keyword">where</a>
-  <a id="Bin.⟨⟩"></a><a id="30106" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#30106" class="InductiveConstructor">⟨⟩</a> <a id="30109" class="Symbol">:</a> <a id="30111" href="plfa.part1.Naturals.html#30088" class="Datatype">Bin</a>
-  <a id="Bin._O"></a><a id="30117" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#30117" class="InductiveConstructor Operator">_O</a> <a id="30120" class="Symbol">:</a> <a id="30122" href="plfa.part1.Naturals.html#30088" class="Datatype">Bin</a> <a id="30126" class="Symbol">→</a> <a id="30128" href="plfa.part1.Naturals.html#30088" class="Datatype">Bin</a>
-  <a id="Bin._I"></a><a id="30134" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#30134" class="InductiveConstructor Operator">_I</a> <a id="30137" class="Symbol">:</a> <a id="30139" href="plfa.part1.Naturals.html#30088" class="Datatype">Bin</a> <a id="30143" class="Symbol">→</a> <a id="30145" href="plfa.part1.Naturals.html#30088" class="Datatype">Bin</a>
+{% raw %}<pre class="Agda"><a id="30084" class="Keyword">data</a> <a id="Bin"></a><a id="30089" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#30089" class="Datatype">Bin</a> <a id="30093" class="Symbol">:</a> <a id="30095" class="PrimitiveType">Set</a> <a id="30099" class="Keyword">where</a>
+  <a id="Bin.⟨⟩"></a><a id="30107" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#30107" class="InductiveConstructor">⟨⟩</a> <a id="30110" class="Symbol">:</a> <a id="30112" href="plfa.part1.Naturals.html#30089" class="Datatype">Bin</a>
+  <a id="Bin._O"></a><a id="30118" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#30118" class="InductiveConstructor Operator">_O</a> <a id="30121" class="Symbol">:</a> <a id="30123" href="plfa.part1.Naturals.html#30089" class="Datatype">Bin</a> <a id="30127" class="Symbol">→</a> <a id="30129" href="plfa.part1.Naturals.html#30089" class="Datatype">Bin</a>
+  <a id="Bin._I"></a><a id="30135" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Naturals.md %}{% raw %}#30135" class="InductiveConstructor Operator">_I</a> <a id="30138" class="Symbol">:</a> <a id="30140" href="plfa.part1.Naturals.html#30089" class="Datatype">Bin</a> <a id="30144" class="Symbol">→</a> <a id="30146" href="plfa.part1.Naturals.html#30089" class="Datatype">Bin</a>
 </pre>{% endraw %}For instance, the bitstring
 
     1011
@@ -875,7 +875,7 @@ For the former, choose the bitstring to have no leading zeros if it
 represents a positive natural, and represent zero by `⟨⟩ O`.
 Confirm that these both give the correct answer for zero through four.
 
-{% raw %}<pre class="Agda"><a id="31015" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="31016" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 
 ## Standard library
@@ -885,7 +885,7 @@ definitions in the standard library.  The naturals, constructors for
 them, and basic operators upon them, are defined in the standard
 library module `Data.Nat`:
 
-{% raw %}<pre class="Agda"><a id="31295" class="Comment">-- import Data.Nat using (ℕ; zero; suc; _+_; _*_; _^_; _∸_)</a>
+{% raw %}<pre class="Agda"><a id="31296" class="Comment">-- import Data.Nat using (ℕ; zero; suc; _+_; _*_; _^_; _∸_)</a>
 </pre>{% endraw %}
 Normally, we will show an import as running code, so Agda will
 complain if we attempt to import a definition that is not available.

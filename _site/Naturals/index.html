@@ -682,7 +682,7 @@ since the same idea was previously proposed by Moses Schönfinkel in
 the 1920’s.  I was told a joke: “It should be called schönfinkeling,
 but currying is tastier”. Only later did I learn that the explanation
 of the misattribution was itself a misattribution.  The idea actually
-appears in the <em>Begriffschrift</em> of Gottlob Frege, published in 1879.</p>
+appears in the <em>Begriffsschrift</em> of Gottlob Frege, published in 1879.</p>
 
 <h2 id="the-story-of-creation-revisited">The story of creation, revisited</h2>
 
@@ -929,9 +929,9 @@ a program this simple, using <code class="language-plaintext highlighter-rouge">
 <h2 id="more-pragmas">More pragmas</h2>
 
 <p>Including the lines</p>
-<pre class="Agda"><a id="29132" class="Symbol">{-#</a> <a id="29136" class="Keyword">BUILTIN</a> <a id="29144" class="Pragma">NATPLUS</a> <a id="29152" href="/Naturals/#11238" class="Primitive Operator">_+_</a> <a id="29156" class="Symbol">#-}</a>
-<a id="29160" class="Symbol">{-#</a> <a id="29164" class="Keyword">BUILTIN</a> <a id="29172" class="Pragma">NATTIMES</a> <a id="29181" href="/Naturals/#16145" class="Primitive Operator">_*_</a> <a id="29185" class="Symbol">#-}</a>
-<a id="29189" class="Symbol">{-#</a> <a id="29193" class="Keyword">BUILTIN</a> <a id="29201" class="Pragma">NATMINUS</a> <a id="29210" href="/Naturals/#18361" class="Primitive Operator">_∸_</a> <a id="29214" class="Symbol">#-}</a>
+<pre class="Agda"><a id="29133" class="Symbol">{-#</a> <a id="29137" class="Keyword">BUILTIN</a> <a id="29145" class="Pragma">NATPLUS</a> <a id="29153" href="/Naturals/#11238" class="Primitive Operator">_+_</a> <a id="29157" class="Symbol">#-}</a>
+<a id="29161" class="Symbol">{-#</a> <a id="29165" class="Keyword">BUILTIN</a> <a id="29173" class="Pragma">NATTIMES</a> <a id="29182" href="/Naturals/#16145" class="Primitive Operator">_*_</a> <a id="29186" class="Symbol">#-}</a>
+<a id="29190" class="Symbol">{-#</a> <a id="29194" class="Keyword">BUILTIN</a> <a id="29202" class="Pragma">NATMINUS</a> <a id="29211" href="/Naturals/#18361" class="Primitive Operator">_∸_</a> <a id="29215" class="Symbol">#-}</a>
 </pre>
 <p>tells Agda that these three operators correspond to the usual ones,
 and enables it to perform these computations using the corresponding
@@ -949,10 +949,10 @@ Haskell requires time proportional to the sum of the logarithms of
 
 <p>A more efficient representation of natural numbers uses a binary
 rather than a unary system.  We represent a number as a bitstring:</p>
-<pre class="Agda"><a id="30083" class="Keyword">data</a> <a id="Bin"></a><a id="30088" href="/Naturals/#30088" class="Datatype">Bin</a> <a id="30092" class="Symbol">:</a> <a id="30094" class="PrimitiveType">Set</a> <a id="30098" class="Keyword">where</a>
-  <a id="Bin.⟨⟩"></a><a id="30106" href="/Naturals/#30106" class="InductiveConstructor">⟨⟩</a> <a id="30109" class="Symbol">:</a> <a id="30111" href="plfa.part1.Naturals.html#30088" class="Datatype">Bin</a>
-  <a id="Bin._O"></a><a id="30117" href="/Naturals/#30117" class="InductiveConstructor Operator">_O</a> <a id="30120" class="Symbol">:</a> <a id="30122" href="plfa.part1.Naturals.html#30088" class="Datatype">Bin</a> <a id="30126" class="Symbol">→</a> <a id="30128" href="plfa.part1.Naturals.html#30088" class="Datatype">Bin</a>
-  <a id="Bin._I"></a><a id="30134" href="/Naturals/#30134" class="InductiveConstructor Operator">_I</a> <a id="30137" class="Symbol">:</a> <a id="30139" href="plfa.part1.Naturals.html#30088" class="Datatype">Bin</a> <a id="30143" class="Symbol">→</a> <a id="30145" href="plfa.part1.Naturals.html#30088" class="Datatype">Bin</a>
+<pre class="Agda"><a id="30084" class="Keyword">data</a> <a id="Bin"></a><a id="30089" href="/Naturals/#30089" class="Datatype">Bin</a> <a id="30093" class="Symbol">:</a> <a id="30095" class="PrimitiveType">Set</a> <a id="30099" class="Keyword">where</a>
+  <a id="Bin.⟨⟩"></a><a id="30107" href="/Naturals/#30107" class="InductiveConstructor">⟨⟩</a> <a id="30110" class="Symbol">:</a> <a id="30112" href="plfa.part1.Naturals.html#30089" class="Datatype">Bin</a>
+  <a id="Bin._O"></a><a id="30118" href="/Naturals/#30118" class="InductiveConstructor Operator">_O</a> <a id="30121" class="Symbol">:</a> <a id="30123" href="plfa.part1.Naturals.html#30089" class="Datatype">Bin</a> <a id="30127" class="Symbol">→</a> <a id="30129" href="plfa.part1.Naturals.html#30089" class="Datatype">Bin</a>
+  <a id="Bin._I"></a><a id="30135" href="/Naturals/#30135" class="InductiveConstructor Operator">_I</a> <a id="30138" class="Symbol">:</a> <a id="30140" href="plfa.part1.Naturals.html#30089" class="Datatype">Bin</a> <a id="30144" class="Symbol">→</a> <a id="30146" href="plfa.part1.Naturals.html#30089" class="Datatype">Bin</a>
 </pre>
 <p>For instance, the bitstring</p>
 
@@ -995,7 +995,7 @@ from : Bin → ℕ
 represents a positive natural, and represent zero by <code class="language-plaintext highlighter-rouge">⟨⟩ O</code>.
 Confirm that these both give the correct answer for zero through four.</p>
 
-<pre class="Agda"><a id="31015" class="Comment">-- Your code goes here</a>
+<pre class="Agda"><a id="31016" class="Comment">-- Your code goes here</a>
 </pre>
 
 <h2 id="standard-library">Standard library</h2>
@@ -1005,7 +1005,7 @@ definitions in the standard library.  The naturals, constructors for
 them, and basic operators upon them, are defined in the standard
 library module <code class="language-plaintext highlighter-rouge">Data.Nat</code>:</p>
 
-<pre class="Agda"><a id="31295" class="Comment">-- import Data.Nat using (ℕ; zero; suc; _+_; _*_; _^_; _∸_)</a>
+<pre class="Agda"><a id="31296" class="Comment">-- import Data.Nat using (ℕ; zero; suc; _+_; _*_; _^_; _∸_)</a>
 </pre>
 <p>Normally, we will show an import as running code, so Agda will
 complain if we attempt to import a definition that is not available.
