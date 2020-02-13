@@ -120,6 +120,8 @@ contributors:
   name: Isaac Elliott
 - github_username: iblech
   name: Ingo Blechschmidt
+- github_username: MatthiasGabriel
+  name: Matthias Gabriel
 - github_username: AD1024
   name: Mike He
 - github_username: trajafri
@@ -160,8 +162,6 @@ contributors:
   name: Rodrigo Bernardo
 - github_username: googleson78
   name: Georgi Lyubenov
-- github_username: MatthiasGabriel
-  name: Matthias Gabriel
 - github_username: dalpd
   name: Deniz Alp
 - github_username: potato4444
