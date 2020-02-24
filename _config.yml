@@ -118,6 +118,8 @@ contributors:
   name: Spencer Whitt
 - github_username: LightAndLight
   name: Isaac Elliott
+- github_username: moleike
+  name: Alexandre Moreno
 - github_username: iblech
   name: Ingo Blechschmidt
 - github_username: MatthiasGabriel
@@ -148,8 +150,6 @@ contributors:
   name: Kenneth MacKenzie
 - github_username: chikeabuah
   name: Chike Abuah
-- github_username: moleike
-  name: Alexandre Moreno
 - github_username: mgttlinger
   name: Merlin Göttlinger
 - github_username: laMudri
