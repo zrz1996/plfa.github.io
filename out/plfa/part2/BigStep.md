@@ -343,11 +343,13 @@ of the equivalence between the big-step semantics and beta reduction.
 </pre>{% endraw %}
 #### Exercise `big-alt-implies-multi` (practice)
 
-Formulate an alternative big-step semantics, of the form `M ↓ N`,
-for call-by-name that uses substitution instead of environments.
-Prove that `M ↓ N` implies `M —↠ N`.
+Formulate an alternative big-step semantics, of the form `M ↓ N`, for
+call-by-name that uses substitution instead of environments.  That is,
+the analogue of the application rule `⇓-app` should perform
+substitution, as in `N [ M ]`, instead of extending the environment
+with `M`. Prove that `M ↓ N` implies `M —↠ N`.
 
-{% raw %}<pre class="Agda"><a id="12759" class="Comment">-- Your code goes here</a>
+{% raw %}<pre class="Agda"><a id="12907" class="Comment">-- Your code goes here</a>
 </pre>{% endraw %}
 ## Beta reduction to a lambda implies big-step evaluation
 

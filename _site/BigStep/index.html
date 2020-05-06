@@ -431,11 +431,13 @@ of the equivalence between the big-step semantics and beta reduction.</p>
 </pre>
 <h4 id="exercise-big-alt-implies-multi-practice">Exercise <code class="language-plaintext highlighter-rouge">big-alt-implies-multi</code> (practice)</h4>
 
-<p>Formulate an alternative big-step semantics, of the form <code class="language-plaintext highlighter-rouge">M ↓ N</code>,
-for call-by-name that uses substitution instead of environments.
-Prove that <code class="language-plaintext highlighter-rouge">M ↓ N</code> implies <code class="language-plaintext highlighter-rouge">M —↠ N</code>.</p>
+<p>Formulate an alternative big-step semantics, of the form <code class="language-plaintext highlighter-rouge">M ↓ N</code>, for
+call-by-name that uses substitution instead of environments.  That is,
+the analogue of the application rule <code class="language-plaintext highlighter-rouge">⇓-app</code> should perform
+substitution, as in <code class="language-plaintext highlighter-rouge">N [ M ]</code>, instead of extending the environment
+with <code class="language-plaintext highlighter-rouge">M</code>. Prove that <code class="language-plaintext highlighter-rouge">M ↓ N</code> implies <code class="language-plaintext highlighter-rouge">M —↠ N</code>.</p>
 
-<pre class="Agda"><a id="12759" class="Comment">-- Your code goes here</a>
+<pre class="Agda"><a id="12907" class="Comment">-- Your code goes here</a>
 </pre>
 <h2 id="beta-reduction-to-a-lambda-implies-big-step-evaluation">Beta reduction to a lambda implies big-step evaluation</h2>
 
