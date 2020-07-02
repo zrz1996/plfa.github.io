@@ -67,6 +67,7 @@ exclude:
   - "Gemfile"
   - "Gemfile.lock"
   - "highlight.sh"
+  - "out/epub/acknowledgements.md"
 contributors:
 - github_username: mdimjasevic
   name: Marko Dimjašević
