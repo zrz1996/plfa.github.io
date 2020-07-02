@@ -253,8 +253,8 @@ hold, then `m ≤ p` holds.  Again, `m`, `n`, and `p` are implicit:
 <a id="8419" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Relations.md %}{% raw %}#8355" class="Function">≤-trans</a> <a id="8427" href="plfa.part1.Relations.html#1222" class="InductiveConstructor">z≤n</a>       <a id="8437" class="Symbol">_</a>          <a id="8448" class="Symbol">=</a>  <a id="8451" href="plfa.part1.Relations.html#1222" class="InductiveConstructor">z≤n</a>
 <a id="8455" href="{% endraw %}{{ site.baseurl }}{% link out/plfa/part1/Relations.md %}{% raw %}#8355" class="Function">≤-trans</a> <a id="8463" class="Symbol">(</a><a id="8464" href="plfa.part1.Relations.html#1271" class="InductiveConstructor">s≤s</a> <a id="8468" href="plfa.part1.Relations.html#8468" class="Bound">m≤n</a><a id="8471" class="Symbol">)</a> <a id="8473" class="Symbol">(</a><a id="8474" href="plfa.part1.Relations.html#1271" class="InductiveConstructor">s≤s</a> <a id="8478" href="plfa.part1.Relations.html#8478" class="Bound">n≤p</a><a id="8481" class="Symbol">)</a>  <a id="8484" class="Symbol">=</a>  <a id="8487" href="plfa.part1.Relations.html#1271" class="InductiveConstructor">s≤s</a> <a id="8491" class="Symbol">(</a><a id="8492" href="plfa.part1.Relations.html#8355" class="Function">≤-trans</a> <a id="8500" href="plfa.part1.Relations.html#8468" class="Bound">m≤n</a> <a id="8504" href="plfa.part1.Relations.html#8478" class="Bound">n≤p</a><a id="8507" class="Symbol">)</a>
 </pre>{% endraw %}Here the proof is by induction on the _evidence_ that `m ≤ n`.  In the
-base case, the first inequality holds by `z≤n` and must show `zero ≤
-p`, which follows immediately by `z≤n`.  In this case, the fact that
+base case, the first inequality holds by `z≤n` and must show `zero ≤ p`,
+which follows immediately by `z≤n`.  In this case, the fact that
 `n ≤ p` is irrelevant, and we write `_` as the pattern to indicate
 that the corresponding evidence is unused.
 

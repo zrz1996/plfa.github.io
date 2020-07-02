@@ -195,9 +195,13 @@ In order to have <code class="language-plaintext highlighter-rouge">agda-mode</c
 
 <h2 id="dependencies-for-developers">Dependencies for developers</h2>
 
-<p>Building PLFA is currently supported on Linux and macOS.
-PLFA is written in literate Agda with <a href="https://kramdown.gettalong.org/syntax.html">Kramdown Markdown</a>.
-The book is built in three stages:</p>
+<p>PLFA is available as both a website and an EPUB e-book,
+both of which can be built on Linux and macOS.
+PLFA is written in literate Agda with <a href="https://kramdown.gettalong.org/syntax.html">Kramdown Markdown</a>.</p>
+
+<h3 id="building-the-website">Building the website</h3>
+
+<p>The website version of the book is built in three stages:</p>
 
 <ol>
   <li>
@@ -240,6 +244,38 @@ make clobber              <span class="c"># removes all generated files</span>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">install
 </span>bundle <span class="nb">exec </span>jekyll serve
 </code></pre></div></div>
+
+<h3 id="building-the-epub">Building the EPUB</h3>
+
+<p>The EPUB version of the book is built using Pandoc, with Lua filters, and the script <code class="language-plaintext highlighter-rouge">epub/render-liquid-template.lua</code>, which wraps the library <a href="https://luarocks.org/modules/3scale/liquid"><code class="language-plaintext highlighter-rouge">liquid.lua</code></a>. Here’s how to build the EPUB:</p>
+
+<ol>
+  <li>
+    <p>Install a recent version of Pandoc, <a href="https://pandoc.org/installing.html">available here</a>.
+We recommend their official installer (on the linked page),
+which is much faster than compiling Pandoc from source with Haskell Stack.</p>
+  </li>
+  <li>
+    <p>Install Lua version 5.3, <a href="https://www.lua.org/download.html">available here</a>.
+Other versions have not been tested.</p>
+  </li>
+  <li>
+    <p>Install luarocks, <a href="https://luarocks.org/">available here</a>,
+which we will use to install the dependencies of <code class="language-plaintext highlighter-rouge">render-liquid-template.lua</code>.</p>
+  </li>
+  <li>Install the dependencies of <code class="language-plaintext highlighter-rouge">run-liquid.lua</code> by running:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>luarocks <span class="nb">install </span>lua-cjson 2.1.0-1
+luarocks <span class="nb">install </span>lua-tinyyaml
+luarocks <span class="nb">install </span>liquid
+</code></pre></div>    </div>
+    <p>Be sure to install <code class="language-plaintext highlighter-rouge">lua-cjson</code> version <code class="language-plaintext highlighter-rouge">2.1.0-1</code> as specified above, as <a href="https://github.com/mpx/lua-cjson/issues/56">newer version are broken</a>.</p>
+  </li>
+  <li>Finally build the EPUB by running:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make epub
+</code></pre></div>    </div>
+    <p>Pandoc will write the EPUB to <code class="language-plaintext highlighter-rouge">out/epub/plfa.epub</code>.</p>
+  </li>
+</ol>
 
   </div>
 
