@@ -77,10 +77,13 @@ Give another example of a pair of operators that have an identity
 and are associative, commutative, and distribute over one another.
 (You do not have to prove these properties.)
 
+(and, or)
+
 Give an example of an operator that has an identity and is
 associative but is not commutative.
 (You do not have to prove these properties.)
 
+matrix multiplication A * B.
 
 ## Associativity
 
