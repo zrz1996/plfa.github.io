@@ -829,7 +829,7 @@ and proofs interactively.
 
 Begin by typing:
 
-    _+_ : ℕ → ℕ → ℕ
+_+_ : ℕ → ℕ → ℕ
     m + n = ?
 
 The question mark indicates that you would like Agda to help with
@@ -988,7 +988,127 @@ represents a positive natural, and represent zero by `⟨⟩ O`.
 Confirm that these both give the correct answer for zero through four.
 
 ```
--- Your code goes here
+
+inc_ : Bin → Bin
+inc ⟨⟩ = ⟨⟩ I
+inc (x O) = x I
+inc (x I) = (inc x) O
+
+_ =
+  begin
+    inc (⟨⟩ O)
+  ≡⟨⟩
+    ⟨⟩ I
+  ∎
+
+_ =
+  begin
+    inc (⟨⟩ O I)
+  ≡⟨⟩
+    ⟨⟩ I O
+  ∎
+
+_ =
+  begin
+    inc (⟨⟩ O I I)
+  ≡⟨⟩
+    (inc (⟨⟩ O I)) O
+  ≡⟨⟩
+    ((inc (⟨⟩ O)) O) O
+  ≡⟨⟩
+    ⟨⟩ I O O
+  ∎
+
+_ =
+  begin
+    inc (⟨⟩ I O O)
+  ≡⟨⟩
+    ⟨⟩ I O I
+  ∎
+
+to_ : ℕ → Bin
+to 0 = ⟨⟩ O
+to (suc x) = inc (to x)
+
+_ =
+  begin
+    to 0
+  ≡⟨⟩
+    ⟨⟩ O
+  ∎
+
+
+_ =
+  begin
+    to 1
+  ≡⟨⟩
+    ⟨⟩ I
+  ∎
+
+
+_ =
+  begin
+    to 2
+  ≡⟨⟩
+    ⟨⟩ I O
+  ∎
+
+
+_ =
+  begin
+    to 3
+  ≡⟨⟩
+    ⟨⟩ I I
+  ∎
+
+
+_ =
+  begin
+    to 4
+  ≡⟨⟩
+    ⟨⟩ I O O
+  ∎
+
+from_ : Bin → ℕ
+from ⟨⟩ = 0
+from (x O) = from (x) * 2
+from (x I) = (from x) * 2 + 1
+
+_ =
+  begin
+    from (⟨⟩ O)
+  ≡⟨⟩
+    0
+  ∎
+
+_ =
+  begin
+    from (⟨⟩ O O O I)
+  ≡⟨⟩
+    1
+  ∎
+
+_ =
+  begin
+    from (⟨⟩ I O)
+  ≡⟨⟩
+    2
+  ∎
+  
+_ =
+  begin
+    from (⟨⟩ I I)
+  ≡⟨⟩
+    3
+  ∎
+
+_ =
+  begin
+    from (⟨⟩ I O O)
+  ≡⟨⟩
+    4
+  ∎
+
 ```
 
 
