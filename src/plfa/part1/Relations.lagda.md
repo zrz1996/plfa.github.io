@@ -18,8 +18,8 @@ the next step is to define relations, such as _less than or equal_.
 ```
 import Relation.Binary.PropositionalEquality as Eq
 open Eq using (_≡_; refl; cong)
-open import Data.Nat using (ℕ; zero; suc; _+_)
-open import Data.Nat.Properties using (+-comm; +-identityʳ)
+open import Data.Nat using (ℕ; zero; suc; _+_; _*_)
+open import Data.Nat.Properties using (+-comm; +-identityʳ; *-comm)
 ```
 
 
@@ -365,7 +365,7 @@ The above proof omits cases where one argument is `z≤n` and one
 argument is `s≤s`.  Why is it ok to omit them?
 
 ```
--- Your code goes here
+-- z≤n implies that m = zero. s≤s implies that m = suc of some natural number, which is impossible. 
 ```
 
 
@@ -555,7 +555,25 @@ transitivity proves `m + p ≤ n + q`, as was to be shown.
 Show that multiplication is monotonic with regard to inequality.
 
 ```
--- Your code goes here
+*-monoʳ-≤ : ∀ (n p q : ℕ)
+  → p ≤ q
+    ---------------
+  → n * p ≤ n * q
+*-monoʳ-≤ zero p q p≤q = z≤n
+*-monoʳ-≤ (suc n) p q p≤q = +-mono-≤  p q (n * p) (n * q) p≤q (*-monoʳ-≤ n p q p≤q) 
+
+*-monoˡ-≤ : ∀ (m n p : ℕ)
+  → m ≤ n
+    ---------------
+  → m * p ≤ n * p
+*-monoˡ-≤ m n p m≤n rewrite *-comm m p | *-comm n p = *-monoʳ-≤ p m n m≤n
+
+*-mono-≤ : ∀ (m n p q : ℕ)
+  → m ≤ n 
+  → p ≤ q
+    ---------------
+  → m * p ≤ n * q
+*-mono-≤ m n p q m≤n p≤q = ≤-trans (*-monoˡ-≤ m n p m≤n) (*-monoʳ-≤ n p q p≤q)
 ```
 
 
@@ -602,7 +620,13 @@ exploiting the corresponding properties of inequality.
 Show that strict inequality is transitive.
 
 ```
--- Your code goes here
+<-trans : ∀ {m n p : ℕ}
+  → m < n
+  → n < p
+    -------------
+  → m < p
+<-trans {zero} z<s (s<s n<p) = z<s
+<-trans {suc m} (s<s m<n) (s<s n<p) = s<s (<-trans m<n n<p)
 ```
 
 #### Exercise `trichotomy` (practice) {name=trichotomy}
@@ -620,7 +644,31 @@ similar to that used for totality.
 [negation](/Negation/).)
 
 ```
--- Your code goes here
+data Trichotomy (m n : ℕ) : Set where
+
+  less :
+      m < n
+  -----------
+    → Trichotomy m n
+
+  equal :
+      m ≡ n
+  -----------
+    → Trichotomy m n
+
+  greater :
+      n < m 
+  -----------
+    → Trichotomy m n
+
+<-Trichotomy : ∀ (m n : ℕ) → Trichotomy m n
+<-Trichotomy zero zero = equal refl
+<-Trichotomy zero (suc n) = less z<s
+<-Trichotomy (suc m) zero = greater z<s
+<-Trichotomy (suc m) (suc n) with <-Trichotomy m n
+...                             | less m<n = less (s<s m<n) 
+...                             | equal m≡n = equal (cong suc (m≡n))
+...                             | greater n<m = greater (s<s n<m)
 ```
 
 #### Exercise `+-mono-<` (practice) {name=plus-mono-less}
@@ -629,7 +677,25 @@ Show that addition is monotonic with respect to strict inequality.
 As with inequality, some additional definitions may be required.
 
 ```
--- Your code goes here
++-monoʳ-< : ∀ (n p q : ℕ)
+  → p < q
+    -------------
+  → n + p < n + q
++-monoʳ-< zero    p q p<q  =  p<q
++-monoʳ-< (suc n) p q p<q  =  s<s (+-monoʳ-< n p q p<q)
+
++-monoˡ-< : ∀ (m n p : ℕ)
+  → m < n
+    -------------
+  → m + p < n + p
++-monoˡ-< m n p m<n  rewrite +-comm m p | +-comm n p  = +-monoʳ-< p m n m<n
+
++-mono-< : ∀ (m n p q : ℕ)
+  → m < n
+  → p < q
+    -------------
+  → m + p < n + q
++-mono-< m n p q m<n p<q  =  <-trans (+-monoˡ-< m n p m<n) (+-monoʳ-< n p q p<q)
 ```
 
 #### Exercise `≤-iff-<` (recommended) {name=leq-iff-less}
@@ -637,7 +703,19 @@ As with inequality, some additional definitions may be required.
 Show that `suc m ≤ n` implies `m < n`, and conversely.
 
 ```
--- Your code goes here
+<-if-≤ : ∀ (m n : ℕ)
+  → (suc m) ≤ n 
+    --------------
+  → m < n
+<-if-≤ zero (suc n) (s≤s z≤n) = z<s
+<-if-≤ (suc m) (suc n) (s≤s sucm≤n) = s<s (<-if-≤ m n sucm≤n)
+
+≤-if-< : ∀ (m n : ℕ)
+  → m < n
+    --------------
+  → (suc m) ≤ n
+≤-if-< zero (suc n) z<s = s≤s z≤n
+≤-if-< (suc m) (suc n) (s<s m<n) = s≤s (≤-if-< m n m<n)
 ```
 
 #### Exercise `<-trans-revisited` (practice) {name=less-trans-revisited}
@@ -754,7 +832,22 @@ successor of the sum of two even numbers, which is even.
 Show that the sum of two odd numbers is even.
 
 ```
--- Your code goes here
+o+o≡e : ∀ {m n : ℕ}
+  → odd m
+  → odd n
+    ------------
+  → even (m + n)
+
+e+o≡o : ∀ {m n : ℕ}
+  → even m
+  → odd n
+    ------------
+  → odd (m + n)
+
+e+o≡o zero on = on
+e+o≡o (suc om) on = suc (o+o≡e om on)
+
+o+o≡e (suc em) on = suc (e+o≡o em on)
 ```
 
 #### Exercise `Bin-predicates` (stretch) {name=Bin-predicates}
@@ -836,3 +929,4 @@ This chapter uses the following unicode:
 
 The commands `\^l` and `\^r` give access to a variety of superscript
 leftward and rightward arrows in addition to superscript letters `l` and `r`.
+

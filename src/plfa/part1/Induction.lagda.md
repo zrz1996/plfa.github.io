@@ -29,7 +29,7 @@ and some operations upon them.  We also import a couple of new operations,
 import Relation.Binary.PropositionalEquality as Eq
 open Eq using (_≡_; refl; cong; sym)
 open Eq.≡-Reasoning using (begin_; _≡⟨⟩_; step-≡; _∎)
-open import Data.Nat using (ℕ; zero; suc; _+_; _*_; _∸_)
+open import Data.Nat using (ℕ; zero; suc; _+_; _*_; _∸_; _^_)
 ```
 
 
@@ -994,8 +994,24 @@ Show the following three laws
      (m ^ n) ^ p ≡ m ^ (n * p)        (^-*-assoc)
 
 for all `m`, `n`, and `p`.
+```
+^-distribˡ-|-* : ∀ (m n p : ℕ) → m ^ (n + p) ≡ (m ^ n) * (m ^ p)
+^-distribˡ-|-* m zero p rewrite +-identity′ (m ^ p) = refl 
+^-distribˡ-|-* m (suc n) p rewrite ^-distribˡ-|-* m n p | *-assoc m (m ^ n) (m ^ p)= refl
 
+^-distribʳ-* : ∀ (m n p : ℕ) → (m * n) ^ p ≡ (m ^ p) * (n ^ p)
+^-distribʳ-* m n zero = refl
+^-distribʳ-* m n (suc p) rewrite *-assoc m (m ^ p) (n * (n ^ p)) 
+                              | sym (*-assoc (m ^ p) n (n ^ p)) 
+                              | *-comm (m ^ p) n 
+                              | *-assoc n (m ^ p) (n ^ p) 
+                              | sym (*-assoc m n ((m ^ p) * (n ^ p))) 
+                              | ^-distribʳ-* m n p =  refl
 
+^-*-assoc : ∀ (m n p : ℕ) → (m ^ n) ^ p ≡ m ^ (n * p)
+^-*-assoc m n zero rewrite *-zero n =  refl
+^-*-assoc m n (suc p) rewrite *-suc n p | ^-distribˡ-|-* m n (n * p) | ^-*-assoc m n p =  refl
+```
 #### Exercise `Bin-laws` (stretch) {name=Bin-laws}
 
 Recall that
