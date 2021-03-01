@@ -162,7 +162,8 @@ cong-app : ∀ {A B : Set} {f g : A → B}
   → f ≡ g
     ---------------------
   → ∀ (x : A) → f x ≡ g x
-cong-app refl x = refl
+--- cong-app refl x = refl
+cong-app refl = λ x → refl
 ```
 
 Equality also satisfies *substitution*.
@@ -172,7 +173,8 @@ subst : ∀ {A : Set} {x y : A} (P : A → Set)
   → x ≡ y
     ---------
   → P x → P y
-subst P refl px = px
+--- subst P refl px = px
+subst P refl = λ x₁ → x₁
 ```
 
 
