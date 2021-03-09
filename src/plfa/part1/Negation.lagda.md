@@ -16,12 +16,13 @@ and classical logic.
 ## Imports
 
 ```
-open import Relation.Binary.PropositionalEquality using (_≡_; refl)
-open import Data.Nat using (ℕ; zero; suc)
+open import Relation.Binary.PropositionalEquality using (_≡_; refl; sym; cong)
+open import Data.Nat using (ℕ; zero; suc; _∸_)
 open import Data.Empty using (⊥; ⊥-elim)
 open import Data.Sum using (_⊎_; inj₁; inj₂)
-open import Data.Product using (_×_)
+open import Data.Product using (_×_; _,_)
 open import plfa.part1.Isomorphism using (_≃_; extensionality)
+open import plfa.part1.Relations using (_<_)
 ```
 
 
@@ -193,7 +194,9 @@ Using negation, show that
 is irreflexive, that is, `n < n` holds for no `n`.
 
 ```
--- Your code goes here
+<-irreflexive : ∀ {n : ℕ} → ¬ (n < n)
+<-irreflexive {zero} = λ()
+<-irreflexive (_<_.s<s x) = <-irreflexive x
 ```
 
 
@@ -211,7 +214,34 @@ Here "exactly one" means that not only one of the three must hold,
 but that when one holds the negation of the other two must also hold.
 
 ```
--- Your code goes here
+data trichotomy (m n : ℕ) : Set where
+
+  less :
+      (m < n) × (¬ m ≡ n) × (¬ n < m)
+  -----------
+    → trichotomy m n
+
+  equal :
+      (m ≡ n) × (¬ m < n) × (¬ n < m)
+  -----------
+    → trichotomy m n
+
+  greater :
+      (n < m) × (¬ m ≡ n) × (¬ m < n) 
+  -----------
+    → trichotomy m n
+
++-≡ : ∀ {m n : ℕ} → (suc m ≡ suc n) → (m ≡ n)
++-≡ x = cong (λ y → y ∸ 1) x  
+
+<-trichotomy : ∀ (m n : ℕ) → trichotomy m n
+<-trichotomy zero zero = equal (refl , (λ ()) , (λ ()))
+<-trichotomy zero (suc n) = less (_<_.z<s , (λ ()) , (λ ()))
+<-trichotomy (suc m) zero = greater (_<_.z<s , (λ ()) , (λ ()))
+<-trichotomy (suc m) (suc n) with <-trichotomy m n
+... | less (m<n , ¬m≡n , ¬n<m) = less (_<_.s<s m<n , (λ x → ¬m≡n (+-≡ x)) , λ{ (_<_.s<s y) → ¬n<m y })
+... | equal (m≡n , ¬m<n , ¬n<m) = equal (cong suc m≡n , (λ{ (_<_.s<s y) → ¬m<n y }) , λ{ (_<_.s<s y) → ¬n<m y } )
+... | greater (n<m , ¬m≡n , ¬m<n) = greater (_<_.s<s n<m , (λ x → ¬m≡n (+-≡ x)) , λ{ (_<_.s<s y) → ¬m<n y })
 ```
 
 #### Exercise `⊎-dual-×` (recommended)
@@ -224,8 +254,17 @@ version of De Morgan's Law.
 This result is an easy consequence of something we've proved previously.
 
 ```
--- Your code goes here
+⊎-dual-× : ∀ {A B : Set} →  ¬ (A ⊎ B) ≃ (¬ A) × (¬ B)
+⊎-dual-× = 
+  record 
+    { to = λ y → (λ x → y (inj₁ x)) , (λ x → y (inj₂ x)) 
+    ; from = λ{ (x , x₁) → λ{ (inj₁ y) → x y; (inj₂ y) → x₁ y } }
+    ; from∘to = λ x → extensionality λ{ (inj₁ x) → refl ; (inj₂ y) → refl } 
+    ; to∘from = λ y → refl 
+    }
+
 ```
+
 
 
 Do we also have the following?
@@ -381,7 +420,27 @@ Consider the following principles:
 Show that each of these implies all the others.
 
 ```
--- Your code goes here
+em-implies-¬¬ : (∀ {A : Set} → (A ⊎ ¬ A)) → (∀ {B : Set} → (¬ ¬ B → B))
+em-implies-¬¬ em with em
+... | inj₁ x = (λ y → x)
+... | inj₂ x = (λ y → ⊥-elim (y x))
+
+¬¬-implies-peirce : (∀ {A : Set} → (¬ ¬ A → A)) → (∀ {A B : Set} → ((A → B) → A) → A)
+¬¬-implies-peirce nn = λ x → nn (λ z → z (x (λ y → ⊥-elim (z y))))
+
+peirce-implies-impdis : (∀ {A B : Set} → ((A → B) → A) → A) → (∀ {A B : Set} → (A → B) → ¬ A ⊎ B)
+peirce-implies-impdis p = λ z → p (λ y → inj₁ (λ x → y (inj₂ (z x)))) 
+
+impdis-implies-em : (∀ {A B : Set} → (A → B) → ¬ A ⊎ B) → (∀ {A : Set} → (A ⊎ ¬ A))
+impdis-implies-em x with x (λ z → z)
+... | inj₁ ¬y = inj₂ ¬y
+... | inj₂ y = inj₁ y
+
+¬¬-implies-demo : (∀ {A : Set} → (¬ ¬ A → A)) → (∀ {A B : Set} → ¬ (¬ A × ¬ B) → A ⊎ B)
+¬¬-implies-demo x = λ z → x (λ z₁ → z ((λ x → z₁ (inj₁ x)) , (λ x → z₁ (inj₂ x))))
+
+demo-implies-em : (∀ {A B : Set} → ¬ (¬ A × ¬ B) → A ⊎ B) → (∀ {A : Set} → (A ⊎ ¬ A))
+demo-implies-em x = x (λ z → Data.Product.proj₂ z (Data.Product.proj₁ z))
 ```
 
 

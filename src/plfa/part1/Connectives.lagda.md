@@ -35,7 +35,7 @@ open Eq using (_≡_; refl)
 open Eq.≡-Reasoning
 open import Data.Nat using (ℕ)
 open import Function using (_∘_)
-open import plfa.part1.Isomorphism using (_≃_; _≲_; extensionality)
+open import plfa.part1.Isomorphism using (_≃_; _≲_; extensionality; _⇔_)
 open plfa.part1.Isomorphism.≃-Reasoning
 ```
 
@@ -241,7 +241,14 @@ Show that `A ⇔ B` as defined [earlier](/Isomorphism/#iff)
 is isomorphic to `(A → B) × (B → A)`.
 
 ```
--- Your code goes here
+⇔≃× : ∀ {A B : Set} → (A ⇔ B) ≃ (A → B) × (B → A)
+⇔≃× =
+  record
+    { to = λ z → ⟨ _⇔_.to z , _⇔_.from z ⟩
+    ; from = λ{ ⟨ x , y ⟩ → record { to = x; from = y } }
+    ; from∘to = λ z → refl
+    ; to∘from = λ{ ⟨ x , y ⟩ → refl}
+    }
 ```
 
 
@@ -454,7 +461,16 @@ commutative and associative _up to isomorphism_.
 Show sum is commutative up to isomorphism.
 
 ```
--- Your code goes here
+⊎-comm : ∀ {A B : Set} → (A ⊎ B) ≃ (B ⊎ A)
+⊎-comm =
+  record
+    { to = λ{ x → case-⊎ inj₂ inj₁ x }
+    ; from = λ{ x → case-⊎ inj₂ inj₁ x }
+    ; to∘from = λ{ (inj₁ x) → refl
+                 ; (inj₂ x) → refl}
+    ; from∘to =  λ{ (inj₁ x) → refl
+                 ; (inj₂ x) → refl}
+    }
 ```
 
 #### Exercise `⊎-assoc` (practice)
@@ -462,7 +478,22 @@ Show sum is commutative up to isomorphism.
 Show sum is associative up to isomorphism.
 
 ```
--- Your code goes here
+⊎-assoc : ∀ {A B C : Set} → ((A ⊎ B) ⊎ C) ≃ (A ⊎ (B ⊎ C))
+⊎-assoc = 
+  record
+    { to = λ{ (inj₁ (inj₁ x)) → inj₁ x
+            ; (inj₁ (inj₂ x)) → inj₂ (inj₁ x)
+            ; (inj₂ x) → inj₂ (inj₂ x)}
+    ; from = λ{ (inj₁ x) →  inj₁ (inj₁ x) 
+              ; (inj₂ (inj₁ x)) → inj₁ (inj₂ x)
+              ; (inj₂ (inj₂ x)) → (inj₂ x)}
+    ; to∘from = λ{ (inj₁ x) → refl
+                 ; (inj₂ (inj₁ x)) → refl
+                 ; (inj₂ (inj₂ x)) → refl}
+    ; from∘to = λ{ (inj₁ (inj₁ x)) → refl
+                 ; (inj₁ (inj₂ x)) → refl
+                 ; (inj₂ x) → refl}
+    }
 ```
 
 ## False is empty
@@ -525,7 +556,14 @@ is the identity of sums _up to isomorphism_.
 Show empty is the left identity of sums up to isomorphism.
 
 ```
--- Your code goes here
+⊥-identityˡ : ∀ {A : Set} → (⊥ ⊎ A) ≃ A
+⊥-identityˡ = 
+  record
+  { to = λ{ (inj₂ x) → x}
+  ; from = λ{ x → (inj₂ x)}
+  ; from∘to = λ{ (inj₂ x) → refl}
+  ; to∘from = λ x → refl
+  }
 ```
 
 #### Exercise `⊥-identityʳ` (practice)
@@ -533,7 +571,14 @@ Show empty is the left identity of sums up to isomorphism.
 Show empty is the right identity of sums up to isomorphism.
 
 ```
--- Your code goes here
+⊥-identityʳ : ∀ {A : Set} → (A ⊎ ⊥) ≃ A
+⊥-identityʳ = 
+  record
+  { to = λ{ (inj₁ x) → x}
+  ; from = λ{ x → (inj₁ x)}
+  ; from∘to = λ{ (inj₁ x) → refl}
+  ; to∘from = λ x → refl
+  }
 ```
 
 ## Implication is function {name=implication}
@@ -757,14 +802,15 @@ one of these laws is "more true" than the other.
 
 Show that the following property holds:
 ```
-postulate
-  ⊎-weak-× : ∀ {A B C : Set} → (A ⊎ B) × C → A ⊎ (B × C)
+---postulate
+⊎-weak-× : ∀ {A B C : Set} → (A ⊎ B) × C → A ⊎ (B × C)
 ```
 This is called a _weak distributive law_. Give the corresponding
 distributive law, and explain how it relates to the weak version.
 
 ```
--- Your code goes here
+⊎-weak-× ⟨ inj₁ x , y ⟩ = inj₁ x
+⊎-weak-× ⟨ inj₂ x , y ⟩ = inj₂ ⟨ x , y ⟩
 ```
 
 
@@ -772,13 +818,15 @@ distributive law, and explain how it relates to the weak version.
 
 Show that a disjunct of conjuncts implies a conjunct of disjuncts:
 ```
-postulate
-  ⊎×-implies-×⊎ : ∀ {A B C D : Set} → (A × B) ⊎ (C × D) → (A ⊎ C) × (B ⊎ D)
+---postulate
+⊎×-implies-×⊎ : ∀ {A B C D : Set} → (A × B) ⊎ (C × D) → (A ⊎ C) × (B ⊎ D)
 ```
 Does the converse hold? If so, prove; if not, give a counterexample.
 
 ```
--- Your code goes here
+⊎×-implies-×⊎ (inj₁ ⟨ x , y ⟩) = ⟨ inj₁ x , inj₁ y ⟩
+⊎×-implies-×⊎ (inj₂ ⟨ x , y ⟩) = ⟨ inj₂ x , inj₂ y ⟩
+--- The converse does not hold. Suppose A, D hold, but B, C do not hold. Then (A ⊎ C) × (B ⊎ D) holds but (A × B) ⊎ (C × D) does not hold.
 ```
 
 
