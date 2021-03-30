@@ -16,12 +16,13 @@ This chapter introduces universal and existential quantification.
 
 ```
 import Relation.Binary.PropositionalEquality as Eq
-open Eq using (_≡_; refl)
-open import Data.Nat using (ℕ; zero; suc; _+_; _*_)
+open Eq using (_≡_; refl; subst; cong; sym)
+open import Data.Nat using (ℕ; zero; suc; _+_; _*_; _≤_; _∸_)
+open import Data.Nat.Properties using (m∸n+n≡m; m≤n+m; +-assoc; +-suc; *-comm; +-identityʳ; +-comm; *-suc; *-identityʳ)
 open import Relation.Nullary using (¬_)
 open import Data.Product using (_×_; proj₁; proj₂) renaming (_,_ to ⟨_,_⟩)
 open import Data.Sum using (_⊎_; inj₁; inj₂)
-open import plfa.part1.Isomorphism using (_≃_; extensionality)
+open import plfa.part1.Isomorphism using (_≃_; extensionality; ∀-extensionality; _⇔_)
 ```
 
 
@@ -92,9 +93,16 @@ dependent product is ambiguous.
 
 Show that universals distribute over conjunction:
 ```
-postulate
-  ∀-distrib-× : ∀ {A : Set} {B C : A → Set} →
+---postulate
+∀-distrib-× : ∀ {A : Set} {B C : A → Set} →
     (∀ (x : A) → B x × C x) ≃ (∀ (x : A) → B x) × (∀ (x : A) → C x)
+∀-distrib-× = 
+  record
+  { to = λ x → ⟨ (λ y → proj₁ (x y)) , (λ y → proj₂ (x y)) ⟩
+  ; from = λ{ ⟨ x , y ⟩ → λ z → ⟨ x z , y z ⟩} 
+  ; from∘to = λ x → refl
+  ; to∘from = λ y → refl
+  }
 ```
 Compare this with the result (`→-distrib-×`) in
 Chapter [Connectives](/Connectives/).
@@ -103,12 +111,15 @@ Chapter [Connectives](/Connectives/).
 
 Show that a disjunction of universals implies a universal of disjunctions:
 ```
-postulate
-  ⊎∀-implies-∀⊎ : ∀ {A : Set} {B C : A → Set} →
+---postulate
+⊎∀-implies-∀⊎ : ∀ {A : Set} {B C : A → Set} →
     (∀ (x : A) → B x) ⊎ (∀ (x : A) → C x)  →  ∀ (x : A) → B x ⊎ C x
+⊎∀-implies-∀⊎ (inj₁ x)  y = inj₁ (x y)
+⊎∀-implies-∀⊎ (inj₂ x)  y = inj₂ (x y)
 ```
 Does the converse hold? If so, prove; if not, explain why.
 
+No. Suppose ∀ x → (B x) ⊎ (C x) holds. It may be the case that for some x, B x holds and for some y ≠ x, C y holds.
 
 #### Exercise `∀-×` (practice)
 
@@ -123,6 +134,18 @@ Let `B` be a type indexed by `Tri`, that is `B : Tri → Set`.
 Show that `∀ (x : Tri) → B x` is isomorphic to `B aa × B bb × B cc`.
 Hint: you will need to postulate a version of extensionality that
 works for dependent functions.
+
+```
+∀-× : ∀ {B : Tri → Set} → (∀ (x : Tri) → B x) ≃ (B aa × B bb × B cc)
+∀-× {B} =
+  record
+  { to = λ z → ⟨ z aa , ⟨ z bb , z cc ⟩ ⟩
+  ; from = λ{ ⟨ x , ⟨ y , z ⟩ ⟩ → λ { aa → x; bb → y; cc → z } }
+  ; to∘from = λ x → refl
+  ; from∘to = λ x → ∀-extensionality λ{ aa → refl; bb → refl; cc → refl }
+  }
+```
+
 
 
 ## Existentials
@@ -248,26 +271,46 @@ establish the isomorphism is identical to what we wrote when discussing
 
 Show that existentials distribute over disjunction:
 ```
-postulate
-  ∃-distrib-⊎ : ∀ {A : Set} {B C : A → Set} →
+---postulate
+∃-distrib-⊎ : ∀ {A : Set} {B C : A → Set} →
     ∃[ x ] (B x ⊎ C x) ≃ (∃[ x ] B x) ⊎ (∃[ x ] C x)
+∃-distrib-⊎ =
+  record 
+    { to = λ{ ⟨ x , inj₁ Bx ⟩ → inj₁ ⟨ x , Bx ⟩;  ⟨ x , inj₂ Cx ⟩ → inj₂ ⟨ x , Cx ⟩}
+    ; from = λ{ (inj₁ ⟨ x , Bx ⟩) → ⟨ x , inj₁ Bx ⟩; (inj₂ ⟨ x , Cx ⟩) → ⟨ x , inj₂ Cx ⟩}
+    ; from∘to = λ { ⟨ x , inj₁ Bx ⟩ → refl;  ⟨ x , inj₂ Cx ⟩ → refl}
+    ; to∘from = λ { (inj₁ ⟨ x , Bx ⟩) → refl; (inj₂ ⟨ x , Cx ⟩) → refl }
+    }
 ```
 
 #### Exercise `∃×-implies-×∃` (practice)
 
 Show that an existential of conjunctions implies a conjunction of existentials:
 ```
-postulate
-  ∃×-implies-×∃ : ∀ {A : Set} {B C : A → Set} →
+---postulate
+∃×-implies-×∃ : ∀ {A : Set} {B C : A → Set} →
     ∃[ x ] (B x × C x) → (∃[ x ] B x) × (∃[ x ] C x)
+∃×-implies-×∃ ⟨ x , ⟨ Bx , Cx ⟩ ⟩ = ⟨ ⟨ x , Bx ⟩ , ⟨ x , Cx ⟩ ⟩
 ```
 Does the converse hold? If so, prove; if not, explain why.
+
+No. It is possible that there exists exactly one x such that B x holds and there exists exactly one y such that C y holds. But x ≠ y.
 
 #### Exercise `∃-⊎` (practice)
 
 Let `Tri` and `B` be as in Exercise `∀-×`.
 Show that `∃[ x ] B x` is isomorphic to `B aa ⊎ B bb ⊎ B cc`.
 
+```
+∃-⊎ : ∀ {B : Tri → Set} → (∃[ x ] B x) ≃ (B aa ⊎ B bb ⊎ B cc)
+∃-⊎ =
+  record 
+    { to = λ{ ⟨ aa , Baa ⟩ → inj₁ Baa; ⟨ bb , Bbb ⟩ → inj₂ (inj₁ Bbb); ⟨ cc , Bcc ⟩ → inj₂ (inj₂ Bcc) }
+    ; from = λ{ (inj₁ x) → ⟨ aa , x ⟩;  (inj₂ (inj₁ x)) → ⟨ bb , x ⟩; (inj₂ (inj₂ x)) → ⟨ cc , x ⟩ }
+    ; from∘to = λ { ⟨ aa , Baa ⟩ → refl; ⟨ bb , Bbb ⟩ → refl; ⟨ cc , Bcc ⟩ → refl}
+    ; to∘from = λ{ (inj₁ x) → refl;  (inj₂ (inj₁ x)) → refl; (inj₂ (inj₂ x)) → refl }
+    }
+```
 
 ## An existential example
 
@@ -377,7 +420,20 @@ by `2 * m` and `2 * m + 1`?  Rewrite the proofs of `∃-even` and `∃-odd` when
 restated in this way.
 
 ```
--- Your code goes here
+2-*-+ : ∀ {x : ℕ} → 2 * x + 1 ≡ x + 1 * suc (x)
+2-*-+ {zero} = refl
+2-*-+ {suc x} rewrite *-comm 2 (suc x) | +-identityʳ x | +-assoc x (suc x) 1 | +-comm x 1 =  refl
+
++-1-*-suc-+ : ∀ {x : ℕ} → 2 * suc x ≡ x + 1 * suc x + 1
++-1-*-suc-+ {x} rewrite *-comm 2 (suc x) | +-identityʳ x | +-comm 1 (suc (x * 2)) | +-comm 1 (x * 2 + 1) | +-comm 1 x | sym (+-assoc x x 1) | *-suc x 1 | *-identityʳ x = refl
+
+∃-even' : ∀ {n : ℕ} → ∃[ m ] (2 * m ≡ n) → even n
+∃-odd'   : ∀ {n : ℕ} → ∃[ m ] (2 * m + 1 ≡ n) →  odd n
+
+∃-even' ⟨ zero , refl ⟩ = even-zero
+∃-even' ⟨ suc m , refl ⟩ = even-suc (subst odd 2-*-+ (∃-odd' ⟨ m , refl ⟩) )
+∃-odd' ⟨ zero , refl ⟩ = odd-suc even-zero
+∃-odd' ⟨ suc m , refl ⟩ = odd-suc (subst even +-1-*-suc-+ (∃-even' ⟨ (suc m) , refl ⟩))
 ```
 
 #### Exercise `∃-|-≤` (practice)
@@ -386,7 +442,12 @@ Show that `y ≤ z` holds if and only if there exists a `x` such that
 `x + y ≡ z`.
 
 ```
--- Your code goes here
+∃-|-≤ : ∀ (y z : ℕ) → (y ≤ z) ⇔ (∃[ x ] (x + y ≡ z))
+∃-|-≤ y z = 
+  record 
+  { to = λ y≤z → ⟨ z ∸ y , m∸n+n≡m y≤z ⟩
+  ; from = λ{ ⟨ x , f ⟩ → subst (λ w → y ≤ w) f (m≤n+m y x)}
+  }
 ```
 
 
@@ -429,14 +490,16 @@ requires extensionality.
 
 Show that existential of a negation implies negation of a universal:
 ```
-postulate
-  ∃¬-implies-¬∀ : ∀ {A : Set} {B : A → Set}
-    → ∃[ x ] (¬ B x)
+---postulate
+∃¬-implies-¬∀ : ∀ {A : Set} {B : A → Set}
+  → ∃[ x ] (¬ B x)
       --------------
-    → ¬ (∀ x → B x)
+  → ¬ (∀ x → B x)
+∃¬-implies-¬∀ ⟨ x , ¬y ⟩ y = ¬y (y x) 
 ```
 Does the converse hold? If so, prove; if not, explain why.
 
+No. Suppose the type A has zero member. Then (∀ x → B x) has zero member and ¬ (∀ x → B x) holds. However, we cannot find an x of type A such that (¬ B x) holds.
 
 #### Exercise `Bin-isomorphism` (stretch) {name=Bin-isomorphism}
 
