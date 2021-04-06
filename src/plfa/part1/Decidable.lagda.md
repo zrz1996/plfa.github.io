@@ -23,9 +23,9 @@ of a new notion of _decidable_.
 
 ```
 import Relation.Binary.PropositionalEquality as Eq
-open Eq using (_≡_; refl)
+open Eq using (_≡_; refl; cong; sym)
 open Eq.≡-Reasoning
-open import Data.Nat using (ℕ; zero; suc)
+open import Data.Nat using (ℕ; zero; suc; _∸_)
 open import Data.Product using (_×_) renaming (_,_ to ⟨_,_⟩)
 open import Data.Sum using (_⊎_; inj₁; inj₂)
 open import Relation.Nullary using (¬_)
@@ -295,20 +295,33 @@ trouble normalising evidence of negation.)
 
 Analogous to the function above, define a function to decide strict inequality:
 ```
-postulate
-  _<?_ : ∀ (m n : ℕ) → Dec (m < n)
+¬s<s : ∀ {m n : ℕ} → ¬ (m < n) → ¬ (suc m < suc n)
+¬s<s ¬m<n (s<s m<n) = ¬m<n m<n
+---postulate
+_<?_ : ∀ (m n : ℕ) → Dec (m < n)
+zero <? zero = no (λ ())
+zero <? suc n = yes z<s
+suc m <? zero = no (λ ())
+suc m <? suc n with m <? n
+...               | yes m<n = yes (s<s m<n)
+...               | no ¬m<n = no (¬s<s ¬m<n)
 ```
 
-```
--- Your code goes here
-```
 
 #### Exercise `_≡ℕ?_` (practice)
 
 Define a function to decide whether two naturals are equal:
 ```
-postulate
-  _≡ℕ?_ : ∀ (m n : ℕ) → Dec (m ≡ n)
+¬s≡s : ∀ {m n : ℕ} → ¬ (m ≡ n) → ¬ (suc m ≡ suc n)
+¬s≡s ¬m≡n x = ¬m≡n (cong (λ x → x ∸ 1) x)
+---postulate
+_≡ℕ?_ : ∀ (m n : ℕ) → Dec (m ≡ n)
+zero ≡ℕ? zero = yes refl
+zero ≡ℕ? suc n = no (λ ())
+suc m ≡ℕ? zero = no (λ ())
+suc m ≡ℕ? suc n with m ≡ℕ? n
+...                | yes m≡n = yes (cong suc m≡n)
+...                | no ¬m≡n = no (¬s≡s ¬m≡n)
 ```
 
 ```
@@ -539,10 +552,21 @@ on which matches; but either is equally valid.
 
 Show that erasure relates corresponding boolean and decidable operations:
 ```
-postulate
-  ∧-× : ∀ {A B : Set} (x : Dec A) (y : Dec B) → ⌊ x ⌋ ∧ ⌊ y ⌋ ≡ ⌊ x ×-dec y ⌋
-  ∨-⊎ : ∀ {A B : Set} (x : Dec A) (y : Dec B) → ⌊ x ⌋ ∨ ⌊ y ⌋ ≡ ⌊ x ⊎-dec y ⌋
-  not-¬ : ∀ {A : Set} (x : Dec A) → not ⌊ x ⌋ ≡ ⌊ ¬? x ⌋
+∧-× : ∀ {A B : Set} (x : Dec A) (y : Dec B) → ⌊ x ⌋ ∧ ⌊ y ⌋ ≡ ⌊ x ×-dec y ⌋
+∧-× (yes x) (yes x₁) = refl
+∧-× (yes x) (no x₁) = refl
+∧-× (no x) (yes x₁) = refl
+∧-× (no x) (no x₁) = refl
+
+∨-⊎ : ∀ {A B : Set} (x : Dec A) (y : Dec B) → ⌊ x ⌋ ∨ ⌊ y ⌋ ≡ ⌊ x ⊎-dec y ⌋
+∨-⊎ (yes x) (yes x₁) = refl
+∨-⊎ (yes x) (no x₁) = refl
+∨-⊎ (no x) (yes x₁) = refl
+∨-⊎ (no x) (no x₁) = refl
+
+not-¬ : ∀ {A : Set} (x : Dec A) → not ⌊ x ⌋ ≡ ⌊ ¬? x ⌋
+not-¬ (yes x) = refl
+not-¬ (no x) = refl
 ```
 
 #### Exercise `iff-erasure` (recommended)
@@ -551,14 +575,30 @@ Give analogues of the `_⇔_` operation from
 Chapter [Isomorphism](/Isomorphism/#iff),
 operation on booleans and decidables, and also show the corresponding erasure:
 ```
-postulate
-  _iff_ : Bool → Bool → Bool
-  _⇔-dec_ : ∀ {A B : Set} → Dec A → Dec B → Dec (A ⇔ B)
-  iff-⇔ : ∀ {A B : Set} (x : Dec A) (y : Dec B) → ⌊ x ⌋ iff ⌊ y ⌋ ≡ ⌊ x ⇔-dec y ⌋
+---postulate
+  
+---  iff-⇔ : ∀ {A B : Set} (x : Dec A) (y : Dec B) → ⌊ x ⌋ iff ⌊ y ⌋ ≡ ⌊ x ⇔-dec y ⌋
 ```
 
 ```
 -- Your code goes here
+_iff_ : Bool → Bool → Bool
+true iff true = true
+true iff false = false
+false iff true = false
+false iff false = true
+
+_⇔-dec_ : ∀ {A B : Set} → Dec A → Dec B → Dec (A ⇔ B)
+yes x ⇔-dec yes x₁ = yes (record { to = λ _ → x₁ ; from = λ _ → x })
+yes x ⇔-dec no x₁ = no (λ z → x₁ (_⇔_.to z x))
+no x ⇔-dec yes x₁ = no (λ z → x (_⇔_.from z x₁))
+no x ⇔-dec no x₁ = yes (record { to = λ y → ⊥-elim (x y) ; from = λ y → ⊥-elim (x₁ y) })
+
+iff-⇔ : ∀ {A B : Set} (x : Dec A) (y : Dec B) → ⌊ x ⌋ iff ⌊ y ⌋ ≡ ⌊ x ⇔-dec y ⌋
+iff-⇔ (yes x) (yes x₁) = refl
+iff-⇔ (yes x) (no x₁) = refl
+iff-⇔ (no x) (yes x₁) = refl
+iff-⇔ (no x) (no x₁) = refl
 ```
 
 ## Proof by reflection {name=proof-by-reflection}
