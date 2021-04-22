@@ -57,12 +57,13 @@ open import Data.Bool using (T; not)
 open import Data.Empty using (⊥; ⊥-elim)
 open import Data.List using (List; _∷_; [])
 open import Data.Nat using (ℕ; zero; suc)
-open import Data.Product using (∃-syntax; _×_)
+open import Data.Product using (∃-syntax; _×_) renaming (_,_ to ⟨_,_⟩)
 open import Data.String using (String; _≟_)
 open import Relation.Nullary using (Dec; yes; no; ¬_)
 open import Relation.Nullary.Decidable using (⌊_⌋; False; toWitnessFalse)
 open import Relation.Nullary.Negation using (¬?)
-open import Relation.Binary.PropositionalEquality using (_≡_; _≢_; refl)
+open import Relation.Binary.PropositionalEquality using (_≡_; _≢_; refl; cong)
+open import plfa.part1.Isomorphism using (_≲_; _≃_)
 ```
 
 ## Syntax of terms
@@ -197,7 +198,11 @@ two natural numbers.  Your definition may use `plus` as
 defined earlier.
 
 ```
--- Your code goes here
+mul : Term
+mul = μ "*" ⇒ ƛ "m" ⇒ ƛ "n" ⇒
+         case ` "m"
+           [zero⇒ `zero
+           |suc "m" ⇒ plus · ` "n" · (` "*" · ` "m" · ` "n") ]
 ```
 
 
@@ -209,7 +214,9 @@ definition may use `plusᶜ` as defined earlier (or may not
 — there are nice definitions both ways).
 
 ```
--- Your code goes here
+mulᶜ : Term
+mulᶜ = ƛ "m" ⇒ ƛ "n" ⇒ ƛ "s" ⇒ ƛ "z" ⇒
+         ` "m" · (` "n" · ` "s") · ` "z"
 ```
 
 
@@ -720,6 +727,10 @@ begin_ : ∀ {M N}
     ------
   → M —↠ N
 begin M—↠N = M—↠N
+
+—↠-trans : ∀ {L M N : Term} → (L —↠ M) → (M —↠ N) → (L —↠ N)
+—↠-trans (_ ∎) y = y
+—↠-trans (L —→⟨ L—→W ⟩ W—↠M) M—↠N = L —→⟨ L—→W ⟩ (—↠-trans W—↠M M—↠N)
 ```
 We can read this as follows:
 
@@ -760,12 +771,32 @@ and is reflexive and transitive.  A good exercise is to show that
 the two definitions are equivalent (indeed, one embeds in the other).
 
 #### Exercise `—↠≲—↠′` (practice)
-
+ 
 Show that the first notion of reflexive and transitive closure
 above embeds into the second. Why are they not isomorphic?
 
 ```
--- Your code goes here
+—↠≲—↠′ : ∀ {A B : Term} → (A —↠ B) ≲ (A —↠′ B)
+—↠≲—↠′ = 
+  record 
+  { to = to
+  ; from = from
+  ; from∘to = from∘to
+  }
+  where 
+  to : ∀ {A B : Term} → (A —↠ B) → (A —↠′ B)
+  to {A} {B} (L —→⟨ L—→M ⟩ M—↠N) = trans′  (step′ L—→M) (to M—↠N)
+  to {A} {B} (M ∎) = refl′ {M}
+
+  from : ∀ {A B : Term} → (A —↠′ B) → (A —↠ B)
+  from (refl′ {M}) = M ∎
+  from (step′ {M} {N} x) = M —→⟨ x ⟩ (N ∎)
+  from (trans′ {L} {M} {N} x y) with (from x)
+  ... | (L —→⟨ L—→W ⟩ W—↠M) = L —→⟨ L—→W ⟩ (—↠-trans W—↠M (from y))
+  ... | (L ∎) = from y
+  from∘to : ∀ {A B : Term} → (x : A —↠ B) → from (to x) ≡ x
+  from∘to (M ∎) = refl 
+  from∘to (L —→⟨ L—→M ⟩ M—↠N) = cong (λ x → L —→⟨ L—→M ⟩ x) (from∘to M—↠N)
 ```
 
 ## Confluence
@@ -930,7 +961,38 @@ In the next chapter, we will see how to compute such reduction sequences.
 Write out the reduction sequence demonstrating that one plus one is two.
 
 ```
--- Your code goes here
+one : Term
+one = `suc `zero
+
+_ : plus · one · one —↠ `suc `suc `zero
+_ =
+  begin
+    plus · one · one
+  —→⟨ ξ-·₁ (ξ-·₁ β-μ) ⟩
+    (ƛ "m" ⇒ ƛ "n" ⇒
+      case ` "m" [zero⇒ ` "n" |suc "m" ⇒ `suc (plus · ` "m" · ` "n") ])
+        · one · one
+  —→⟨ ξ-·₁ (β-ƛ (V-suc V-zero)) ⟩
+    (ƛ "n" ⇒
+      case one [zero⇒ ` "n" |suc "m" ⇒ `suc (plus · ` "m" · ` "n") ])
+         · one
+  —→⟨ β-ƛ (V-suc V-zero) ⟩
+    case one [zero⇒ one |suc "m" ⇒ `suc (plus · ` "m" · one) ]
+  —→⟨ β-suc (V-zero) ⟩
+    `suc (plus · `zero · one)
+  —→⟨ ξ-suc (ξ-·₁ (ξ-·₁ β-μ)) ⟩
+    `suc ((ƛ "m" ⇒ ƛ "n" ⇒
+      case ` "m" [zero⇒ ` "n" |suc "m" ⇒ `suc (plus · ` "m" · ` "n") ])
+        · `zero · one)
+  —→⟨ ξ-suc (ξ-·₁ (β-ƛ V-zero)) ⟩
+    `suc ((ƛ "n" ⇒
+      case `zero [zero⇒ ` "n" |suc "m" ⇒ `suc (plus · ` "m" · ` "n") ])
+        · one)
+  —→⟨ ξ-suc (β-ƛ (V-suc V-zero)) ⟩
+    `suc (case `zero [zero⇒ one |suc "m" ⇒ `suc (plus · ` "m" · one) ])
+  —→⟨ ξ-suc β-zero ⟩
+    `suc (`suc `zero)
+  ∎
 ```
 
 
@@ -1038,7 +1100,27 @@ to the list
     [ ⟨ "z" , `ℕ ⟩ , ⟨ "s" , `ℕ ⇒ `ℕ ⟩ ]
 
 ```
--- Your code goes here
+Context-≃ : Context ≃ (List (Id × Type))
+Context-≃ = 
+  record 
+  { to = to
+  ; from = from
+  ; from∘to = from∘to
+  ; to∘from = to∘from 
+  }
+  where
+  to : Context → (List (Id × Type))
+  to ∅ = []
+  to (x , y ⦂ z) = ⟨ y , z ⟩ ∷ (to x)
+  from : (List (Id × Type)) → Context
+  from [] = ∅
+  from (⟨ y , z ⟩ ∷ x) = (from x) , y ⦂ z 
+  from∘to : (x : Context) → from (to x) ≡ x
+  from∘to ∅ = refl
+  from∘to (x , x₁ ⦂ x₂) = cong  (_, x₁ ⦂ x₂) (from∘to x)
+  to∘from : (x : List (Id × Type)) → to (from x) ≡ x
+  to∘from [] = refl
+  to∘from (x ∷ x₁) = cong (x ∷_) (to∘from x₁)
 ```
 
 ### Lookup judgment
@@ -1394,7 +1476,10 @@ Using the term `mul` you defined earlier, write out the derivation
 showing that it is well typed.
 
 ```
--- Your code goes here
+⊢mul : ∀ {Γ} → Γ ⊢ mul ⦂ `ℕ ⇒ `ℕ ⇒ `ℕ
+⊢mul = ⊢μ (⊢ƛ (⊢ƛ (⊢case (⊢` (S′ Z)) ⊢zero (⊢plus · (⊢` (S′ Z)) · (((⊢` ∋*) · (⊢` Z)) · (⊢` (S′ Z)))))))
+  where
+  ∋* = S′ (S′ (S′ Z))
 ```
 
 
@@ -1404,7 +1489,12 @@ Using the term `mulᶜ` you defined earlier, write out the derivation
 showing that it is well typed.
 
 ```
--- Your code goes here
+⊢mulᶜ : ∀ {Γ A} → Γ  ⊢ mulᶜ ⦂ Ch A ⇒ Ch A ⇒ Ch A
+⊢mulᶜ = ⊢ƛ (⊢ƛ (⊢ƛ (⊢ƛ ((⊢` ∋m)· ((⊢` ∋n) · (⊢` ∋s)) · (⊢` Z)))))
+  where
+  ∋m = S′ (S′ (S′ Z))
+  ∋n = S′ (S′ Z)
+  ∋s = S′ Z
 ```
 
 
