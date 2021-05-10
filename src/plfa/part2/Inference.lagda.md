@@ -302,6 +302,7 @@ Id = String
 data Type : Set where
   `ℕ    : Type
   _⇒_   : Type → Type → Type
+  _`×_  : Type → Type → Type
 
 data Context : Set where
   ∅     : Context
@@ -321,7 +322,8 @@ data Term⁺ where
   `_                        : Id → Term⁺
   _·_                       : Term⁺ → Term⁻ → Term⁺
   _↓_                       : Term⁻ → Type → Term⁺
-
+  `proj₁                   : Term⁺ → Term⁺
+  `proj₂                   : Term⁺ → Term⁺
 data Term⁻ where
   ƛ_⇒_                     : Id → Term⁻ → Term⁻
   `zero                    : Term⁻
@@ -329,6 +331,8 @@ data Term⁻ where
   `case_[zero⇒_|suc_⇒_]    : Term⁺ → Term⁻ → Id → Term⁻ → Term⁻
   μ_⇒_                     : Id → Term⁻ → Term⁻
   _↑                       : Term⁺ → Term⁻
+  `⟨_,_⟩                    : Term⁻ → Term⁻ → Term⁻
+
 ```
 The choice as to whether each term is synthesized or
 inherited follows the discussion above, and can be read
@@ -420,6 +424,18 @@ data _⊢_↑_ where
       ---------------
     → Γ ⊢ (M ↓ A) ↑ A
 
+
+  --- product
+  ⊢proj₁ : ∀ {Γ L A B}
+    → Γ ⊢ L ↑ (A `× B) 
+      -------------
+    → Γ ⊢ (`proj₁ L) ↑ A  
+
+  ⊢proj₂ : ∀ {Γ L A B}
+    → Γ ⊢ L ↑ (A `× B) 
+      -------------
+    → Γ ⊢ (`proj₂ L) ↑ B  
+
 data _⊢_↓_ where
 
   ⊢ƛ : ∀ {Γ x N A B}
@@ -453,6 +469,12 @@ data _⊢_↓_ where
     → A ≡ B
       -------------
     → Γ ⊢ (M ↑) ↓ B
+  
+  ⊢× : ∀ {Γ M N A B}
+    → Γ ⊢ M ↓ A
+    → Γ ⊢ N ↓ B
+      -------------
+    → Γ ⊢ `⟨ M , N ⟩ ↓ (A `× B)
 ```
 We follow the same convention as
 Chapter [Lambda](/Lambda/),
@@ -476,7 +498,12 @@ Rewrite your definition of multiplication from
 Chapter [Lambda](/Lambda/), decorated to support inference.
 
 ```
--- Your code goes here
+bidirectional-mul : Term⁺
+bidirectional-mul = (μ "*" ⇒ ƛ "m" ⇒ ƛ "n" ⇒
+         `case (` "m")
+           [zero⇒ `zero
+           |suc "m" ⇒ plus · (` "n" ↑) · (` "*" · (` "m" ↑) · (` "n" ↑) ↑) ↑ ])
+       ↓ (`ℕ ⇒ `ℕ ⇒ `ℕ)  
 ```
 
 
@@ -486,7 +513,7 @@ Extend the bidirectional type rules to include products from
 Chapter [More](/More/).
 
 ```
--- Your code goes here
+--- The code is in the "data _⊢_↑_" block. See the functions "⊢×", "⊢proj₁", and "⊢proj₂" there.
 ```
 
 
@@ -514,6 +541,15 @@ _≟Tp_ : (A B : Type) → Dec (A ≡ B)
 ...  | no A≢    | _         =  no λ{refl → A≢ refl}
 ...  | yes _    | no B≢     =  no λ{refl → B≢ refl}
 ...  | yes refl | yes refl  =  yes refl
+(A `× B) ≟Tp `ℕ = no λ()
+`ℕ ≟Tp (B `× B₁) = no λ()
+(A `× A₁) ≟Tp (B ⇒ B₁) = no λ()
+(A ⇒ A₁) ≟Tp (B `× B₁) = no λ()
+(A `× B) ≟Tp (A′ `× B′)
+  with A ≟Tp A′ | B ≟Tp B′
+... | no A≢    | _         =  no λ{refl → A≢ refl}
+... | yes _    | no B≢     =  no λ{refl → B≢ refl}
+... | yes refl | yes refl  =  yes refl
 ```
 
 We will also need a couple of obvious lemmas; the domain
@@ -533,6 +569,18 @@ and `A ⇒ B` are not equal:
 ℕ≢⇒ ()
 ```
 
+```
+proj₁≡ : ∀ {A A′ B B′} → A `× B ≡ A′ `× B′ → A ≡ A′
+proj₁≡ refl = refl
+proj₂≡ : ∀ {A A′ B B′} → A `× B ≡ A′ `× B′ → B ≡ B′
+proj₂≡ refl = refl
+
+×≢⇒ : ∀ {A B A′ B′} → (A `× B) ≢ A′ ⇒ B′
+×≢⇒ ()
+
+ℕ≢× : ∀ {A B} → `ℕ ≢ A `× B
+ℕ≢× ()
+```
 
 ## Unique types
 
@@ -563,6 +611,8 @@ uniq-↑ : ∀ {Γ M A B} → Γ ⊢ M ↑ A → Γ ⊢ M ↑ B → A ≡ B
 uniq-↑ (⊢` ∋x) (⊢` ∋x′)       =  uniq-∋ ∋x ∋x′
 uniq-↑ (⊢L · ⊢M) (⊢L′ · ⊢M′)  =  rng≡ (uniq-↑ ⊢L ⊢L′)
 uniq-↑ (⊢↓ ⊢M) (⊢↓ ⊢M′)       =  refl
+uniq-↑ (⊢proj₁ x) (⊢proj₁ x₁) = proj₁≡(uniq-↑ x x₁)
+uniq-↑ (⊢proj₂ x) (⊢proj₂ x₁) = proj₂≡(uniq-↑ x x₁)
 ```
 There are three possibilities for the term. If it is a variable,
 uniqueness of synthesis follows from uniqueness of lookup.
@@ -702,12 +752,23 @@ synthesize Γ (` x) with lookup Γ x
 synthesize Γ (L · M) with synthesize Γ L
 ... | no  ¬∃              =  no  (λ{ ⟨ _ , ⊢L  · _  ⟩  →  ¬∃ ⟨ _ , ⊢L ⟩ })
 ... | yes ⟨ `ℕ ,    ⊢L ⟩  =  no  (λ{ ⟨ _ , ⊢L′ · _  ⟩  →  ℕ≢⇒ (uniq-↑ ⊢L ⊢L′) })
+... | yes ⟨ A `× B , ⊢L ⟩ = no (λ{ ⟨ _ , ⊢L′ · _  ⟩  →  ×≢⇒ (uniq-↑ ⊢L ⊢L′) })
 ... | yes ⟨ A ⇒ B , ⊢L ⟩ with inherit Γ M A
 ...    | no  ¬⊢M          =  no  (¬arg ⊢L ¬⊢M)
 ...    | yes ⊢M           =  yes ⟨ B , ⊢L · ⊢M ⟩
 synthesize Γ (M ↓ A) with inherit Γ M A
 ... | no  ¬⊢M             =  no  (λ{ ⟨ _ , ⊢↓ ⊢M ⟩  →  ¬⊢M ⊢M })
 ... | yes ⊢M              =  yes ⟨ A , ⊢↓ ⊢M ⟩
+synthesize Γ (`proj₁ M)  with synthesize Γ M
+... | no ¬∃ = no (λ{ ⟨ _ , ⊢proj₁ ⊢M ⟩ → ¬∃ ⟨ _ , ⊢M ⟩ })
+... | yes ⟨ A `× B , ⊢M ⟩ = yes ⟨ A , ⊢proj₁ ⊢M ⟩
+... | yes ⟨ `ℕ , ⊢M ⟩ = no (λ{ ⟨ _ , ⊢proj₁ ⊢M′ ⟩ → ℕ≢× (uniq-↑ ⊢M ⊢M′) })
+... | yes ⟨ A ⇒ B , ⊢M ⟩ = no (λ{ ⟨ _ , ⊢proj₁ ⊢M′ ⟩  →  ×≢⇒ (sym (uniq-↑ ⊢M ⊢M′)) })
+synthesize Γ (`proj₂ M)  with synthesize Γ M
+... | no ¬∃ = no (λ{ ⟨ _ , ⊢proj₂ ⊢M ⟩ → ¬∃ ⟨ _ , ⊢M ⟩ })
+... | yes ⟨ A `× B , ⊢M ⟩ = yes ⟨ B , ⊢proj₂ ⊢M ⟩
+... | yes ⟨ `ℕ , ⊢M ⟩ = no (λ{ ⟨ _ , ⊢proj₂ ⊢M′ ⟩ → ℕ≢× (uniq-↑ ⊢M ⊢M′) })
+... | yes ⟨ A ⇒ B , ⊢M ⟩ = no (λ{ ⟨ _ , ⊢proj₂ ⊢M′ ⟩  →  ×≢⇒ (sym (uniq-↑ ⊢M ⊢M′)) })
 ```
 There are three cases:
 
@@ -772,6 +833,7 @@ inherit Γ (`suc M) (A ⇒ B)  =  no  (λ())
 inherit Γ (`case L [zero⇒ M |suc x ⇒ N ]) A with synthesize Γ L
 ... | no ¬∃                 =  no  (λ{ (⊢case ⊢L  _ _) → ¬∃ ⟨ `ℕ , ⊢L ⟩})
 ... | yes ⟨ _ ⇒ _ , ⊢L ⟩    =  no  (λ{ (⊢case ⊢L′ _ _) → ℕ≢⇒ (uniq-↑ ⊢L′ ⊢L) })
+... | yes ⟨ fst `× snd , ⊢L ⟩   =  no (λ{ (⊢case ⊢L′ _ _) → ℕ≢× (uniq-↑ ⊢L′ ⊢L) })
 ... | yes ⟨ `ℕ ,    ⊢L ⟩ with inherit Γ M A
 ...    | no ¬⊢M             =  no  (λ{ (⊢case _ ⊢M _) → ¬⊢M ⊢M })
 ...    | yes ⊢M with inherit (Γ , x ⦂ `ℕ) N A
@@ -785,6 +847,16 @@ inherit Γ (M ↑) B with synthesize Γ M
 ... | yes ⟨ A , ⊢M ⟩ with A ≟Tp B
 ...   | no  A≢B             =  no  (¬switch ⊢M A≢B)
 ...   | yes A≡B             =  yes (⊢↑ ⊢M A≡B)
+inherit Γ `⟨ M , M₁ ⟩ `ℕ = no (λ())
+inherit Γ (ƛ x ⇒ M) (A `× A₁) = no (λ())
+inherit Γ `zero (A `× A₁) = no (λ())
+inherit Γ (`suc M) (A `× A₁) = no (λ())
+inherit Γ `⟨ M , M₁ ⟩ (A ⇒ A₁) = no (λ())
+inherit Γ `⟨ M , M₁ ⟩ (A `× B) with inherit Γ M A 
+... | no ¬⊢M = no (λ{ (⊢× ⊢M _ ) → ¬⊢M ⊢M })
+... | yes ⊢M with inherit Γ M₁ B
+...   | no ¬⊢M₁ = no (λ{ (⊢× _ ⊢M₁ ) → ¬⊢M₁ ⊢M₁ })
+...   | yes ⊢M₁ = yes (⊢× ⊢M ⊢M₁)
 ```
 We consider only the cases for abstraction and
 and for switching from inherited to synthesized:
@@ -1012,6 +1084,7 @@ First, we give code to erase a type:
 ∥_∥Tp : Type → DB.Type
 ∥ `ℕ ∥Tp             =  DB.`ℕ
 ∥ A ⇒ B ∥Tp          =  ∥ A ∥Tp DB.⇒ ∥ B ∥Tp
+∥ A `× B ∥Tp          = ∥ A ∥Tp DB.`× ∥ B ∥Tp
 ```
 It simply renames to the corresponding constructors in module `DB`.
 
@@ -1041,6 +1114,8 @@ there are two mutually recursive erasure functions:
 ∥ ⊢` ⊢x ∥⁺           =  DB.` ∥ ⊢x ∥∋
 ∥ ⊢L · ⊢M ∥⁺         =  ∥ ⊢L ∥⁺ DB.· ∥ ⊢M ∥⁻
 ∥ ⊢↓ ⊢M ∥⁺           =  ∥ ⊢M ∥⁻
+∥ ⊢proj₁ x ∥⁺        = DB.`proj₁ ∥ x ∥⁺
+∥ ⊢proj₂ x ∥⁺        = DB.`proj₂ ∥ x ∥⁺
 
 ∥ ⊢ƛ ⊢N ∥⁻           =  DB.ƛ ∥ ⊢N ∥⁻
 ∥ ⊢zero ∥⁻           =  DB.`zero
@@ -1048,6 +1123,7 @@ there are two mutually recursive erasure functions:
 ∥ ⊢case ⊢L ⊢M ⊢N ∥⁻  =  DB.case ∥ ⊢L ∥⁺ ∥ ⊢M ∥⁻ ∥ ⊢N ∥⁻
 ∥ ⊢μ ⊢M ∥⁻           =  DB.μ ∥ ⊢M ∥⁻
 ∥ ⊢↑ ⊢M refl ∥⁻      =  ∥ ⊢M ∥⁺
+∥ ⊢× ⊢M ⊢N ∥⁻      =  DB.`⟨ ∥ ⊢M ∥⁻ , ∥ ⊢N ∥⁻ ⟩  
 ```
 Erasure replaces constructors for each typing judgment
 by the corresponding term constructor from `DB`.  The
